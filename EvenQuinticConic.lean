@@ -7,3 +7,4 @@ import EvenQuinticConic.RankOneFactorization
 import EvenQuinticConic.ConicClassification
 import EvenQuinticConic.HomogeneousConics
 import EvenQuinticConic.IndependentSquares
+import EvenQuinticConic.RestrictionModel
