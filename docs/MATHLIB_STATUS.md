@@ -261,7 +261,9 @@ constructed. Homogeneous primality and the degree condition give
 integrality, the image of the generic point, and nonemptiness of all three
 charts. Smoothness is not an input to these particular proofs. The newer
 `SmoothSchemeNormality` bridge below derives normality from an actual smooth
-integral curve morphism; primality from the original equation remains open.
+integral curve morphism. The final Jacobian bridge below also derives
+primality and actual smoothness from the original equation's explicit
+nonsingularity condition.
 
 `ProjectiveGenericChart`, `ProjectiveStalkUnits`, `GenericPullback`, and
 `ProjectiveQuarticRestriction` use actual chart sections, actual stalk maps,
@@ -346,19 +348,19 @@ transporting sheaves along one.
 An isomorphism of the reduced induced curve with the alternate construction
 `Proj(K[X₀,X₁,X₂]/(F))` is not asserted. The affine cone embeds in `k(C)[T]`,
 not in `k(C)` by an ungraded injection, and its whole fraction field is not
-identified with the curve function field. Primality from the equation,
-the actual smooth morphism condition, and the specified theta object's
+identified with the curve function field. The specified theta object's
 geometric origin and square isomorphism, including adjunction, remain
-geometric obligations. Normality and the local technical line data are
-now derived by the bridges below. The later real determinantal,
+geometric obligations. Primality, actual smoothness, normality, and the
+local technical line data are now derived by the bridges below, starting
+from the explicit Jacobian condition. The later real determinantal,
 Brauer, quadratic-form, birational, and connectedness bridges also remain
 unproved. The complete original conic-bundle theorem is still not formalized.
 
 ## Actual smooth normality and line-sheaf tensor interfaces
 
-Ten further modules remove the caller-supplied normal affine framed
-refinement and independent perfect-pairing assumptions from the strongest
-theta theorem.
+Ten modules remove the caller-supplied normal affine framed refinement
+and independent perfect-pairing assumptions from the smooth theta
+interface, which is an intermediate theorem in the current chain.
 
 | Module | Checked result |
 | --- | --- |
@@ -388,9 +390,90 @@ tensor product of global sections computes global sections of the product.
 An explicit comparison with mathlib's sheafification packaging of tensor
 products is not included; the representing universal property itself is proved.
 
-The strongest checked declaration is
-`planeQuintic_even_theta_sections_eq_zero_of_smooth`. It still requires the
-prime homogeneous quintic, actual smooth structural morphism, actual local
-line trivializations and square isomorphism, and parity. Neither smoothness
-of a polynomial equation nor adjunction nor the original discriminant-cover
-construction has been silently substituted for one of these precise inputs.
+The declaration `planeQuintic_even_theta_sections_eq_zero_of_smooth`
+requires the prime homogeneous quintic, actual smooth structural morphism,
+actual local line trivializations and square isomorphism, and parity. The
+new endpoint below discharges its primality and smoothness hypotheses.
+
+## From the original Jacobian condition to the actual smooth curve
+
+Thirteen further modules remove independent primality and scheme
+smoothness inputs. For an algebraically closed field, the strongest
+declaration is now
+`planeQuintic_even_theta_sections_eq_zero_of_jacobian`. It assumes an
+actual polynomial `F`, homogeneity and total degree five, and
+
+```lean
+∀ v : Fin 3 → K, v ≠ 0 → eval v F = 0 →
+  ∃ i : Fin 3, eval v (pderiv i F) ≠ 0
+```
+
+It also requires the actual line sheaf's local unit-sheaf isomorphisms,
+its descended-square isomorphism to `PlaneCurveQuadraticSheaf F`, and
+even finite rank of actual global sections. Finite-dimensionality is
+proved internally before concluding every section is zero.
+
+The algebraic branch consists of `HomogeneousFactors`,
+`PlaneOriginHeight`, `HomogeneousCommonZero`, `ProjectiveJacobianPoints`,
+`ProjectiveJacobianCriterion`, and `JacobianIrreducible`. Positive-degree
+homogeneous forms in three variables have a common nonzero zero by the
+affine Nullstellensatz and Krull's height bound, using an explicit prime
+chain of length three at the origin. A nontrivial factorization of `F`
+would therefore give a zero of all its actual derivatives. This proves
+irreducibility and primality. Actual vector-defined homogeneous primes
+and the Nullstellensatz also identify the vector condition with the
+condition at all projective homogeneous primes.
+
+The affine branch consists of `ChartHomogenization`,
+`PlaneChartPolynomialMap`, `JacobianLocalization`,
+`PlaneJacobianPresentation`, `PlaneGradientCover`, and
+`PlaneJacobianSmooth`. The map to each actual affine chart is surjective
+with full kernel `(F, Xᵢ - 1)`. Its two-relation Jacobian determinant is
+the selected derivative. Localizing at that derivative gives an actual
+standard-smooth presentation of relative dimension one. The derivative
+principal opens cover the curve by an Euler argument that never divides
+by five. The coefficient map is proved equal to the map induced by the
+original structure morphism; smoothness therefore concerns that actual
+morphism. `PlaneThetaJacobian` combines both branches with the existing
+theta theorem.
+
+This condition tests the original polynomial, not just its reduced zero
+locus. For example, `F = X₀^5` has a smooth reduced line but does not
+satisfy this condition. No implication from reduced-locus smoothness to
+primality is asserted.
+
+The remaining original-problem instantiation must construct the
+discriminant equation and its complexification, verify this Jacobian
+condition from the original geometric hypotheses, and identify the
+specified cover's theta sheaf, parity, and square. Adjunction has not yet
+been proved. In particular, the new forward Jacobian-to-smoothness
+theorem is not a general converse from hypersurface smoothness to the
+displayed condition.
+
+## Next adjunction bridge: inspected APIs, not a completed proof
+
+The pinned mathlib contains an actual relative differential presheaf in
+`Algebra/Category/ModuleCat/Differentials/Presheaf.lean`:
+`PresheafOfModules.DifferentialsConstruction.relativeDifferentials'`,
+`derivation'`, and `isUniversal'`. The fixed-field construction can use the
+constant presheaf of the base field and the actual structure presheaf,
+followed by module sheafification. The general relative-morphism TODO in
+that file does not itself prevent this fixed-base route.
+
+`Algebra.SubmersivePresentation.basisKaehlerOfIsCompl` supplies actual
+Kähler differential bases for the presentations above, while
+`Algebra.Generators.toKaehler_cotangentSpaceBasis` identifies their
+generator images with actual differentials. The localization comparison
+is available through
+`KaehlerDifferential.tensorKaehlerEquivOfFormallyEtale` and
+`KaehlerDifferential.isLocalizedModule_map`; `ModuleCat.tilde` and
+`ModuleCat.Tilde.stalkIso` supply the associated affine module sheaves.
+
+The unproved next interface is the comparison between the sheafified
+differential presheaf and these affine `tilde` sheaves, with restriction
+compatibility. One must not identify sections of the differential sheaf
+on an arbitrary open with the differential module of that open's section
+ring without proof. After this comparison, actual local differential
+frames and their coordinate-change law must be proved before gluing an
+adjunction isomorphism. No such isomorphism is presently asserted by the
+Lean sources.

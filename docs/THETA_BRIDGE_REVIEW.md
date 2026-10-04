@@ -5,9 +5,10 @@ proposed argument. It is not a claim that the complete geometric theorem has
 been checked by Lean. The section-theoretic implication is formalized for
 actual schemes and module sheaves. The constructed plane curve now supplies
 both actual quadratic-section surjectivity and quartic injectivity. The
-latest theorem derives normality from the actual smooth curve morphism,
-and constructs the framed affine refinement and perfect square pairing from
-actual local line-sheaf trivializations and a square isomorphism. Their
+latest theorem derives primality, the actual smooth curve morphism and
+normality from the explicit polynomial Jacobian condition. It constructs
+the framed affine refinement and perfect square pairing from actual local
+line-sheaf trivializations and a square isomorphism. Their
 connection to the original double cover and adjunction remains open.
 Sections 4–5 state the checked implication and the remaining instantiation work.
 
@@ -449,13 +450,45 @@ and the local DVR criterion prove normality at each maximal localization.
 localizations. `NormalSchemeSections` then provides the normal affine rings
 required by the lower-level theta argument.
 
+### The original equation now supplies primality and actual smoothness
+
+The strongest declaration is now
+`planeQuintic_even_theta_sections_eq_zero_of_jacobian` in `PlaneThetaJacobian`.
+It accepts a homogeneous equation of total degree five over an algebraically
+closed field and the explicit condition that at every nonzero vector with
+`F(v)=0`, some `pderiv i F` evaluates to a nonzero value. It derives the
+previous interface's prime-ideal and actual smooth-morphism inputs.
+The actual line trivializations, square isomorphism and parity remain.
+
+Primality uses the newly proved projective intersection theorem for two
+positive-degree ternary forms, derived from the affine Nullstellensatz,
+an actual three-step prime chain at the origin, and Krull's height theorem.
+A nontrivial factorization would make every partial derivative vanish at
+a nonzero common zero. Highest homogeneous components provide the required
+homogeneous factors without assuming factor homogeneity.
+
+For smoothness, the actual affine chart map is proved surjective with
+complete kernel `(F, Xᵢ−1)`. Its coefficient map is explicitly the original
+structure morphism's pullback of constants. A three-generator, two-relation
+presentation has determinant `∂ⱼF` for `j≠i`. Localizing at this derivative
+makes the algebra standard smooth of relative dimension one. The actual
+principal opens cover by Euler's identity and actual stalk-unit criteria;
+no division by the degree is used. This constructs the scheme smoothness
+predicate, rather than postulating it.
+
+`ProjectiveJacobianCriterion` relates the nonzero-vector condition to all
+actual projective prime points in both directions. Smoothness of a reduced
+locus alone would be insufficient: `F=X₀^5` has a smooth reduced line but
+is not a prime equation. The new hypothesis tests the original equation
+and rejects such multiplicities.
+
 ### What still has to be supplied
 
 The remaining geometric obligations are:
 
-1. Connect the original smooth-quintic equation to homogeneous primality
-   and the actual structure morphism's relative-dimension-one smoothness.
-   Construct the specified theta module sheaf, its actual local unit-sheaf
+1. Construct and identify the original discriminant equation and its
+   complexification, verifying the explicit Jacobian condition from the
+   original geometric inputs. Construct the specified theta module sheaf, its actual local unit-sheaf
    trivializations and its square isomorphism, including adjunction identifying
    the canonical sheaf with the constructed hyperplane square. The actual
    hyperplane construction alone does not supply this theta data.
@@ -467,9 +500,11 @@ The paper proof in §1 remains a proof of the first theta lemma. The checked
 conditional theorem covers its section-theoretic logic, including actual
 sheaf isomorphism, internally derived dimensions, and parity. The new
 geometric constructions remove former existence and generic-coordinate
-interfaces, and the new actual section argument discharges quadratic
-surjectivity. Smoothness-to-normality and the local line-sheaf interfaces
-are now proved; the theta object's geometric origin and adjunction remain.
+interfaces, and the actual section argument discharges quadratic
+surjectivity. The polynomial Jacobian criterion now supplies primality and
+actual smoothness; smoothness-to-normality and the local line-sheaf interfaces
+are also proved. The theta object's geometric origin, real base change,
+and adjunction remain.
 The original real conic-bundle existence question and
 the later Brauer, quadratic-form, birational, and real-connectedness
 implications are still not formally proved.

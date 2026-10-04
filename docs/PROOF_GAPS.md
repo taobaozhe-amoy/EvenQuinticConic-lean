@@ -96,7 +96,7 @@ common refinement; it does not require theta to be trivial on the three
 entire standard charts. The older `PlaneThetaIneffectivity` interface with
 an explicit `h2` remains available as a lower-level theorem.
 
-The newer `PlaneThetaSmooth` interface proves
+The intermediate `PlaneThetaSmooth` interface proves
 `planeQuintic_even_theta_sections_eq_zero_of_smooth`. Its inputs are the
 homogeneous prime quintic equation, actual relative-dimension-one smoothness
 of `planeCurveStructure F`, an actual module sheaf with local unit-sheaf
@@ -123,16 +123,57 @@ tensor universal property; no global-section tensor surjectivity is asserted.
 The square is not yet packaged as an isomorphism to mathlib's sheafification
 of the presheaf tensor product.
 
+The strongest interface is now `PlaneThetaJacobian`:
+`planeQuintic_even_theta_sections_eq_zero_of_jacobian`. Besides the actual
+line-sheaf inputs and parity above, it takes only an algebraically closed
+field and a homogeneous polynomial of total degree five satisfying
+
+```text
+for every v ≠ 0, F(v) = 0 implies some ∂ᵢF(v) ≠ 0.
+```
+
+Neither homogeneous primality nor actual scheme smoothness is an independent
+input. The checked proof has two branches:
+
+- `HomogeneousFactors`, `PlaneOriginHeight`, and `HomogeneousCommonZero`
+  prove that a nontrivial homogeneous factorization has a nonzero common
+  zero. The last result uses the actual affine Nullstellensatz and the
+  two-generator Krull height bound, contradicted by an explicit prime chain
+  of length three at the origin. `JacobianIrreducible` then derives
+  irreducibility and primality from the actual partial derivatives.
+- `ChartHomogenization` and `PlaneChartPolynomialMap` prove surjectivity and
+  the complete kernel `(F, Xᵢ−1)` for actual chart sections. The generators
+  are actual coordinate-ratio sections and the coefficient map is proved
+  equal to the actual structure morphism's pullback. `PlaneJacobianPresentation`
+  computes the two-relation Jacobian. `JacobianLocalization` and
+  `PlaneGradientCover` supply actual standard-smooth derivative principal
+  opens covering the curve. `PlaneJacobianSmooth` constructs the actual
+  `IsSmoothOfRelativeDimension 1` structure.
+
+`ProjectiveJacobianPoints` constructs the actual projective prime associated
+to each nonzero vector. `ProjectiveJacobianCriterion` proves that the
+ordinary vector criterion above is equivalent to the gradient condition on
+all actual projective prime points. The reverse direction uses the
+Nullstellensatz. No closed-point density or rational-point correspondence
+is assumed without proof.
+
+The equation is deliberately distinguished from its reduced locus:
+`X₀^5` has a smooth reduced projective line, but its principal ideal is not
+prime. The new Jacobian hypothesis rejects that example. The smoothness
+of the reduced locus alone is never used to infer primality.
+
 The remaining **geometric instantiation** must supply:
 
-1. Connect the original equation's smooth-quintic description to the prime
-   principal ideal and the actual scheme's relative-dimension-one smooth
-   structure morphism. Construct the specified theta line sheaf, its local
-   unit-sheaf isomorphisms and its square isomorphism. This includes adjunction
+1. Construct the actual equation and its complexification from the original
+   conic-bundle discriminant, and verify the explicit polynomial Jacobian
+   condition. From that condition, prime ideal, actual smooth morphism,
+   normality, and all subsequent local technical data are now proved.
+   A converse Jacobian theorem starting with an arbitrary scheme-theoretic
+   smooth hypersurface has not been proved here.
+2. Construct the specified theta line sheaf, its local unit-sheaf
+   isomorphisms and its square isomorphism. This includes adjunction
    identifying the canonical sheaf with the constructed hyperplane square.
-   Normality from the actual smooth morphism and all subsequent local
-   technical inputs are now proved, rather than separate obligations.
-2. Relate the conic bundle's specified real double cover, its theta line
+3. Relate the conic bundle's specified real double cover, its theta line
    bundle, and geometric parity, including the real base-change step.
 
 The former quadratic-surjectivity gap is closed by the following checked
