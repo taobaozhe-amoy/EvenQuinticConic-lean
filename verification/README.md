@@ -5,9 +5,9 @@ as predicted output.
 
 | Check | Result |
 | --- | --- |
-| `lake build` | Exit 0; all sixteen source modules and the root import compiled |
-| `lake env lean Audit.lean` | Exit 0; 170 declarations audited, including 141 theorem declarations |
-| Handwritten `theorem` declarations | 90; the remaining theorem declarations in the audit are compiler/tactic/structure-generated |
+| `lake build` | Exit 0; all twenty-two source modules and the root import compiled |
+| `lake env lean Audit.lean` | Exit 0; 254 declarations audited, including 202 theorem declarations |
+| Handwritten `theorem` declarations | 123; the remaining theorem declarations in the audit are compiler/tactic/structure-generated |
 | Allowed axiom dependencies | `propext`, `Classical.choice`, `Quot.sound` |
 | `sorryAx` or any other unexpected axiom | None in the audited dependency closures |
 | mathlib tracked source changes | None |
