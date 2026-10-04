@@ -93,7 +93,8 @@ and total-degree APIs, `IsAlgClosed.exists_pow_nat_eq`, actual
 `LinearIndependent` pairs, algebra homomorphisms, and `RingHom.ker` to join the
 polynomial argument in `RestrictionModel.lean`. This supplies a proved
 implication for a specified algebraic restriction model. The geometric
-construction of that model remains open. The cofactor module also supports an
+construction of that model remains open; the additional coefficient-level
+construction and local algebra are described below. The cofactor module also supports an
 explicit scalar twist, so either sign may be stated without silently changing
 the equation; no geometric discriminant-sign comparison is thereby proved.
 
@@ -103,3 +104,24 @@ turn prose in this document, an external citation, or an unimplemented
 geometric implication into a checked theorem. In particular, the partial
 results here must not be reported as a completed formal proof that an even
 quintic conic bundle with two real connected components cannot exist.
+
+## New coefficient and local-algebra bridges
+
+`GradedRestriction` constructs an actual map to `Polynomial L` retaining
+homogeneous degrees, proves its coefficient formula and kernel criteria,
+and checks that injective coefficient extension preserves its kernel.
+`SquareExtension` uses `AlgebraicClosure L`, a genuine field, and an injective
+`K`-linear map to realize the twisted products. `WeightedRestriction` avoids
+that extension by leaving the common nonzero factor explicit.
+
+`FiniteDegreeRestriction` reduces the required geometric input to injectivity
+on homogeneous quartics. `GenericCoefficientModel` combines these actual
+polynomial statements and produces the rational ratio with constant weighted
+square. It does not construct a function field from a specified curve.
+
+`LocalSquareUnit` uses
+`IsIntegrallyClosed.exists_algebraMap_eq_of_isIntegral_pow`,
+`IsFractionRing.injective`, and `isUnit_pow_iff` to prove that a rational
+positive-power root of a unit extends to a unit. This is the required local
+algebra for a normal scheme, but the sheaf restriction and gluing argument
+is not supplied by this ring theorem.

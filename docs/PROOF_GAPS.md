@@ -34,12 +34,40 @@ the homogeneous factorization. This does not construct that model for the
 geometric sections; compatible trivializations and possible scalar factors
 still have to be justified.
 
-Still missing are the geometric lifting, the restriction/ideal bridge, the
-line-bundle interpretation of the factorization, and the computation of global
-sections. In particular, no theorem yet identifies the theta characteristic
-with the hyperplane line bundle or proves its ineffectivity. Constructing a real
-symmetric `5×5` linear determinantal representation is another missing theorem,
-including its real descent hypotheses.
+The coefficient-level construction is now supplied by `GradedRestriction.lean`:
+`Xᵢ ↦ C(fᵢ)T`, with an exact degreewise kernel formula. The theorem identifying
+that kernel with `(F)` still requires a homogeneous vanishing-ideal input.
+`WeightedRestriction.lean` allows the identities `φ(A)=u s²`, `φ(B)=u st`,
+`φ(D)=u t²` without assuming a square root of `u`. `SquareExtension.lean`
+separately supplies an actual field-extension construction when wanted.
+
+There is also a weaker, more direct interface. `FiniteDegreeRestriction.lean`
+needs only injectivity of restriction on homogeneous quartics. Together with
+`GenericCoefficientModel.lean` it produces the linear-square factorization
+and the nonzero ratio `r=α/a(f)` satisfying `u*r²=c` for `c∈K*`.
+Thus the entire homogeneous vanishing ideal is not needed for this argument.
+
+`LocalSquareUnit.lean` proves the actual local algebra: in the fraction field
+of an integrally closed ring, a positive power equal to a unit implies that
+the element is the image of a unit. The weighted quotient version applies to
+`u*x²=v*y²` even if the denominator `y` has zeros as a regular function.
+This does not construct line bundles, their local frames, or their gluing.
+
+[THETA_BRIDGE_REVIEW.md](THETA_BRIDGE_REVIEW.md) now gives a complete
+mathematical proof of the theta lemma, with explicit formalization boundaries.
+Still missing in Lean are the actual geometric lifting and restriction maps,
+generic-section injection, line-bundle reconstruction and the dimension of
+its global sections. No Lean theorem yet proves theta ineffectivity.
+The line-bundle reconstruction cancels two in the divisor group after an
+actual section identity; cancellation in the Picard group would be invalid.
+
+Beauville's Proposition 4.2(a) works over the real field for an actual real
+ineffective theta line bundle (his §0.3 allows arbitrary fields, and the
+symmetric-resolution theorem applies in characteristic different from two).
+Consequently the informal proof can invoke the theorem over `ℝ` directly,
+without descending an arbitrarily chosen complex matrix. This theorem,
+its hypotheses for the actual curve, and the cover comparison remain
+unformalized.
 
 ## 3. Identify the double cover and the Clifford class
 
@@ -76,7 +104,15 @@ The proposed route must justify:
 
 The intended argument uses a zero-cycle theorem for systems of quadrics and a real-point consequence. Precisely state the theorem, check its field and dimension hypotheses, construct the zero-cycle of odd degree, and prove the required real closed field implication. Generic isotropy is not, by itself, a Lean proof that the intersection of three quadrics has a real point.
 
-This bridge is not formalized. Names such as Amer–Brumer or Colliot-Thélène–Levine in an informal discussion do not supply a formal theorem or verify that the precise version required applies.
+This bridge is not formalized. A precise primary-source version is
+Colliot-Thélène–Levine, *Une version du théorème d’Amer et Brumer pour les
+zéro-cycles*, [arXiv:0911.4644](https://arxiv.org/abs/0911.4644): for `r+1`
+forms of common degree `d≥2` in `n+1≥r+2` variables, their common projective
+locus has a degree-one zero-cycle if and only if the generic member has one.
+Three quadrics in five variables satisfy these numerical conditions.
+A rational point on that generic member supplies the required zero-cycle;
+over `ℝ`, a degree-one zero-cycle forces a residue-degree-one closed point.
+This identifies a mathematically applicable route, not a Lean proof of it.
 
 ## 6. Incidence correspondence and rationality
 
