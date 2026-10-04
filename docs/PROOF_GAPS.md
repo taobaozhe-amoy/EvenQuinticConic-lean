@@ -51,12 +51,32 @@ Thus the entire homogeneous vanishing ideal is not needed for this argument.
 of an integrally closed ring, a positive power equal to a unit implies that
 the element is the image of a unit. The weighted quotient version applies to
 `u*x²=v*y²` even if the denominator `y` has zeros as a regular function.
-This does not construct line bundles, their local frames, or their gluing.
+`GenericPointInjection.lean` now applies this algebra to the actual function
+field and structure sheaf of an integral scheme, including uniqueness and
+compatibility with restriction. `SheafGluing.lean` then constructs genuine
+structure-sheaf gluing and the global unit, using the actual sheaf axioms.
+
+For module sheaves, `SheafTrivialization.lean` constructs the actual map
+`O→M`, `r↦r•s`, and proves it is an isomorphism from local unit coordinates.
+`LocalFrames.lean` supplies coherent local frames and glues compatible local
+unit sections to obtain that global section and isomorphism. These are actual
+`SheafOfModules` objects, rather than predicates asserting an isomorphism.
+`RationalSectionFrames.lean` joins these steps: given rational coefficients
+in coherent frames, the computed transition equations and positive-power
+unit identities on a normal affine cover, it constructs both the regular
+global generator and the actual isomorphism `O≅M`. The direct square-ratio
+entry also accepts `g(u_i)x_i²=g(v_i)y_i²`, `y_i≠0`, and transitions for
+`x_i/y_i`; it does not assume that denominators are locally invertible.
+`ModuleGenericInjection.lean` proves that a section of an actual module sheaf
+with coherent rank-one local frames is determined by its actual generic
+coefficient. This injectivity is proved, not assumed.
+The specified theta line bundle, its local section identities and the
+geometric restriction maps have not been constructed from the plane curve.
 
 [THETA_BRIDGE_REVIEW.md](THETA_BRIDGE_REVIEW.md) now gives a complete
 mathematical proof of the theta lemma, with explicit formalization boundaries.
 Still missing in Lean are the actual geometric lifting and restriction maps,
-generic-section injection, line-bundle reconstruction and the dimension of
+the application of the module-sheaf results to theta, and the dimension of
 its global sections. No Lean theorem yet proves theta ineffectivity.
 The line-bundle reconstruction cancels two in the divisor group after an
 actual section identity; cancellation in the Picard group would be invalid.
@@ -68,6 +88,15 @@ Consequently the informal proof can invoke the theorem over `ℝ` directly,
 without descending an arbitrarily chosen complex matrix. This theorem,
 its hypotheses for the actual curve, and the cover comparison remain
 unformalized.
+
+## Mathematical audit of the remaining route
+
+[REAL_OBSTRUCTION_AUDIT.md](REAL_OBSTRUCTION_AUDIT.md) now records the precise
+nonformal route through the real cover comparison, Brauer evaluation,
+Albert/Pfister argument, zero cycles and rational incidence construction.
+It checks the signs and the real twist instead of assuming that complex
+cover agreement suffices. These are mathematical deductions using cited
+classical results; the Lean obligations below remain open.
 
 ## 3. Identify the double cover and the Clifford class
 

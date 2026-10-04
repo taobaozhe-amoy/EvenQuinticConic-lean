@@ -22,6 +22,13 @@ Absence of a search result is not a theorem of nonexistence.
 | Exact total degree of a nonzero product | `MvPolynomial.totalDegree_mul_of_isDomain`; `Mathlib/RingTheory/MvPolynomial/MonomialOrder/DegLex.lean` | The polynomial degree step in the proposed theta-characteristic argument |
 | Extracting relatively prime factors | `extract_gcd`, `gcd_isUnit_iff_isRelPrime`; `Mathlib/Algebra/GCDMonoid/Basic.lean` | Factoring a symmetric rank-one matrix over a gcd domain |
 | Coprime cancellation of divisibility | `IsRelPrime.mul_right`, `IsRelPrime.dvd_of_dvd_mul_right`; `Mathlib/Algebra/Divisibility/Units.lean` | Deducing `a ∣ g` from `a ∣ g * b²` when `a` and `b` are relatively prime |
+| Actual integral schemes and function fields | `Scheme`, `IsIntegral`, `Scheme.functionField`, `Scheme.germToFunctionField`; `Mathlib/AlgebraicGeometry/FunctionField.lean` | The function field is the actual stalk at the generic point, not a separate field postulated to model it |
+| Generic injectivity and affine fraction fields | `Scheme.germToFunctionField_injective`, `functionField_isFractionRing_of_isAffineOpen` | Equality of regular functions is reflected by the actual generic map; affine coordinate rings have the actual function field as fraction field |
+| Genuine sheaf gluing | `TopCat.Sheaf.existsUnique_gluing'`, `TopCat.Sheaf.eq_of_locally_eq'`; `Mathlib/Topology/Sheaves/SheafCondition/UniqueGluing.lean` | Local compatibility gives actual global sections; local bijectivity of a sheaf morphism gives global bijectivity |
+| Invertibility is local | `RingedSpace.isUnit_of_isUnit_germ`; `Mathlib/Geometry/RingedSpace/Basic.lean` | A regular function that restricts to units on a cover is a unit globally |
+| Actual sheaves of modules | `SheafOfModules`, `Scheme.Modules`, `SheafOfModules.unitHomEquiv`; `Mathlib/Algebra/Category/ModuleCat/Sheaf.lean`, `Mathlib/AlgebraicGeometry/Modules/Sheaf.lean` | Construct the morphism `r ↦ r • s` from a compatible section and an actual isomorphism from a local generator |
+| Coherent frames and transition functions | `LinearEquiv`, `PresheafOfModules.isoMk`, actual module restriction maps | Local rank-one coordinates, restriction compatibility, and genuine changes of frame |
+
 
 `EvenQuinticConic/IsotropicDimension.lean` proves the dimension argument and
 also supplies an actual split quadratic form with its actual isotropic
@@ -122,6 +129,83 @@ square. It does not construct a function field from a specified curve.
 `LocalSquareUnit` uses
 `IsIntegrallyClosed.exists_algebraMap_eq_of_isIntegral_pow`,
 `IsFractionRing.injective`, and `isUnit_pow_iff` to prove that a rational
-positive-power root of a unit extends to a unit. This is the required local
-algebra for a normal scheme, but the sheaf restriction and gluing argument
-is not supplied by this ring theorem.
+positive-power root of a unit extends to a unit. `GenericPointInjection`
+now applies this result to actual affine coordinate rings and actual function
+fields, and the following modules supply the sheaf gluing step.
+
+## Actual scheme and sheaf bridges now checked
+
+`GenericPointInjection` works with `X : Scheme [IsIntegral X]` and the
+actual rings `Γ(X,U)`. It proves compatibility of the canonical generic map
+with restrictions and reflects equality of local representatives and units.
+For a nonempty affine open, with the explicit hypothesis
+`IsIntegrallyClosed Γ(X,U)`, a rational positive-power root of a unit extends
+uniquely to a regular unit. The weighted square-quotient variant does not
+require its denominator to be a unit in the coordinate ring.
+
+`SheafGluing` proves unique gluing of these representatives through the
+actual structure sheaf. On an integral scheme every nonempty open contains
+the generic point; consequently intersections of the specified nonempty
+opens are nonempty and generic injectivity applies there. A separate theorem
+uses actual sheaf gluing to turn local bijectivity of a sheaf morphism on
+all subopens of a cover into bijectivity on every open. None of these results
+assumes a gluing operation as an extra input.
+
+`SheafTrivialization` constructs actual morphisms and isomorphisms in
+`SheafOfModules`. A compatible section gives the morphism `r ↦ r • s`;
+unit coordinates in rank-one frames imply its local bijectivity, and
+`SheafGluing` supplies global bijectivity. `LocalFrames` packages the local
+linear equivalences together with compatibility with the actual restriction
+maps. It reduces the unit checks to the covering opens, propagates those
+checks to every subopen, and constructs a global generator from compatible
+local generators. The resulting conclusion is an actual isomorphism
+`SheafOfModules.unit R ≅ M`, not a proposition whose definition already
+asserts that conclusion.
+
+`ModuleGenericInjection` constructs the generic coefficient of a genuine
+module-sheaf section in a chosen frame on a nonempty open. A cover by
+coherent rank-one frames makes this map injective: equality on one nonempty
+open propagates through overlaps by the integral scheme's injective
+restriction maps, then the actual sheaf condition gives global equality.
+Thus generic injectivity for an actual locally framed module sheaf is now
+proved rather than assumed. The corresponding map from genuine global
+sections is linear over the ring of global functions, with its canonical
+action on the function field. Applying this construction to the specific
+theta sheaf and its base-field vector space still requires that geometric
+data and the compatible scalar actions.
+
+`RationalSectionFrames` joins these constructions on an actual integral
+scheme. Its input consists of nonempty affine opens covering the scheme,
+integrally closed coordinate rings, coherent frames of an actual module
+sheaf, and rational coefficients `r_i : X.functionField`. The coefficients
+must transform by the transition functions **computed from those frames**,
+and their positive powers must equal images of regular units. The theorem
+`exists_global_generator_of_rational_frame_powers` then constructs the local
+regular units, proves compatibility of the resulting module sections,
+glues a global generator, and produces an actual module-sheaf isomorphism.
+Its direct square-quotient variant,
+`exists_global_generator_of_rational_frame_square_ratios`, starts from
+`germ(a_i) x_i² = germ(b_i) y_i²` with unit coefficients and `y_i ≠ 0`.
+If the quotients `x_i/y_i` satisfy the computed frame-transition equations,
+it constructs local units `w_i` satisfying `a_i w_i² = b_i`, a global
+generator, and the same actual isomorphism. No denominator is assumed to be
+a unit in an affine coordinate ring.
+
+These are genuine local-to-global results, but the inputs have not been
+constructed from the particular theta characteristic in the proposed proof.
+In particular, the rational coefficients above are scalar data in the
+actual function field with explicit transition identities. The new generic
+coefficient map works for actual locally framed module sheaves, but its
+application to the theta sheaf and the needed product and scalar
+compatibilities have not yet been supplied. The smooth quintic, its twist sheaves, the restriction and
+cohomology results, the required normal affine trivializing cover, and the
+coefficient identities for `s/a` remain geometric obligations. The later
+real determinantal, Brauer, quadratic-form, and connectedness bridges also
+remain unproved.
+
+The corollary `module_generic_coefficients_linearIndependent` additionally
+restricts scalars to a field `K` under explicit compatible algebra/module
+structures and scalar-tower hypotheses. It proves that a `K`-linearly
+independent family of actual global sections has `K`-linearly independent
+generic coefficients. Constructing those scalar structures for the specified
+theta sheaf remains part of its geometric application.

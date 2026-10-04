@@ -3,8 +3,11 @@
 This note supplies a mathematical proof of the first geometric lemma in the
 proposed argument. It is not a claim that the complete geometric theorem has
 been checked by Lean. The polynomial factorization used below is formalized;
-the curve, sheaf-cohomology, generic-section and divisor constructions below
-are not supplied by those polynomial theorems.
+the specific curve, its sheaf-cohomology and generic-section constructions
+below are not supplied by those polynomial theorems. The local-to-global
+reconstruction now has a checked theorem for actual module sheaves with
+explicit coherent frames and rational coefficient data; §4 states exactly
+which geometric inputs are still missing.
 
 ## 1. Precise lemma
 
@@ -202,31 +205,179 @@ That comparison must retain the chosen square-trivialization and its real
 square class. The cofactor sign issue, Brauer-class comparison, isotropy,
 real rationality and connectedness remain distinct obligations.
 
-## 4. Formalization boundary and useful next targets
+## 4. Formalized local-to-global reconstruction
 
-The existing polynomial theorems establish the homogeneous factorization
-once their algebraic hypotheses hold. The coefficient construction is now formalized in `GradedRestriction` and
-`WeightedRestriction`, and the finite-degree variant in
-`FiniteDegreeRestriction`. `GenericCoefficientModel` proves the ratio identity.
-`LocalSquareUnit` proves the integrally-closed local-ring step, including
-weighted quotients. These are genuine algebraic theorems, but their inputs
-have not yet been constructed from the actual curve and sheaves.
+The homogeneous polynomial factorization is proved in the existing
+polynomial modules. `GradedRestriction`, `WeightedRestriction`, and
+`FiniteDegreeRestriction` supply the coefficient constructions and the
+finite-degree version of the restriction argument.
+`GenericCoefficientModel` proves the weighted rational ratio identity.
+The following subsequent steps now use actual schemes and sheaves.
 
-The following geometry has not been formalized merely by writing this note:
+### Actual functions and local extension
 
-1. The actual smooth projective plane curve and its sheaves `O_C(n)`.
-2. The two restriction-map facts in §1 and multiplication compatibility.
-3. Injection from global line-bundle sections into the generic fiber.
-4. The actual divisor or local-ring reconstruction of a line-bundle
-   isomorphism from `psi(s²)=c a²`.
-5. The interpretation of parity and the real base-change statement.
-6. The symmetric resolution and its identification with the specified cover.
+For `X : Scheme [IsIntegral X]`, `GenericPointInjection` uses the actual
+structure sheaf, actual restrictions, and `X.functionField`, defined by
+mathlib as the stalk at the generic point. Its equality tests use the proved
+injectivity of the actual map `Γ(X,U) → X.functionField` for nonempty `U`.
 
-The weighted generic model is a convenient algebraic intermediate theorem.
-For the eventual geometry bridge, the finite-degree restriction formulation
-is weaker and sufficient: there is no need to prove every graded kernel
-piece just to obtain `AD=B²`.
+On a nonempty affine open `U`, with the explicit assumption
+`IsIntegrallyClosed Γ(X,U)`, the theorem
+`existsUnique_regular_unit_of_generic_sq_ratio` proves
 
-The proof above validates the first theta lemma mathematically. It does not
-settle the original existence question for real conic bundles, and it gives
-no reason by itself to reject a purported real example.
+```
+germ(u) r² = germ(v) q²,  q ≠ 0,  u,v ∈ Γ(X,U)ˣ
+  ⇒ ∃! w ∈ Γ(X,U)ˣ,  germ(w)=r/q and u w²=v.
+```
+
+This uses the actual identification of the function field as the fraction
+field of the affine coordinate ring. It does not assume that `q` is a unit
+of that coordinate ring, so simultaneous vanishing of local numerator and
+denominator has not been excluded.
+
+`SheafGluing` then gives unique gluing of actual regular representatives of
+one rational function, and gluing of unit representatives to a unit. It
+also proves that a morphism of actual sheaves is bijective on every open
+once it is bijective on every subopen of each member of a covering family.
+Existence comes from the sheaf condition; agreement on overlaps is proved,
+not replaced with an assumed gluing conclusion.
+
+### Generic coefficients of actual module-sheaf sections
+
+`moduleGenericCoefficient_injective` in `ModuleGenericInjection.lean` is now proved
+for an actual module sheaf `M : X.Modules` on an integral scheme, with a
+cover by coherent rank-one frames. Choose a frame on any nonempty open
+`V`; restrict a global section to `V`, take its coordinate, and map that
+regular function to `X.functionField`. Equality of these generic
+coefficients forces equality on `V`, then on every framed covering open
+through their nonempty overlaps, and finally globally by the sheaf
+condition. The proof does not assume generic injectivity as a premise.
+
+The corresponding construction `moduleGlobalGenericLinearMap` uses the
+actual module `M.val.obj (op ⊤)` of global sections. It is linear over
+`Γ(X,⊤)`, with the canonical scalar action on `X.functionField`, and is
+injective under the same covering hypotheses. This supplies the general
+section-to-generic-coefficient step. Instantiating it for `theta` and `H`, supplying their compatible actions of
+the specified base field, and proving the geometric product identities
+remain to be done.
+
+### Coherent frames and a module-sheaf isomorphism
+
+`SheafTrivialization` constructs the actual morphism `O_X → M` given by
+`r ↦ r • s`, for a compatible section `s` of an actual sheaf of modules.
+When its local coordinates are units, the morphism is bijective on local
+sections and hence gives an actual isomorphism of module sheaves.
+
+`ModuleSheafFrame`, defined in `LocalFrames.lean`, consists of linear equivalences
+
+```
+M(V) ≃ Γ(X,V),  for every V ⊆ U,
+```
+
+compatible with the actual restriction maps. Thus it is legitimate local
+frame data, with no global trivialization built into its definition. A unit
+coordinate on `U` remains a unit on all its subopens. Actual compatible
+local sections with unit coordinates glue to a global generator, and the
+resulting morphism gives `O_X ≅ M`.
+
+The theorem `exists_global_generator_of_rational_frame_powers` in
+`RationalSectionFrames.lean` joins local extension and these module-sheaf constructions. More precisely,
+the input is:
+
+1. An actual integral scheme `X` and an actual module sheaf `M : X.Modules`.
+2. A cover by nonempty affine opens `U_i` whose actual rings `Γ(X,U_i)` are
+   integrally closed, with coherent frames `e_i` for `M`.
+3. Rational coefficients `r_i ∈ X.functionField` satisfying
+   `r_i = germ(g_ij) r_j`, where on `W=U_i∩U_j` the transition coefficient is
+   the **computed** element `g_ij = e_i,W(e_j,W⁻¹(1))` of `Γ(X,W)`.
+4. A positive integer `n` and actual units `u_i ∈ Γ(X,U_i)ˣ` such that
+   `r_i^n = germ(u_i)`.
+
+The theorem constructs regular units `w_i` with generic value `r_i`, sets
+`t_i=e_i⁻¹(w_i)`, and proves their overlap equality by applying a frame and
+then the injective actual generic map. The actual sheaf condition produces
+a global generator and an isomorphism `O_X ≅ M`. The positive-power condition
+can be applied with `n=2` in the intended theta argument.
+
+The direct theorem
+`exists_global_generator_of_rational_frame_square_ratios` matches the
+weighted theta identity more closely. On the same normal affine framed
+cover, suppose `a_i,b_i ∈ Γ(X,U_i)ˣ`, `x_i,y_i ∈ X.functionField`, and
+
+```
+y_i ≠ 0,   germ(a_i) x_i² = germ(b_i) y_i².
+```
+
+Assume the quotients `x_i/y_i` transform by the computed frame transitions.
+The theorem constructs local units `w_i` with
+
+```
+germ(w_i)=x_i/y_i,   a_i w_i²=b_i,
+```
+
+then actual compatible sections, a global generator, and an actual
+isomorphism `O_X ≅ M`. It does not require `y_i` to be a unit of the affine
+coordinate ring, and therefore also applies when chosen regular numerators
+and denominators vanish at the same point.
+
+The rational coefficients in these theorems are explicit scalar data with
+transition identities. They have **not yet been constructed from the
+actual generic fiber of a specified theta sheaf**. Supplying these inputs
+for `M=theta⊗H⁻¹` is still required; the theorem does not silently supply
+that geometric construction.
+
+### Assumption audit
+
+The nonempty-open hypotheses above have a precise role: every nonempty open
+of an integral scheme contains its generic point. Pairwise intersections
+therefore contain it too, so comparisons in the actual function field are
+valid. Empty opens are not mapped into that field. They are handled by the
+ordinary sheaf restriction and gluing statements; in the coherent-frame
+argument, unit coordinates restrict to every subopen, including the empty
+open. Each covering statement still contains the actual condition that the
+union is the relevant open or the whole space. Invertibility is not inferred
+from a zero ring pretending to have an injective map to a field.
+
+Integral and integrally closed are distinct assumptions here. Integrality
+supplies the generic point, the function field, and injectivity. The local
+root-extension theorem separately requires integrally closed affine
+coordinate rings. None of these results has yet derived those hypotheses
+from the smoothness of a particular plane quintic.
+
+## 5. Remaining geometry
+
+The following obligations are not discharged by the reconstruction theorem:
+
+1. Construct the actual smooth plane quintic, its twist sheaves `O_C(n)`,
+   the theta sheaf, and the specified tensor-square isomorphism.
+2. Prove the degree-two surjectivity and degree-four injectivity of the
+   relevant restriction maps, together with multiplication compatibility.
+3. Instantiate the proved generic coefficient construction for those line
+   bundles, supply the compatible base-field scalar actions, and connect
+   it to the geometric product identities and independence hypotheses.
+4. Supply a normal affine trivializing cover, coherent frames, rational
+   coefficients for the actual section `s/a`, and the transition and
+   power-unit identities required by the checked reconstruction theorem.
+5. Relate the resulting isomorphism `O_C ≅ theta⊗H⁻¹` to `theta ≅ H`, and
+   prove the dimension, parity, and real base-change statements.
+6. Construct the real symmetric resolution and compare its signed
+   discriminant cover with the specified cover.
+
+The finite-degree restriction formulation remains the smaller sufficient
+input: the complete graded-kernel calculation is unnecessary merely to
+obtain `AD=B²`. The divisor route in §1 is a mathematical alternative; the
+new formalization follows the local-unit and sheaf route and does not claim
+to have formalized divisor theory for this curve.
+
+The proof in §1 concerns the first theta lemma. The checked local-to-global
+reconstruction strengthens the formalization of that argument but does not
+settle the original existence question for real conic bundles. The later
+Brauer, quadratic-form, birational, and real-connectedness arguments still
+need both mathematical and formal verification.
+
+The corollary `module_generic_coefficients_linearIndependent` additionally
+restricts scalars to a field `K` under explicit compatible algebra/module
+structures and scalar-tower hypotheses. It proves that a `K`-linearly
+independent family of actual global sections has `K`-linearly independent
+generic coefficients. Constructing those scalar structures for the specified
+theta sheaf remains part of its geometric application.
