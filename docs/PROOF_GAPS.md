@@ -15,8 +15,10 @@ actual schemes and actual module sheaves**. `ThetaIneffectivity.lean` proves
 that two independent actual sections force `Θ ≅ H`. The same restriction
 inputs imply `h⁰(H)=3` and finite-dimensional theta sections, so even
 dimension implies that every actual theta section is zero. No desired isomorphism or vanishing statement
-is an input. The theorem does not yet instantiate its hypotheses from a
-smooth plane quintic.
+is an input. The latest theorem supplies normality from an actual smooth
+curve morphism and the local technical data from actual line-sheaf
+trivializations and a square isomorphism. It still does not construct those
+geometric objects from the original conic bundle.
 
 The checked chain now includes:
 
@@ -94,14 +96,42 @@ common refinement; it does not require theta to be trivial on the three
 entire standard charts. The older `PlaneThetaIneffectivity` interface with
 an explicit `h2` remains available as a lower-level theorem.
 
+The newer `PlaneThetaSmooth` interface proves
+`planeQuintic_even_theta_sections_eq_zero_of_smooth`. Its inputs are the
+homogeneous prime quintic equation, actual relative-dimension-one smoothness
+of `planeCurveStructure F`, an actual module sheaf with local unit-sheaf
+isomorphisms on a cover, an actual isomorphism from their descended square
+to the hyperplane square, and even section dimension. It has **no separate
+normality, affine-refinement, frame, pairing, or tensor-perfectness input**.
+
+`SmoothCurveNormality` proves that a standard smooth domain of relative
+dimension one over a perfect field is integrally closed, using the actual
+cotangent injection, finite separable maximal residue fields, differential
+base change, and the local DVR criterion. `SmoothSchemeNormality` applies
+this to the affine charts supplied by the actual scheme smoothness predicate,
+then localizes to the stalks. `NormalSchemeSections` supplies the normal
+section rings on the common refinement constructed by `AffineCommonRefinement`.
+
+`LocalTrivializationFrames` and `FrameCocycleDescent` extract the actual
+unit cocycle and prove its descended sheaf is isomorphic to the original
+line sheaf. `LineBundleSquareIso` constructs the square pairing and proves
+local perfectness from the given square isomorphism.
+`UnitTransition.productHomEquivOfIso` in `LineBundleTensorUniversal` proves
+that the product-cocycle sheaf represents natural bilinear pairings on the
+original line sheaves, for every target module sheaf. This is a genuine
+tensor universal property; no global-section tensor surjectivity is asserted.
+The square is not yet packaged as an isomorphism to mathlib's sheafification
+of the presheaf tensor product.
+
 The remaining **geometric instantiation** must supply:
 
-1. From the original smooth plane-quintic hypotheses, derive the required
-   primality and normality, and construct the actual theta module sheaf,
-   its coherent local frames, and the locally perfect square pairing from
-   the specified geometric square isomorphism. This includes the adjunction
-   identification of the canonical sheaf with the constructed hyperplane
-   square. Smoothness has not yet been used to discharge these inputs.
+1. Connect the original equation's smooth-quintic description to the prime
+   principal ideal and the actual scheme's relative-dimension-one smooth
+   structure morphism. Construct the specified theta line sheaf, its local
+   unit-sheaf isomorphisms and its square isomorphism. This includes adjunction
+   identifying the canonical sheaf with the constructed hyperplane square.
+   Normality from the actual smooth morphism and all subsequent local
+   technical inputs are now proved, rather than separate obligations.
 2. Relate the conic bundle's specified real double cover, its theta line
    bundle, and geometric parity, including the real base-change step.
 

@@ -5,9 +5,9 @@ as predicted output.
 
 | Check | Result |
 | --- | --- |
-| `lake build` | Exit 0; all sixty-three source modules and the root import compiled |
-| `lake env lean Audit.lean` | Exit 0; 932 declarations audited, including 732 theorem declarations |
-| Handwritten `theorem` declarations | 387 total: 382 public and 5 private helpers; comments and strings are excluded from this source count |
+| `lake build` | Exit 0; all seventy-three source modules and the root import compiled |
+| `lake env lean Audit.lean` | Exit 0; 1079 declarations audited, including 839 theorem declarations |
+| Handwritten `theorem` declarations | 431 total: 426 public and 5 private helpers; comments and strings are excluded from this source count |
 | Allowed axiom dependencies | `propext`, `Classical.choice`, `Quot.sound` |
 | `sorryAx` or any other unexpected axiom | None in the audited dependency closures |
 | mathlib tracked source changes | None |
@@ -16,11 +16,16 @@ as predicted output.
 | Actual plane-curve scheme and hyperplane sheaf | Constructed using the reduced induced closed scheme and coordinate cocycle descent |
 | Actual hyperplane square pairing | Constructed; tensor-perfectness proved on every chart subopen |
 | Quartic restriction on actual coordinate sections | Proved, including on arbitrary nonempty chart refinements |
-| Concrete conditional theta theorem | `planeQuintic_even_theta_sections_eq_zero_of_normal_frames`; both restriction hypotheses are discharged |
+| Concrete conditional theta theorem | `planeQuintic_even_theta_sections_eq_zero_of_smooth`; restriction maps, normality and refined local technical inputs are discharged |
 | Actual quadratic-section surjectivity | Proved for the constructed curve over an infinite field, with homogeneous prime equation of degree greater than one |
 | Coordinate choice and denominator clearing | Constructed through explicit polynomial and cone quotient equivalences; monicity is not a final hypothesis |
 | Actual sections on arbitrary linear charts | Constructed using genuine regular functions and structure-sheaf gluing |
-| Concrete smooth plane-quintic instantiation | Not yet formalized |
+| Local line-sheaf descent and actual square isomorphism | Construct cocycle, actual descent isomorphism, pairing and local tensor-perfectness |
+| Product-cocycle tensor universal property | Proved for natural bilinear pairings, including transport to independently given actual line sheaves |
+| Actual smooth integral curve normality | Proved over a perfect field from `IsSmoothOfRelativeDimension 1` |
+| Common nonempty affine refinement | Constructed from the original line trivializing cover and coordinate cover |
+| Original plane equation to primality and smooth morphism | Not yet formalized |
+| Adjunction and original cover's theta identification | Not yet formalized |
 | Full geometric no-go theorem | Not formalized or verified |
 | GitHub Actions | See the repository's Actions tab for current remote run status |
 

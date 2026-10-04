@@ -5,10 +5,11 @@ proposed argument. It is not a claim that the complete geometric theorem has
 been checked by Lean. The section-theoretic implication is formalized for
 actual schemes and module sheaves. The constructed plane curve now supplies
 both actual quadratic-section surjectivity and quartic injectivity. The
-normal theta-framed refinement and perfect theta square pairing remain
-explicit geometric inputs, and have not yet been constructed from the
-original smooth-quintic and double-cover hypotheses. Sections 4–5 state the
-checked implication and the remaining instantiation work.
+latest theorem derives normality from the actual smooth curve morphism,
+and constructs the framed affine refinement and perfect square pairing from
+actual local line-sheaf trivializations and a square isomorphism. Their
+connection to the original double cover and adjunction remains open.
+Sections 4–5 state the checked implication and the remaining instantiation work.
 
 ## 1. Precise lemma
 
@@ -417,15 +418,46 @@ compatibility, clearing, degree extraction and global comparison are all
 checked. A separate theorem also handles a defining equation already
 monic in the third coordinate.
 
+### Actual local line data and smoothness now supply the technical inputs
+
+`planeQuintic_even_theta_sections_eq_zero_of_smooth` in `PlaneThetaSmooth` accepts an actual
+locally trivial module sheaf, given by unit-sheaf isomorphisms on an arbitrary
+open cover, and an actual isomorphism from its descended square to `H²`.
+Its actual curve structural morphism satisfies `IsSmoothOfRelativeDimension 1`;
+homogeneous primality remains an explicit assumption. Even section dimension
+then implies that every section is zero. Normality, nonempty affine refinement,
+coherent frames, the pairing, and its local tensor-perfectness are no longer
+independent inputs.
+
+`LocalTrivializationFrames` constructs the frames by evaluating the actual
+local isomorphisms. `FrameCocycleDescent` constructs their unit cocycle and an
+actual descent isomorphism back to the original sheaf. `AffineCommonRefinement`
+chooses an affine neighbourhood of each point inside both a trivializing open
+and a standard coordinate open. `LineBundleSquareIso` derives the pairing
+from the square isomorphism. `UnitTransition.productHomEquivOfIso` in `LineBundleTensorUniversal` proves the descended product sheaf's universal
+property for natural bilinear pairings on the original line sheaves into
+any target module sheaf. This neither asserts global-section tensor
+surjectivity nor yet identifies the chosen object with a separately packaged
+mathlib sheafified tensor object.
+
+`SmoothCurveNormality` derives the cotangent-space injection from formal
+smoothness and obtains the dimension bound from the free differential module.
+For a standard smooth domain of relative dimension one over a perfect field,
+the maximal residue extensions are finite separable; differential base change
+and the local DVR criterion prove normality at each maximal localization.
+`SmoothSchemeNormality` uses the actual smooth scheme charts and actual stalk
+localizations. `NormalSchemeSections` then provides the normal affine rings
+required by the lower-level theta argument.
+
 ### What still has to be supplied
 
 The remaining geometric obligations are:
 
-1. Derive the necessary primality and normality from the original smooth
-   plane-quintic assumptions. Construct the specified theta module sheaf,
-   its coherent local frames and its locally perfect square pairing from
-   the geometric square isomorphism, including adjunction identifying the
-   canonical sheaf with the constructed hyperplane square. The actual
+1. Connect the original smooth-quintic equation to homogeneous primality
+   and the actual structure morphism's relative-dimension-one smoothness.
+   Construct the specified theta module sheaf, its actual local unit-sheaf
+   trivializations and its square isomorphism, including adjunction identifying
+   the canonical sheaf with the constructed hyperplane square. The actual
    hyperplane construction alone does not supply this theta data.
 2. Relate the line bundle from the specified real double cover to this theta
    object and its geometric parity, including base change; then construct
@@ -436,7 +468,8 @@ conditional theorem covers its section-theoretic logic, including actual
 sheaf isomorphism, internally derived dimensions, and parity. The new
 geometric constructions remove former existence and generic-coordinate
 interfaces, and the new actual section argument discharges quadratic
-surjectivity. The theta-data and smoothness-to-normality inputs remain.
+surjectivity. Smoothness-to-normality and the local line-sheaf interfaces
+are now proved; the theta object's geometric origin and adjunction remain.
 The original real conic-bundle existence question and
 the later Brauer, quadratic-form, birational, and real-connectedness
 implications are still not formally proved.

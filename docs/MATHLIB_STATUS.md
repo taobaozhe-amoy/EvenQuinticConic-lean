@@ -259,8 +259,9 @@ rings are actual quotients by vanishing ideals. The closed immersion, the
 structure morphism over `K`, and the three affine coordinate charts are
 constructed. Homogeneous primality and the degree condition give
 integrality, the image of the generic point, and nonemptiness of all three
-charts. Smoothness is not an input to these proofs and has not been used
-to derive normality or primality for the original geometric problem.
+charts. Smoothness is not an input to these particular proofs. The newer
+`SmoothSchemeNormality` bridge below derives normality from an actual smooth
+integral curve morphism; primality from the original equation remains open.
 
 `ProjectiveGenericChart`, `ProjectiveStalkUnits`, `GenericPullback`, and
 `ProjectiveQuarticRestriction` use actual chart sections, actual stalk maps,
@@ -305,7 +306,7 @@ field is made. The multiplication pairing is perfect on those framed
 subopens, including the empty open; no global-section tensor identity is
 asserted.
 
-The concrete wrapper retains a normal affine **refinement** of the coordinate
+The lower-level `PlaneThetaVanishing` wrapper retains a normal affine **refinement** of the coordinate
 cover on which the supplied theta sheaf is framed. It does not presume
 that theta is trivial on each entire standard chart. The theta square
 pairing and its local tensor-perfectness, and evenness remain explicit
@@ -345,9 +346,51 @@ transporting sheaves along one.
 An isomorphism of the reduced induced curve with the alternate construction
 `Proj(K[X₀,X₁,X₂]/(F))` is not asserted. The affine cone embeds in `k(C)[T]`,
 not in `k(C)` by an ungraded injection, and its whole fraction field is not
-identified with the curve function field. Primality and normality derived
-from smoothness, and the specified theta object, local frames and square
-pairing, including the adjunction identification with the canonical sheaf,
-remain geometric obligations. The later real determinantal,
+identified with the curve function field. Primality from the equation,
+the actual smooth morphism condition, and the specified theta object's
+geometric origin and square isomorphism, including adjunction, remain
+geometric obligations. Normality and the local technical line data are
+now derived by the bridges below. The later real determinantal,
 Brauer, quadratic-form, birational, and connectedness bridges also remain
 unproved. The complete original conic-bundle theorem is still not formalized.
+
+## Actual smooth normality and line-sheaf tensor interfaces
+
+Ten further modules remove the caller-supplied normal affine framed
+refinement and independent perfect-pairing assumptions from the strongest
+theta theorem.
+
+| Module | Checked result |
+| --- | --- |
+| `LocalTrivializationFrames` | Actual isomorphisms `M.over U ≅ unit (R.over U)` give coherent frames; frames also give such isomorphisms |
+| `FrameCocycleDescent` | Frame changes are actual units, satisfy the cocycle law, and descend to a sheaf actually isomorphic to the original line sheaf |
+| `AffineCommonRefinement` | Two actual open covers admit a point-indexed, nonempty affine common refinement with both containment maps |
+| `LineBundleSquareIso` | Actual sheaf isomorphisms transport pairings and their local tensor-perfectness; a square isomorphism supplies the theta pairing |
+| `LineBundleTensorUniversal` | `UnitTransition.productHomEquiv` represents natural bilinear pairings by morphisms from the product-cocycle sheaf; `productHomEquivOfIso` transports this to independently given actual line sheaves |
+| `NormalSchemeSections` | Integrally closed actual stalks imply integrally closed section rings on nonempty affine opens of an integral scheme |
+| `SmoothCurveNormality` | A domain standard smooth of relative dimension one over a perfect field is integrally closed |
+| `SmoothSchemeNormality` | The actual predicate `IsSmoothOfRelativeDimension 1 f`, for an integral scheme over a perfect field, gives normal stalks and affine section rings |
+| `PlaneThetaLineBundle` | The actual normal prime quintic theta theorem accepts local unit-sheaf isomorphisms and a square isomorphism; all refined data are constructed |
+| `PlaneThetaSmooth` | The actual smooth prime quintic theta theorem additionally derives normality internally |
+
+The algebraic normality proof uses mathlib's actual conormal map
+`KaehlerDifferential.kerCotangentToTensor`,
+`Algebra.FormallySmooth.iff_injective_and_split`, differential base change
+after localization, finite maximal residue fields, and
+`tfae_of_isNoetherianRing_of_isLocalRing_of_isDomain`.
+The scheme proof extracts actual affine charts from the smoothness predicate,
+uses that `Spec K` has one point, transports scalars with `ΓSpecIso`, and
+localizes the resulting normal affine rings to actual stalks.
+
+The tensor proof glues locally constructed tensor factorizations and proves
+their uniqueness by actual sheaf separation. It never assumes that the
+tensor product of global sections computes global sections of the product.
+An explicit comparison with mathlib's sheafification packaging of tensor
+products is not included; the representing universal property itself is proved.
+
+The strongest checked declaration is
+`planeQuintic_even_theta_sections_eq_zero_of_smooth`. It still requires the
+prime homogeneous quintic, actual smooth structural morphism, actual local
+line trivializations and square isomorphism, and parity. Neither smoothness
+of a polynomial equation nor adjunction nor the original discriminant-cover
+construction has been silently substituted for one of these precise inputs.
