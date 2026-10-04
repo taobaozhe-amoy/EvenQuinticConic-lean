@@ -5,7 +5,7 @@
 本项目尝试核查如下问题的一份候选“不存在性”论证：是否存在光滑射影、几何标准的实圆锥曲线丛
 `X → ℙ²_ℝ`，其判别曲线为光滑五次曲线，判别双覆盖对应偶 theta characteristic，且实点集有两个连通分支？
 
-当前代码已构造保留齐次次数的限制同态，证明带公共权重的二次式分解，并证明整闭环中平方为单位的分式来自环内单位。它们接通了从泛点系数关系到一次式分解及局部可逆性的代数步骤；另有双覆盖、线性代数和拓扑引理。代码还没有定义完整的几何目标，也没有从“偶 theta”推出实有理性或连通性。因此，**编译成功不表示上述问题已解决，也不验证此前整个非形式化证明**。项目不以新增公理或把目标结论作为假设的方式填补这些缺口。
+当前代码已构造保留齐次次数的限制同态，证明带公共权重的二次式分解，并在实际整概形上证明泛点相等判据、局部单位延拓及结构层粘合。对于实际模层，已构造由兼容局部单位截面给出的全局平凡化。这接通了原先缺失的若干层论步骤；另有双覆盖、线性代数和拓扑引理。代码还没有定义完整的几何目标，也没有从“偶 theta”推出实有理性或连通性。因此，**编译成功不表示上述问题已解决，也不验证此前整个非形式化证明**。项目不以新增公理或把目标结论作为假设的方式填补这些缺口。
 
 ## 已形式化的内容
 
@@ -22,7 +22,13 @@
 | `SquareExtension` | 在实际代数闭包中构造平方根及保持原底域线性无关性的多项式模型 | 几何泛点截面的构造；加权路线无需使用此扩域 |
 | `FiniteDegreeRestriction` | 仅假设四次齐次式的限制单射，即得到同一个二次式分解，无需完整主理想核 | 曲线上实际限制映射的单射性及二次式提升 |
 | `GenericCoefficientModel` | 从实际系数、加权乘积与限制条件，得到分解及 `u*(α/a(f))²=c≠0`；支持完整核或仅四次单射两种接口 | 把该比值识别为 `theta⊗O(-1)` 的有理截面 |
-| `LocalSquareUnit` | 整闭环的分式域中，正次幂为环内单位的元素来自环内单位；包括加权与商的版本 | 把局部单位按实际线丛的过渡函数粘合 |
+| `LocalSquareUnit` | 整闭环的分式域中，正次幂为环内单位的元素来自环内单位；包括加权与商的版本 | 为指定几何线丛构造局部系数恒等式 |
+| `GenericPointInjection` | 实际整概形的泛点相等判据、限制相容性，以及整闭仿射开集上的唯一单位延拓 | 从目标光滑曲线提供这些整闭仿射开集 |
+| `SheafGluing` | 使用真实层公理粘合截面；同一有理函数的局部单位唯一粘合；局部正次幂为单位推出全局单位 | 为 theta 比值提供相应几何局部数据 |
+| `SheafTrivialization` | 构造真实模层态射 `r↦r•s`，由局部单位坐标构造真实模层同构 | 构造目标线丛与它的局部标架 |
+| `LocalFrames` | 定义与实际限制映射相容的局部标架；从兼容局部单位截面构造全局生成元及 `O≅M` | 指定 theta 线丛的标架及有理截面 |
+| `RationalSectionFrames` | 在实际整概形的整闭仿射覆盖上，从遵守真实过渡关系、正次幂为局部单位的有理系数，构造全局生成元及实际 `O≅M` | 为 `theta⊗O(-1)` 构造这些局部系数和恒等式 |
+| `ModuleGenericInjection` | 实际带局部标架的模层全局截面由任一非空标架开集上的泛点系数唯一确定 | 将该接口应用于目标 theta 线丛 |
 | `CofactorCover` | 带显式 twist 参数的余子式根属于矩阵核；特征不为二时，含非零根的根集合恰有两点；在显式小行列式关系下构造根 | 判别式符号的几何识别；从余秩推出小行列式关系；覆盖的下降、étale 性与 theta 对应 |
 | `IsotropicDimension` | 维数和超过环境维数的子空间有非零交；显式分裂二次型的五维子空间限制各向同性 | 从 Clifford 指数和序得到 Pfister 邻形式并证明分裂 |
 | `Incidence` | 非零 `2×2` 小行列式条件下，两条齐次线性方程有唯一规范化解，并给出集合等价 | 非空稠密开集、正则映射、概形同构及实双有理性 |
@@ -48,9 +54,13 @@ $$
 a(f)\ne0,\qquad r=\frac{\alpha}{a(f)}\ne0,\qquad ur^2=c\ne0.
 $$
 
-`LocalSquareUnit` 则在真实整闭环及其分式域中证明：若 `u,v` 是环内单位且 `u*x²=v*y²`、`y≠0`，则 `x/y` 来自环内单位。这一步允许 `x,y` 在同一点同时为零，并不错误地假设分母本身处处可逆。尚须构造线丛局部坐标并完成粘合，才能得到线丛同构。
+`LocalSquareUnit` 则在真实整闭环及其分式域中证明：若 `u,v` 是环内单位且 `u*x²=v*y²`、`y≠0`，则 `x/y` 来自环内单位。这一步允许 `x,y` 在同一点同时为零，并不错误地假设分母本身处处可逆。新增的层论模块已在实际模层范畴中完成“兼容局部单位截面 → 全局生成元 → 模层同构”。为指定 theta 线丛构造这些局部坐标与输入，仍是几何证明义务。
+
+现在，`exists_global_generator_of_rational_frame_square_ratios` 已把平方商延拓与真实标架粘合接起来：在实际整概形上，给定整闭仿射开覆盖、相容标架、局部平方商恒等式及由标架计算出的过渡关系，构造实际全局生成元和模层同构 `O≅M`。同一个积分性框架下，`moduleGenericCoefficient_injective` 证明全局截面由一个非空标架开集上的泛点系数唯一确定。为目标 theta 线丛构造这些输入仍未完成。
 
 [theta 引理的完整非形式化证明与接口说明](docs/THETA_BRIDGE_REVIEW.md) 证明 `h⁰(theta)≥2 ⇒ theta≅O_C(1) ⇒ h⁰(theta)=3`。其中除以 2 发生在实际除子群中，不能在 Picard 群中做同样的消去。这份文字证明与 Lean 已验证的范围分别标明。
+
+[实几何与二次型论证的审查](docs/REAL_OBSTRUCTION_AUDIT.md) 另行核查实双覆盖的 twist、Brauer 类、Albert/Pfister 论证和有理性路线。这是有精确文献依据的非形式化论证，不是 Lean 证书。
 
 余子式方程现在写作 `vᵢvⱼ=twist*adj(M)ᵢⱼ`。正、负两种选择都被支持；代码没有把三阶矩阵的负号约定自动移用于目标五阶矩阵。
 
@@ -75,8 +85,15 @@ GitHub Actions 配置见 `.github/workflows/lean.yml`。其运行相同构建和
 
 完整论证的缺口列于 [docs/PROOF_GAPS.md](docs/PROOF_GAPS.md)，固定版本 mathlib 的能力检查见 [docs/MATHLIB_STATUS.md](docs/MATHLIB_STATUS.md)。这些文档中的数学叙述均不是 Lean 已验证的定理。
 
-用户提供的参考项目是 [RealConicBundles-Problem3-lean](https://github.com/fanyh27/RealConicBundles-Problem3-lean)。本次对比使用提交 `8b2e7df967727bf82d1c3430128b928e338c31b9`：其 README 明确不附加偶 theta、几何有理性或相对 Picard 秩的要求。本项目不据此否定那个项目实际陈述的结论；比较两个项目时必须先对齐定理假设。
+用户提供的参考项目是 [RealConicBundles-Problem3-lean](https://github.com/fanyh27/RealConicBundles-Problem3-lean)。本次对比使用提交 `8b2e7df967727bf82d1c3430128b928e338c31b9`：其 README 明确不附加偶 theta、几何有理性或相对 Picard 秩的要求。进一步，对该提交的具体三阶分次矩阵作余核计算，得到
+
+$$
+0\to\mathcal O(-2)^2\oplus\mathcal O(-3)\to\mathcal O(-1)^2\oplus\mathcal O\to i_*\theta\to0,
+\qquad h^0(\theta_{\mathbb C})=1.
+$$
+
+因此这个具体矩阵对应奇 theta。计算及其与双覆盖的对应见 [实几何审查第 8 节](docs/REAL_OBSTRUCTION_AUDIT.md)。**这是非形式化的奇偶性计算，不是该参考项目或本项目已有的 Lean 定理。** 它与参考项目实际陈述的结论相容。
 
 ## English scope note
 
-This repository contains independently checkable lemmas from an attempted obstruction argument for real conic bundles with smooth quintic discriminant and even theta characteristic. It is **not** a formal proof of the geometric obstruction, nor a construction of an example. All geometric bridges listed in `docs/PROOF_GAPS.md` remain unformalized. In particular, the final connectedness assumption has not been deduced from the original hypotheses.
+This repository contains independently checkable lemmas from an attempted obstruction argument for real conic bundles with smooth quintic discriminant and even theta characteristic. It is **not** a formal proof of the geometric obstruction, nor a construction of an example. The remaining geometric obligations are listed explicitly in `docs/PROOF_GAPS.md`. In particular, the final connectedness assumption has not been deduced from the original hypotheses.

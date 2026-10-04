@@ -14,3 +14,9 @@ import EvenQuinticConic.WeightedRestriction
 import EvenQuinticConic.LocalSquareUnit
 import EvenQuinticConic.GenericCoefficientModel
 import EvenQuinticConic.FiniteDegreeRestriction
+import EvenQuinticConic.GenericPointInjection
+import EvenQuinticConic.SheafGluing
+import EvenQuinticConic.SheafTrivialization
+import EvenQuinticConic.LocalFrames
+import EvenQuinticConic.RationalSectionFrames
+import EvenQuinticConic.ModuleGenericInjection
