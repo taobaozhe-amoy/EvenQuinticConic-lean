@@ -6,7 +6,7 @@ The following is a work plan for scrutinizing a proposed mathematical argument, 
 
 Define the real base, the smooth projective total space, the conic-bundle morphism, geometric standardness, the smooth discriminant curve of degree five, its étale double cover, and the associated theta characteristic. Define evenness using the parity of the actual dimension of global sections after the appropriate base change. Relate the topology on real points to the intended real algebraic variety.
 
-None of these objects is currently packaged into a Lean statement of the target theorem. Generic propositions named `EvenTheta` or `Rational` would not accomplish this task.
+This complete collection of geometric hypotheses is not currently assembled into a Lean statement of the target theorem. The actual plane curve and hyperplane sheaves constructed below do not yet supply the conic bundle, specified double cover, or real topology. Generic propositions named `EvenTheta` or `Rational` would not accomplish this task.
 
 ## 2. Even theta and symmetric determinantal representation
 
@@ -54,30 +54,68 @@ that every section is zero. The final theorem does not treat an unrestricted
 `finrank = 0` as a vanishing statement and does not assume either
 finite-dimensionality or `h⁰(H)=3` as a separate hypothesis.
 
+The actual geometric realization now goes further than this general theorem:
+
+- `PlaneCurveScheme` constructs the reduced induced closed scheme `V(F)` in
+  the actual projective plane, its structure morphism over `K`, its generic
+  point, and its three nonempty affine coordinate charts. Integrality is
+  proved from homogeneous primality and the degree condition.
+- `ProjectiveCoordinateSections`, `PullbackTransition`, and the four
+  `LineBundle*` construction modules descend actual coordinate-ratio unit
+  cocycles to an actual module sheaf. The sheaf axiom is proved using the
+  structure sheaf, and compatible local frames are explicitly constructed.
+- `LineBundlePairing` constructs the product-cocycle sheaf and the actual
+  hyperplane square pairing. Its tensor lift is proved bijective on every
+  subopen of a chart, via explicit local linear equivalences.
+- `PlaneHyperplaneSheaf` constructs three actual global coordinate sections
+  of that hyperplane sheaf and identifies their generic coefficients with
+  the actual normalized projective coordinates.
+- `ProjectiveQuarticRestriction` proves low-degree injectivity in the
+  actual curve function field through the actual inclusion's generic prime.
+  `ProjectiveBaseScalars` identifies the coefficient map with the canonical
+  base-field action induced by the structure morphism.
+
+`PlaneHyperplaneRestriction` carries the exact quartic statement to every
+nonempty subopen of a coordinate chart. `PlaneThetaIneffectivity` then
+proves `planeQuintic_even_theta_sections_eq_zero` on the constructed actual
+prime quintic. The curve, its integrality, the hyperplane and square
+sheaves, their coordinate sections, hyperplane multiplication pairing and
+its local perfectness, and quartic injectivity are all supplied internally.
+The remaining inputs are actual quadratic surjectivity, a nonempty affine
+refinement with integrally closed coordinate rings and theta frames, a
+locally tensor-perfect theta pairing, and evenness. This permits an
+arbitrary common refinement; it does not require theta to be trivial on
+the three entire standard charts.
+
 The remaining **geometric instantiation** must supply:
 
-1. The actual smooth plane quintic and the actual sheaves `Θ`, `O_C(1)`, and
-   `O_C(2)`, with natural locally tensor-perfect pairings induced by the
-   specified theta square isomorphism.
-2. A nonempty affine cover with integrally closed coordinate rings and
-   coherent rank-one frames for those sheaves, derived from this geometry.
-3. Surjectivity of the constructed `quadraticSectionMap` for the actual
-   homogeneous coordinate sections, by the relevant restriction/cohomology
-   theorem. The dimension and finite-dimensionality conclusions then follow
-   from the checked restriction-based argument and need no separate input.
-4. Identification of the proved algebraic quartic-injectivity model with the
-   generic coefficients of those actual coordinate sections.
-5. The relation between the conic bundle's specified double cover, its theta
-   line bundle, and geometric parity, including the real base-change step.
+1. From the original smooth plane-quintic hypotheses, derive the required
+   primality and normality, and construct the actual theta module sheaf,
+   its coherent local frames, and the locally perfect square pairing from
+   the specified geometric square isomorphism. Smoothness has not yet been
+   used to discharge these inputs.
+2. Prove surjectivity of the actual `quadraticSectionMap` for the three
+   constructed coordinate sections and the actual hyperplane square
+   pairing. The dimension and finite-dimensionality conclusions then follow
+   internally from the checked restriction-based argument.
+3. Relate the conic bundle's specified real double cover, its theta line
+   bundle, and geometric parity, including the real base-change step.
 
-`PlaneQuintic.lean` now constructs the actual homogeneous principal ideal,
-its projective vanishing locus and generic point, the actual affine-cone
-quotient ring, and its canonical evaluation into the cone's fraction field.
-It proves homogeneous injectivity in degrees below five, including after
-normalizing by a nonzero coordinate. This does **not** identify that fraction
-field with the actual curve's generic stalk, construct its `Spec`/`Proj`
-structure and twist sheaves, or discharge item 4. The normalized-coordinate
-result is a precise algebraic input for that remaining identification.
+`HomogeneousLocalizationSections` provides checked algebra for item 2:
+a finite free basis of a monic hypersurface permits clearing denominators,
+and two relatively prime coordinate localizations intersect in the original
+ring. In the actual homogeneous cone quotient, a numerator of degree `m+d`
+whose coordinate denominator has degree `m` yields a homogeneous
+representative of degree `d`. The degree-two specialization is proved.
+These statements do not yet identify actual square-sheaf sections with
+those fractions, or identify the monic and multivariate quotient models;
+they are not a proof of global quadratic-section surjectivity.
+
+The curve construction uses the reduced induced subscheme, not a declared
+isomorphism with `Proj(K[X₀,X₁,X₂]/(F))`. That alternate presentation is not
+proved here. The whole affine-cone fraction field is never identified with
+the curve function field: the actual comparison concerns degree-zero
+coordinate ratios and genuine projective chart sections.
 
 [THETA_BRIDGE_REVIEW.md](THETA_BRIDGE_REVIEW.md) retains the mathematical
 proof and records the exact conditional Lean theorem. The formalized route

@@ -294,49 +294,112 @@ units on affine opens. The square-quotient result requires a nonzero generic
 denominator, not a denominator that is locally a unit. Common zeros of
 regular numerators and denominators are therefore allowed.
 
-## 5. Remaining geometric instantiation
+## 5. Actual geometric realization and remaining inputs
 
-The conditional theorem above is not yet the theorem for all smooth plane
-quintics. Its outstanding geometric inputs are:
+The project now constructs `PlaneCurveScheme F` as the reduced induced
+closed subscheme of `V(F)` inside the actual projective plane. It constructs
+the closed immersion, the structure morphism over the base field, and three
+affine coordinate charts covering the curve. The explicit polynomial
+hypotheses—homogeneity, degree greater than one, and primality of `(F)`—give
+integrality, the actual generic point's image, and nonemptiness of the
+charts. These conclusions are proved, not added as scheme properties.
 
-1. Construct the particular curve as an actual scheme over the base field,
-   its twist sheaves `O_C(1),O_C(2)`, and the theta sheaf. Construct the
-   natural pairings from the specified tensor-square isomorphism and verify
-   their local tensor-perfectness.
-2. Derive a normal affine trivializing cover and coherent frames from that
-   geometry. Smoothness of the given plane quintic has not yet been used to
-   discharge these hypotheses in the final Lean theorem.
-3. Prove that its homogeneous coordinate sections make the explicitly
-   constructed `quadraticSectionMap` surjective. The projective-space
-   cohomology/restriction theorem providing this has not yet been formalized
-   in this project.
-4. Identify the actual generic coefficients of its coordinate sections with
-   the proved algebraic chart model, thereby supplying `h4`.
-5. Relate the line bundle from the specified real double cover to the actual
-   theta object and its geometric parity, including the real base change;
-   then construct the real symmetric resolution and compare the signed
-   discriminant cover.
+`ProjectiveCoordinateSections` constructs the actual regular functions
+`Xⱼ/Xᵢ` and their unit cocycle on chart intersections. `PullbackTransition`
+pulls the cocycle back along the actual curve inclusion. The `LineBundle*`
+construction modules then construct a genuine module sheaf from that data:
+its sections are compatible families of regular functions, its sheaf axiom
+comes from the actual structure sheaf, and its local frames have the
+explicit inverses `r ↦ (gⱼᵢ r)ⱼ`. `PlaneHyperplaneSheaf` supplies three actual
+global coordinate sections and proves that their generic coefficients are
+the actual normalized projective coordinates. The target hyperplane sheaf
+is no longer merely assumed to exist. `LineBundlePairing` multiplies the
+cocycle with itself to construct the actual square sheaf and its natural
+multiplication pairing. Explicit tensor linear equivalences in the
+constructed frames prove local tensor-perfectness, with coefficient one,
+on every chart subopen. This is a local assertion; it does not identify a
+tensor product of global sections with all square-sheaf sections.
 
-`PlaneQuintic.lean` makes item 5 more concrete. It constructs the homogeneous
-principal ideal, a genuine `ProjectiveSpectrum` vanishing locus and generic
-point, and the affine-cone quotient `K[X₀,X₁,X₂]/(F)`. Evaluation into that
-quotient's fraction field has exactly the principal ideal as kernel. After
-normalizing by a nonzero coordinate, the homogeneous degree-below-five
-injectivity theorem still holds, giving quartic injectivity.
+`ProjectiveQuarticRestriction` proves homogeneous low-degree injectivity
+directly in the actual curve function field. It uses genuine projective
+chart fractions, their pullbacks, and the homogeneous prime at the actual
+generic point. `ProjectiveBaseScalars` identifies chart constants with the
+canonical algebra map induced by the structure morphism. Thus the former
+comparison between algebraic chart coordinates and actual generic
+coefficients has been established. In particular,
+`planeQuintic_hyperplane_quartic_injective` gives the exact canonical-`aeval`
+quartic statement for the three constructed global hyperplane sections.
 
-These coordinates still live in the **cone's fraction field**. The code
-does not equate it with the curve's actual generic stalk or silently identify
-its normalized coordinates with `schemeGenericLinearMap` for the geometric
-hyperplane sheaf. Nor is ungraded evaluation at normalized coordinates
-injective: the chosen normalized coordinate equals one. Connecting this
-degree-zero coordinate model to the actual `Spec`/`Proj` curve and twist
-sheaves is an outstanding step. The whole cone fraction field cannot be
-identified with the curve's function field; only the appropriate normalized
-coordinate data are intended to be compared.
+The whole cone fraction field is never identified with the curve function
+field. Only normalized degree-zero coordinate data are compared. Nor is
+ungraded evaluation at those coordinates injective: one chosen coordinate
+is one. An isomorphism between this reduced induced curve and the alternate
+scheme `Proj(K[X₀,X₁,X₂]/(F))` has not been proved and is not silently used.
+
+### The concrete-curve conditional theorem
+
+`PlaneHyperplaneRestriction` proves the same canonical quartic statement
+on any nonempty open contained in a standard chart, using restricted
+actual frames. This allows a common refinement on which an independently
+given theta sheaf is trivial. No trivialization of theta on the three
+entire coordinate charts is assumed.
+
+`planeQuintic_even_theta_sections_eq_zero` in `PlaneThetaIneffectivity.lean`
+applies to an algebraically closed field and a homogeneous degree-five polynomial with prime principal ideal.
+It constructs the actual curve's integrality, and uses the already
+constructed `H`, square sheaf `T`, three coordinate sections and
+hyperplane square pairing. That pairing's local tensor-perfectness and
+quartic injectivity are proved rather than supplied. Its remaining inputs
+are precisely:
+
+- An actual module sheaf `Θ` and actual natural pairing `μ:Θ×Θ→T`.
+- A nonempty affine cover refining the standard coordinate cover, with
+  integrally closed coordinate rings, coherent theta frames and bijective
+  local tensor lifts of `μ`.
+- Surjectivity of the actual `quadraticSectionMap` for the constructed
+  hyperplane pairing and coordinate sections.
+- Even dimension `Even (finrank K Γ(Θ))`.
+
+It proves that every actual global theta section is zero. It requires no
+separate hyperplane dimension, finite-dimensionality or quartic
+restriction hypothesis. The existence of the normal theta-framed
+refinement and quadratic surjectivity remain genuine assumptions, not
+conclusions inferred from naming the curve smooth.
+
+### What still has to be supplied
+
+The remaining geometric obligations are:
+
+1. Derive the necessary primality and normality from the original smooth
+   plane-quintic assumptions. Construct the specified theta module sheaf,
+   its coherent local frames and its locally perfect square pairing from
+   the geometric square isomorphism. The actual hyperplane construction
+   alone does not supply this theta data.
+2. Prove surjectivity of the actual `quadraticSectionMap` for the constructed
+   hyperplane coordinate sections and their actual square pairing. This
+   remains the principal section-theoretic gap in the geometric
+   instantiation; neither affine restriction surjectivity nor the existence
+   of three global coordinate sections proves it.
+3. Relate the line bundle from the specified real double cover to this theta
+   object and its geometric parity, including base change; then construct
+   the real symmetric resolution and compare the signed discriminant cover.
+
+For item 2, `HomogeneousLocalizationSections` proves several substantive
+algebraic steps. In a monic hypersurface quotient, a finite free basis
+allows simultaneous denominator clearing, and two relatively prime
+coordinate localizations intersect in the original ring. In the actual
+homogeneous cone quotient, projecting an ideal relation to one degree
+shows that `Xⱼ^m c = A`, with `A` homogeneous of degree `m+d`, gives a
+homogeneous degree-`d` representative of `c`. The degree-two case is proved.
+What remains is to connect actual square-sheaf sections to these fraction
+models and compare the monic and multivariate quotient presentations.
+Consequently these algebraic lemmas are not yet a proof of `h2`.
 
 The paper proof in §1 remains a proof of the first theta lemma. The checked
-conditional theorem now covers its section-theoretic logic, including the
-actual sheaf isomorphism and parity step, once the listed geometric inputs
-are supplied. The original real conic-bundle existence question and the
-later Brauer, quadratic-form, birational, and real-connectedness implications
-are still not formally proved.
+conditional theorem covers its section-theoretic logic, including actual
+sheaf isomorphism, internally derived dimensions, and parity. The new
+geometric constructions remove former existence and generic-coordinate
+interfaces; they do not discharge the remaining quadratic-surjectivity and
+theta-data inputs. The original real conic-bundle existence question and
+the later Brauer, quadratic-form, birational, and real-connectedness
+implications are still not formally proved.

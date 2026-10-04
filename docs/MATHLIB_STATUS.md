@@ -28,6 +28,10 @@ Absence of a search result is not a theorem of nonexistence.
 | Invertibility is local | `RingedSpace.isUnit_of_isUnit_germ`; `Mathlib/Geometry/RingedSpace/Basic.lean` | A regular function that restricts to units on a cover is a unit globally |
 | Actual sheaves of modules | `SheafOfModules`, `Scheme.Modules`, `SheafOfModules.unitHomEquiv`; `Mathlib/Algebra/Category/ModuleCat/Sheaf.lean`, `Mathlib/AlgebraicGeometry/Modules/Sheaf.lean` | Construct the morphism `r ↦ r • s` from a compatible section and an actual isomorphism from a local generator |
 | Coherent frames and transition functions | `LinearEquiv`, `PresheafOfModules.isoMk`, actual module restriction maps | Local rank-one coordinates, restriction compatibility, and genuine changes of frame |
+| Actual projective schemes and charts | `AlgebraicGeometry.Proj`, `Proj.basicOpen`, `Proj.basicOpenIsoSpec`, `Proj.awayToSection`, `Proj.toSpecZero` | Realize the projective plane, chart fractions and the base structure morphism |
+| Reduced closed subschemes | `Scheme.IdealSheafData.vanishingIdeal`, `subscheme`, `subschemeObjIso`, `subschemeι_app_surjective` | Construct the curve from actual affine quotient schemes and prove chart restriction results |
+| Homogeneous localization and generic stalks | `HomogeneousLocalization`, actual projective stalk maps and local ring units | Compare homogeneous fractions with actual curve generic coefficients, without an affine-cone field identification |
+| Monic quotient bases and homogeneous projections | `AdjoinRoot`, monic polynomial bases, `GradedRing.proj`, `DirectSum.coe_decompose_mul_add_of_left_mem` | Clear denominators in the monic quotient model and extract a homogeneous representative in the cone quotient |
 
 
 `EvenQuinticConic/IsotropicDimension.lean` proves the dimension argument and
@@ -99,9 +103,9 @@ The project now additionally uses `MvPolynomial.IsHomogeneous`, coefficient
 and total-degree APIs, `IsAlgClosed.exists_pow_nat_eq`, actual
 `LinearIndependent` pairs, algebra homomorphisms, and `RingHom.ker` to join the
 polynomial argument in `RestrictionModel.lean`. This supplies a proved
-implication for a specified algebraic restriction model. The geometric
-construction of that model remains open; the additional coefficient-level
-construction and local algebra are described below. The cofactor module also supports an
+implication for a specified algebraic restriction model. The full graded kernel model still requires its stated kernel hypotheses;
+the actual finite-degree geometric input now proved below supplies the
+shorter restriction route. The cofactor module also supports an
 explicit scalar twist, so either sign may be stated without silently changing
 the equation; no geometric discriminant-sign comparison is thereby proved.
 
@@ -243,22 +247,76 @@ zero. Both finite-dimensionality and `h⁰(H)=3` are now internal conclusions,
 not additional assumptions. The proof establishes finite-dimensionality
 before applying the finite-rank-zero criterion for actual vanishing.
 
-## Plane-quintic algebra and remaining instantiation
+## Actual projective geometry and cocycle descent
 
-`PlaneQuintic` uses the actual homogeneous ideal and `ProjectiveSpectrum`
-vanishing locus, an actual quotient ring `K[X₀,X₁,X₂]/(F)`, its fraction
-field, and normalized coordinate ratios. Primality and degree five imply
-injectivity on homogeneous polynomials of degrees below five, including the
-precise quartic input. The fraction field used here belongs to the affine
-cone, not the curve. The needed next step concerns the degree-zero
-coordinate ratios and their comparison with actual curve sections; it
-cannot equate the whole cone fraction field with the curve's function field.
-The full ungraded normalized evaluation is not asserted to be injective.
+`PlaneCurveScheme` now constructs an actual scheme: the reduced induced
+closed subscheme of `V(F)` inside `Proj K[X₀,X₁,X₂]`. Its affine coordinate
+rings are actual quotients by vanishing ideals. The closed immersion, the
+structure morphism over `K`, and the three affine coordinate charts are
+constructed. Homogeneous primality and the degree condition give
+integrality, the image of the generic point, and nonemptiness of all three
+charts. Smoothness is not an input to these proofs and has not been used
+to derive normality or primality for the original geometric problem.
 
-It remains to construct the actual curve scheme and its twist/theta sheaves,
-obtain their normal affine framed cover and square pairings, prove actual
-quadratic surjectivity, and identify their generic
-coordinates with the algebraic chart model. These are explicit geometric
-instantiation tasks. The later real determinantal, Brauer, quadratic-form,
-birational, and connectedness bridges also remain unproved. The complete
-original conic-bundle theorem is therefore still not formalized.
+`ProjectiveGenericChart`, `ProjectiveStalkUnits`, `GenericPullback`, and
+`ProjectiveQuarticRestriction` use actual chart sections, actual stalk maps,
+and the actual generic prime to prove the low-degree restriction result in
+the actual curve function field. `ProjectiveBaseScalars` compares chart
+constants with the structure morphism, identifying the coefficient map with
+the canonical base-field algebra map. This fills the former gap between a
+pure cone calculation and actual generic restriction. The theorem
+`planeQuintic_hyperplane_quartic_injective` states quartic injectivity for
+the actual constructed hyperplane global sections with canonical `aeval`. It does not identify
+the whole cone fraction field with the curve function field, and normalized
+ungraded evaluation is still not asserted to be injective.
+
+No ready-made cocycle-to-module-sheaf constructor was used. The project
+constructs one explicitly:
+
+| Module | Actual construction |
+| --- | --- |
+| `ProjectiveCoordinateSections` | Regular functions `Xⱼ/Xᵢ` on actual projective charts, unit transitions on all common subopens, and their restriction and cocycle identities |
+| `PullbackTransition` | Pullback of those units and compatible scalar coordinates along an actual scheme morphism |
+| `LineBundleGluing` | Precise unit transition data, including restrictions on arbitrary subopens |
+| `LineBundlePresheaf` | A module presheaf of compatible scalar families; restrictions truncate the family and scalar multiplication uses actual restrictions of regular functions |
+| `LineBundleSheaf` | The actual sheaf axiom, proved by unique gluing in the structure sheaf coordinate by coordinate |
+| `LineBundleFrames` | Actual coherent local linear equivalences, with explicit inverse `r ↦ (gⱼᵢ r)ⱼ`; their change-of-frame coefficients are exactly the input cocycle |
+| `PlaneHyperplaneSheaf` | The actual curve hyperplane sheaf, its three genuine coordinate sections and their generic-coefficient comparison |
+| `LineBundlePairing` | Product-cocycle sheaves, natural multiplication pairings, and explicit tensor linear equivalences on every framed subopen; local tensor-perfectness and coefficient one are proved |
+| `PlaneHyperplaneRestriction` | Restriction of actual coherent frames and canonical generic coefficients to nonempty chart subopens; exact quartic injectivity survives a common refinement |
+| `PlaneThetaIneffectivity` | The concrete-curve theorem `planeQuintic_even_theta_sections_eq_zero`, with hyperplane/square sheaves, their sections, pairing, local perfectness and quartic input all internally supplied |
+
+The descent construction does not assume the target module sheaf exists.
+It works on empty subopens as well. Its sheaf construction does not require
+the chosen opens to cover the scheme; the proved cover condition is what
+makes the constructed frames a rank-one trivializing cover of the entire
+scheme. No assumption about injection from empty-open sections into a
+field is made. The multiplication pairing is perfect on those framed
+subopens, including the empty open; no global-section tensor identity is
+asserted.
+
+The concrete wrapper retains a normal affine **refinement** of the coordinate
+cover on which the supplied theta sheaf is framed. It does not presume
+that theta is trivial on each entire standard chart. The theta square
+pairing and its local tensor-perfectness, actual quadratic surjectivity,
+and evenness remain explicit inputs; finite-dimensionality and hyperplane
+dimension three are internally derived as before.
+
+## Quadratic surjectivity remains a separate step
+
+`HomogeneousLocalizationSections` proves denominator clearing in a finite
+free monic-hypersurface quotient and an intersection theorem for two
+relatively prime coordinate localizations. Separately, homogeneous
+projection in the actual cone quotient extracts a degree-`d` representative
+from an equality `Xⱼ^m c = A` with `A` homogeneous of degree `m+d`; this
+includes degree two. The connection between actual square-sheaf sections,
+these homogeneous fractions, and the monic quotient presentation is not yet
+proved. In particular, affine chart restriction being surjective does not
+imply surjectivity of the global quadratic-section map.
+
+An isomorphism of the reduced induced curve with the alternate construction
+`Proj(K[X₀,X₁,X₂]/(F))` is not asserted. Actual quadratic surjectivity,
+normality derived from smoothness, and the specified theta object and
+square pairing remain geometric inputs. The later real determinantal,
+Brauer, quadratic-form, birational, and connectedness bridges also remain
+unproved. The complete original conic-bundle theorem is still not formalized.
