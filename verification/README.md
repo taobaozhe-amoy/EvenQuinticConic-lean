@@ -5,12 +5,15 @@ as predicted output.
 
 | Check | Result |
 | --- | --- |
-| `lake build` | Exit 0; all twenty-two source modules and the root import compiled |
-| `lake env lean Audit.lean` | Exit 0; 254 declarations audited, including 202 theorem declarations |
-| Handwritten `theorem` declarations | 123; the remaining theorem declarations in the audit are compiler/tactic/structure-generated |
+| `lake build` | Exit 0; all thirty-five source modules and the root import compiled |
+| `lake env lean Audit.lean` | Exit 0; 469 declarations audited, including 360 theorem declarations |
+| Handwritten `theorem` declarations | 198 total: 196 public and 2 private helpers; comments are excluded from this source count |
 | Allowed axiom dependencies | `propext`, `Classical.choice`, `Quot.sound` |
 | `sorryAx` or any other unexpected axiom | None in the audited dependency closures |
 | mathlib tracked source changes | None |
+| Conditional theta ineffectivity | Proved for actual sheaves with explicit local and restriction-map hypotheses |
+| Theta finite-dimensionality and hyperplane dimension three | Derived from the restriction data, not separately assumed |
+| Concrete smooth plane-quintic instantiation | Not yet formalized |
 | Full geometric no-go theorem | Not formalized or verified |
 | GitHub Actions | See the repository's Actions tab for current remote run status |
 
@@ -43,7 +46,9 @@ mathlib source was changed to work around that restriction.
 ## What the axiom check does not certify
 
 The audit inspects the actual declarations in the `EvenQuinticConic`
-namespace and their transitive axiom dependencies. It does not verify external
+namespace and their transitive axiom dependencies, including the private helpers
+used by those declarations. The audited theorem count includes generated
+declarations and differs from the handwritten source count. It does not verify external
 mathematical prose, the missing geometry, or the original informal statement.
 An axiom-free theorem with the wrong hypotheses would still not settle that
 statement. The scope is therefore recorded separately in the README and

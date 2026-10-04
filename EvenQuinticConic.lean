@@ -20,3 +20,16 @@ import EvenQuinticConic.SheafTrivialization
 import EvenQuinticConic.LocalFrames
 import EvenQuinticConic.RationalSectionFrames
 import EvenQuinticConic.ModuleGenericInjection
+import EvenQuinticConic.ModuleHomGluing
+import EvenQuinticConic.FrameComparison
+import EvenQuinticConic.RankOnePairing
+import EvenQuinticConic.ModulePairing
+import EvenQuinticConic.PairingComparison
+import EvenQuinticConic.SchemeScalarAction
+import EvenQuinticConic.GlobalSectionDimension
+import EvenQuinticConic.PlaneQuintic
+import EvenQuinticConic.ThetaSectionBridge
+import EvenQuinticConic.QuadraticSections
+import EvenQuinticConic.ThetaIneffectivity
+import EvenQuinticConic.ThetaFiniteDimension
+import EvenQuinticConic.HyperplaneDimension

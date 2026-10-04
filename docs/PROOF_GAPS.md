@@ -10,76 +10,80 @@ None of these objects is currently packaged into a Lean statement of the target 
 
 ## 2. Even theta and symmetric determinantal representation
 
-The proposed argument first aims to show that an even theta characteristic on a smooth plane quintic is ineffective. The intended route lifts products of sections to conics `A,B,D`, uses the relation `A D - B²` in the principal ideal of the quintic, and then analyzes factorization and line bundles.
+The section-theoretic implication is now a **conditional theorem about
+actual schemes and actual module sheaves**. `ThetaIneffectivity.lean` proves
+that two independent actual sections force `Θ ≅ H`. The same restriction
+inputs imply `h⁰(H)=3` and finite-dimensional theta sections, so even
+dimension implies that every actual theta section is zero. No desired isomorphism or vanishing statement
+is an input. The theorem does not yet instantiate its hypotheses from a
+smooth plane quintic.
 
-The algebraic classification is now proved, including homogeneity. The theorem
-`nonproportional_homogeneous_conics_from_quintic_ideal` combines
-`PolynomialDegree.lean`, `RankOneFactorization.lean`, `ConicClassification.lean`,
-and `HomogeneousConics.lean`: if `deg F=5`, the conics are homogeneous of
-degree two, `A,D` are nonzero and not scalar multiples, and `A D-B² ∈ (F)`,
-then `A=c a²`, `B=c ab`, `D=c b²` with `c≠0` and homogeneous linear `a,b`.
-This works over an arbitrary field and uses actual multivariate polynomials.
+The checked chain now includes:
 
-`IndependentSquares.lean` also proves that over an algebraically closed field,
-two linearly independent elements of a domain algebra have linearly independent
-squares. This supplies the abstract algebraic nonproportionality criterion.
-It still requires realizing the actual line-bundle sections and their products
-in a suitable domain algebra and relating the polynomial lifts to them.
+- `SchemeScalarAction`: base-field actions and scalar towers induced by the
+  actual structure morphism `X → Spec K`, and an injective `K`-linear generic
+  coefficient map preserving independence.
+- `QuadraticSections`: an actual linear map from homogeneous quadratics to
+  actual global sections, built from three sections and a natural pairing.
+  Surjectivity of this map supplies the three polynomial lifts; their
+  generic product formulas are derived, not separately assumed.
+- `RankOnePairing` and `ModulePairing`: an actual locally tensor-perfect
+  pairing has a unit coefficient in local rank-one frames and supplies one
+  common generic multiplier for `s²`, `st`, and `t²`.
+- The existing degree and factorization modules: quartic injectivity gives
+  `AD=B²`, then `A=ca², B=cab, D=cb²` with homogeneous linear `a,b`.
+- `ThetaSectionBridge`, `PairingComparison`, `FrameComparison`, and
+  `ModuleHomGluing`: construct the actual linear section, the global square
+  identity, local unit comparison maps, their overlap compatibility, and
+  an actual isomorphism `Θ ≅ H`. This uses the established actual generic
+  injection, normal-affine unit extension, and sheaf gluing results.
+- `ThetaFiniteDimension`: actual quadratic surjectivity makes the square
+  section space a quotient of `K⁶`; pairing with a nonzero theta section is
+  injective, so theta sections are finite-dimensional (the zero space case
+  is handled separately).
+- `HyperplaneDimension`: quartic injectivity makes the three coordinate
+  sections independent, and quadratic surjectivity forces them to span.
+  Their actual basis gives `h⁰(H)=3` without an extra dimension hypothesis.
+- `GlobalSectionDimension` and `ThetaIneffectivity`: the actual isomorphism
+  induces a base-field-linear equivalence of global section spaces; the
+  internally proved dimensions and parity give the conditional vanishing
+  theorem `even_theta_ineffective_of_restriction_maps`.
 
-`RestrictionModel.lean` joins these results through an actual algebra
-homomorphism `φ : K[σ] →ₐ[K] R`. Given `ker φ=(F)`, independent `s,t`, and
-images `φ(A)=s²`, `φ(B)=st`, `φ(D)=t²`, it derives the ideal relation,
-nonzero diagonal entries, and their nonproportionality internally, then proves
-the homogeneous factorization. This does not construct that model for the
-geometric sections; compatible trivializations and possible scalar factors
-still have to be justified.
+Finite-dimensionality is proved before using finite rank zero to deduce
+that every section is zero. The final theorem does not treat an unrestricted
+`finrank = 0` as a vanishing statement and does not assume either
+finite-dimensionality or `h⁰(H)=3` as a separate hypothesis.
 
-The coefficient-level construction is now supplied by `GradedRestriction.lean`:
-`Xᵢ ↦ C(fᵢ)T`, with an exact degreewise kernel formula. The theorem identifying
-that kernel with `(F)` still requires a homogeneous vanishing-ideal input.
-`WeightedRestriction.lean` allows the identities `φ(A)=u s²`, `φ(B)=u st`,
-`φ(D)=u t²` without assuming a square root of `u`. `SquareExtension.lean`
-separately supplies an actual field-extension construction when wanted.
+The remaining **geometric instantiation** must supply:
 
-There is also a weaker, more direct interface. `FiniteDegreeRestriction.lean`
-needs only injectivity of restriction on homogeneous quartics. Together with
-`GenericCoefficientModel.lean` it produces the linear-square factorization
-and the nonzero ratio `r=α/a(f)` satisfying `u*r²=c` for `c∈K*`.
-Thus the entire homogeneous vanishing ideal is not needed for this argument.
+1. The actual smooth plane quintic and the actual sheaves `Θ`, `O_C(1)`, and
+   `O_C(2)`, with natural locally tensor-perfect pairings induced by the
+   specified theta square isomorphism.
+2. A nonempty affine cover with integrally closed coordinate rings and
+   coherent rank-one frames for those sheaves, derived from this geometry.
+3. Surjectivity of the constructed `quadraticSectionMap` for the actual
+   homogeneous coordinate sections, by the relevant restriction/cohomology
+   theorem. The dimension and finite-dimensionality conclusions then follow
+   from the checked restriction-based argument and need no separate input.
+4. Identification of the proved algebraic quartic-injectivity model with the
+   generic coefficients of those actual coordinate sections.
+5. The relation between the conic bundle's specified double cover, its theta
+   line bundle, and geometric parity, including the real base-change step.
 
-`LocalSquareUnit.lean` proves the actual local algebra: in the fraction field
-of an integrally closed ring, a positive power equal to a unit implies that
-the element is the image of a unit. The weighted quotient version applies to
-`u*x²=v*y²` even if the denominator `y` has zeros as a regular function.
-`GenericPointInjection.lean` now applies this algebra to the actual function
-field and structure sheaf of an integral scheme, including uniqueness and
-compatibility with restriction. `SheafGluing.lean` then constructs genuine
-structure-sheaf gluing and the global unit, using the actual sheaf axioms.
+`PlaneQuintic.lean` now constructs the actual homogeneous principal ideal,
+its projective vanishing locus and generic point, the actual affine-cone
+quotient ring, and its canonical evaluation into the cone's fraction field.
+It proves homogeneous injectivity in degrees below five, including after
+normalizing by a nonzero coordinate. This does **not** identify that fraction
+field with the actual curve's generic stalk, construct its `Spec`/`Proj`
+structure and twist sheaves, or discharge item 4. The normalized-coordinate
+result is a precise algebraic input for that remaining identification.
 
-For module sheaves, `SheafTrivialization.lean` constructs the actual map
-`O→M`, `r↦r•s`, and proves it is an isomorphism from local unit coordinates.
-`LocalFrames.lean` supplies coherent local frames and glues compatible local
-unit sections to obtain that global section and isomorphism. These are actual
-`SheafOfModules` objects, rather than predicates asserting an isomorphism.
-`RationalSectionFrames.lean` joins these steps: given rational coefficients
-in coherent frames, the computed transition equations and positive-power
-unit identities on a normal affine cover, it constructs both the regular
-global generator and the actual isomorphism `O≅M`. The direct square-ratio
-entry also accepts `g(u_i)x_i²=g(v_i)y_i²`, `y_i≠0`, and transitions for
-`x_i/y_i`; it does not assume that denominators are locally invertible.
-`ModuleGenericInjection.lean` proves that a section of an actual module sheaf
-with coherent rank-one local frames is determined by its actual generic
-coefficient. This injectivity is proved, not assumed.
-The specified theta line bundle, its local section identities and the
-geometric restriction maps have not been constructed from the plane curve.
-
-[THETA_BRIDGE_REVIEW.md](THETA_BRIDGE_REVIEW.md) now gives a complete
-mathematical proof of the theta lemma, with explicit formalization boundaries.
-Still missing in Lean are the actual geometric lifting and restriction maps,
-the application of the module-sheaf results to theta, and the dimension of
-its global sections. No Lean theorem yet proves theta ineffectivity.
-The line-bundle reconstruction cancels two in the divisor group after an
-actual section identity; cancellation in the Picard group would be invalid.
+[THETA_BRIDGE_REVIEW.md](THETA_BRIDGE_REVIEW.md) retains the mathematical
+proof and records the exact conditional Lean theorem. The formalized route
+now directly constructs `Θ ≅ H`; it does not need to assume or perform
+cancellation in the Picard group. The alternative paper proof cancels two
+only in the actual divisor group after obtaining a section identity.
 
 Beauville's Proposition 4.2(a) works over the real field for an actual real
 ineffective theta line bundle (his §0.3 allows arbitrary fields, and the
