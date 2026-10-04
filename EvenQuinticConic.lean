@@ -8,3 +8,9 @@ import EvenQuinticConic.ConicClassification
 import EvenQuinticConic.HomogeneousConics
 import EvenQuinticConic.IndependentSquares
 import EvenQuinticConic.RestrictionModel
+import EvenQuinticConic.GradedRestriction
+import EvenQuinticConic.SquareExtension
+import EvenQuinticConic.WeightedRestriction
+import EvenQuinticConic.LocalSquareUnit
+import EvenQuinticConic.GenericCoefficientModel
+import EvenQuinticConic.FiniteDegreeRestriction
