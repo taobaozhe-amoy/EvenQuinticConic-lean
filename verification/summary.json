@@ -1,13 +1,13 @@
 {
-  "checked_at_utc": "2026-10-03T23:41:05.412355+00:00",
+  "checked_at_utc": "2026-10-04T00:10:39.438988+00:00",
   "lean_version": "4.24.0",
   "lean_commit": "797c613eb9b6d4ec95db23e3e00af9ac6657f24b",
   "mathlib_commit": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
   "build_exit_code": 0,
   "audit_exit_code": 0,
-  "audited_declarations": 128,
-  "audited_theorem_declarations_including_generated": 101,
-  "handwritten_theorem_declarations": 57,
+  "audited_declarations": 170,
+  "audited_theorem_declarations_including_generated": 141,
+  "handwritten_theorem_declarations": 90,
   "axiom_allowlist": [
     "propext",
     "Classical.choice",
@@ -15,7 +15,7 @@
   ],
   "full_geometric_theorem_formalized": false,
   "source_sha256": {
-    "EvenQuinticConic.lean": "ca179cda03b591196e0365f5a867f4752becaa5efcb2df03dfe03f0358132431",
+    "EvenQuinticConic.lean": "2857120fbb64a847b27040642f4db0e2ae0c117f15a8b8ee953a478d28830261",
     "Audit.lean": "d7737c45fe4f6ba71663500f4adcffefcc65f904cb8c0c6bc25973ae0d944121",
     "lakefile.lean": "ac0cbb06f91e35c9f4e28fdc68570067d2bfc2fbc1481488b42cb7c25e3bfa93",
     "lean-toolchain": "42779d67b81608af8a12aa4328d2ab47ca201925b3b2bd68369587b5340bb434",
@@ -23,14 +23,20 @@
     "EvenQuinticConic/CofactorCover.lean": "568e3c0aefd84e098dd175060e9930ac1dd390a259d7fe0bb07976a509ef1624",
     "EvenQuinticConic/ConicClassification.lean": "065960af7d49880f1204c5c3e18821a21864d944d775b02a848a50e1c0bca44b",
     "EvenQuinticConic/ConnectedComponents.lean": "5220620db0697e6cf22cb5c5ac56c30688a84b401eda57c45eaa9210e74e6426",
+    "EvenQuinticConic/FiniteDegreeRestriction.lean": "d9b709bab9f6b712bf67b3ebc7be441361fe5ac2fe0b3042dfa41ca1aebc6574",
+    "EvenQuinticConic/GenericCoefficientModel.lean": "53f27b239ea06bb831727c82fb3f823ca290a138266ca61a5c4a0084ed862704",
+    "EvenQuinticConic/GradedRestriction.lean": "7692d654d525121b7b5a48badba8adf9fd335e589cebe7e0373d08645cff856a",
     "EvenQuinticConic/HomogeneousConics.lean": "16a164f1e4072c2ead0b7a4d3c9fa0765254823e0c7f54e2f7e5600827b7da47",
     "EvenQuinticConic/Incidence.lean": "18759abf77478c3b7f6afb4b16c645f5038f2d25af5657c8e963849c5978920d",
     "EvenQuinticConic/IndependentSquares.lean": "c2a0e15cebd09b389379ad9aa018a93686f976330068c561a077993b9134d588",
     "EvenQuinticConic/IsotropicDimension.lean": "b87161b1d2bfffa3e601706d2b3af4e736fd0c884f6d08924eef7c569555fbbb",
+    "EvenQuinticConic/LocalSquareUnit.lean": "717588d8a312ae6f6994aab18f6de0a55106df6b1b3a51a58fc5a1e25d6870e1",
     "EvenQuinticConic/PolynomialDegree.lean": "a7dd28ab1a8a60f8d67c64abc07d9eb4ebcb80ed950460a4036c4d5a0fa95d71",
     "EvenQuinticConic/RankOneFactorization.lean": "6cefb01f38a320a2e5cb656bf5e7b0c99595429ffbae4acc81282f72ccfdf949",
-    "EvenQuinticConic/RestrictionModel.lean": "cd2519625d4cc5eacfd4b98e56bc2eca05a4f27d3f4bb3c11ac1f1f7d03deef5"
+    "EvenQuinticConic/RestrictionModel.lean": "cd2519625d4cc5eacfd4b98e56bc2eca05a4f27d3f4bb3c11ac1f1f7d03deef5",
+    "EvenQuinticConic/SquareExtension.lean": "f59effa96663d9d6b4b02b3a50557cf3162a22a4ccf563be80999ce1af7945f6",
+    "EvenQuinticConic/WeightedRestriction.lean": "ce476cf16c08f46e1247c4bbd9e619434fca00c56df306f3c004943351ead9ac"
   },
-  "source_modules": 10,
+  "source_modules": 16,
   "verification_kind": "local"
 }
