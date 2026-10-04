@@ -76,46 +76,62 @@ The actual geometric realization now goes further than this general theorem:
   base-field action induced by the structure morphism.
 
 `PlaneHyperplaneRestriction` carries the exact quartic statement to every
-nonempty subopen of a coordinate chart. `PlaneThetaIneffectivity` then
-proves `planeQuintic_even_theta_sections_eq_zero` on the constructed actual
-prime quintic. The curve, its integrality, the hyperplane and square
-sheaves, their coordinate sections, hyperplane multiplication pairing and
-its local perfectness, and quartic injectivity are all supplied internally.
-The remaining inputs are actual quadratic surjectivity, a nonempty affine
-refinement with integrally closed coordinate rings and theta frames, a
-locally tensor-perfect theta pairing, and evenness. This permits an
-arbitrary common refinement; it does not require theta to be trivial on
-the three entire standard charts.
+nonempty subopen of a coordinate chart. `PlaneQuadraticSurjectivity` now
+proves `planeCurve_quadraticSectionMap_surjective` on the actual constructed
+curve over any infinite field: the equation is homogeneous, has total
+degree greater than one, and generates a prime ideal. Neither monicity nor
+a coordinate choice or lifting property is a theorem input.
+
+`PlaneThetaVanishing` uses that theorem to prove
+`planeQuintic_even_theta_sections_eq_zero_of_normal_frames`. The curve, its
+integrality, the hyperplane and square sheaves, their coordinate sections,
+hyperplane multiplication pairing and local perfectness, quadratic
+surjectivity, and quartic injectivity are all supplied internally. The
+remaining inputs are a nonempty affine refinement with integrally closed
+coordinate rings and theta frames, a locally tensor-perfect theta pairing,
+and evenness, over an algebraically closed field. This permits an arbitrary
+common refinement; it does not require theta to be trivial on the three
+entire standard charts. The older `PlaneThetaIneffectivity` interface with
+an explicit `h2` remains available as a lower-level theorem.
 
 The remaining **geometric instantiation** must supply:
 
 1. From the original smooth plane-quintic hypotheses, derive the required
    primality and normality, and construct the actual theta module sheaf,
    its coherent local frames, and the locally perfect square pairing from
-   the specified geometric square isomorphism. Smoothness has not yet been
-   used to discharge these inputs.
-2. Prove surjectivity of the actual `quadraticSectionMap` for the three
-   constructed coordinate sections and the actual hyperplane square
-   pairing. The dimension and finite-dimensionality conclusions then follow
-   internally from the checked restriction-based argument.
-3. Relate the conic bundle's specified real double cover, its theta line
+   the specified geometric square isomorphism. This includes the adjunction
+   identification of the canonical sheaf with the constructed hyperplane
+   square. Smoothness has not yet been used to discharge these inputs.
+2. Relate the conic bundle's specified real double cover, its theta line
    bundle, and geometric parity, including the real base-change step.
 
-`HomogeneousLocalizationSections` provides checked algebra for item 2:
-a finite free basis of a monic hypersurface permits clearing denominators,
-and two relatively prime coordinate localizations intersect in the original
-ring. In the actual homogeneous cone quotient, a numerator of degree `m+d`
-whose coordinate denominator has degree `m` yields a homogeneous
-representative of degree `d`. The degree-two specialization is proved.
-These statements do not yet identify actual square-sheaf sections with
-those fractions, or identify the monic and multivariate quotient models;
-they are not a proof of global quadratic-section surjectivity.
+The former quadratic-surjectivity gap is closed by the following checked
+chain. `PlaneChartRepresentatives` lifts actual affine-chart functions to
+homogeneous fractions; `QuadraticFractionBridge` proves the square sheaf's
+weight-two transitions. `PlaneLinearChartRepresentatives` compares actual
+fractions on arbitrary linear-form charts with standard generic
+coordinates. `LinearChartQuadraticSections` glues the actual regular
+function `s/L²` on such a chart and produces its homogeneous numerator.
+`PlaneHomogeneousKernel` proves that every homogeneous vanishing relation
+belongs to `(F)`, so generic compatibility gives an actual cone equality.
+
+`HomogeneousCoordinateChoice`, `PlaneMonicModel`, and
+`PlaneCoordinateClearing` construct an actual polynomial coordinate
+equivalence and nonzero scalar normalization making the equation monic.
+The monic quotient's finite free basis gives simultaneous denominator
+clearing, transported back to the original cone for two actual linear
+forms. `LinearDenominatorClearing` extracts the degree-two homogeneous
+representative. Finally `PlaneQuadraticSurjectivity` uses the actual global
+section generic injection to show that this polynomial restricts to the
+original section. Affine restriction surjectivity alone is not treated as
+global surjectivity; the intervening compatibility and denominator arguments
+are proved. No projective scheme automorphism or sheaf transport is needed.
 
 The curve construction uses the reduced induced subscheme, not a declared
 isomorphism with `Proj(K[X₀,X₁,X₂]/(F))`. That alternate presentation is not
 proved here. The whole affine-cone fraction field is never identified with
-the curve function field: the actual comparison concerns degree-zero
-coordinate ratios and genuine projective chart sections.
+the curve function field: degree-zero ratios are compared directly, while
+the full cone embeds in `k(C)[T]` with `T` retaining homogeneous degree.
 
 [THETA_BRIDGE_REVIEW.md](THETA_BRIDGE_REVIEW.md) retains the mathematical
 proof and records the exact conditional Lean theorem. The formalized route

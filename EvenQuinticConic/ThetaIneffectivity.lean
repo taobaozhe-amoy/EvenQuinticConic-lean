@@ -14,8 +14,9 @@ is surjectivity of the explicitly constructed linear map `quadraticSectionMap`.
 Geometric inputs are still explicit: a normal affine framed cover, locally
 tensor-perfect square pairings, quadratic surjectivity, and quartic injectivity.
 `PlaneThetaIneffectivity` constructs the hyperplane data and proves quartic
-injectivity on the actual plane-quintic scheme. Quadratic surjectivity and
-the required normal affine theta frames still need geometric proofs.
+injectivity on the actual plane-quintic scheme. `PlaneThetaVanishing` also
+discharges quadratic surjectivity. The required normal affine theta frames
+and the geometric theta pairing still need to be supplied.
 
 Finite-dimensionality is derived from actual quadratic surjectivity and the
 pairing. This step is essential: `finrank = 0` alone does not mean that an

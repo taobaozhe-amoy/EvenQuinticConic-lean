@@ -10,8 +10,8 @@ homogeneous degree. Its coefficient in degree `d` is the ordinary evaluation
 of the degree-`d` homogeneous component.
 
 These are actual polynomial algebra homomorphisms, not maps from a geometric
-section ring. Identifying their kernels with a curve's defining ideal still
-requires a geometric vanishing-ideal theorem.
+section ring. `PlaneHomogeneousKernel` supplies the geometric vanishing-ideal
+theorem that identifies this kernel for an actual integral plane curve.
 -/
 
 noncomputable section

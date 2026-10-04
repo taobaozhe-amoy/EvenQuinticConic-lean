@@ -32,6 +32,8 @@ Absence of a search result is not a theorem of nonexistence.
 | Reduced closed subschemes | `Scheme.IdealSheafData.vanishingIdeal`, `subscheme`, `subschemeObjIso`, `subschemeι_app_surjective` | Construct the curve from actual affine quotient schemes and prove chart restriction results |
 | Homogeneous localization and generic stalks | `HomogeneousLocalization`, actual projective stalk maps and local ring units | Compare homogeneous fractions with actual curve generic coefficients, without an affine-cone field identification |
 | Monic quotient bases and homogeneous projections | `AdjoinRoot`, monic polynomial bases, `GradedRing.proj`, `DirectSum.coe_decompose_mul_add_of_left_mem` | Clear denominators in the monic quotient model and extract a homogeneous representative in the cone quotient |
+| Actual homogeneous chart representatives | `Proj.basicOpenIsoAway`, `HomogeneousLocalization.Away.mk_surjective`, `Proj.stalkIso'` | Lift actual affine regular functions and compare their linear-form denominators in the actual generic stalk |
+| Polynomial coordinate and quotient equivalences | `MvPolynomial` algebra equivalences, `Ideal.quotientEquivAlg`, iterated polynomial rings | Choose monic coordinates over an infinite field and transport finite-free denominator clearing to the original cone |
 
 
 `EvenQuinticConic/IsotropicDimension.lean` proves the dimension argument and
@@ -46,8 +48,9 @@ cancellative monoid with zero equipped with a gcd structure, that
 `A = h * a²`, `B = h * a * b`, and `D = h * b²`.
 When `A ≠ 0`, it also supplies `h ≠ 0`, `a ≠ 0`, and relatively prime `a, b`.
 This is an actual factorization theorem, with no square-root hypothesis.
-Applying it to sections of a line bundle still requires constructing and
-justifying the polynomial lifts and their relations.
+Applying it to sections of a line bundle requires polynomial lifts and
+their relations. For the constructed actual plane curve, these are now
+supplied by `PlaneQuadraticSurjectivity` and the restriction theorems below.
 
 These results do **not** show that the conic-bundle hypotheses in the proposed
 geometric theorem supply a Pfister form, an embedding into this split form,
@@ -105,7 +108,8 @@ and total-degree APIs, `IsAlgClosed.exists_pow_nat_eq`, actual
 polynomial argument in `RestrictionModel.lean`. This supplies a proved
 implication for a specified algebraic restriction model. The full graded kernel model still requires its stated kernel hypotheses;
 the actual finite-degree geometric input now proved below supplies the
-shorter restriction route. The cofactor module also supports an
+shorter restriction route, and `PlaneHomogeneousKernel` supplies the full
+kernel for the actual constructed curve. The cofactor module also supports an
 explicit scalar twist, so either sign may be stated without silently changing
 the equation; no geometric discriminant-sign comparison is thereby proved.
 
@@ -285,6 +289,12 @@ constructs one explicitly:
 | `LineBundlePairing` | Product-cocycle sheaves, natural multiplication pairings, and explicit tensor linear equivalences on every framed subopen; local tensor-perfectness and coefficient one are proved |
 | `PlaneHyperplaneRestriction` | Restriction of actual coherent frames and canonical generic coefficients to nonempty chart subopens; exact quartic injectivity survives a common refinement |
 | `PlaneThetaIneffectivity` | The concrete-curve theorem `planeQuintic_even_theta_sections_eq_zero`, with hyperplane/square sheaves, their sections, pairing, local perfectness and quartic input all internally supplied |
+| `PlaneHomogeneousKernel` | Complete homogeneous restriction kernel `(F)` and an actual cone embedding into `k(C)[T]` that retains degree |
+| `PlaneChartRepresentatives`, `QuadraticFractionBridge` | Actual chart-fraction lifting, weight-two square-sheaf transitions, and compatible homogeneous numerators in the cone |
+| `PlaneLinearChartRepresentatives`, `LinearChartQuadraticSections` | Actual ratio functions on arbitrary linear-form charts, their generic denominator identity, and gluing the actual regular function `s/L²` |
+| `HomogeneousCoordinateChoice`, `PlaneMonicModel`, `PlaneCoordinateClearing`, `LinearDenominatorClearing` | Construct a monic polynomial coordinate presentation and cone quotient equivalence; transport denominator clearing back and extract homogeneous degree two |
+| `PlaneQuadraticSurjectivity` | Surjectivity of the actual quadratic-section map over an infinite field for a prime homogeneous equation of degree greater than one |
+| `PlaneThetaVanishing` | The stronger theorem `planeQuintic_even_theta_sections_eq_zero_of_normal_frames`, with quadratic surjectivity and quartic injectivity both proved internally |
 
 The descent construction does not assume the target module sheaf exists.
 It works on empty subopens as well. Its sheaf construction does not require
@@ -298,25 +308,46 @@ asserted.
 The concrete wrapper retains a normal affine **refinement** of the coordinate
 cover on which the supplied theta sheaf is framed. It does not presume
 that theta is trivial on each entire standard chart. The theta square
-pairing and its local tensor-perfectness, actual quadratic surjectivity,
-and evenness remain explicit inputs; finite-dimensionality and hyperplane
+pairing and its local tensor-perfectness, and evenness remain explicit
+inputs. The stronger `PlaneThetaVanishing` wrapper now supplies quadratic
+surjectivity from the curve equation. Finite-dimensionality and hyperplane
 dimension three are internally derived as before.
 
-## Quadratic surjectivity remains a separate step
+## Actual quadratic surjectivity is now proved
 
-`HomogeneousLocalizationSections` proves denominator clearing in a finite
-free monic-hypersurface quotient and an intersection theorem for two
-relatively prime coordinate localizations. Separately, homogeneous
-projection in the actual cone quotient extracts a degree-`d` representative
-from an equality `Xⱼ^m c = A` with `A` homogeneous of degree `m+d`; this
-includes degree two. The connection between actual square-sheaf sections,
-these homogeneous fractions, and the monic quotient presentation is not yet
-proved. In particular, affine chart restriction being surjective does not
-imply surjectivity of the global quadratic-section map.
+The theorem `planeCurve_quadraticSectionMap_surjective` assumes an infinite
+field, a homogeneous equation of total degree greater than one, and a prime
+principal ideal. Its target is the actual map built from the constructed
+coordinate sections and actual multiplication pairing. Monicity, a chosen
+coordinate system, and local or global lifting properties are not inputs.
+
+The proof uses actual affine restriction surjectivity and
+`Away.mk_surjective` to obtain local homogeneous fractions. The square
+cocycle gives their weight-two transition law. On any nonzero linear-form
+chart, actual ratios `Xᵢ/L` glue the regular function `s/L²`; projective stalk
+calculations compare its fraction representative with standard generic
+coordinates. The complete homogeneous kernel turns generic compatibility
+into an equality in the actual cone quotient.
+
+An actual polynomial coordinate equivalence and scalar normalization make
+the equation monic over two remaining variables. `PlaneMonicModel` compares
+the multivariate cone quotient with the iterated-polynomial `AdjoinRoot`
+presentation. The finite free basis and denominator-clearing theorems in
+`HomogeneousLocalizationSections` then produce one element of the original
+cone, after transporting through the proved quotient equivalence.
+Homogeneous projection extracts its degree-two representative, and genuine
+global-section generic injectivity proves that it restricts to the given
+section. A separate theorem handles equations already monic in the third
+coordinate. The general theorem constructs the needed coordinate choice
+internally, without constructing or invoking a projective automorphism or
+transporting sheaves along one.
 
 An isomorphism of the reduced induced curve with the alternate construction
-`Proj(K[X₀,X₁,X₂]/(F))` is not asserted. Actual quadratic surjectivity,
-normality derived from smoothness, and the specified theta object and
-square pairing remain geometric inputs. The later real determinantal,
+`Proj(K[X₀,X₁,X₂]/(F))` is not asserted. The affine cone embeds in `k(C)[T]`,
+not in `k(C)` by an ungraded injection, and its whole fraction field is not
+identified with the curve function field. Primality and normality derived
+from smoothness, and the specified theta object, local frames and square
+pairing, including the adjunction identification with the canonical sheaf,
+remain geometric obligations. The later real determinantal,
 Brauer, quadratic-form, birational, and connectedness bridges also remain
 unproved. The complete original conic-bundle theorem is still not formalized.

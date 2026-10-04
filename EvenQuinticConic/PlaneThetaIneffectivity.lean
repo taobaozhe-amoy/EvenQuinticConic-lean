@@ -14,8 +14,9 @@ refinement of the coordinate cover on which the given theta sheaf is framed,
 an actual locally tensor-perfect theta square pairing, surjectivity of the
 actual quadratic-section map, and evenness of the actual section dimension.
 We do not assume that an arbitrary theta sheaf is trivial on each entire
-standard coordinate chart. Nor do we claim that quadratic surjectivity or
-the normal framed refinement has already been deduced from smoothness.
+standard coordinate chart. `PlaneThetaVanishing` proves the stronger version
+with quadratic surjectivity discharged by `PlaneQuadraticSurjectivity`.
+The normal framed refinement has not been deduced from smoothness.
 -/
 
 noncomputable section

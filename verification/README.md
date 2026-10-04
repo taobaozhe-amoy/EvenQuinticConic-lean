@@ -5,9 +5,9 @@ as predicted output.
 
 | Check | Result |
 | --- | --- |
-| `lake build` | Exit 0; all fifty-two source modules and the root import compiled |
-| `lake env lean Audit.lean` | Exit 0; 799 declarations audited, including 612 theorem declarations |
-| Handwritten `theorem` declarations | 305 total: 302 public and 3 private helpers; comments and strings are excluded from this source count |
+| `lake build` | Exit 0; all sixty-three source modules and the root import compiled |
+| `lake env lean Audit.lean` | Exit 0; 932 declarations audited, including 732 theorem declarations |
+| Handwritten `theorem` declarations | 387 total: 382 public and 5 private helpers; comments and strings are excluded from this source count |
 | Allowed axiom dependencies | `propext`, `Classical.choice`, `Quot.sound` |
 | `sorryAx` or any other unexpected axiom | None in the audited dependency closures |
 | mathlib tracked source changes | None |
@@ -16,8 +16,10 @@ as predicted output.
 | Actual plane-curve scheme and hyperplane sheaf | Constructed using the reduced induced closed scheme and coordinate cocycle descent |
 | Actual hyperplane square pairing | Constructed; tensor-perfectness proved on every chart subopen |
 | Quartic restriction on actual coordinate sections | Proved, including on arbitrary nonempty chart refinements |
-| Concrete conditional theta theorem | `planeQuintic_even_theta_sections_eq_zero`; no assumed hyperplane data or quartic injectivity |
-| Actual quadratic-section surjectivity | Still a hypothesis; denominator and homogeneous-representative lemmas do not yet discharge it |
+| Concrete conditional theta theorem | `planeQuintic_even_theta_sections_eq_zero_of_normal_frames`; both restriction hypotheses are discharged |
+| Actual quadratic-section surjectivity | Proved for the constructed curve over an infinite field, with homogeneous prime equation of degree greater than one |
+| Coordinate choice and denominator clearing | Constructed through explicit polynomial and cone quotient equivalences; monicity is not a final hypothesis |
+| Actual sections on arbitrary linear charts | Constructed using genuine regular functions and structure-sheaf gluing |
 | Concrete smooth plane-quintic instantiation | Not yet formalized |
 | Full geometric no-go theorem | Not formalized or verified |
 | GitHub Actions | See the repository's Actions tab for current remote run status |

@@ -16,11 +16,11 @@ A second, separate result extracts a homogeneous polynomial representative
 from an element of the actual plane-curve cone ring once denominators have
 been cleared. It uses the grading of the actual principal homogeneous ideal.
 
-This is an algebraic input to the future calculation of projective twisting
-sheaf sections. It does not construct a twisting sheaf, identify its global
-sections with homogeneous fractions, or choose coordinates making a given
-plane quintic monic. Those geometric bridges are not hypotheses disguised
-as this file's conclusion, and they are not claimed to be completed here.
+This is an algebraic input to the calculation of projective twisting-sheaf
+sections. The later `PlaneQuadraticSurjectivity` proof connects these results
+to actual sheaf sections using explicit good coordinates, actual cone
+equivalences, and regular functions on arbitrary linear charts. The lemmas
+in this file alone do not perform those geometric comparisons.
 -/
 
 noncomputable section
@@ -239,9 +239,8 @@ a homogeneous numerator forces a homogeneous representative of the predicted
 degree. The result is obtained by projecting an actual ideal relation and
 cancelling the coordinate power in the prime homogeneous ideal.
 
-This does not yet identify projective twisting-sheaf sections with these
-homogeneous fractions, nor identify the monic quotient presentation above
-with this multivariate quotient. -/
+The comparison with actual sheaf sections and the monic quotient presentation
+is supplied by the later quadratic-surjectivity construction. -/
 theorem plane_cone_homogeneous_representative (F : PlanePolynomial K) (e : ℕ) (hF : F.IsHomogeneous e)
     [(Ideal.span {F}).IsPrime] (hFdeg : 1 < F.totalDegree)
     (j : Fin 3) (m d : ℕ) (A : PlanePolynomial K) (hA : A.IsHomogeneous (m+d))
