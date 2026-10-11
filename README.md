@@ -9,6 +9,8 @@
 
 最新定理 `planeQuintic_even_theta_sections_eq_zero_of_jacobian` 直接从齐次五次方程的 Jacobian 非奇异条件出发，内部推出方程不可约与主理想素性、实际曲线结构态射的相对维数一光滑性，以及正规性。图册的完整关系理想 `(F, Xᵢ−1)`、偏导主开覆盖与标量兼容性均已证明。实际线层的局部平凡化和平方同构再提供所需标架与完美配对，最终偶维数推出截面消失。
 
+本轮补充实际微分层及其普适性质、规范仿射比较同构、微分预层在真实偏导主开集上的坐标基，以及五次曲线留数微分的局部过渡恒等式。这些构造使用同一个实际结构态射给出的基域作用。局部微分模的基尚未搬运成曲线上微分层的局部平凡化；全局伴随同构仍是待证目标。
+
 该定理仍接收指定线层的局部平凡化、平方同构及截面维数偶性。伴随公式、原判别式双覆盖与 theta 的对应、从实数据到代数闭域的基变换，以及实几何和连通性结论尚未形式化。因此，**编译成功不表示原存在性问题已解决，也不验证此前整个非形式化证明**。
 
 ## 已形式化的内容
@@ -72,6 +74,11 @@
 | `HomogeneousFactors`、`PlaneOriginHeight`、`HomogeneousCommonZero` | 最高齐次分量乘法、原点素理想高度至少 3；由 Nullstellensatz 与 Krull 高度定理证明两个正次齐次三元式有非零公共零点 | 明确使用代数闭域 |
 | `ProjectiveJacobianPoints`、`ProjectiveJacobianCriterion`、`JacobianIrreducible` | 构造非零向量对应的实际射影点；证明两种梯度条件等价，并推出方程不可约及主理想素性 | 条件检查原始方程，不是仅检查约化零集 |
 | `PlaneThetaJacobian` | 从显式多项式 Jacobian 条件接通 theta 截面消失定理，内部推出素性与实际光滑性 | theta 的几何来源、伴随公式和原实问题仍待完成 |
+| `SchemeKaehlerSheaf` | 对实际 `X → Spec K` 构造微分预层、层化和普适导子，证明目标模层上的导子与层态射一一对应 | 不把任意开集上的微分层截面等同于该截面环的微分模 |
+| `LocalizedModuleStalk`、`AffineKaehlerPresheafLocalization` | 从真实主开集局部化证明真实茎局部化；将其应用于实际微分预层 | 泛用转移引理的局部化输入在仿射微分情形得到证明 |
+| `AffineKaehlerDerivation`、`AffineKaehlerComparison` | 通过实际局部分式导子构造到关联模层的规范比较，并通过真实茎与局部双射证明该比较是同构，且保持实际正则函数的微分 | 搬运到曲线的实际仿射开子概形及限制相容仍需接通 |
+| `PlaneKaehlerFrames`、`PlaneCurveKaehlerFrames` | 计算偏导主开集上的实际微分模基，并识别唯一基向量为剩余坐标比的微分；显式对齐实际基域作用 | 目前目标是微分预层在该开集上的值，尚非层化后的局部层同构 |
+| `PlaneDifferentialIdentities`、`PlaneResidueTransition`、`PlaneResidueCrossTransition` | 实际普适导子的链式法则、曲线微分关系、同图册留数换元，以及两类跨图册坐标缩放下的二次留数恒等式 | 仍须在所有真实开集交叠上组织有符号标架并粘合 |
 | `CofactorCover` | 带显式 twist 参数的余子式根属于矩阵核；特征不为二时，含非零根的根集合恰有两点；在显式小行列式关系下构造根 | 判别式符号的几何识别；从余秩推出小行列式关系；覆盖的下降、étale 性与 theta 对应 |
 | `IsotropicDimension` | 维数和超过环境维数的子空间有非零交；显式分裂二次型的五维子空间限制各向同性 | 从 Clifford 指数和序得到 Pfister 邻形式并证明分裂 |
 | `Incidence` | 非零 `2×2` 小行列式条件下，两条齐次线性方程有唯一规范化解，并给出集合等价 | 非空稠密开集、正则映射、概形同构及实双有理性 |
@@ -118,7 +125,7 @@ $$
 
 ## 构建与审计
 
-本版包含 86 个源码模块、470 条公开手写定理，另有 6 条私有辅助定理（共 476 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
+本版包含 96 个源码模块、541 条公开手写定理，另有 6 条私有辅助定理（共 547 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
 
 环境固定为 Lean `v4.24.0` 和 mathlib 提交
 `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`。提交的 `lake-manifest.json` 固定传递依赖。

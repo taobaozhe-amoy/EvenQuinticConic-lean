@@ -450,30 +450,68 @@ been proved. In particular, the new forward Jacobian-to-smoothness
 theorem is not a general converse from hypersurface smoothness to the
 displayed condition.
 
-## Next adjunction bridge: inspected APIs, not a completed proof
+## Actual differential sheaf and the next adjunction bridge
 
-The pinned mathlib contains an actual relative differential presheaf in
-`Algebra/Category/ModuleCat/Differentials/Presheaf.lean`:
-`PresheafOfModules.DifferentialsConstruction.relativeDifferentials'`,
-`derivation'`, and `isUniversal'`. The fixed-field construction can use the
-constant presheaf of the base field and the actual structure presheaf,
-followed by module sheafification. The general relative-morphism TODO in
-that file does not itself prevent this fixed-base route.
+`SchemeKaehlerSheaf` now uses the pinned mathlib's actual relative
+module differential presheaf and module sheafification. For an actual
+morphism `f : X → Spec K`, the constants on each open are pulled back by
+that same `f`. The resulting `schemeKaehlerSheaf f` represents sheaf-valued
+K-derivations, with a proved universal property, restriction compatibility,
+and constants equal to zero. This construction works over a commutative
+base ring; no smoothness or finite-type hypothesis is added.
 
-`Algebra.SubmersivePresentation.basisKaehlerOfIsCompl` supplies actual
-Kähler differential bases for the presentations above, while
-`Algebra.Generators.toKaehler_cotangentSpaceBasis` identifies their
-generator images with actual differentials. The localization comparison
-is available through
-`KaehlerDifferential.tensorKaehlerEquivOfFormallyEtale` and
-`KaehlerDifferential.isLocalizedModule_map`; `ModuleCat.tilde` and
-`ModuleCat.Tilde.stalkIso` supply the associated affine module sheaves.
+`AffineKaehlerDerivation` constructs the actual pointwise derivative of a
+regular function on `Spec A` in the localization of `Ω[A/K]`. The ordinary
+quotient identity proves the locally fractional section condition, so the
+result is a section of `ModuleCat.tilde`, not just an arbitrary family of
+stalk elements. Its universal factorization defines the canonical affine
+comparison map. `AffineKaehlerComparison` proves that this specified map
+is an isomorphism. Its endpoint `affineKaehlerSheafIso` identifies the actual
+sheafification with `ModuleCat.tilde Ω[A/K]`, and
+`affineKaehlerSheafIso_hom_derivation` identifies its effect on the
+differential of every actual regular section. The endpoint requires only
+commutative rings K and A with their given algebra structure; no stalk
+isomorphism, local bijectivity, or section identification is an input.
 
-The unproved next interface is the comparison between the sheafified
-differential presheaf and these affine `tilde` sheaves, with restriction
-compatibility. One must not identify sections of the differential sheaf
-on an arbitrary open with the differential module of that open's section
-ring without proof. After this comparison, actual local differential
-frames and their coordinate-change law must be proved before gluing an
-adjunction isomorphism. No such isomorphism is presently asserted by the
-Lean sources.
+`LocalizedModuleStalk` proves a general transfer theorem: if the actual
+principal-open maps from a fixed A-module are localizations, its actual
+presheaf stalk maps are localizations at prime complements. The proof uses
+germs and the principal-open basis, including equality and denominator
+criteria. `AffineKaehlerPresheafLocalization` supplies the principal-open
+hypotheses for the differential presheaf using genuine ring localizations
+and `KaehlerDifferential.isLocalizedModule_map`. The categorical ring
+algebra action is compared explicitly with the given K-algebra action.
+
+`PlaneKaehlerFrames` extracts the standard-smooth presentation already
+constructed by `JacobianLocalization`, proves the complementary-coordinate
+basis formula, and identifies the sole basis vector with the universal
+differential of the remaining coordinate. `PlaneCurveKaehlerFrames`
+instantiates this on the actual derivative principal opens of the actual
+curve and proves that the scalar map is the one induced by
+`planeCurveStructure F`.
+
+These frames are currently bases of `schemeKaehlerPresheaf f` evaluated
+on those opens. They are not yet isomorphisms of the restrictions of
+`schemeKaehlerSheaf f`. In particular, no identity between sections of a
+differential sheaf on an arbitrary open and the differential module of
+that open's section ring is assumed.
+
+`PlaneDifferentialIdentities` proves the actual multivariable derivation
+chain rule, the equation's cotangent relation, the same-chart signed
+residue swap, and quotient/inverse-unit identities. `PlaneResidueTransition`
+uses the original quintic's homogeneous partial derivatives to verify the
+common-derivative cross-chart residue transition. The fourth-power scaling
+of the partial derivative and the inverse-coordinate derivative give the
+actual degree-two transition. `PlaneResidueCrossTransition` proves the
+radial-derivative case using the actual Euler and cotangent relations,
+without dividing by the degree. These algebraic results allow rings with
+zero divisors; they do not silently use a field of rational functions.
+
+To obtain adjunction, the affine comparison still needs to be transported
+through actual affine-chart isomorphisms and restriction, the presheaf
+module bases must become local frames of the differential sheaf, and all
+signed identities must be instantiated on actual overlaps. The resulting
+transition functions must then be identified with the existing quadratic
+hyperplane cocycle and glued to an actual sheaf isomorphism. No completed
+`Ω_{C/K} ≅ PlaneCurveQuadraticSheaf F` is asserted yet. The original cover's
+theta identification and the real-geometric bridges remain separate.

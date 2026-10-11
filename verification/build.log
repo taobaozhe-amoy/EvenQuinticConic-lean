@@ -1,2 +1,15 @@
-✔ [2730/2731] Built EvenQuinticConic (13s)
-Build completed successfully (2731 jobs).
+✔ [2733/2747] Built EvenQuinticConic.ConnectedComponents (1.2s)
+✔ [2734/2747] Built EvenQuinticConic.Incidence (1.6s)
+✔ [2735/2747] Built Mathlib.LinearAlgebra.Matrix.Symmetric (1.6s)
+✔ [2736/2747] Built EvenQuinticConic.CofactorCover (1.9s)
+✔ [2737/2747] Built Mathlib.LinearAlgebra.Basis.Bilinear (1.9s)
+✔ [2738/2747] Built EvenQuinticConic.PlaneResidueTransition (2.2s)
+✔ [2739/2747] Built Mathlib.Data.List.Sym (2.8s)
+✔ [2740/2747] Built Mathlib.Data.Multiset.Sym (1.1s)
+✔ [2741/2747] Built EvenQuinticConic.PlaneResidueCrossTransition (2.7s)
+✔ [2742/2747] Built Mathlib.Data.Finset.Sym (1.6s)
+✔ [2743/2747] Built Mathlib.LinearAlgebra.Matrix.SesquilinearForm (9.2s)
+✔ [2744/2747] Built Mathlib.LinearAlgebra.QuadraticForm.Basic (14s)
+✔ [2745/2747] Built EvenQuinticConic.IsotropicDimension (1.9s)
+✔ [2746/2747] Built EvenQuinticConic (1.5s)
+Build completed successfully (2747 jobs).

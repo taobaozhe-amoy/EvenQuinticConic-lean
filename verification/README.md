@@ -5,9 +5,9 @@ as predicted output.
 
 | Check | Result |
 | --- | --- |
-| `lake build` | Exit 0; all eighty-six source modules and the root import compiled |
-| `lake env lean Audit.lean` | Exit 0; 1165 declarations audited, including 915 theorem declarations |
-| Handwritten `theorem` declarations | 476 total: 470 public and 6 private helpers; comments and strings are excluded from this source count |
+| `lake build` | Exit 0; all 96 source modules and the root import compiled |
+| `lake env lean Audit.lean` | Exit 0; 1346 declarations audited, including 1068 theorem declarations |
+| Handwritten `theorem` declarations | 547 total: 541 public and 6 private helpers; comments and strings are excluded from this source count |
 | Allowed axiom dependencies | `propext`, `Classical.choice`, `Quot.sound` |
 | `sorryAx` or any other unexpected axiom | None in the audited dependency closures |
 | mathlib tracked source changes | None |
@@ -28,6 +28,12 @@ as predicted output.
 | Actual chart polynomial maps | Surjective with full kernel `(F, Xᵢ - 1)` |
 | Positive-degree homogeneous ternary forms | A common nonzero zero exists over an algebraically closed field |
 | Vector and projective-prime Jacobian conditions | Proved equivalent for the homogeneous equation over an algebraically closed field |
+| Actual differential sheaf | Sheafification with the original structure morphism's constants; universal property for sheaf-valued derivations proved |
+| Canonical affine differential-sheaf comparison | Actual isomorphism to `ModuleCat.tilde Ω[A/K]`, preserving the differential of every regular section; no added localization or stalk-isomorphism input |
+| Differential principal-open and stalk localization | Proved for the actual affine differential presheaf |
+| Actual curve differential-presheaf frames | Basis and coefficient trivialization on derivative principal opens; scalar action and coordinate derivative identified |
+| Residue differential identities | Chain rule, cotangent relation, same-chart swap, common-derivative and radial-derivative cross-chart degree-two transitions |
+| Differential-sheaf frames on actual curve restrictions | Not yet constructed from the presheaf bases |
 | Original conic-bundle hypotheses to the equation and Jacobian condition | Not yet formalized |
 | Adjunction and original cover's theta identification | Not yet formalized |
 | Full geometric no-go theorem | Not formalized or verified |
@@ -46,11 +52,11 @@ The project and its ordinary GitHub Actions workflow do not require this shim.
 The local invocation was:
 
 ```sh
-PATH=/root/.elan/bin:$PATH \
+PATH=/workspace/scratch/84e095cf47c4/lean-tools/lean-4.24.0-linux/bin:$PATH \
 LD_PRELOAD=/workspace/scratch/84e095cf47c4/lean-tools/self_exe_compat.so \
 lake build
 
-PATH=/root/.elan/bin:$PATH \
+PATH=/workspace/scratch/84e095cf47c4/lean-tools/lean-4.24.0-linux/bin:$PATH \
 LD_PRELOAD=/workspace/scratch/84e095cf47c4/lean-tools/self_exe_compat.so \
 lake env lean Audit.lean
 ```

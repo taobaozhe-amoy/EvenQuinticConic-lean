@@ -162,6 +162,26 @@ The equation is deliberately distinguished from its reduced locus:
 prime. The new Jacobian hypothesis rejects that example. The smoothness
 of the reduced locus alone is never used to infer primality.
 
+The adjunction work now includes an actual Kähler differential sheaf
+with its sheaf-valued derivation universal property, a proved canonical
+affine comparison isomorphism preserving actual regular-function
+derivatives, genuine
+principal-open and stalk localization results, and explicit bases of the
+differential presheaf on the curve's derivative principal opens. Actual
+scalar maps are proved equal to those of the original structure morphism.
+The chain rule, the curve's differential relation, inverse-unit rule,
+same-chart residue swap, and both common-derivative and radial-derivative
+cross-chart degree-two residue identities are
+proved in genuine Kähler modules.
+
+This does not yet identify the canonical sheaf with the hyperplane square.
+One must transport the affine comparison to the actual chart restrictions,
+obtain local frames of the **sheafification**, instantiate the signed
+transition identities on every actual overlap, and glue them. A basis of
+a differential-presheaf value is not by itself a local sheaf isomorphism.
+The specified cover's theta sheaf and its square identification remain
+separate geometric inputs even once that adjunction bridge is completed.
+
 The remaining **geometric instantiation** must supply:
 
 1. Construct the actual equation and its complexification from the original
