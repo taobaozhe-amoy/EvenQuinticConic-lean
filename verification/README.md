@@ -5,9 +5,9 @@ as predicted output.
 
 | Check | Result |
 | --- | --- |
-| `lake build` | Exit 0; all 96 source modules and the root import compiled |
-| `lake env lean Audit.lean` | Exit 0; 1346 declarations audited, including 1068 theorem declarations |
-| Handwritten `theorem` declarations | 547 total: 541 public and 6 private helpers; comments and strings are excluded from this source count |
+| `lake build` | Exit 0; all 117 source modules and the root import compiled |
+| `lake env lean Audit.lean` | Exit 0; 1662 declarations audited, including 1313 theorem declarations |
+| Handwritten `theorem` declarations | 665 total: 658 public and 7 private helpers; comments and strings are excluded from this source count |
 | Allowed axiom dependencies | `propext`, `Classical.choice`, `Quot.sound` |
 | `sorryAx` or any other unexpected axiom | None in the audited dependency closures |
 | mathlib tracked source changes | None |
@@ -16,7 +16,7 @@ as predicted output.
 | Actual plane-curve scheme and hyperplane sheaf | Constructed using the reduced induced closed scheme and coordinate cocycle descent |
 | Actual hyperplane square pairing | Constructed; tensor-perfectness proved on every chart subopen |
 | Quartic restriction on actual coordinate sections | Proved, including on arbitrary nonempty chart refinements |
-| Concrete conditional theta theorem | `planeQuintic_even_theta_sections_eq_zero_of_jacobian`; primality, actual smoothness, restriction maps, normality and refined local technical inputs are discharged |
+| Concrete conditional theta theorem | `planeQuintic_even_theta_sections_eq_zero_of_cotangent_square`; adjunction, primality, actual smoothness, restriction maps, normality and refined local technical inputs are discharged |
 | Actual quadratic-section surjectivity | Proved for the constructed curve over an infinite field, with homogeneous prime equation of degree greater than one |
 | Coordinate choice and denominator clearing | Constructed through explicit polynomial and cone quotient equivalences; monicity is not a final hypothesis |
 | Actual sections on arbitrary linear charts | Constructed using genuine regular functions and structure-sheaf gluing |
@@ -33,9 +33,12 @@ as predicted output.
 | Differential principal-open and stalk localization | Proved for the actual affine differential presheaf |
 | Actual curve differential-presheaf frames | Basis and coefficient trivialization on derivative principal opens; scalar action and coordinate derivative identified |
 | Residue differential identities | Chain rule, cotangent relation, same-chart swap, common-derivative and radial-derivative cross-chart degree-two transitions |
-| Differential-sheaf frames on actual curve restrictions | Not yet constructed from the presheaf bases |
+| Differential-sheaf frames on actual curve restrictions | Constructed from the actual Jacobian module bases via affine comparison, open-subscheme restriction and original-site transport; generator formulas proved |
+| Actual differential-sheaf restriction and open-immersion transport | Isomorphisms proved, preserving actual derivations and sheafification units |
+| Complete signed residue transitions | Proved on every actual chart overlap, including mixed derivative cases, with the actual hyperplane-square cocycle |
+| Actual plane-quintic differential adjunction | `planeQuinticAdjunctionIsoOfJacobian`; actual relative differential sheaf is isomorphic to the constructed hyperplane-square sheaf, without an adjunction or local-frame input |
 | Original conic-bundle hypotheses to the equation and Jacobian condition | Not yet formalized |
-| Adjunction and original cover's theta identification | Not yet formalized |
+| Original cover's theta identification, cotangent square and parity | Not yet constructed from the original discriminant cover; remain explicit geometric inputs |
 | Full geometric no-go theorem | Not formalized or verified |
 | GitHub Actions | See the repository's Actions tab for current remote run status |
 

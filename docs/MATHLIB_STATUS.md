@@ -349,8 +349,9 @@ An isomorphism of the reduced induced curve with the alternate construction
 `Proj(K[X₀,X₁,X₂]/(F))` is not asserted. The affine cone embeds in `k(C)[T]`,
 not in `k(C)` by an ungraded injection, and its whole fraction field is not
 identified with the curve function field. The specified theta object's
-geometric origin and square isomorphism, including adjunction, remain
-geometric obligations. Primality, actual smoothness, normality, and the
+geometric origin and square isomorphism remain geometric obligations.
+Differential adjunction to the constructed hyperplane square is proved
+by the final modules below. Primality, actual smoothness, normality, and the
 local technical line data are now derived by the bridges below, starting
 from the explicit Jacobian condition. The later real determinantal,
 Brauer, quadratic-form, birational, and connectedness bridges also remain
@@ -398,8 +399,8 @@ new endpoint below discharges its primality and smoothness hypotheses.
 ## From the original Jacobian condition to the actual smooth curve
 
 Thirteen further modules remove independent primality and scheme
-smoothness inputs. For an algebraically closed field, the strongest
-declaration is now
+smoothness inputs. Over an algebraically closed field, the resulting
+equation-based declaration is
 `planeQuintic_even_theta_sections_eq_zero_of_jacobian`. It assumes an
 actual polynomial `F`, homogeneity and total degree five, and
 
@@ -445,12 +446,13 @@ primality is asserted.
 The remaining original-problem instantiation must construct the
 discriminant equation and its complexification, verify this Jacobian
 condition from the original geometric hypotheses, and identify the
-specified cover's theta sheaf, parity, and square. Adjunction has not yet
-been proved. In particular, the new forward Jacobian-to-smoothness
+specified cover's theta sheaf, parity, and square to the actual
+differential sheaf. The final modules below prove differential adjunction
+to the constructed hyperplane square. The forward Jacobian-to-smoothness
 theorem is not a general converse from hypersurface smoothness to the
 displayed condition.
 
-## Actual differential sheaf and the next adjunction bridge
+## Actual differential sheaf and completed quintic differential adjunction
 
 `SchemeKaehlerSheaf` now uses the pinned mathlib's actual relative
 module differential presheaf and module sheafification. For an actual
@@ -490,11 +492,13 @@ instantiates this on the actual derivative principal opens of the actual
 curve and proves that the scalar map is the one induced by
 `planeCurveStructure F`.
 
-These frames are currently bases of `schemeKaehlerPresheaf f` evaluated
-on those opens. They are not yet isomorphisms of the restrictions of
-`schemeKaehlerSheaf f`. In particular, no identity between sections of a
-differential sheaf on an arbitrary open and the differential module of
-that open's section ring is assumed.
+Those presheaf-module bases are now transported through the proved affine
+comparison and the actual affine-chart isomorphism. Actual open-subscheme
+restriction is proved compatible with sheafification and the universal
+derivation. The resulting `planeCurveDifferentialSheafFrame` gives natural
+linear coordinates on every original subopen; its generator is the actual
+coordinate differential. No identity between sections on an arbitrary
+open and its section ring's differential module is assumed.
 
 `PlaneDifferentialIdentities` proves the actual multivariable derivation
 chain rule, the equation's cotangent relation, the same-chart signed
@@ -507,11 +511,31 @@ radial-derivative case using the actual Euler and cotangent relations,
 without dividing by the degree. These algebraic results allow rings with
 zero divisors; they do not silently use a field of rational functions.
 
-To obtain adjunction, the affine comparison still needs to be transported
-through actual affine-chart isomorphisms and restriction, the presheaf
-module bases must become local frames of the differential sheaf, and all
-signed identities must be instantiated on actual overlaps. The resulting
-transition functions must then be identified with the existing quadratic
-hyperplane cocycle and glued to an actual sheaf isomorphism. No completed
-`Ω_{C/K} ≅ PlaneCurveQuadraticSheaf F` is asserted yet. The original cover's
-theta identification and the real-geometric bridges remain separate.
+`PlaneCurveResidueIdentities` instantiates the algebra on actual overlap
+section rings with the structure morphism's scalar maps. Actual gradient
+units come from actual principal opens. `PlaneCurveSheafResidueIdentities`
+then applies the genuine sheafification linear map; its preservation of
+scalars and derivatives proves the corresponding sheaf-valued identities.
+`PlaneCurveSignedResidueTransitions` handles all pairs of distinct-coordinate
+frames, including both mixed cases and the exact permutation sign.
+
+`ModuleFrameRescaling` and `PlaneCurveResidueFrames` prove that the signed
+residues are generators of actual coherent frames. Their transitions agree
+with the existing quadratic hyperplane cocycle. `PlaneCurveAdjunction`
+uses `FrameTransitionComparison` to glue the local coordinate equivalences
+into `planeQuinticAdjunctionIsoOfJacobian`, a genuine isomorphism
+`Ω_{C/K} ≅ PlaneCurveQuadraticSheaf F`. The endpoint uses only the original
+homogeneous nonsingular quintic equation; primality and the covering are
+proved internally. The arbitrary-field projective-gradient interface is
+also retained. This is differential adjunction on the constructed curve,
+not a general dualizing-complex or arbitrary-hypersurface theorem.
+The target is the module sheaf descended from the square of the actual
+hyperplane coordinate cocycle. No separate identification with a packaged
+mathlib twisting-sheaf object is asserted.
+
+`PlaneThetaAdjunction` composes an actual theta square isomorphism to the
+relative differential sheaf with this proved adjunction. Its endpoint
+`planeQuintic_even_theta_sections_eq_zero_of_cotangent_square` no longer
+asks for an isomorphism to the hyperplane square. The original discriminant cover's theta object,
+its actual square to the differential sheaf, parity, real descent and the
+later real-geometric bridges remain separate.

@@ -7,11 +7,11 @@
 
 当前已构造实际平面曲线概形、由坐标过渡函数下降得到的实际超平面模层及三个坐标截面，并已证明实际二次截面映射满射和四次限制单射。二次满射适用于无限域上、次数大于一且主理想为素理想的齐次方程；不再要求调用者提供满射性、首一性或坐标选择。
 
-最新定理 `planeQuintic_even_theta_sections_eq_zero_of_jacobian` 直接从齐次五次方程的 Jacobian 非奇异条件出发，内部推出方程不可约与主理想素性、实际曲线结构态射的相对维数一光滑性，以及正规性。图册的完整关系理想 `(F, Xᵢ−1)`、偏导主开覆盖与标量兼容性均已证明。实际线层的局部平凡化和平方同构再提供所需标架与完美配对，最终偶维数推出截面消失。
+最新定理 `planeQuintic_even_theta_sections_eq_zero_of_cotangent_square` 直接接收实际线层的平方到真实相对微分层的同构。齐次五次方程的 Jacobian 条件在内部提供素性、光滑性、正规性和伴随同构 `Ω¹(C/K) ≅ PlaneCurveQuadraticSheaf F`；实际线层的局部平凡化和平方同构提供配对，偶维数最终推出每个截面为零。
 
-本轮补充实际微分层及其普适性质、规范仿射比较同构、微分预层在真实偏导主开集上的坐标基，以及五次曲线留数微分的局部过渡恒等式。这些构造使用同一个实际结构态射给出的基域作用。局部微分模的基尚未搬运成曲线上微分层的局部平凡化；全局伴随同构仍是待证目标。
+本轮完成实际微分层的开子概形限制与仿射图册搬运，把已计算的微分模基接成曲线上的真实局部层标架。偏导逆单位及排列符号给出实际留数标架；全部交叠公式（包括混合偏导情形）与超平面平方 cocycle 一致，粘合后得到 `planeQuinticAdjunctionIsoOfJacobian`。全程使用原结构态射的基域作用，没有把任意开集上的微分层截面等同于截面环的微分模。
 
-该定理仍接收指定线层的局部平凡化、平方同构及截面维数偶性。伴随公式、原判别式双覆盖与 theta 的对应、从实数据到代数闭域的基变换，以及实几何和连通性结论尚未形式化。因此，**编译成功不表示原存在性问题已解决，也不验证此前整个非形式化证明**。
+该定理仍接收指定线层的局部平凡化、平方同构及截面维数偶性。原判别式双覆盖与指定 theta 的对应、其平方及偶性的几何来源、从实数据到代数闭域的基变换，以及实几何和连通性结论尚未形式化。因此，**编译成功不表示原存在性问题已解决，也不验证此前整个非形式化证明**。
 
 ## 已形式化的内容
 
@@ -68,17 +68,24 @@
 | `AffineCommonRefinement`、`NormalSchemeSections` | 从两个开覆盖选择非空共同仿射细化；由实际 stalk 整闭性推出仿射截面环整闭 | 不要求 theta 在整个标准坐标开上平凡 |
 | `LineBundleSquareIso`、`LineBundleTensorUniversal` | 由实际平方层同构构造局部完美配对；证明乘积 cocycle 层对自然双线性配对的真正张量泛性质，并沿实际层同构传递 | 不把全局截面的张量积等同于张量层的全局截面 |
 | `SmoothCurveNormality`、`SmoothSchemeNormality` | 由余切单射、微分模基变换和极大局部化证明一维标准光滑整代数整闭；推出完美域上实际光滑整曲线的 stalk 与非空仿射截面环整闭 | 整性及相对维数一的实际光滑态射条件仍明确给定 |
-| `PlaneThetaLineBundle`、`PlaneThetaSmooth` | 对给定实际局部平凡 theta 层及平方同构证明偶维截面消失；正规性、细化、标架、配对及其完美性均内部构造 | 仍需原双覆盖、伴随公式及后续实几何桥梁 |
+| `PlaneThetaLineBundle`、`PlaneThetaSmooth` | 对给定实际局部平凡 theta 层及平方同构证明偶维截面消失；正规性、细化、标架、配对及其完美性均内部构造 | 伴随同构现由后续模块提供；仍需原双覆盖的 theta 数据及后续实几何桥梁 |
 | `ChartHomogenization`、`PlaneChartPolynomialMap` | 构造齐次化，证明实际图册多项式映射满射，完整核恰为 `(F,Xᵢ−1)`，并识别原结构态射的基域标量 | 核包含非齐次关系；不以函数域模型替代实际图册 |
 | `JacobianLocalization`、`PlaneJacobianPresentation`、`PlaneGradientCover`、`PlaneJacobianSmooth` | 构造有限表示，计算偏导 Jacobian，反演偏导后得到标准光滑图册，再由实际主开覆盖证明结构态射光滑 | Euler 步骤不除以次数，适用于特征 5 |
 | `HomogeneousFactors`、`PlaneOriginHeight`、`HomogeneousCommonZero` | 最高齐次分量乘法、原点素理想高度至少 3；由 Nullstellensatz 与 Krull 高度定理证明两个正次齐次三元式有非零公共零点 | 明确使用代数闭域 |
 | `ProjectiveJacobianPoints`、`ProjectiveJacobianCriterion`、`JacobianIrreducible` | 构造非零向量对应的实际射影点；证明两种梯度条件等价，并推出方程不可约及主理想素性 | 条件检查原始方程，不是仅检查约化零集 |
-| `PlaneThetaJacobian` | 从显式多项式 Jacobian 条件接通 theta 截面消失定理，内部推出素性与实际光滑性 | theta 的几何来源、伴随公式和原实问题仍待完成 |
+| `PlaneThetaJacobian` | 从显式多项式 Jacobian 条件接通 theta 截面消失定理，内部推出素性与实际光滑性 | 伴随同构现由后续模块提供；theta 的几何来源及原实问题仍待完成 |
 | `SchemeKaehlerSheaf` | 对实际 `X → Spec K` 构造微分预层、层化和普适导子，证明目标模层上的导子与层态射一一对应 | 不把任意开集上的微分层截面等同于该截面环的微分模 |
 | `LocalizedModuleStalk`、`AffineKaehlerPresheafLocalization` | 从真实主开集局部化证明真实茎局部化；将其应用于实际微分预层 | 泛用转移引理的局部化输入在仿射微分情形得到证明 |
-| `AffineKaehlerDerivation`、`AffineKaehlerComparison` | 通过实际局部分式导子构造到关联模层的规范比较，并通过真实茎与局部双射证明该比较是同构，且保持实际正则函数的微分 | 搬运到曲线的实际仿射开子概形及限制相容仍需接通 |
-| `PlaneKaehlerFrames`、`PlaneCurveKaehlerFrames` | 计算偏导主开集上的实际微分模基，并识别唯一基向量为剩余坐标比的微分；显式对齐实际基域作用 | 目前目标是微分预层在该开集上的值，尚非层化后的局部层同构 |
-| `PlaneDifferentialIdentities`、`PlaneResidueTransition`、`PlaneResidueCrossTransition` | 实际普适导子的链式法则、曲线微分关系、同图册留数换元，以及两类跨图册坐标缩放下的二次留数恒等式 | 仍须在所有真实开集交叠上组织有符号标架并粘合 |
+| `AffineKaehlerDerivation`、`AffineKaehlerComparison` | 通过实际局部分式导子构造到关联模层的规范比较，并通过真实茎与局部双射证明该比较是同构，且保持实际正则函数的微分 | 本轮通过实际开浸入搬运和限制同构接到曲线的真实层标架 |
+| `PlaneKaehlerFrames`、`PlaneCurveKaehlerFrames` | 计算偏导主开集上的实际微分模基，并识别唯一基向量为剩余坐标比的微分；显式对齐实际基域作用 | 该模基现已由后续实际仿射比较搬运成微分层的局部同构 |
+| `PlaneDifferentialIdentities`、`PlaneResidueTransition`、`PlaneResidueCrossTransition` | 实际普适导子的链式法则、曲线微分关系、同图册留数换元，以及两类跨图册坐标缩放下的二次留数恒等式 | 已由后续实际留数层模块实例化、统一符号并粘合 |
+| `CommRingKaehlerIso`、`TopologyOpenRestriction`、`ModuleSheafificationRestriction` | 环同构诱导真实微分模同构；证明开集像函子的余连续性及模层化与限制相容 | 用真实局部双射与层化单位证明，不预设待证同构 |
+| `SchemeModuleRestriction`、`SchemeKaehlerRestriction`、`SchemeKaehlerIsoTransport` | 实际开子概形限制和开浸入下的微分层搬运同构，保持真实导子 | 不把开子概形模层范畴与原站点 `Over U` 定义为相同对象 |
+| `TildeModuleFrames`、`AffineKaehlerFrames`、`AffineOpenKaehlerComparison` | 实际单元素基产生关联层和微分层的真正平凡化，并保持坐标微分 | 最终曲线应用内部提供基 |
+| `SchemeOpenModuleFrames`、`SchemeOpenDifferentialFrames`、`PlaneCurveDifferentialSheafFrames`、`PlaneCurveDifferentialCover` | 将实际开子概形平凡化转成原曲线所有子开集上的相容标架；从 Jacobian 条件得到每点的实际局部单位层同构 | 生成元、限制与开集等式搬运均已证明 |
+| `PlaneCurveResidueIdentities`、`PlaneCurveSheafResidueIdentities`、`PlaneCurveSignedResidueTransitions` | 真实交叠环及真正微分层中的完整留数过渡公式，含两类混合情形与排列符号 | 过渡系数就是已构造超平面 cocycle 的平方 |
+| `ModuleFrameRescaling`、`PlaneCurveResidueFrames`、`FrameTransitionComparison`、`PlaneCurveAdjunction` | 构造实际有符号留数标架，比较全部过渡并粘合得到 `Ω¹(C/K) ≅ PlaneCurveQuadraticSheaf F` | 原双覆盖的 theta 来源仍是独立问题 |
+| `PlaneThetaAdjunction` | 实际平方同构 `Θ² ≅ Ω¹(C/K)` 加偶性推出每个 theta 截面为零，伴随同构内部提供 | 仍需指定 theta 的实际局部平凡化、平方同构及偶性 |
 | `CofactorCover` | 带显式 twist 参数的余子式根属于矩阵核；特征不为二时，含非零根的根集合恰有两点；在显式小行列式关系下构造根 | 判别式符号的几何识别；从余秩推出小行列式关系；覆盖的下降、étale 性与 theta 对应 |
 | `IsotropicDimension` | 维数和超过环境维数的子空间有非零交；显式分裂二次型的五维子空间限制各向同性 | 从 Clifford 指数和序得到 Pfister 邻形式并证明分裂 |
 | `Incidence` | 非零 `2×2` 小行列式条件下，两条齐次线性方程有唯一规范化解，并给出集合等价 | 非空稠密开集、正则映射、概形同构及实双有理性 |
@@ -88,12 +95,12 @@
 
 ## 当前接通的证明链
 
-目前最具体的定理是 `planeQuintic_even_theta_sections_eq_zero_of_jacobian`。输入精确为：
+目前最具体的定理是 `planeQuintic_even_theta_sections_eq_zero_of_cotangent_square`。输入精确为：
 
 - 代数闭基域、齐次五次式 `F`，且 `totalDegree F = 5`。
 - 原始方程的 Jacobian 条件：对每个非零向量 `v : Fin 3 → K`，若 `F(v)=0`，则至少一个偏导 `∂ᵢF(v)≠0`。
 - 实际模层 `Θ`、一个开覆盖 `Uᵢ`，以及每个 `Uᵢ` 上到单位层的实际同构。覆盖成员无须预先仿射或非空。
-- 由这些平凡化构造的平方 cocycle 层到 `PlaneCurveQuadraticSheaf F` 的实际同构。代码证明该平方层表示 `Θ×Θ` 到任意模层的自然双线性配对。
+- 由这些平凡化构造的平方 cocycle 层到真实 `schemeKaehlerSheaf (planeCurveStructure F)` 的实际同构。伴随同构到 `PlaneCurveQuadraticSheaf F` 在定理内部提供。代码证明该平方层表示 `Θ×Θ` 到任意模层的自然双线性配对。
 - 偶性 `Even (finrank K Γ(Θ))`。
 
 方程的素性、实际曲线的整性、光滑性与正规性、实际 `H,T`、三个截面、共同仿射细化、theta 标架与完美配对、实际二次满射及精确四次单射都已由代码提供。**没有假设任意 theta 在三个完整坐标开上平凡**。有限维性和 `h⁰(H)=3` 也在证明内部推出。较低层的素性、光滑态射及正规标架接口仍保留。最终定理调用一般实际模层定理 `even_theta_ineffective_of_restriction_maps`，其截面论证如下。
@@ -110,7 +117,7 @@ $$
 
 **实际二次截面映射满射的缺口现已补上。** 证明先从实际闭浸入和射影图册同构提升局部正则函数，再在任意一次式图册上粘合 `s/L²`，得到次数精确的齐次分子。完整齐次限制核把分子的泛点相容性变成原锥商环中的等式；实际多项式坐标变换与首一有限自由商环提供两条适当一次式的清分母性质，齐次投影最后提取二次式。实际全局截面的泛点单射证明该二次式确实限制为原截面。首一性与坐标选择都在证明内部取得。
 
-这里没有把整个锥分式域等同于曲线函数域：保留次数的锥嵌入以 `k(C)[T]` 为目标。图册的完整商环表示现在已证明，但尚未构造与 `Proj(K[X₀,X₁,X₂]/(F))` 的显式全局同构。仍须从原实圆锥曲线丛及其判别双覆盖构造方程、复化数据、theta 模层、局部平凡化及指定平方同构；伴随公式对典范层与超平面平方层的识别也尚待形式化。
+这里没有把整个锥分式域等同于曲线函数域：保留次数的锥嵌入以 `k(C)[T]` 为目标。图册的完整商环表示现在已证明，但尚未构造与 `Proj(K[X₀,X₁,X₂]/(F))` 的显式全局同构。实际相对微分层与已构造超平面平方层的伴随同构现已证明。仍须从原实圆锥曲线丛及其判别双覆盖构造方程、复化数据、指定 theta 模层、局部平凡化及其平方到相对微分层的同构。
 
 
 **原始方程与约化零集必须区分。** `F=X₀^5` 的约化射影零集是光滑直线，但 `(F)` 并非素理想；因此仅凭约化曲线光滑不能删去原方程的素性假设。新定理使用实际偏导值的 Jacobian 条件，该条件排除了这一退化。不可约性证明先用零点定理与高度定理证明两个正次齐次因子必有非零公共零点，再在该点用乘积求导得到所有偏导为零的矛盾。
@@ -125,7 +132,7 @@ $$
 
 ## 构建与审计
 
-本版包含 96 个源码模块、541 条公开手写定理，另有 6 条私有辅助定理（共 547 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
+本版包含 117 个源码模块、658 条公开手写定理，另有 7 条私有辅助定理（共 665 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
 
 环境固定为 Lean `v4.24.0` 和 mathlib 提交
 `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`。提交的 `lake-manifest.json` 固定传递依赖。

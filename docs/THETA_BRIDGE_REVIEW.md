@@ -9,7 +9,8 @@ latest theorem derives primality, the actual smooth curve morphism and
 normality from the explicit polynomial Jacobian condition. It constructs
 the framed affine refinement and perfect square pairing from actual local
 line-sheaf trivializations and a square isomorphism. Their
-connection to the original double cover and adjunction remains open.
+connection to the original double cover remains open. Differential
+adjunction is now proved in `PlaneCurveAdjunction`.
 Sections 4–5 state the checked implication and the remaining instantiation work.
 
 ## 1. Precise lemma
@@ -452,8 +453,9 @@ required by the lower-level theta argument.
 
 ### The original equation now supplies primality and actual smoothness
 
-The strongest declaration is now
-`planeQuintic_even_theta_sections_eq_zero_of_jacobian` in `PlaneThetaJacobian`.
+The equation-based declaration
+`planeQuintic_even_theta_sections_eq_zero_of_jacobian` in `PlaneThetaJacobian`
+provides the following intermediate interface.
 It accepts a homogeneous equation of total degree five over an algebraically
 closed field and the explicit condition that at every nonzero vector with
 `F(v)=0`, some `pderiv i F` evaluates to a nonzero value. It derives the
@@ -482,6 +484,42 @@ locus alone would be insufficient: `F=X₀^5` has a smooth reduced line but
 is not a prime equation. The new hypothesis tests the original equation
 and rejects such multiplicities.
 
+### Actual differential adjunction and the final square target
+
+`planeQuinticAdjunctionIsoOfJacobian` in `PlaneCurveAdjunction` proves
+
+```text
+schemeKaehlerSheaf (planeCurveStructure F) ≅ PlaneCurveQuadraticSheaf F
+```
+
+The source is the sheafification of the actual relative differential
+presheaf. The target is descended from the square of the actual hyperplane
+coordinate cocycle. Actual affine comparison and open-subscheme restriction
+transport the computed Jacobian bases into sheaf frames. Their generators
+are identified with the signed residue sections; all overlap formulas,
+including the mixed derivative cases, give the same squared coordinate
+units as the target. Coordinate-preserving local maps then glue to the
+stated isomorphism. Neither adjunction nor local differential frames are
+inputs to this endpoint.
+
+The strongest section theorem is now
+`planeQuintic_even_theta_sections_eq_zero_of_cotangent_square` in
+`PlaneThetaAdjunction`. It takes the original homogeneous degree-five
+Jacobian condition, an actual line sheaf with unit-sheaf trivializations
+on a cover, an isomorphism from its descended cocycle square to the actual
+relative differential sheaf, and even section dimension. It supplies the
+above adjunction internally and concludes that every actual global
+section is zero. The product-cocycle square represents natural bilinear
+pairings on the given line sheaf; the statement does not replace sheaf
+tensor products by tensor products of global sections.
+
+These formal differential-adjunction and section-vanishing endpoints have
+no characteristic restriction beyond their stated field assumptions.
+The orientation factors are units `±1`, and Euler's relation is used
+without dividing by the degree. This does not remove the characteristic
+hypotheses of external results about discriminant covers or symmetric
+resolutions in the later real-geometric argument.
+
 ### What still has to be supplied
 
 The remaining geometric obligations are:
@@ -489,8 +527,9 @@ The remaining geometric obligations are:
 1. Construct and identify the original discriminant equation and its
    complexification, verifying the explicit Jacobian condition from the
    original geometric inputs. Construct the specified theta module sheaf, its actual local unit-sheaf
-   trivializations and its square isomorphism, including adjunction identifying
-   the canonical sheaf with the constructed hyperplane square. The actual
+   trivializations and its square isomorphism to the actual differential
+   sheaf. `PlaneCurveAdjunction` now proves the differential-sheaf
+   identification with the constructed hyperplane square. The actual
    hyperplane construction alone does not supply this theta data.
 2. Relate the line bundle from the specified real double cover to this theta
    object and its geometric parity, including base change; then construct
@@ -503,8 +542,9 @@ geometric constructions remove former existence and generic-coordinate
 interfaces, and the actual section argument discharges quadratic
 surjectivity. The polynomial Jacobian criterion now supplies primality and
 actual smoothness; smoothness-to-normality and the local line-sheaf interfaces
-are also proved. The theta object's geometric origin, real base change,
-and adjunction remain.
+are also proved. The theta object's geometric origin, its specified square isomorphism,
+and real base change remain. Differential adjunction is now proved, and
+`PlaneThetaAdjunction` uses it in the actual cotangent-square endpoint.
 The original real conic-bundle existence question and
 the later Brauer, quadratic-form, birational, and real-connectedness
 implications are still not formally proved.

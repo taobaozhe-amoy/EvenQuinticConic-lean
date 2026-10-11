@@ -14,10 +14,12 @@ The section-theoretic implication is now a **conditional theorem about
 actual schemes and actual module sheaves**. `ThetaIneffectivity.lean` proves
 that two independent actual sections force `Θ ≅ H`. The same restriction
 inputs imply `h⁰(H)=3` and finite-dimensional theta sections, so even
-dimension implies that every actual theta section is zero. No desired isomorphism or vanishing statement
-is an input. The latest theorem supplies normality from an actual smooth
-curve morphism and the local technical data from actual line-sheaf
-trivializations and a square isomorphism. It still does not construct those
+dimension implies that every actual theta section is zero. No desired
+comparison `Θ ≅ H` or vanishing statement is an input.
+The final `PlaneThetaAdjunction` endpoint derives differential adjunction
+and normality from the equation, and the local technical data from actual
+line-sheaf trivializations and a square isomorphism to the differential
+sheaf. It still does not construct those
 geometric objects from the original conic bundle.
 
 The checked chain now includes:
@@ -123,7 +125,7 @@ tensor universal property; no global-section tensor surjectivity is asserted.
 The square is not yet packaged as an isomorphism to mathlib's sheafification
 of the presheaf tensor product.
 
-The strongest interface is now `PlaneThetaJacobian`:
+`PlaneThetaJacobian` supplies the equation-based interface:
 `planeQuintic_even_theta_sections_eq_zero_of_jacobian`. Besides the actual
 line-sheaf inputs and parity above, it takes only an algebraically closed
 field and a homogeneous polynomial of total degree five satisfying
@@ -162,25 +164,39 @@ The equation is deliberately distinguished from its reduced locus:
 prime. The new Jacobian hypothesis rejects that example. The smoothness
 of the reduced locus alone is never used to infer primality.
 
-The adjunction work now includes an actual Kähler differential sheaf
-with its sheaf-valued derivation universal property, a proved canonical
-affine comparison isomorphism preserving actual regular-function
-derivatives, genuine
-principal-open and stalk localization results, and explicit bases of the
-differential presheaf on the curve's derivative principal opens. Actual
-scalar maps are proved equal to those of the original structure morphism.
-The chain rule, the curve's differential relation, inverse-unit rule,
-same-chart residue swap, and both common-derivative and radial-derivative
-cross-chart degree-two residue identities are
-proved in genuine Kähler modules.
+The differential adjunction bridge is now closed. `SchemeKaehlerRestriction`
+and `SchemeKaehlerIsoTransport` prove actual open-subscheme restriction and
+open-immersion transport, including the actual derivation formulas.
+`TildeModuleFrames`, `AffineKaehlerFrames`, and `AffineOpenKaehlerComparison`
+turn the proved Jacobian module bases into genuine sheaf trivializations.
+`SchemeOpenModuleFrames` and `SchemeOpenDifferentialFrames` transport those
+to the original site, including the precise generator on every subopen.
 
-This does not yet identify the canonical sheaf with the hyperplane square.
-One must transport the affine comparison to the actual chart restrictions,
-obtain local frames of the **sheafification**, instantiate the signed
-transition identities on every actual overlap, and glue them. A basis of
-a differential-presheaf value is not by itself a local sheaf isomorphism.
-The specified cover's theta sheaf and its square identification remain
-separate geometric inputs even once that adjunction bridge is completed.
+`PlaneCurveResidueFrames` rescales those actual frames by actual derivative
+units and permutation signs. `PlaneCurveSignedResidueTransitions` proves
+all overlap formulas, including the two mixed derivative choices, with
+coefficients equal to the actual hyperplane-square cocycle. Genuine local
+maps are glued by `FrameTransitionComparison`. The resulting endpoint is
+`planeQuinticAdjunctionIsoOfJacobian`:
+
+```text
+schemeKaehlerSheaf (planeCurveStructure F) ≅ PlaneCurveQuadraticSheaf F
+```
+
+Its only inputs are an algebraically closed field, a homogeneous quintic
+of total degree five, and the nonzero-vector Jacobian condition. The lower
+`planeCurveAdjunctionIsoOfGradient` interface works over any field with
+explicit primality and the projective-prime gradient criterion. Neither
+endpoint assumes adjunction or differential-sheaf local freeness. No claim
+about arbitrary-open section rings replacing differential-sheaf sections
+is used.
+
+`PlaneThetaAdjunction` now accepts an actual square isomorphism to this
+actual relative differential sheaf. Its theorem
+`planeQuintic_even_theta_sections_eq_zero_of_cotangent_square` supplies
+adjunction internally, then applies the already checked section argument.
+The specified cover's theta sheaf, its square to the differential sheaf,
+and parity remain genuine geometric inputs.
 
 The remaining **geometric instantiation** must supply:
 
@@ -191,8 +207,9 @@ The remaining **geometric instantiation** must supply:
    A converse Jacobian theorem starting with an arbitrary scheme-theoretic
    smooth hypersurface has not been proved here.
 2. Construct the specified theta line sheaf, its local unit-sheaf
-   isomorphisms and its square isomorphism. This includes adjunction
-   identifying the canonical sheaf with the constructed hyperplane square.
+   isomorphisms and its square isomorphism to the actual relative differential
+   sheaf. Differential adjunction to the constructed hyperplane square is
+   now proved internally.
 3. Relate the conic bundle's specified real double cover, its theta line
    bundle, and geometric parity, including the real base-change step.
 
