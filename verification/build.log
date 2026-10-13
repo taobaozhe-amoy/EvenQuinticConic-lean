@@ -1,8 +1,2 @@
-✔ [2787/2794] Built EvenQuinticConic.ConnectedComponents (1.3s)
-✔ [2788/2794] Built EvenQuinticConic.Incidence (1.6s)
-✔ [2789/2794] Built EvenQuinticConic.CofactorCover (2.0s)
-✔ [2790/2794] Built EvenQuinticConic.IsotropicDimension (2.4s)
-✔ [2791/2794] Built EvenQuinticConic.QuadraticTraceZeroTransition (2.5s)
-✔ [2792/2794] Built EvenQuinticConic.PlaneThetaKummer (2.1s)
-✔ [2793/2794] Built EvenQuinticConic (1.7s)
-Build completed successfully (2794 jobs).
+✔ [2798/2799] Built EvenQuinticConic (1.7s)
+Build completed successfully (2799 jobs).

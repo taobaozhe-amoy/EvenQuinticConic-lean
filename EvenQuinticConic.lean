@@ -123,3 +123,8 @@ import EvenQuinticConic.QuadraticTraceZero
 import EvenQuinticConic.QuadraticTraceZeroTransition
 import EvenQuinticConic.LineBundleSquareTrivialization
 import EvenQuinticConic.PlaneThetaKummer
+import EvenQuinticConic.ModuleSheafKernelSections
+import EvenQuinticConic.KummerModuleAtlas
+import EvenQuinticConic.KummerTraceZeroFrames
+import EvenQuinticConic.KummerTraceZeroDescent
+import EvenQuinticConic.PlaneThetaTraceZero

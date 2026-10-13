@@ -90,3 +90,11 @@ cocycle with the input line data; the geometric parity and real base-change
 steps; the final real-geometric and connectedness argument. This milestone
 does not claim an étaleness criterion or the existence of local Kummer models
 for every rank-two étale algebra.
+
+## Subsequent atlas-relative extension
+
+[GLOBAL_TRACE_KERNEL_BRIDGE.md](GLOBAL_TRACE_KERNEL_BRIDGE.md) removes the
+independently supplied line cocycle when an actual module sheaf with a
+restriction-compatible quadratic atlas is given. It constructs the global
+trace, its actual kernel, the kernel/descent identification and square
+pairing internally. The specified-cover-to-atlas step remains open.

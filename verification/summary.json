@@ -1,13 +1,13 @@
 {
-  "checked_at_utc": "2026-10-13T02:17:04.992798+00:00",
+  "checked_at_utc": "2026-10-13T03:50:13.041122+00:00",
   "lean_version": "4.24.0",
   "lean_commit": "797c613eb9b6d4ec95db23e3e00af9ac6657f24b",
   "mathlib_commit": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
   "build_exit_code": 0,
   "audit_exit_code": 0,
-  "audited_declarations": 1764,
-  "audited_theorem_declarations_including_generated": 1388,
-  "handwritten_theorem_declarations": 690,
+  "audited_declarations": 1880,
+  "audited_theorem_declarations_including_generated": 1459,
+  "handwritten_theorem_declarations": 703,
   "axiom_allowlist": [
     "propext",
     "Classical.choice",
@@ -15,7 +15,7 @@
   ],
   "full_geometric_theorem_formalized": false,
   "source_sha256": {
-    "EvenQuinticConic.lean": "de1429ffbb14b7f6f1adabc2db2adcf9f22d035a13d2a9aef084859a809d49c3",
+    "EvenQuinticConic.lean": "d8d6836bf248943b413081d53f532b83d89c4b49e1ac417f49929c94fa6633c7",
     "Audit.lean": "d7737c45fe4f6ba71663500f4adcffefcc65f904cb8c0c6bc25973ae0d944121",
     "lakefile.lean": "ac0cbb06f91e35c9f4e28fdc68570067d2bfc2fbc1481488b42cb7c25e3bfa93",
     "lean-toolchain": "42779d67b81608af8a12aa4328d2ab47ca201925b3b2bd68369587b5340bb434",
@@ -51,6 +51,9 @@
     "EvenQuinticConic/IsotropicDimension.lean": "b87161b1d2bfffa3e601706d2b3af4e736fd0c884f6d08924eef7c569555fbbb",
     "EvenQuinticConic/JacobianIrreducible.lean": "5ba4d5e55c43df0085fae2f8218db5451ebd1be5b7b9d08c490c22a8a0e96436",
     "EvenQuinticConic/JacobianLocalization.lean": "8c2ebb34b69363a4f70c2a93f9645659b0b9f32f73b721e5d4c567414548ad16",
+    "EvenQuinticConic/KummerModuleAtlas.lean": "0b21822775beccb4627f485422d91f3567530a747ee0f0632b0c2f9493ab8177",
+    "EvenQuinticConic/KummerTraceZeroDescent.lean": "b4fe2d1e6ce2f3e6738799f28c087dd44310bda61a0d25ad310127abab1b5f74",
+    "EvenQuinticConic/KummerTraceZeroFrames.lean": "7015685e03515f4aee196cc50e35c283a5a93ec64a979119383c6f8e30907014",
     "EvenQuinticConic/LineBundleFrames.lean": "269bdf40f4aa563e9fbb745d24bb772963033fb56e1083e593ffe792c27c4d1c",
     "EvenQuinticConic/LineBundleGluing.lean": "60f3da0819bd7c4af1b32849b6ce8433a13c7de02cb93b37231df3a66c72d435",
     "EvenQuinticConic/LineBundlePairing.lean": "ba745ab20edad3e397cebcbc9b04114beaa1940bf598a249121c9ab0fde1860a",
@@ -72,6 +75,7 @@
     "EvenQuinticConic/ModuleGenericInjection.lean": "081efa7504b5d75f74017eda187eee8f1e48b59de8c42ec1fd2fec6d3063bf62",
     "EvenQuinticConic/ModuleHomGluing.lean": "3394bc30139960a096e8a4f26fbb0d9d358084e064b69e2bb67ba05ef34f403b",
     "EvenQuinticConic/ModulePairing.lean": "d74785fa4ce0b320c4fddfd47733e19b08a242574eb1bde1ec3d387f00a5f199",
+    "EvenQuinticConic/ModuleSheafKernelSections.lean": "4e8cdb0aa7c39333e23188818e877644ce6a4aa9cc290143a6ef71695c2e3cb3",
     "EvenQuinticConic/ModuleSheafificationRestriction.lean": "6087cd2649ca2482ebf3bdd07afe796643bb366e423e5e29d57533ad011439bf",
     "EvenQuinticConic/NormalSchemeSections.lean": "c593a4dcb2ab8b3c6f6b531a19160d10a10ca8ad7018a3a626db649870cd9225",
     "EvenQuinticConic/PairingComparison.lean": "9c450e9f4ad16583c3d0bd23398c118eb063aabbebf811091939d4f38d5ad900",
@@ -108,6 +112,7 @@
     "EvenQuinticConic/PlaneThetaKummer.lean": "aa0606654e99b5b73f0caffb514d052dfaaee3efb20633b3359606293b24d703",
     "EvenQuinticConic/PlaneThetaLineBundle.lean": "0e8b309b364043d47575d1ea76e49d4d79c0d96558c8151104586a6511f76ebf",
     "EvenQuinticConic/PlaneThetaSmooth.lean": "a4226e14b7848d1b4f972c00d10b182961ec138f0866cb20fc41a2f0128ff363",
+    "EvenQuinticConic/PlaneThetaTraceZero.lean": "9368b200a6de12697ea6690a2e28d158fa87a36c8a42c659c43329cd1e0cb292",
     "EvenQuinticConic/PlaneThetaTwoTorsion.lean": "e192c7cde8ddf99de1de27b541ce21fcea524d32d8623d5ea077aa5dab76e034",
     "EvenQuinticConic/PlaneThetaVanishing.lean": "a0cee7eb25db052622f3baae2ddf02c2dc5edb15f3018229d2ec284441c0c760",
     "EvenQuinticConic/PolynomialDegree.lean": "a7dd28ab1a8a60f8d67c64abc07d9eb4ebcb80ed950460a4036c4d5a0fa95d71",
@@ -146,9 +151,9 @@
     "EvenQuinticConic/TopologyOpenRestriction.lean": "625fe5e7651c3203add9db478a75b3d49dfc98e92e57c0411ac8e67d01fa5518",
     "EvenQuinticConic/WeightedRestriction.lean": "ce476cf16c08f46e1247c4bbd9e619434fca00c56df306f3c004943351ead9ac"
   },
-  "source_modules": 125,
+  "source_modules": 130,
   "verification_kind": "local",
-  "handwritten_public_theorem_declarations": 683,
+  "handwritten_public_theorem_declarations": 696,
   "handwritten_private_theorem_declarations": 7,
   "theta_ineffectivity_with_explicit_restriction_hypotheses_formalized": true,
   "theta_finite_dimensionality_derived": true,
@@ -199,8 +204,8 @@
   "theta_vanishing_from_explicit_jacobian_condition_formalized": true,
   "original_geometric_hypotheses_to_jacobian_equation_formalized": false,
   "verification_log_sha256": {
-    "verification/build.log": "79346baff655ba7c477e84bd7f824b20dc3b46fbd74f6494eb61e99a62ca4f10",
-    "verification/axiom-audit.log": "8a70eddfdfac12b23f5f0a91a329756873e0e2ea60c64d2d83748018eb48f60a"
+    "verification/build.log": "aabb0f4a25c0bdfa5072fdd7045ef35a1fe8789a4690b8c5685e6e3e4aa65a85",
+    "verification/axiom-audit.log": "5106fee314fb37e1ab8c25a6bc187733c2faf4a5c4ea16d95e89f4e8ed8a7993"
   },
   "actual_scheme_kaehler_sheaf_and_universal_property_formalized": true,
   "actual_affine_kaehler_comparison_isomorphism_formalized": true,
@@ -251,5 +256,28 @@
     "Commutative base ring",
     "Invertibility of 2 for rank-one trace-kernel identification",
     "Unit quadratic parameter for multiplication tensor-square isomorphism"
+  ],
+  "global_trace_morphism_from_coherent_quadratic_atlas_constructed": true,
+  "actual_categorical_trace_kernel_from_atlas_constructed": true,
+  "actual_trace_kernel_frames_and_cocycle_extracted": true,
+  "atlas_trace_kernel_identified_with_descended_cocycle": true,
+  "actual_trace_kernel_square_pairing_agrees_with_local_algebra_multiplication": true,
+  "actual_trace_kernel_square_pairing_locally_tensor_perfect": true,
+  "actual_trace_kernel_hyperplane_twist_tensor_universal_property_proved": true,
+  "atlas_trace_kernel_theta_cotangent_square_constructed": true,
+  "specified_discriminant_cover_pushforward_trace_identified": false,
+  "atlas_trace_kernel_theta_endpoint": "planeQuintic_even_trace_kernel_twist_sections_eq_zero",
+  "atlas_trace_kernel_theta_endpoint_inputs": [
+    "Algebraically closed field with invertible two; homogeneous quintic of total degree five and explicit projective Jacobian condition",
+    "Actual open cover and actual module sheaf",
+    "Restriction-compatible linear coordinates in unit-parameter quadratic algebras on all chart subopens, with actual algebra overlap isomorphisms agreeing with the coordinates",
+    "Even finrank of the constructed hyperplane twist; finite-dimensionality derived internally"
+  ],
+  "atlas_trace_kernel_theta_endpoint_internally_constructed": [
+    "Global trace glued from actual local algebra traces",
+    "Actual categorical kernel of the glued trace",
+    "Kernel frames, extracted line cocycle and actual descent isomorphism",
+    "Square pairing equal to actual local algebra multiplication and locally tensor-perfect",
+    "Hyperplane twist with tensor universal property on the actual kernel and cotangent-square isomorphism"
   ]
 }

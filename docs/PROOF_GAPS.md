@@ -2,6 +2,18 @@
 
 The following is a work plan for scrutinizing a proposed mathematical argument, not a list of verified consequences. Every implication below needs both a precise statement and a proof. Finding a missing hypothesis or a false implication would require revising the argument, not adding an axiom to Lean.
 
+## Latest atlas-relative progress
+
+The global trace kernel is now constructed from an actual module sheaf with
+a coherent quadratic-algebra atlas, and is proved isomorphic to the line
+descended from its internally extracted frames. Its square pairing agrees
+with actual local multiplication. The endpoint
+`planeQuintic_even_trace_kernel_twist_sections_eq_zero` no longer takes a
+trace morphism, line cocycle, or square isomorphism as input. It still takes
+the atlas and parity. This does not yet identify the kernel with that of the
+specified discriminant cover's pushforward trace; see
+[GLOBAL_TRACE_KERNEL_BRIDGE.md](GLOBAL_TRACE_KERNEL_BRIDGE.md).
+
 ## 1. State the geometric problem
 
 Define the real base, the smooth projective total space, the conic-bundle morphism, geometric standardness, the smooth discriminant curve of degree five, its étale double cover, and the associated theta characteristic. Define evenness using the parity of the actual dimension of global sections after the appropriate base change. Relate the topology on real points to the intended real algebraic variety.

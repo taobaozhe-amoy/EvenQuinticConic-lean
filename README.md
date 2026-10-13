@@ -19,12 +19,17 @@
 仍未从原题指定的有限 étale 判别式双覆盖提取 η 及其平方平凡化；偶性仍是输入。因此该构造并未完成原实圆锥曲线丛问题。
 
 
-本轮进一步证明mathlib 显式二次代数 `QuadraticAlgebra R u 0`（满足 t²=u）的真实迹零模及乘法平方同构（要求 `2`、`u` 可逆）；实际代数换坐标给出迹零生成元的过渡单位及其复合关系。对已给定的线 cocycle 和相容局部二次代数映射，`squareIsoOfKummerMaps` 从乘法关系构造实际 η²≅O，`planeQuintic_even_kummer_twist_sections_eq_zero` 因而无需外部提供全局平方同构。**从指定有限 étale 双覆盖提取这些局部模型、限制映射和全局迹零层，仍未完成。** 精确输入和边界见 [局部 Kummer 桥梁](docs/LOCAL_KUMMER_BRIDGE.md)。
+上一阶段已证明 mathlib 显式二次代数 `QuadraticAlgebra R u 0` 的真实迹零模、乘法张量平方同构及换坐标公式，见 [局部 Kummer 桥梁](docs/LOCAL_KUMMER_BRIDGE.md)。
+
+本轮新增 `planeQuintic_even_trace_kernel_twist_sections_eq_zero`：给定实际模层及限制相容的二次代数图册，内部粘合实际局部代数迹，取其范畴论核层，构造核层标架、单位 cocycle、下降同构及平方平凡化。核层平方配对已证明在每个图上等于原代数乘法；扭曲的 tensor 普遍性质直接作用于这个实际核层。**不再要求输入迹态射、迹核线层的 cocycle 或全局平方同构，但图册与截面维数偶性仍是输入。** 从指定有限 étale 判别双覆盖构造图册、识别其推前层和迹，以及实几何部分仍未完成。精确接口见 [全局迹核桥梁](docs/GLOBAL_TRACE_KERNEL_BRIDGE.md)。
 
 ## 已形式化的内容
 
 | 模块 | 实际数学内容 | 适用边界与后续步骤 |
 | --- | --- | --- |
+| `ModuleSheafKernelSections` / `KummerModuleAtlas` | 实际层核的截面识别；从相容局部代数图册粘合全局迹并取真正的核层 | 实际模层与图册仍由调用者提供 |
+| `KummerTraceZeroFrames` / `KummerTraceZeroDescent` | 构造核层标架、cocycle、下降同构及平方配对；证明配对等于局部代数乘法 | 一般概形要求各截面环中 2 可逆；平面曲线接口从基域推出 |
+| `PlaneThetaTraceZero` | 核层超平面扭曲的 tensor 普遍性质、余切平方同构及条件性截面消失 | 指定判别双覆盖的图册、theta 对应及偶性来源仍待证明 |
 | `QuadraticTraceZero` / `QuadraticTraceZeroTransition` | 真实代数迹的核、乘法张量平方同构、实际代数同构诱导的迹零过渡单位及复合关系 | 要求局部模型已给定，识别迹零模要求 2 可逆 |
 | `LineBundleSquareTrivialization` / `PlaneThetaKummer` | 从局部实际代数乘法推导系数相容性，粘合 η²≅O，接入 theta 截面消失 | 局部模型与指定全局双覆盖的对应仍需证明 |
 | `LineBundleUnitProduct` / `LineBundleRefinement` | 实际平凡因子的乘积消去、任意覆盖细化同构及坐标相容性 | 无需在较大坐标开集上假设 η 平凡 |
@@ -144,7 +149,7 @@ $$
 
 ## 构建与审计
 
-本版包含 125 个源码模块、683 条公开手写定理，另有 7 条私有辅助定理（共 690 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
+本版包含 130 个源码模块、696 条公开手写定理，另有 7 条私有辅助定理（共 703 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
 
 环境固定为 Lean `v4.24.0` 和 mathlib 提交
 `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`。提交的 `lake-manifest.json` 固定传递依赖。

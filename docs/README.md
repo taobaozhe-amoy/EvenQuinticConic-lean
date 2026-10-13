@@ -1,6 +1,7 @@
 # Mathematical scope
 
 - [PROOF_GAPS.md](PROOF_GAPS.md): precise unformalized geometric steps.
+- [GLOBAL_TRACE_KERNEL_BRIDGE.md](GLOBAL_TRACE_KERNEL_BRIDGE.md): actual global trace kernel, extracted descent data, and remaining specified-cover obligations.
 - [MATHLIB_STATUS.md](MATHLIB_STATUS.md): capabilities of the pinned mathlib checkout.
 
 - [THETA_BRIDGE_REVIEW.md](THETA_BRIDGE_REVIEW.md): complete handwritten theta lemma, precise geometric interfaces and primary references.

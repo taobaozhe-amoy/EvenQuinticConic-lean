@@ -5,9 +5,9 @@ as predicted output.
 
 | Check | Result |
 | --- | --- |
-| `lake build` | Exit 0; all 125 source modules and the root import compiled |
-| `lake env lean Audit.lean` | Exit 0; 1764 declarations audited, including 1388 theorem declarations |
-| Handwritten `theorem` declarations | 690 total: 683 public and 7 private helpers; comments and strings are excluded from this source count |
+| `lake build` | Exit 0; all 130 source modules and the root import compiled |
+| `lake env lean Audit.lean` | Exit 0; 1880 declarations audited, including 1459 theorem declarations |
+| Handwritten `theorem` declarations | 703 total: 696 public and 7 private helpers; comments and strings are excluded from this source count |
 | Allowed axiom dependencies | `propext`, `Classical.choice`, `Quot.sound` |
 | `sorryAx` or any other unexpected axiom | None in the audited dependency closures |
 | mathlib tracked source changes | None |
@@ -37,6 +37,10 @@ as predicted output.
 | Actual differential-sheaf restriction and open-immersion transport | Isomorphisms proved, preserving actual derivations and sheafification units |
 | Complete signed residue transitions | Proved on every actual chart overlap, including mixed derivative cases, with the actual hyperplane-square cocycle |
 | Actual plane-quintic differential adjunction | `planeQuinticAdjunctionIsoOfJacobian`; actual relative differential sheaf is isomorphic to the constructed hyperplane-square sheaf, without an adjunction or local-frame input |
+| Global trace and categorical trace kernel from a coherent quadratic atlas | Constructed internally; actual kernel frames, extracted cocycle and descent isomorphism proved |
+| Actual trace-kernel square pairing | Locally tensor-perfect and proved to agree with multiplication in each supplied quadratic algebra chart |
+| Atlas-relative theta endpoint | `planeQuintic_even_trace_kernel_twist_sections_eq_zero`; tensor universal property uses the actual kernel, parity remains an input |
+| Atlas extracted from the specified finite étale discriminant cover | Not yet constructed; pushforward trace identification remains open |
 | Original conic-bundle hypotheses to the equation and Jacobian condition | Not yet formalized |
 | Original cover's theta identification, cotangent square and parity | Not yet constructed from the original discriminant cover; remain explicit geometric inputs |
 | Full geometric no-go theorem | Not formalized or verified |
@@ -82,3 +86,5 @@ statement. The scope is therefore recorded separately in the README and
 The new constructed endpoint is `planeQuintic_even_twoTorsion_twist_sections_eq_zero`. Its input includes the original line cocycle on an arbitrary cover, an actual square trivialization, and even finrank of its constructed hyperplane twist. The theta sheaf, original-factor tensor universal property, and cotangent square are constructed internally. Extraction from a discriminant double cover is not yet formalized.
 
 The local-model endpoint is now `planeQuintic_even_kummer_twist_sections_eq_zero`. Unlike the earlier two-torsion interface, it constructs the global line-square isomorphism from actual local quadratic-algebra maps and their generator-coordinate compatibility with a supplied cocycle. The actual algebra trace kernel, its tensor square, and algebra-isomorphism transition units are separately formalized. This does not assert extraction of the local data from the specified finite étale cover; see `docs/LOCAL_KUMMER_BRIDGE.md`.
+
+The atlas-relative endpoint is `planeQuintic_even_trace_kernel_twist_sections_eq_zero`. It takes an actual module sheaf with coherent quadratic charts and constructs the trace morphism, actual kernel, frames, cocycle, descent isomorphism and square pairing. Local multiplication agreement is proved. The supplied atlas has not yet been extracted from the specified cover. See `docs/GLOBAL_TRACE_KERNEL_BRIDGE.md`.

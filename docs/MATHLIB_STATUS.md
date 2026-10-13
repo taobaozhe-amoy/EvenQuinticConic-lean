@@ -551,3 +551,7 @@ Remaining: extract the trace-zero line sheaf and its square trivialization from 
 ## Local quadratic multiplication update
 
 The actual local trace-zero module and its multiplication tensor square are now proved in `QuadraticTraceZero`. Actual algebra isomorphisms supply trace-zero transition units and their composition law in `QuadraticTraceZeroTransition`. For given compatible local Kummer models and a given line cocycle, `squareIsoOfKummerMaps` constructs the global square trivialization, and `planeQuintic_even_kummer_twist_sections_eq_zero` uses it internally. Extraction of those models and their global trace-zero sheaf from the specified finite étale cover remains open. See [the exact local-model inputs and remaining obligations](LOCAL_KUMMER_BRIDGE.md).
+
+## Global categorical kernel and quadratic atlas
+
+`ModuleSheafKernelSections` uses mathlib's preservation of kernels by module-sheaf evaluation and `ModuleCat.kernelIsoKer` to identify actual kernel sections with sectionwise linear kernels. `KummerModuleAtlas` glues genuine local algebra traces. `KummerTraceZeroFrames` and `KummerTraceZeroDescent` construct the actual kernel's frames, extracted descent isomorphism and multiplication square pairing. `PlaneThetaTraceZero` connects this actual kernel to the theta endpoint. The atlas is still an input, and the specified cover's pushforward trace is not yet identified with this glued trace; see [GLOBAL_TRACE_KERNEL_BRIDGE.md](GLOBAL_TRACE_KERNEL_BRIDGE.md).
