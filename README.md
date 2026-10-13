@@ -7,16 +7,23 @@
 
 当前已构造实际平面曲线概形、由坐标过渡函数下降得到的实际超平面模层及三个坐标截面，并已证明实际二次截面映射满射和四次限制单射。二次满射适用于无限域上、次数大于一且主理想为素理想的齐次方程；不再要求调用者提供满射性、首一性或坐标选择。
 
-最新定理 `planeQuintic_even_theta_sections_eq_zero_of_cotangent_square` 直接接收实际线层的平方到真实相对微分层的同构。齐次五次方程的 Jacobian 条件在内部提供素性、光滑性、正规性和伴随同构 `Ω¹(C/K) ≅ PlaneCurveQuadraticSheaf F`；实际线层的局部平凡化和平方同构提供配对，偶维数最终推出每个截面为零。
+一般 theta 定理 `planeQuintic_even_theta_sections_eq_zero_of_cotangent_square` 直接接收实际线层的平方到真实相对微分层的同构。齐次五次方程的 Jacobian 条件在内部提供素性、光滑性、正规性和伴随同构 `Ω¹(C/K) ≅ PlaneCurveQuadraticSheaf F`；实际线层的局部平凡化和平方同构提供配对，偶维数最终推出每个截面为零。
 
-本轮完成实际微分层的开子概形限制与仿射图册搬运，把已计算的微分模基接成曲线上的真实局部层标架。偏导逆单位及排列符号给出实际留数标架；全部交叠公式（包括混合偏导情形）与超平面平方 cocycle 一致，粘合后得到 `planeQuinticAdjunctionIsoOfJacobian`。全程使用原结构态射的基域作用，没有把任意开集上的微分层截面等同于截面环的微分模。
+已完成实际微分层的开子概形限制与仿射图册搬运，把已计算的微分模基接成曲线上的真实局部层标架。偏导逆单位及排列符号给出实际留数标架；全部交叠公式（包括混合偏导情形）与超平面平方 cocycle 一致，粘合后得到 `planeQuinticAdjunctionIsoOfJacobian`。全程使用原结构态射的基域作用，没有把任意开集上的微分层截面等同于截面环的微分模。
 
 该定理仍接收指定线层的局部平凡化、平方同构及截面维数偶性。原判别式双覆盖与指定 theta 的对应、其平方及偶性的几何来源、从实数据到代数闭域的基变换，以及实几何和连通性结论尚未形式化。因此，**编译成功不表示原存在性问题已解决，也不验证此前整个非形式化证明**。
+
+
+本轮新增 `planeQuintic_even_twoTorsion_twist_sections_eq_zero`：输入任意开覆盖上的实际单位 cocycle `g`、其下降线层 η 的实际平方平凡化，以及构造所得扭曲的截面维数偶性。内部构造 Θ=η⊗H，证明对原始两个层的 tensor 普遍性质，并构造 Θ²≅H²≅Ω¹(C/K)。不再额外输入 Θ、Θ 的局部平凡化或 Θ² 到微分层的同构。这里二挠意为阶整除 2，允许平凡线层。
+
+仍未从原题指定的有限 étale 判别式双覆盖提取 η 及其平方平凡化；偶性仍是输入。因此该构造并未完成原实圆锥曲线丛问题。
 
 ## 已形式化的内容
 
 | 模块 | 实际数学内容 | 适用边界与后续步骤 |
 | --- | --- | --- |
+| `LineBundleUnitProduct` / `LineBundleRefinement` | 实际平凡因子的乘积消去、任意覆盖细化同构及坐标相容性 | 无需在较大坐标开集上假设 η 平凡 |
+| `LineBundleTwoTorsion` / `PlaneThetaTwoTorsion` | 构造 η⊗H、原始因子的 tensor 普遍性质、实际微分层平方同构及条件性截面消失 | η²≅O 和扭曲偶性仍是输入 |
 | `PolynomialDegree` | 非零五次多项式整除次数至多四的 `A*D-B²` 时，该式为零；也给出主理想版本 | 构造曲线的主理想成员关系已由完整齐次核接通 |
 | `RankOneFactorization` | 在 GCD 幺半群中由 `AD=B²` 推出 `A=ha², B=hab, D=hb²`，包括退化情形 | 实际线丛比较由后续配对及层粘合模块接通 |
 | `ConicClassification` | 不成比例的二次式迫使 `h` 是非零常数、`a,b` 的次数至多一 | 独立实际截面的应用由 `ThetaSectionBridge` 接通 |
@@ -95,7 +102,7 @@
 
 ## 当前接通的证明链
 
-目前最具体的定理是 `planeQuintic_even_theta_sections_eq_zero_of_cotangent_square`。输入精确为：
+一般 theta 接口的定理是 `planeQuintic_even_theta_sections_eq_zero_of_cotangent_square`。输入精确为：
 
 - 代数闭基域、齐次五次式 `F`，且 `totalDegree F = 5`。
 - 原始方程的 Jacobian 条件：对每个非零向量 `v : Fin 3 → K`，若 `F(v)=0`，则至少一个偏导 `∂ᵢF(v)≠0`。
@@ -132,7 +139,7 @@ $$
 
 ## 构建与审计
 
-本版包含 117 个源码模块、658 条公开手写定理，另有 7 条私有辅助定理（共 665 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
+本版包含 121 个源码模块、667 条公开手写定理，另有 7 条私有辅助定理（共 674 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
 
 环境固定为 Lean `v4.24.0` 和 mathlib 提交
 `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`。提交的 `lake-manifest.json` 固定传递依赖。

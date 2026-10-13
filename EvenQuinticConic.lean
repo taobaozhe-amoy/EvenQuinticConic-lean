@@ -115,3 +115,7 @@ import EvenQuinticConic.SchemeOpenDifferentialFrames
 import EvenQuinticConic.SchemeOpenModuleFrames
 import EvenQuinticConic.TildeModuleFrames
 import EvenQuinticConic.TopologyOpenRestriction
+import EvenQuinticConic.LineBundleUnitProduct
+import EvenQuinticConic.LineBundleRefinement
+import EvenQuinticConic.LineBundleTwoTorsion
+import EvenQuinticConic.PlaneThetaTwoTorsion

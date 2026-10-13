@@ -206,10 +206,10 @@ The remaining **geometric instantiation** must supply:
    normality, and all subsequent local technical data are now proved.
    A converse Jacobian theorem starting with an arbitrary scheme-theoretic
    smooth hypersurface has not been proved here.
-2. Construct the specified theta line sheaf, its local unit-sheaf
-   isomorphisms and its square isomorphism to the actual relative differential
-   sheaf. Differential adjunction to the constructed hyperplane square is
-   now proved internally.
+2. Extract the actual trace-zero line sheaf η and its square trivialization
+   from the specified finite étale discriminant double cover. The new twist
+   construction then supplies Θ=η⊗H, its local frames and its cotangent
+   square; identify this constructed twist with the specified theta object.
 3. Relate the conic bundle's specified real double cover, its theta line
    bundle, and geometric parity, including the real base-change step.
 
@@ -324,3 +324,11 @@ Precisely state and prove the necessary invariance/connectedness result for smoo
 ## Acceptance criterion for the full theorem
 
 A completed proof would have an actual geometric statement, explicit original hypotheses, and a Lean proof depending only on accepted foundational axioms and proved mathematics. It would neither take rationality/connectedness as an extra unexplained premise nor encode the desired conclusion inside a definition of the hypotheses. The current repository does not meet this full-theorem criterion and does not claim to.
+
+## Constructed two-torsion twist
+
+`PlaneThetaTwoTorsion.lean` constructs the actual module sheaf Θ=η⊗H from a unit cocycle on any open cover. `LineBundleRefinement.lean` constructs the common-cover comparisons, and `planeTorsionThetaHomEquiv` proves the tensor universal property for the original two factors. Given an actual trivialization η²≅O, `planeTorsionThetaCotangentSquareIso` constructs Θ²≅Ω¹(C/K) using proved quintic adjunction. Neither Θ nor its local frames nor its cotangent square is an additional input.
+
+`planeQuintic_even_twoTorsion_twist_sections_eq_zero` then proves that every global section vanishes, conditional on even finrank of the constructed twist, over an algebraically closed field with the stated homogeneous quintic and Jacobian hypotheses. Two-torsion here means order dividing two, including the trivial line sheaf.
+
+Remaining: extract the trace-zero line sheaf and its square trivialization from the specified finite étale discriminant double cover; identify this twist with the specified theta characteristic and establish its parity; connect real base change and real geometry. No existence or nonexistence conclusion for the original real conic bundle follows from this milestone alone.

@@ -526,11 +526,10 @@ The remaining geometric obligations are:
 
 1. Construct and identify the original discriminant equation and its
    complexification, verifying the explicit Jacobian condition from the
-   original geometric inputs. Construct the specified theta module sheaf, its actual local unit-sheaf
-   trivializations and its square isomorphism to the actual differential
-   sheaf. `PlaneCurveAdjunction` now proves the differential-sheaf
-   identification with the constructed hyperplane square. The actual
-   hyperplane construction alone does not supply this theta data.
+   original geometric inputs. Extract the trace-zero line sheaf η and its
+   square trivialization from the specified finite étale double cover.
+   The new `PlaneThetaTwoTorsion` construction supplies the actual
+   twist Θ=η⊗H and its cotangent square from those data.
 2. Relate the line bundle from the specified real double cover to this theta
    object and its geometric parity, including base change; then construct
    the real symmetric resolution and compare the signed discriminant cover.
@@ -542,9 +541,17 @@ geometric constructions remove former existence and generic-coordinate
 interfaces, and the actual section argument discharges quadratic
 surjectivity. The polynomial Jacobian criterion now supplies primality and
 actual smoothness; smoothness-to-normality and the local line-sheaf interfaces
-are also proved. The theta object's geometric origin, its specified square isomorphism,
-and real base change remain. Differential adjunction is now proved, and
+are also proved. The trace-zero line sheaf's geometric origin and square trivialization,
+its twist's parity, and real base change remain. Differential adjunction is now proved, and
 `PlaneThetaAdjunction` uses it in the actual cotangent-square endpoint.
 The original real conic-bundle existence question and
 the later Brauer, quadratic-form, birational, and real-connectedness
 implications are still not formally proved.
+
+## Constructed two-torsion twist
+
+`PlaneThetaTwoTorsion.lean` constructs the actual module sheaf Θ=η⊗H from a unit cocycle on any open cover. `LineBundleRefinement.lean` constructs the common-cover comparisons, and `planeTorsionThetaHomEquiv` proves the tensor universal property for the original two factors. Given an actual trivialization η²≅O, `planeTorsionThetaCotangentSquareIso` constructs Θ²≅Ω¹(C/K) using proved quintic adjunction. Neither Θ nor its local frames nor its cotangent square is an additional input.
+
+`planeQuintic_even_twoTorsion_twist_sections_eq_zero` then proves that every global section vanishes, conditional on even finrank of the constructed twist, over an algebraically closed field with the stated homogeneous quintic and Jacobian hypotheses. Two-torsion here means order dividing two, including the trivial line sheaf.
+
+Remaining: extract the trace-zero line sheaf and its square trivialization from the specified finite étale discriminant double cover; identify this twist with the specified theta characteristic and establish its parity; connect real base change and real geometry. No existence or nonexistence conclusion for the original real conic bundle follows from this milestone alone.
