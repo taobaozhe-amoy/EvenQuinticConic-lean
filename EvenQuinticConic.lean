@@ -119,3 +119,7 @@ import EvenQuinticConic.LineBundleUnitProduct
 import EvenQuinticConic.LineBundleRefinement
 import EvenQuinticConic.LineBundleTwoTorsion
 import EvenQuinticConic.PlaneThetaTwoTorsion
+import EvenQuinticConic.QuadraticTraceZero
+import EvenQuinticConic.QuadraticTraceZeroTransition
+import EvenQuinticConic.LineBundleSquareTrivialization
+import EvenQuinticConic.PlaneThetaKummer

@@ -555,3 +555,7 @@ implications are still not formally proved.
 `planeQuintic_even_twoTorsion_twist_sections_eq_zero` then proves that every global section vanishes, conditional on even finrank of the constructed twist, over an algebraically closed field with the stated homogeneous quintic and Jacobian hypotheses. Two-torsion here means order dividing two, including the trivial line sheaf.
 
 Remaining: extract the trace-zero line sheaf and its square trivialization from the specified finite étale discriminant double cover; identify this twist with the specified theta characteristic and establish its parity; connect real base change and real geometry. No existence or nonexistence conclusion for the original real conic bundle follows from this milestone alone.
+
+## Local quadratic multiplication update
+
+The actual local trace-zero module and its multiplication tensor square are now proved in `QuadraticTraceZero`. Actual algebra isomorphisms supply trace-zero transition units and their composition law in `QuadraticTraceZeroTransition`. For given compatible local Kummer models and a given line cocycle, `squareIsoOfKummerMaps` constructs the global square trivialization, and `planeQuintic_even_kummer_twist_sections_eq_zero` uses it internally. Extraction of those models and their global trace-zero sheaf from the specified finite étale cover remains open. See [the exact local-model inputs and remaining obligations](LOCAL_KUMMER_BRIDGE.md).

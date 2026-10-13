@@ -14,14 +14,19 @@
 该定理仍接收指定线层的局部平凡化、平方同构及截面维数偶性。原判别式双覆盖与指定 theta 的对应、其平方及偶性的几何来源、从实数据到代数闭域的基变换，以及实几何和连通性结论尚未形式化。因此，**编译成功不表示原存在性问题已解决，也不验证此前整个非形式化证明**。
 
 
-本轮新增 `planeQuintic_even_twoTorsion_twist_sections_eq_zero`：输入任意开覆盖上的实际单位 cocycle `g`、其下降线层 η 的实际平方平凡化，以及构造所得扭曲的截面维数偶性。内部构造 Θ=η⊗H，证明对原始两个层的 tensor 普遍性质，并构造 Θ²≅H²≅Ω¹(C/K)。不再额外输入 Θ、Θ 的局部平凡化或 Θ² 到微分层的同构。这里二挠意为阶整除 2，允许平凡线层。
+上一阶段新增 `planeQuintic_even_twoTorsion_twist_sections_eq_zero`：输入任意开覆盖上的实际单位 cocycle `g`、其下降线层 η 的实际平方平凡化，以及构造所得扭曲的截面维数偶性。内部构造 Θ=η⊗H，证明对原始两个层的 tensor 普遍性质，并构造 Θ²≅H²≅Ω¹(C/K)。不再额外输入 Θ、Θ 的局部平凡化或 Θ² 到微分层的同构。这里二挠意为阶整除 2，允许平凡线层。
 
 仍未从原题指定的有限 étale 判别式双覆盖提取 η 及其平方平凡化；偶性仍是输入。因此该构造并未完成原实圆锥曲线丛问题。
+
+
+本轮进一步证明mathlib 显式二次代数 `QuadraticAlgebra R u 0`（满足 t²=u）的真实迹零模及乘法平方同构（要求 `2`、`u` 可逆）；实际代数换坐标给出迹零生成元的过渡单位及其复合关系。对已给定的线 cocycle 和相容局部二次代数映射，`squareIsoOfKummerMaps` 从乘法关系构造实际 η²≅O，`planeQuintic_even_kummer_twist_sections_eq_zero` 因而无需外部提供全局平方同构。**从指定有限 étale 双覆盖提取这些局部模型、限制映射和全局迹零层，仍未完成。** 精确输入和边界见 [局部 Kummer 桥梁](docs/LOCAL_KUMMER_BRIDGE.md)。
 
 ## 已形式化的内容
 
 | 模块 | 实际数学内容 | 适用边界与后续步骤 |
 | --- | --- | --- |
+| `QuadraticTraceZero` / `QuadraticTraceZeroTransition` | 真实代数迹的核、乘法张量平方同构、实际代数同构诱导的迹零过渡单位及复合关系 | 要求局部模型已给定，识别迹零模要求 2 可逆 |
+| `LineBundleSquareTrivialization` / `PlaneThetaKummer` | 从局部实际代数乘法推导系数相容性，粘合 η²≅O，接入 theta 截面消失 | 局部模型与指定全局双覆盖的对应仍需证明 |
 | `LineBundleUnitProduct` / `LineBundleRefinement` | 实际平凡因子的乘积消去、任意覆盖细化同构及坐标相容性 | 无需在较大坐标开集上假设 η 平凡 |
 | `LineBundleTwoTorsion` / `PlaneThetaTwoTorsion` | 构造 η⊗H、原始因子的 tensor 普遍性质、实际微分层平方同构及条件性截面消失 | η²≅O 和扭曲偶性仍是输入 |
 | `PolynomialDegree` | 非零五次多项式整除次数至多四的 `A*D-B²` 时，该式为零；也给出主理想版本 | 构造曲线的主理想成员关系已由完整齐次核接通 |
@@ -139,7 +144,7 @@ $$
 
 ## 构建与审计
 
-本版包含 121 个源码模块、667 条公开手写定理，另有 7 条私有辅助定理（共 674 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
+本版包含 125 个源码模块、683 条公开手写定理，另有 7 条私有辅助定理（共 690 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
 
 环境固定为 Lean `v4.24.0` 和 mathlib 提交
 `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`。提交的 `lake-manifest.json` 固定传递依赖。

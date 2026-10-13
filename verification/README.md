@@ -5,9 +5,9 @@ as predicted output.
 
 | Check | Result |
 | --- | --- |
-| `lake build` | Exit 0; all 121 source modules and the root import compiled |
-| `lake env lean Audit.lean` | Exit 0; 1703 declarations audited, including 1341 theorem declarations |
-| Handwritten `theorem` declarations | 674 total: 667 public and 7 private helpers; comments and strings are excluded from this source count |
+| `lake build` | Exit 0; all 125 source modules and the root import compiled |
+| `lake env lean Audit.lean` | Exit 0; 1764 declarations audited, including 1388 theorem declarations |
+| Handwritten `theorem` declarations | 690 total: 683 public and 7 private helpers; comments and strings are excluded from this source count |
 | Allowed axiom dependencies | `propext`, `Classical.choice`, `Quot.sound` |
 | `sorryAx` or any other unexpected axiom | None in the audited dependency closures |
 | mathlib tracked source changes | None |
@@ -80,3 +80,5 @@ statement. The scope is therefore recorded separately in the README and
 `docs/PROOF_GAPS.md`.
 
 The new constructed endpoint is `planeQuintic_even_twoTorsion_twist_sections_eq_zero`. Its input includes the original line cocycle on an arbitrary cover, an actual square trivialization, and even finrank of its constructed hyperplane twist. The theta sheaf, original-factor tensor universal property, and cotangent square are constructed internally. Extraction from a discriminant double cover is not yet formalized.
+
+The local-model endpoint is now `planeQuintic_even_kummer_twist_sections_eq_zero`. Unlike the earlier two-torsion interface, it constructs the global line-square isomorphism from actual local quadratic-algebra maps and their generator-coordinate compatibility with a supplied cocycle. The actual algebra trace kernel, its tensor square, and algebra-isomorphism transition units are separately formalized. This does not assert extraction of the local data from the specified finite étale cover; see `docs/LOCAL_KUMMER_BRIDGE.md`.
