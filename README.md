@@ -29,16 +29,20 @@
 
 上一阶段新增 `exists_principal_unit_kummer_cover`：从实际交换代数的模有限表示、平坦性、形式非分歧性、`2` 可逆及每个素点处的秩二条件，构造 `Spec R` 的主开覆盖，并在每个主开集上给出实际基变换代数的单位 Kummer 同构。关键改进是以归一化迹完成幺模列，证明任意底环上的秩二基都可改为 `(1,e)`，再结合有限表示模的基延拓定理。主开模型已构造；新的限制与交叠进展见下文。 精确输入见 [主开覆盖模型](docs/PRINCIPAL_OPEN_KUMMER.md)。
 
-本轮构造了 Kummer 模型的实际基变换同构，证明坐标、真实代数迹及交叠单位的限制公式。`principalOpenKummerSectionModel` 将主开模型延伸到任意子开集 `V` 的实际结构层截面环 `Γ(V,O)`；两个坐标与所有进一步限制相容。交叠同构经共同代数构造，过渡单位的平方关系、cocycle 及基变换公式均已证明。**模型的定义域仍是 `Γ(V,O)⊗[R]A`；尚未与指定推前层的实际截面识别，所以还未得到该双覆盖的 `KummerModuleAtlas`。** 见 [模型限制与结构层系数](docs/KUMMER_MODEL_RESTRICTIONS.md)。
+上一阶段构造了 Kummer 模型的实际基变换同构，证明坐标、真实代数迹及交叠单位的限制公式。`principalOpenKummerSectionModel` 将主开模型延伸到任意子开集 `V` 的实际结构层截面环 `Γ(V,O)`；两个坐标与所有进一步限制相容。交叠同构经共同代数构造，过渡单位的平方关系、cocycle 及基变换公式均已证明。该阶段的模型定义域为 `Γ(V,O)⊗[R]A`；新的实际推前层比较见下文。 见 [模型限制与结构层系数](docs/KUMMER_MODEL_RESTRICTIONS.md)。
+
+本轮新增 `exists_affinePushforwardKummerAtlas`：对仿射态射 `Spec A → Spec R`，从模有限表示、平坦、形式非分歧、`2` 可逆和逐点秩二条件，构造**实际推前模层 `π_*O` 的覆盖性 `KummerModuleAtlas`**。代码先构造自然张量到实际截面的环映射，在主开集上用局部化证明双射，再用两个坐标的粘合证明任意子开集上的双射；实际标量作用、乘法、限制和交叠均已接通。无需输入图册、截面比较同构或交叠相容性。**仍须将题目指定双覆盖在一般底概形上的仿射局部数据与此构造识别，完成全局迹及 theta、偶性和实几何部分。** 见 [实际仿射推前图册](docs/AFFINE_PUSHFORWARD_ATLAS.md)。
 
 ## 已形式化的内容
 
 | 模块 | 实际数学内容 | 适用边界与后续步骤 |
 | --- | --- | --- |
+| `AffinePushforwardTensor` / `AffinePushforwardPrincipal` / `AffinePushforwardComparison` / `PrincipalOpenTensorGluing` | 真实张量到推前截面的环映射；主开及 Kummer 图内任意子开的自然环同构 | 非仿射子开的证明使用实际两坐标粘合，无额外截面同构输入 |
+| `AffinePushforwardModule` / `AffinePushforwardKummerModel` / `AffinePushforwardKummerAtlas` | 实际模层推前、标量相容的真实截面坐标、兼容图册及覆盖存在性 | 仿射态射上的定理；指定双覆盖和非仿射底的运输仍待接通 |
 | `KummerBaseChange` / `KummerScalarMap` / `KummerModelRestriction` | 实际基变换同构、坐标与迹的限制公式、限制的恒等及复合律 | 适用于实际基变换代数；不等同于推前层截面识别 |
 | `KummerModelOverlap` | 从同一代数的模型构造交叠同构和单位，证明 cocycle、平方及基变换公式 | 共同代数是实际输入，交叠同构与单位在内部构造 |
-| `PrincipalOpenSectionMap` / `PrincipalOpenKummerSections` | 任意子开上的真实结构层标量映射及相容的张量代数坐标 | `Γ(V,O)⊗A` 与实际模层截面的识别仍待证明 |
-| `RankTwoUnimodularBasis` / `PrincipalOpenKummer` | 任意底环上调整秩二基；从素点秩二条件构造主开覆盖及实际局部化代数模型 | 输入模有限表示、平坦、形式非分歧和 2 可逆；尚未建立层级交叠相容性 |
+| `PrincipalOpenSectionMap` / `PrincipalOpenKummerSections` | 任意子开上的真实结构层标量映射及相容的张量代数坐标 | 与实际推前层截面的比较已由后续模块证明 |
+| `RankTwoUnimodularBasis` / `PrincipalOpenKummer` | 任意底环上调整秩二基；从素点秩二条件构造主开覆盖及实际局部化代数模型 | 输入模有限表示、平坦、形式非分歧和 2 可逆；实际仿射图册现由后续模块构造 |
 | `RankTwoUnitBasis` / `LocalRankTwoKummer` | 从局部环上的有限平坦秩二条件构造基、单位 Kummer 模型及真实迹核平方 | 不输入任何基；指定双覆盖图册仍待证明 |
 | `QuadraticNormalForm` / `KummerUnramified` | 实际配方代数同构；从形式非分歧性证明参数可逆 | 使用实际导子与 Kähler 微分模；不假设判别式可逆 |
 | `QuadraticBasisModel` / `QuadraticBasisTraceZero` | 从实际基 `(1,e)` 构造单位 Kummer 模型，以及原代数实际迹核的乘法张量平方同构 | 指定双覆盖的相容局部基仍是缺口 |
@@ -164,7 +168,7 @@ $$
 
 ## 构建与审计
 
-本版包含 144 个源码模块、752 条公开手写定理，另有 7 条私有辅助定理（共 759 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
+本版包含 151 个源码模块、781 条公开手写定理，另有 7 条私有辅助定理（共 788 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
 
 环境固定为 Lean `v4.24.0` 和 mathlib 提交
 `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`。提交的 `lake-manifest.json` 固定传递依赖。

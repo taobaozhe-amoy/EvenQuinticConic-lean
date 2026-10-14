@@ -39,7 +39,7 @@ This module establishes the local-ring result. The subsequent
 `PrincipalOpenKummer` module now constructs a principal-open cover with
 unit Kummer models under module finite presentation, flatness, formal
 unramifiedness, invertibility of two and pointwise rank two; see
-[PRINCIPAL_OPEN_KUMMER.md](PRINCIPAL_OPEN_KUMMER.md). It does not yet assemble
-a restriction-compatible module-sheaf atlas or identify a specified
-cover's pushforward trace. The global theta endpoint still requires its
+[PRINCIPAL_OPEN_KUMMER.md](PRINCIPAL_OPEN_KUMMER.md). The subsequent affine pushforward modules also assemble a compatible
+actual module-sheaf atlas; see [AFFINE_PUSHFORWARD_ATLAS.md](AFFINE_PUSHFORWARD_ATLAS.md).
+Identification with a specified cover's global pushforward trace remains open. The global theta endpoint still requires its
 coherent atlas and parity inputs. No original geometric conclusion follows yet.

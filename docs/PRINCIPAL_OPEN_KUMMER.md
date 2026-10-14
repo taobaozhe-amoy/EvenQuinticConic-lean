@@ -47,8 +47,9 @@ Finite presentation here is **module** finite presentation and remains an
 explicit input. The subsequent restriction modules now extend these models
 to tensor products over actual structure-sheaf section rings, and prove
 coordinate restriction laws and scalar-extension overlap formulas; see
-[KUMMER_MODEL_RESTRICTIONS.md](KUMMER_MODEL_RESTRICTIONS.md). What remains is
-the comparison with sections of the actual associated/pushforward module
-sheaf, compatible with restrictions and multiplication, and extracting
-the algebra and hypotheses from the specified discriminant cover. The
-full geometric existence/nonexistence question remains open in this project.
+[KUMMER_MODEL_RESTRICTIONS.md](KUMMER_MODEL_RESTRICTIONS.md). The actual section comparison and affine pushforward module atlas are now
+constructed in [AFFINE_PUSHFORWARD_ATLAS.md](AFFINE_PUSHFORWARD_ATLAS.md).
+What remains is extracting and transporting the algebraic hypotheses
+from the specified double cover on a general base, identifying its
+global trace and theta, and completing the real-geometric argument.
+The full geometric existence/nonexistence question remains open in this project.

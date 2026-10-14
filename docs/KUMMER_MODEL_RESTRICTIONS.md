@@ -43,19 +43,18 @@ coordinate restriction formulas for every W contained in V. Here the
 restriction on the tensor algebra uses the genuine structure-sheaf
 restriction on its coefficient factor.
 
-## Remaining comparison
+## Subsequent actual pushforward comparison
 
-The domain of these last coordinates is **Γ(V,O) tensor_R A**. It has not
-yet been identified with Γ(V,tilde A), nor with sections of the specified
-finite cover's pushforward structure sheaf. The required natural
-comparison must be constructed and proved invertible and multiplicative;
-no such comparison is an implicit input or an asserted consequence here.
-In particular, a general module's tensor product with Γ(V,O) must not be
-silently identified with its associated sheaf's sections on nonaffine V.
-The finite locally free setting and local rank-two models are ingredients
-for proving the needed comparison in this project.
+The domain of these coordinates is Γ(V,O) tensor_R A. The subsequent
+`AffinePushforwardComparison` module now proves that its canonical ring
+map to Γ(π⁻¹V,O) is bijective on every subopen of a principal Kummer chart,
+including nonaffine opens. This uses principal-localization comparisons,
+actual structure-sheaf separation and explicit gluing of the two tensor
+coordinates. It is not an unproved general assertion about arbitrary
+modules on arbitrary opens.
 
-Thus the tensor-coordinate restriction laws are proved, but the actual
-`KummerModuleAtlas` on the specified module sheaf is not yet constructed.
-The original cover-to-theta identification, parity, real base change and
-real-topological conclusion also remain outside the checked endpoint.
+`AffinePushforwardKummerAtlas` then constructs the compatible chart on
+mathlib's actual pushforward module sheaf. See
+[AFFINE_PUSHFORWARD_ATLAS.md](AFFINE_PUSHFORWARD_ATLAS.md). The remaining
+geometric comparison is to the specified cover on its nonaffine base,
+and to its global trace, theta characteristic, parity and real geometry.

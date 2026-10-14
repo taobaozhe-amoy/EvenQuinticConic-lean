@@ -84,3 +84,7 @@ tensor squares from an actual basis (1,e), invertibility of two and
 formal unramifiedness. This removes the unit-model hypothesis at the
 based-algebra level. Constructing compatible local bases for the specified
 cover and assembling their restriction-compatible atlas are still open.
+
+## Subsequent affine atlas construction
+
+`exists_affinePushforwardKummerAtlas` now supplies the actual module sheaf and compatible covering atlas for `Spec A → Spec R` under explicit module finite-presentation, flatness, formal unramifiedness, two-invertibility and pointwise rank-two hypotheses. All chart-subopen section comparisons and overlap laws are proved. This does not yet instantiate the specified cover on the original projective base; see [AFFINE_PUSHFORWARD_ATLAS.md](AFFINE_PUSHFORWARD_ATLAS.md).

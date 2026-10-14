@@ -13,16 +13,21 @@ be adapted to begin with 1 over any commutative base, using normalized
 trace and an explicit determinant-one coordinate change. Finite
 presentation spreads bases from localizations to principal localizations.
 
-The new restriction modules now extend a fixed principal model to
-`Γ(V,O) tensor_R A` for every subopen V, with both coordinate restriction
-laws proved. Actual algebra overlaps, their cocycle, parameter-square
-relation and transition-unit base-change formula are constructed.
-The scalar rings and their restriction maps are the genuine structure
-sheaf. This is not yet a model on the actual pushforward/module-sheaf
-sections: the natural multiplicative comparison from those tensor
-products to such sections, and its restriction compatibility, must still
-be proved. The specified cover's algebra, pushforward and trace must then
-be identified. See [KUMMER_MODEL_RESTRICTIONS.md](KUMMER_MODEL_RESTRICTIONS.md).
+The actual affine pushforward comparison and atlas are now proved.
+`exists_affinePushforwardKummerAtlas` constructs a covering atlas on the
+actual `π_*O_Spec(A)` module sheaf from the explicit ring-theoretic inputs.
+The canonical tensor-to-section ring map is bijective on every principal
+open; under a principal Kummer model it is bijective on every subopen,
+including nonaffine opens, by actual two-coordinate gluing. Scalar action,
+multiplication, restrictions and overlap maps are all connected.
+
+The remaining geometric step is to express the specified double cover
+on affine opens of its general base, derive and transport the module
+finite-presentation/flat/unramified/rank hypotheses, transport and assemble
+the actual module charts there, and identify the specified global trace
+and trace-zero line. This is now a passage from the proved affine result
+to the specified cover, not a missing arbitrary-subopen comparison inside
+an affine chart. See [AFFINE_PUSHFORWARD_ATLAS.md](AFFINE_PUSHFORWARD_ATLAS.md).
 
 ## Latest atlas-relative progress
 
