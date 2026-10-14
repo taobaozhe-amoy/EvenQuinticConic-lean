@@ -1,13 +1,13 @@
 {
-  "checked_at_utc": "2026-10-14T03:47:57.170761+00:00",
+  "checked_at_utc": "2026-10-14T03:54:04.945493+00:00",
   "lean_version": "4.24.0",
   "lean_commit": "797c613eb9b6d4ec95db23e3e00af9ac6657f24b",
   "mathlib_commit": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
   "build_exit_code": 0,
   "audit_exit_code": 0,
-  "audited_declarations": 1952,
-  "audited_theorem_declarations_including_generated": 1520,
-  "handwritten_theorem_declarations": 720,
+  "audited_declarations": 1967,
+  "audited_theorem_declarations_including_generated": 1534,
+  "handwritten_theorem_declarations": 727,
   "axiom_allowlist": [
     "propext",
     "Classical.choice",
@@ -15,7 +15,7 @@
   ],
   "full_geometric_theorem_formalized": false,
   "source_sha256": {
-    "EvenQuinticConic.lean": "329bed0d064112f520e5edd8ba0ae6737ce98a437b3ef827fb1f312477e1efc4",
+    "EvenQuinticConic.lean": "ecb187fcd4aaadfa0ebfc3b4bbbb6f6eb0c675af56f553f219f91e5cafe2b539",
     "Audit.lean": "a5731c209161206d58dddbb03515b8cf6f76e053084b4bff406d8ce21147cec4",
     "lakefile.lean": "ac0cbb06f91e35c9f4e28fdc68570067d2bfc2fbc1481488b42cb7c25e3bfa93",
     "lean-toolchain": "42779d67b81608af8a12aa4328d2ab47ca201925b3b2bd68369587b5340bb434",
@@ -118,6 +118,7 @@
     "EvenQuinticConic/PlaneThetaTwoTorsion.lean": "e192c7cde8ddf99de1de27b541ce21fcea524d32d8623d5ea077aa5dab76e034",
     "EvenQuinticConic/PlaneThetaVanishing.lean": "a0cee7eb25db052622f3baae2ddf02c2dc5edb15f3018229d2ec284441c0c760",
     "EvenQuinticConic/PolynomialDegree.lean": "a7dd28ab1a8a60f8d67c64abc07d9eb4ebcb80ed950460a4036c4d5a0fa95d71",
+    "EvenQuinticConic/PrincipalOpenKummer.lean": "5f1784b7b25567230cf4e3bcce58da7822560dc3186fae497a7dd3c18a3d5b4b",
     "EvenQuinticConic/ProjectiveBaseScalars.lean": "043627ae46137754461afb9fb96d4f23f41f1f62c96c14718a35afef036fc3a7",
     "EvenQuinticConic/ProjectiveCoordinateSections.lean": "c8ffd79c782dbcf5b1b04acce793f40c3311b61a4b343aca65bc45bb1e8638ea",
     "EvenQuinticConic/ProjectiveGenericChart.lean": "7929e3e98197079e5b12cb704b53a9351904b61b6917a6ad039f12db00992ebd",
@@ -135,6 +136,7 @@
     "EvenQuinticConic/QuadraticTraceZeroTransition.lean": "509434f68d0ec6d3eb0aeb3d8ff1b4479ce01e3fcf198e39b9370c63f40c2c48",
     "EvenQuinticConic/RankOneFactorization.lean": "6cefb01f38a320a2e5cb656bf5e7b0c99595429ffbae4acc81282f72ccfdf949",
     "EvenQuinticConic/RankOnePairing.lean": "1a2099a7f76128f65beada1e6c28826fb66bd1b3b86b1483ac4880116db18f62",
+    "EvenQuinticConic/RankTwoUnimodularBasis.lean": "e2d9fb144cfba159711f4964bb335ca1a433f5459307617616978fca6c9dd57f",
     "EvenQuinticConic/RankTwoUnitBasis.lean": "ab1922aedcb38e97cf6a95172db4c0eff0e56d6f76fefa04b61c7d60193bc38d",
     "EvenQuinticConic/RationalSectionFrames.lean": "843e1cff582d72294a094816adef92306b0e4cb240064284ffdb085fd5a13c06",
     "EvenQuinticConic/RestrictionModel.lean": "cd2519625d4cc5eacfd4b98e56bc2eca05a4f27d3f4bb3c11ac1f1f7d03deef5",
@@ -157,9 +159,9 @@
     "EvenQuinticConic/TopologyOpenRestriction.lean": "625fe5e7651c3203add9db478a75b3d49dfc98e92e57c0411ac8e67d01fa5518",
     "EvenQuinticConic/WeightedRestriction.lean": "ce476cf16c08f46e1247c4bbd9e619434fca00c56df306f3c004943351ead9ac"
   },
-  "source_modules": 136,
+  "source_modules": 138,
   "verification_kind": "local",
-  "handwritten_public_theorem_declarations": 713,
+  "handwritten_public_theorem_declarations": 720,
   "handwritten_private_theorem_declarations": 7,
   "theta_ineffectivity_with_explicit_restriction_hypotheses_formalized": true,
   "theta_finite_dimensionality_derived": true,
@@ -210,8 +212,8 @@
   "theta_vanishing_from_explicit_jacobian_condition_formalized": true,
   "original_geometric_hypotheses_to_jacobian_equation_formalized": false,
   "verification_log_sha256": {
-    "verification/build.log": "85b83cbf3ae8ec26abf232487c919f5c338b8c767a4f408c6d0551952c860cb3",
-    "verification/axiom-audit.log": "7a900c317a0c9841b0c389565dd8d8245e889328efda16574b5c54dc578069c9",
+    "verification/build.log": "16c321f6fe92ec484e42207064053b455c3eef485e48ac0505bc305504c4b40e",
+    "verification/axiom-audit.log": "2d8022ff249f3f2628f47d4ff693ae8b5408b1563dbaafbb2c20e6502eb78da3",
     "verification/audit-regression.json": "a52d439d7c7c972ad05835cc0d3a8f8cfbfcdcf292a8c57febcc7bdf0203c539"
   },
   "actual_scheme_kaehler_sheaf_and_universal_property_formalized": true,
@@ -325,5 +327,25 @@
     "Module.finrank R A = 2",
     "Algebra.FormallyUnramified R A"
   ],
-  "local_ring_models_spread_to_compatible_open_atlas": false
+  "local_ring_models_spread_to_compatible_open_atlas": false,
+  "rank_two_basis_one_over_arbitrary_commutative_base_constructed": true,
+  "rank_two_basis_spread_to_principal_localization": true,
+  "principal_unit_kummer_model_at_rank_two_prime_constructed": true,
+  "principal_open_unit_kummer_cover_constructed": true,
+  "principal_open_kummer_endpoint": "exists_principal_unit_kummer_cover",
+  "principal_open_kummer_inputs": [
+    "Commutative rings R and A with actual R-algebra structure",
+    "Module.FinitePresentation R A",
+    "Module.Flat R A",
+    "Algebra.FormallyUnramified R A",
+    "Invertible (2 : R)",
+    "Module.finrank R_p (R_p tensor_R A) = 2 for every prime p"
+  ],
+  "principal_open_kummer_cover_internally_constructed": [
+    "Freeness and rank-two basis at each prime",
+    "Basis on a principal-localization base-change algebra",
+    "Basis beginning with 1 from normalized trace over arbitrary commutative base",
+    "Unit Kummer parameter and actual algebra equivalence on each principal localization",
+    "Proof that the resulting basic opens cover PrimeSpectrum R"
+  ]
 }

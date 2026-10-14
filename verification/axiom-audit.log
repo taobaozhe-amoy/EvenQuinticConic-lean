@@ -104,10 +104,15 @@ CHECKED: EvenQuinticConic.exists_nonradial_pderiv_notMem
 CHECKED: EvenQuinticConic.exists_nonzero_mem_intersection_of_finrank_lt
 CHECKED: EvenQuinticConic.exists_nonzero_square_root_in_algebraicClosure
 CHECKED: EvenQuinticConic.exists_nonzero_zero_in_subspace_of_finrank_lt
+CHECKED: EvenQuinticConic.exists_principal_rankTwo_basis
+CHECKED: EvenQuinticConic.exists_principal_unit_kummer_cover
+CHECKED: EvenQuinticConic.exists_principal_unit_kummer_model
+CHECKED: EvenQuinticConic.exists_principal_unit_kummer_model_atPrime
 CHECKED: EvenQuinticConic.exists_quadratic_lift_of_surjective
 CHECKED: EvenQuinticConic.exists_rankOne_factorization_of_mul_eq_sq
 CHECKED: EvenQuinticConic.exists_rankOne_factorization_of_mul_eq_sq_unrestricted
 CHECKED: EvenQuinticConic.exists_rankTwo_basis_one
+CHECKED: EvenQuinticConic.exists_rankTwo_basis_one_of_invertible_two
 CHECKED: EvenQuinticConic.exists_reduced_rankOne_factorization_of_mul_eq_sq
 CHECKED: EvenQuinticConic.exists_scalar_multiple_of_actual_pairing_square
 CHECKED: EvenQuinticConic.exists_scalar_multiple_of_sq_eq_scalar_sq
@@ -117,6 +122,7 @@ CHECKED: EvenQuinticConic.exists_trace_kernel_tensor_equiv_of_basis
 CHECKED: EvenQuinticConic.exists_trace_kernel_tensor_equiv_of_local_finite_flat
 CHECKED: EvenQuinticConic.exists_unit_kummer_model_of_basis
 CHECKED: EvenQuinticConic.exists_unit_kummer_model_of_local_finite_flat
+CHECKED: EvenQuinticConic.exists_unit_kummer_model_of_rankTwo_basis
 CHECKED: EvenQuinticConic.exists_unit_of_fraction_pow_eq_unit
 CHECKED: EvenQuinticConic.exists_unit_of_fraction_sq_eq_unit
 CHECKED: EvenQuinticConic.exists_unit_of_unit_mul_fraction_pow_eq_unit
@@ -529,6 +535,7 @@ CHECKED: EvenQuinticConic.rankOne_conic_constant_factor_of_not_scalar_multiple
 CHECKED: EvenQuinticConic.rankOne_conic_degree_classification
 CHECKED: EvenQuinticConic.rankOne_factor_degree_bounds
 CHECKED: EvenQuinticConic.rankOne_factor_degree_dichotomy
+CHECKED: EvenQuinticConic.rankTwo_one_trace_unimodular
 CHECKED: EvenQuinticConic.rankTwo_one_unit_coordinate
 CHECKED: EvenQuinticConic.rankTwo_trace_one
 CHECKED: EvenQuinticConic.rational_jacobian_of_projective_gradient
@@ -1193,6 +1200,13 @@ CHECKED: EvenQuinticConic.rankTwoColumnEquiv._proof_4
 CHECKED: EvenQuinticConic.rankTwoColumnEquiv._proof_5
 CHECKED: EvenQuinticConic.rankTwoColumnEquiv._proof_6
 CHECKED: EvenQuinticConic.rankTwoColumnEquiv.eq_1
+CHECKED: EvenQuinticConic.rankTwoUnimodularEquiv._proof_1
+CHECKED: EvenQuinticConic.rankTwoUnimodularEquiv._proof_2
+CHECKED: EvenQuinticConic.rankTwoUnimodularEquiv._proof_3
+CHECKED: EvenQuinticConic.rankTwoUnimodularEquiv._proof_4
+CHECKED: EvenQuinticConic.rankTwoUnimodularEquiv._proof_5
+CHECKED: EvenQuinticConic.rankTwoUnimodularEquiv._proof_6
+CHECKED: EvenQuinticConic.rankTwoUnimodularEquiv.eq_1
 CHECKED: EvenQuinticConic.restriction_splitForm_not_anisotropic._proof_1_1
 CHECKED: EvenQuinticConic.schemeConstantsPresheafHom._proof_1
 CHECKED: EvenQuinticConic.schemeConstantsPresheafHom._proof_2
@@ -1519,5 +1533,5 @@ CHECKED: EvenQuinticConic.UnitTransition.Section.restrict._proof_1
 CHECKED: EvenQuinticConic.UnitTransition.Section.restrict._proof_2
 CHECKED: EvenQuinticConic.UnitTransition.Section.restrict._proof_3
 Project dependency axioms: [propext, Classical.choice, Quot.sound]
-AUDIT PASSED: 1952 declarations; 1520 theorem declarations.
+AUDIT PASSED: 1967 declarations; 1534 theorem declarations.
 Only propext, Classical.choice, and Quot.sound are permitted.

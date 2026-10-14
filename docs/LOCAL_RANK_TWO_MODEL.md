@@ -35,12 +35,11 @@ predicate asserting a line bundle or a square isomorphism.
 
 ## Remaining scope
 
-This establishes a theorem over a local ring. It does not yet spread
-local-ring bases or algebra isomorphisms to open neighborhoods, assemble
-a restriction-compatible atlas, or identify a specified finite étale
-cover's pushforward and trace. Flatness and formal unramifiedness are
-separate explicit inputs; this endpoint does not formally derive both
-from a scheme-theoretic étale double cover. The existing global trace-kernel
-and theta endpoints still require their coherent atlas and parity inputs.
-No existence or nonexistence result for the original real conic bundle
-follows yet.
+This module establishes the local-ring result. The subsequent
+`PrincipalOpenKummer` module now constructs a principal-open cover with
+unit Kummer models under module finite presentation, flatness, formal
+unramifiedness, invertibility of two and pointwise rank two; see
+[PRINCIPAL_OPEN_KUMMER.md](PRINCIPAL_OPEN_KUMMER.md). It does not yet assemble
+a restriction-compatible module-sheaf atlas or identify a specified
+cover's pushforward trace. The global theta endpoint still requires its
+coherent atlas and parity inputs. No original geometric conclusion follows yet.

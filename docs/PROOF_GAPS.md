@@ -4,16 +4,21 @@ The following is a work plan for scrutinizing a proposed mathematical argument, 
 
 ## Latest local algebra progress
 
-`exists_unit_kummer_model_of_local_finite_flat` constructs a unit Kummer
-model over a commutative local ring from finite flatness, finrank two,
-invertibility of two and actual formal unramifiedness. No basis is an
-input: finite flatness gives freeness, and the trace identity Tr(1)=2
-produces a basis beginning with 1. The actual trace kernel is linearly
-isomorphic to R, and its tensor square is isomorphic to R by multiplication.
-This is a local-ring result, not a compatible atlas on scheme opens.
-Spreading the basis and isomorphism to open neighborhoods, checking
-restriction compatibility, and identifying the specified cover's
-pushforward trace remain open. See [LOCAL_RANK_TWO_MODEL.md](LOCAL_RANK_TWO_MODEL.md).
+`exists_principal_unit_kummer_cover` now constructs a principal-open
+cover of Spec R and a unit Kummer isomorphism for each actual base-change
+algebra. Inputs are module finite presentation, flatness, formal
+unramifiedness, invertibility of two and rank two at every prime. No basis
+or principal-open cover is supplied. An arbitrary rank-two basis can now
+be adapted to begin with 1 over any commutative base, using normalized
+trace and an explicit determinant-one coordinate change. Finite
+presentation spreads bases from localizations to principal localizations.
+
+The remaining step is to extend the chosen algebra models coherently over
+chart subopens, prove restriction compatibility, identify the actual
+pushforward module sheaf and its trace for the specified cover, and feed
+that data to `KummerModuleAtlas`. The principal-open existence theorem is
+not yet that coherent sheaf atlas. See
+[PRINCIPAL_OPEN_KUMMER.md](PRINCIPAL_OPEN_KUMMER.md).
 
 ## Latest atlas-relative progress
 

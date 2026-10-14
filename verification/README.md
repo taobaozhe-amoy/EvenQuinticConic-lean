@@ -5,9 +5,9 @@ as predicted output.
 
 | Check | Result |
 | --- | --- |
-| `lake build` | Exit 0; all 136 source modules and the root import compiled |
-| `lake env lean Audit.lean` | Exit 0; 1952 declarations audited, including 1520 theorem declarations |
-| Handwritten `theorem` declarations | 720 total: 713 public and 7 private helpers; comments and strings are excluded from this source count |
+| `lake build` | Exit 0; all 138 source modules and the root import compiled |
+| `lake env lean Audit.lean` | Exit 0; 1967 declarations audited, including 1534 theorem declarations |
+| Handwritten `theorem` declarations | 727 total: 720 public and 7 private helpers; comments and strings are excluded from this source count |
 | Allowed axiom dependencies | `propext`, `Classical.choice`, `Quot.sound` |
 | `sorryAx` or any other unexpected axiom | None in the audited dependency closures |
 | mathlib tracked source changes | None |
@@ -37,6 +37,7 @@ as predicted output.
 | Actual differential-sheaf restriction and open-immersion transport | Isomorphisms proved, preserving actual derivations and sheafification units |
 | Complete signed residue transitions | Proved on every actual chart overlap, including mixed derivative cases, with the actual hyperplane-square cocycle |
 | Actual plane-quintic differential adjunction | `planeQuinticAdjunctionIsoOfJacobian`; actual relative differential sheaf is isomorphic to the constructed hyperplane-square sheaf, without an adjunction or local-frame input |
+| Principal-open unit Kummer cover | Constructed for a module-finitely-presented flat formally unramified algebra with 2 invertible and rank two at every prime; coherent sheaf atlas still pending |
 | Local finite flat rank-two algebra, with no supplied basis | Unit Kummer model, actual trace-kernel coordinate and multiplication tensor-square equivalence constructed over a local ring |
 | Unit Kummer model from an actual basis and formal unramifiedness | Constructed; actual multiplication coefficients, completed-square algebra isomorphism, and unit parameter are derived |
 | Actual based algebra's trace-kernel square | Actual tensor linear equivalence constructed and proved to induce multiplication in the original algebra |
