@@ -25,10 +25,13 @@
 
 进一步新增 `exists_unit_kummer_model_of_basis`：从实际代数的基 `(1,e)`、`2` 可逆性和 mathlib 的实际形式非分歧性，构造单位参数的 Kummer 代数同构。参数可逆性通过到 `R/(u)` 的导子与真实微分模的普遍性质证明，不是输入假设。`exists_trace_kernel_tensor_equiv_of_basis` 进而构造原代数实际迹核的乘法张量平方同构。**指定双覆盖上的局部基及其限制相容性仍待构造**；见 [有基非分歧二次代数模型](docs/BASED_UNRAMIFIED_QUADRATIC_MODEL.md)。
 
+最新局部环接口 `exists_unit_kummer_model_of_local_finite_flat` 进一步消去全部基输入：对局部交换环上的有限平坦秩二代数，在 `2` 可逆及形式非分歧条件下，内部先推出自由性，再用 `Tr(1)=2` 构造以 `1` 为首项的基，最后得到单位 Kummer 模型。实际迹核的一维坐标及与乘法一致的张量平方同构也已证明。**这是局部环上的结论；向开邻域延拓及指定双覆盖的相容图册仍未构造。** 见 [局部环秩二模型](docs/LOCAL_RANK_TWO_MODEL.md)。
+
 ## 已形式化的内容
 
 | 模块 | 实际数学内容 | 适用边界与后续步骤 |
 | --- | --- | --- |
+| `RankTwoUnitBasis` / `LocalRankTwoKummer` | 从局部环上的有限平坦秩二条件构造基、单位 Kummer 模型及真实迹核平方 | 不输入任何基；开邻域延拓和指定双覆盖图册仍待证明 |
 | `QuadraticNormalForm` / `KummerUnramified` | 实际配方代数同构；从形式非分歧性证明参数可逆 | 使用实际导子与 Kähler 微分模；不假设判别式可逆 |
 | `QuadraticBasisModel` / `QuadraticBasisTraceZero` | 从实际基 `(1,e)` 构造单位 Kummer 模型，以及原代数实际迹核的乘法张量平方同构 | 指定双覆盖的相容局部基仍是缺口 |
 | `ModuleSheafKernelSections` / `KummerModuleAtlas` | 实际层核的截面识别；从相容局部代数图册粘合全局迹并取真正的核层 | 实际模层与图册仍由调用者提供 |
@@ -153,7 +156,7 @@ $$
 
 ## 构建与审计
 
-本版包含 134 个源码模块、705 条公开手写定理，另有 7 条私有辅助定理（共 712 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
+本版包含 136 个源码模块、713 条公开手写定理，另有 7 条私有辅助定理（共 720 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
 
 环境固定为 Lean `v4.24.0` 和 mathlib 提交
 `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`。提交的 `lake-manifest.json` 固定传递依赖。

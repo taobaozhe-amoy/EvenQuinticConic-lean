@@ -4,14 +4,16 @@ The following is a work plan for scrutinizing a proposed mathematical argument, 
 
 ## Latest local algebra progress
 
-`exists_unit_kummer_model_of_basis` now constructs a unit Kummer model
-from a genuine algebra basis (1,e), invertibility of two, and mathlib's
-formal unramifiedness. `exists_trace_kernel_tensor_equiv_of_basis`
-constructs the actual trace-kernel multiplication tensor-square
-isomorphism from those inputs. The unit parameter is derived using a
-derivation into R/(u), not assumed. The specified cover's local bases,
-restriction compatibility and pushforward trace identification are still
-open; see [BASED_UNRAMIFIED_QUADRATIC_MODEL.md](BASED_UNRAMIFIED_QUADRATIC_MODEL.md).
+`exists_unit_kummer_model_of_local_finite_flat` constructs a unit Kummer
+model over a commutative local ring from finite flatness, finrank two,
+invertibility of two and actual formal unramifiedness. No basis is an
+input: finite flatness gives freeness, and the trace identity Tr(1)=2
+produces a basis beginning with 1. The actual trace kernel is linearly
+isomorphic to R, and its tensor square is isomorphic to R by multiplication.
+This is a local-ring result, not a compatible atlas on scheme opens.
+Spreading the basis and isomorphism to open neighborhoods, checking
+restriction compatibility, and identifying the specified cover's
+pushforward trace remain open. See [LOCAL_RANK_TWO_MODEL.md](LOCAL_RANK_TWO_MODEL.md).
 
 ## Latest atlas-relative progress
 

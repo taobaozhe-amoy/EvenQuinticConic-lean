@@ -84,6 +84,7 @@ CHECKED: EvenQuinticConic.existsUnique_section_of_generic_representatives
 CHECKED: EvenQuinticConic.existsUnique_section_with_generic_value
 CHECKED: EvenQuinticConic.existsUnique_unit_of_generic_representatives
 CHECKED: EvenQuinticConic.existsUnique_unit_of_local_generic_power
+CHECKED: EvenQuinticConic.exists_basis_one_of_unit_coordinate
 CHECKED: EvenQuinticConic.exists_cofactorRoot_iff_pivot_square
 CHECKED: EvenQuinticConic.exists_common_numerator_of_basis
 CHECKED: EvenQuinticConic.exists_frame_comparison_unit
@@ -94,6 +95,7 @@ CHECKED: EvenQuinticConic.exists_good_linear_denominators
 CHECKED: EvenQuinticConic.exists_independent_global_sections_of_finrank_ge_two
 CHECKED: EvenQuinticConic.exists_injective_linearMap_with_twisted_products
 CHECKED: EvenQuinticConic.exists_linear_section_of_quadratic_lifts
+CHECKED: EvenQuinticConic.exists_local_rankTwo_basis_one
 CHECKED: EvenQuinticConic.exists_local_unit_weights_of_pairing_square_eq
 CHECKED: EvenQuinticConic.exists_mem_planeCurveGradientBasicOpen
 CHECKED: EvenQuinticConic.exists_moduleSheafIso_of_frame_square_relation
@@ -105,13 +107,16 @@ CHECKED: EvenQuinticConic.exists_nonzero_zero_in_subspace_of_finrank_lt
 CHECKED: EvenQuinticConic.exists_quadratic_lift_of_surjective
 CHECKED: EvenQuinticConic.exists_rankOne_factorization_of_mul_eq_sq
 CHECKED: EvenQuinticConic.exists_rankOne_factorization_of_mul_eq_sq_unrestricted
+CHECKED: EvenQuinticConic.exists_rankTwo_basis_one
 CHECKED: EvenQuinticConic.exists_reduced_rankOne_factorization_of_mul_eq_sq
 CHECKED: EvenQuinticConic.exists_scalar_multiple_of_actual_pairing_square
 CHECKED: EvenQuinticConic.exists_scalar_multiple_of_sq_eq_scalar_sq
 CHECKED: EvenQuinticConic.exists_scalar_multiple_of_sq_eq_scalar_sq_of_root
 CHECKED: EvenQuinticConic.exists_scalar_multiple_of_totalDegree_zero
 CHECKED: EvenQuinticConic.exists_trace_kernel_tensor_equiv_of_basis
+CHECKED: EvenQuinticConic.exists_trace_kernel_tensor_equiv_of_local_finite_flat
 CHECKED: EvenQuinticConic.exists_unit_kummer_model_of_basis
+CHECKED: EvenQuinticConic.exists_unit_kummer_model_of_local_finite_flat
 CHECKED: EvenQuinticConic.exists_unit_of_fraction_pow_eq_unit
 CHECKED: EvenQuinticConic.exists_unit_of_fraction_sq_eq_unit
 CHECKED: EvenQuinticConic.exists_unit_of_unit_mul_fraction_pow_eq_unit
@@ -265,6 +270,7 @@ CHECKED: EvenQuinticConic.monic_hypersurface_clear_denominators
 CHECKED: EvenQuinticConic.monic_hypersurface_common_fraction
 CHECKED: EvenQuinticConic.monic_hypersurface_coordinate_localizations_intersection
 CHECKED: EvenQuinticConic.nonempty_moduleSheafFrame_iff_localUnitIso
+CHECKED: EvenQuinticConic.nonempty_trace_kernel_coordinate_of_local_finite_flat
 CHECKED: EvenQuinticConic.nonproportional_conics_factor_as_linear_squares
 CHECKED: EvenQuinticConic.nonproportional_conics_from_quintic_ideal
 CHECKED: EvenQuinticConic.nonproportional_conics_from_quintic_relation
@@ -523,6 +529,8 @@ CHECKED: EvenQuinticConic.rankOne_conic_constant_factor_of_not_scalar_multiple
 CHECKED: EvenQuinticConic.rankOne_conic_degree_classification
 CHECKED: EvenQuinticConic.rankOne_factor_degree_bounds
 CHECKED: EvenQuinticConic.rankOne_factor_degree_dichotomy
+CHECKED: EvenQuinticConic.rankTwo_one_unit_coordinate
+CHECKED: EvenQuinticConic.rankTwo_trace_one
 CHECKED: EvenQuinticConic.rational_jacobian_of_projective_gradient
 CHECKED: EvenQuinticConic.reduced_induced_scheme_isReduced
 CHECKED: EvenQuinticConic.regular_eq_iff_generic_eq
@@ -1178,6 +1186,13 @@ CHECKED: EvenQuinticConic.quadraticShiftEquiv._proof_4
 CHECKED: EvenQuinticConic.quadraticShiftEquiv._proof_5
 CHECKED: EvenQuinticConic.rankOne_factor_degree_bounds._proof_1_1
 CHECKED: EvenQuinticConic.rankOne_factor_degree_dichotomy._proof_1_1
+CHECKED: EvenQuinticConic.rankTwoColumnEquiv._proof_1
+CHECKED: EvenQuinticConic.rankTwoColumnEquiv._proof_2
+CHECKED: EvenQuinticConic.rankTwoColumnEquiv._proof_3
+CHECKED: EvenQuinticConic.rankTwoColumnEquiv._proof_4
+CHECKED: EvenQuinticConic.rankTwoColumnEquiv._proof_5
+CHECKED: EvenQuinticConic.rankTwoColumnEquiv._proof_6
+CHECKED: EvenQuinticConic.rankTwoColumnEquiv.eq_1
 CHECKED: EvenQuinticConic.restriction_splitForm_not_anisotropic._proof_1_1
 CHECKED: EvenQuinticConic.schemeConstantsPresheafHom._proof_1
 CHECKED: EvenQuinticConic.schemeConstantsPresheafHom._proof_2
@@ -1504,5 +1519,5 @@ CHECKED: EvenQuinticConic.UnitTransition.Section.restrict._proof_1
 CHECKED: EvenQuinticConic.UnitTransition.Section.restrict._proof_2
 CHECKED: EvenQuinticConic.UnitTransition.Section.restrict._proof_3
 Project dependency axioms: [propext, Classical.choice, Quot.sound]
-AUDIT PASSED: 1936 declarations; 1505 theorem declarations.
+AUDIT PASSED: 1952 declarations; 1520 theorem declarations.
 Only propext, Classical.choice, and Quot.sound are permitted.

@@ -132,3 +132,5 @@ import EvenQuinticConic.QuadraticNormalForm
 import EvenQuinticConic.KummerUnramified
 import EvenQuinticConic.QuadraticBasisModel
 import EvenQuinticConic.QuadraticBasisTraceZero
+import EvenQuinticConic.RankTwoUnitBasis
+import EvenQuinticConic.LocalRankTwoKummer
