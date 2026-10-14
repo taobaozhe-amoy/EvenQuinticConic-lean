@@ -44,10 +44,11 @@ a genuine cover: each p belongs to its own D(r).
 ## Exact boundary
 
 Finite presentation here is **module** finite presentation and remains an
-explicit input. The conclusion gives algebra models on principal
-localizations and proves their basic opens cover Spec R. It does not yet
-identify these rings with the required structure-sheaf sections, extend
-the models to all subopens, or prove the restrictions and overlap laws
-required by `KummerModuleAtlas`. It also does not extract the algebra or
-these hypotheses from the specified discriminant cover. Thus the full
-geometric existence/nonexistence question remains open in this project.
+explicit input. The subsequent restriction modules now extend these models
+to tensor products over actual structure-sheaf section rings, and prove
+coordinate restriction laws and scalar-extension overlap formulas; see
+[KUMMER_MODEL_RESTRICTIONS.md](KUMMER_MODEL_RESTRICTIONS.md). What remains is
+the comparison with sections of the actual associated/pushforward module
+sheaf, compatible with restrictions and multiplication, and extracting
+the algebra and hypotheses from the specified discriminant cover. The
+full geometric existence/nonexistence question remains open in this project.

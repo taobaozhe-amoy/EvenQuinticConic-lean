@@ -5,9 +5,9 @@ as predicted output.
 
 | Check | Result |
 | --- | --- |
-| `lake build` | Exit 0; all 138 source modules and the root import compiled |
-| `lake env lean Audit.lean` | Exit 0; 1967 declarations audited, including 1534 theorem declarations |
-| Handwritten `theorem` declarations | 727 total: 720 public and 7 private helpers; comments and strings are excluded from this source count |
+| `lake build` | Exit 0; all 144 source modules and the root import compiled |
+| `lake env lean Audit.lean` | Exit 0; 2045 declarations audited, including 1600 theorem declarations |
+| Handwritten `theorem` declarations | 759 total: 752 public and 7 private helpers; comments and strings are excluded from this source count |
 | Allowed axiom dependencies | `propext`, `Classical.choice`, `Quot.sound` |
 | `sorryAx` or any other unexpected axiom | None in the audited dependency closures |
 | mathlib tracked source changes | None |
@@ -37,6 +37,8 @@ as predicted output.
 | Actual differential-sheaf restriction and open-immersion transport | Isomorphisms proved, preserving actual derivations and sheafification units |
 | Complete signed residue transitions | Proved on every actual chart overlap, including mixed derivative cases, with the actual hyperplane-square cocycle |
 | Actual plane-quintic differential adjunction | `planeQuinticAdjunctionIsoOfJacobian`; actual relative differential sheaf is isomorphic to the constructed hyperplane-square sheaf, without an adjunction or local-frame input |
+| Model restrictions and overlaps | Actual scalar-extension models, trace naturality, coordinate cocycles, transition-unit square and scalar-change formulas proved |
+| Actual structure-sheaf coefficient rings | Models on Γ(V,O) tensor_R A for all chart subopens, with both coordinate restriction laws; actual module-sheaf section comparison still pending |
 | Principal-open unit Kummer cover | Constructed for a module-finitely-presented flat formally unramified algebra with 2 invertible and rank two at every prime; coherent sheaf atlas still pending |
 | Local finite flat rank-two algebra, with no supplied basis | Unit Kummer model, actual trace-kernel coordinate and multiplication tensor-square equivalence constructed over a local ring |
 | Unit Kummer model from an actual basis and formal unramifiedness | Constructed; actual multiplication coefficients, completed-square algebra isomorphism, and unit parameter are derived |
@@ -113,3 +115,5 @@ text and observed results are recorded in `audit-regression.json`. These
 negative fixtures are not imported into the project.
 
 The subsequent remote run [38503276211](https://github.com/taobaozhe-amoy/EvenQuinticConic-lean/actions/runs/38503276211), for commit `05cb95da542be9651fb4fd80a7e9d1d28ac3a476`, completed successfully. This records the preceding revision; the current revision is checked by its own run.
+
+Remote run [38508183649](https://github.com/taobaozhe-amoy/EvenQuinticConic-lean/actions/runs/38508183649), for commit `d1c76c04870de59aa34d063d8539d698a27203bd`, completed successfully. Later revisions have their own Actions runs.

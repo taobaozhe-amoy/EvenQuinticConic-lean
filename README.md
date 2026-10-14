@@ -27,12 +27,17 @@
 
 上一阶段局部环接口 `exists_unit_kummer_model_of_local_finite_flat` 进一步消去全部基输入：对局部交换环上的有限平坦秩二代数，在 `2` 可逆及形式非分歧条件下，内部先推出自由性，再用 `Tr(1)=2` 构造以 `1` 为首项的基，最后得到单位 Kummer 模型。实际迹核的一维坐标及与乘法一致的张量平方同构也已证明。这是局部环上的结论；新的主开集结果见下文。 见 [局部环秩二模型](docs/LOCAL_RANK_TWO_MODEL.md)。
 
-本轮新增 `exists_principal_unit_kummer_cover`：从实际交换代数的模有限表示、平坦性、形式非分歧性、`2` 可逆及每个素点处的秩二条件，构造 `Spec R` 的主开覆盖，并在每个主开集上给出实际基变换代数的单位 Kummer 同构。关键改进是以归一化迹完成幺模列，证明任意底环上的秩二基都可改为 `(1,e)`，再结合有限表示模的基延拓定理。**主开模型现已构造，但交叠限制相容性、结构层截面识别和指定判别双覆盖的推前层仍待接通。** 精确输入见 [主开覆盖模型](docs/PRINCIPAL_OPEN_KUMMER.md)。
+上一阶段新增 `exists_principal_unit_kummer_cover`：从实际交换代数的模有限表示、平坦性、形式非分歧性、`2` 可逆及每个素点处的秩二条件，构造 `Spec R` 的主开覆盖，并在每个主开集上给出实际基变换代数的单位 Kummer 同构。关键改进是以归一化迹完成幺模列，证明任意底环上的秩二基都可改为 `(1,e)`，再结合有限表示模的基延拓定理。主开模型已构造；新的限制与交叠进展见下文。 精确输入见 [主开覆盖模型](docs/PRINCIPAL_OPEN_KUMMER.md)。
+
+本轮构造了 Kummer 模型的实际基变换同构，证明坐标、真实代数迹及交叠单位的限制公式。`principalOpenKummerSectionModel` 将主开模型延伸到任意子开集 `V` 的实际结构层截面环 `Γ(V,O)`；两个坐标与所有进一步限制相容。交叠同构经共同代数构造，过渡单位的平方关系、cocycle 及基变换公式均已证明。**模型的定义域仍是 `Γ(V,O)⊗[R]A`；尚未与指定推前层的实际截面识别，所以还未得到该双覆盖的 `KummerModuleAtlas`。** 见 [模型限制与结构层系数](docs/KUMMER_MODEL_RESTRICTIONS.md)。
 
 ## 已形式化的内容
 
 | 模块 | 实际数学内容 | 适用边界与后续步骤 |
 | --- | --- | --- |
+| `KummerBaseChange` / `KummerScalarMap` / `KummerModelRestriction` | 实际基变换同构、坐标与迹的限制公式、限制的恒等及复合律 | 适用于实际基变换代数；不等同于推前层截面识别 |
+| `KummerModelOverlap` | 从同一代数的模型构造交叠同构和单位，证明 cocycle、平方及基变换公式 | 共同代数是实际输入，交叠同构与单位在内部构造 |
+| `PrincipalOpenSectionMap` / `PrincipalOpenKummerSections` | 任意子开上的真实结构层标量映射及相容的张量代数坐标 | `Γ(V,O)⊗A` 与实际模层截面的识别仍待证明 |
 | `RankTwoUnimodularBasis` / `PrincipalOpenKummer` | 任意底环上调整秩二基；从素点秩二条件构造主开覆盖及实际局部化代数模型 | 输入模有限表示、平坦、形式非分歧和 2 可逆；尚未建立层级交叠相容性 |
 | `RankTwoUnitBasis` / `LocalRankTwoKummer` | 从局部环上的有限平坦秩二条件构造基、单位 Kummer 模型及真实迹核平方 | 不输入任何基；指定双覆盖图册仍待证明 |
 | `QuadraticNormalForm` / `KummerUnramified` | 实际配方代数同构；从形式非分歧性证明参数可逆 | 使用实际导子与 Kähler 微分模；不假设判别式可逆 |
@@ -159,7 +164,7 @@ $$
 
 ## 构建与审计
 
-本版包含 138 个源码模块、720 条公开手写定理，另有 7 条私有辅助定理（共 727 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
+本版包含 144 个源码模块、752 条公开手写定理，另有 7 条私有辅助定理（共 759 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
 
 环境固定为 Lean `v4.24.0` 和 mathlib 提交
 `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`。提交的 `lake-manifest.json` 固定传递依赖。

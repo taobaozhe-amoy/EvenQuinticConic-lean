@@ -136,3 +136,9 @@ import EvenQuinticConic.RankTwoUnitBasis
 import EvenQuinticConic.LocalRankTwoKummer
 import EvenQuinticConic.RankTwoUnimodularBasis
 import EvenQuinticConic.PrincipalOpenKummer
+import EvenQuinticConic.KummerScalarMap
+import EvenQuinticConic.KummerBaseChange
+import EvenQuinticConic.KummerModelOverlap
+import EvenQuinticConic.KummerModelRestriction
+import EvenQuinticConic.PrincipalOpenSectionMap
+import EvenQuinticConic.PrincipalOpenKummerSections

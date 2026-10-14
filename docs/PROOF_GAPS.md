@@ -13,12 +13,16 @@ be adapted to begin with 1 over any commutative base, using normalized
 trace and an explicit determinant-one coordinate change. Finite
 presentation spreads bases from localizations to principal localizations.
 
-The remaining step is to extend the chosen algebra models coherently over
-chart subopens, prove restriction compatibility, identify the actual
-pushforward module sheaf and its trace for the specified cover, and feed
-that data to `KummerModuleAtlas`. The principal-open existence theorem is
-not yet that coherent sheaf atlas. See
-[PRINCIPAL_OPEN_KUMMER.md](PRINCIPAL_OPEN_KUMMER.md).
+The new restriction modules now extend a fixed principal model to
+`Γ(V,O) tensor_R A` for every subopen V, with both coordinate restriction
+laws proved. Actual algebra overlaps, their cocycle, parameter-square
+relation and transition-unit base-change formula are constructed.
+The scalar rings and their restriction maps are the genuine structure
+sheaf. This is not yet a model on the actual pushforward/module-sheaf
+sections: the natural multiplicative comparison from those tensor
+products to such sections, and its restriction compatibility, must still
+be proved. The specified cover's algebra, pushforward and trace must then
+be identified. See [KUMMER_MODEL_RESTRICTIONS.md](KUMMER_MODEL_RESTRICTIONS.md).
 
 ## Latest atlas-relative progress
 

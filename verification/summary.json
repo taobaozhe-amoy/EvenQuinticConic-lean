@@ -1,13 +1,13 @@
 {
-  "checked_at_utc": "2026-10-14T03:54:04.945493+00:00",
+  "checked_at_utc": "2026-10-14T04:03:36.314858+00:00",
   "lean_version": "4.24.0",
   "lean_commit": "797c613eb9b6d4ec95db23e3e00af9ac6657f24b",
   "mathlib_commit": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
   "build_exit_code": 0,
   "audit_exit_code": 0,
-  "audited_declarations": 1967,
-  "audited_theorem_declarations_including_generated": 1534,
-  "handwritten_theorem_declarations": 727,
+  "audited_declarations": 2045,
+  "audited_theorem_declarations_including_generated": 1600,
+  "handwritten_theorem_declarations": 759,
   "axiom_allowlist": [
     "propext",
     "Classical.choice",
@@ -15,7 +15,7 @@
   ],
   "full_geometric_theorem_formalized": false,
   "source_sha256": {
-    "EvenQuinticConic.lean": "ecb187fcd4aaadfa0ebfc3b4bbbb6f6eb0c675af56f553f219f91e5cafe2b539",
+    "EvenQuinticConic.lean": "a2c576e5d651443203fac0cb3c15192a8dc32e76a63b7497a5555587c7ec379e",
     "Audit.lean": "a5731c209161206d58dddbb03515b8cf6f76e053084b4bff406d8ce21147cec4",
     "lakefile.lean": "ac0cbb06f91e35c9f4e28fdc68570067d2bfc2fbc1481488b42cb7c25e3bfa93",
     "lean-toolchain": "42779d67b81608af8a12aa4328d2ab47ca201925b3b2bd68369587b5340bb434",
@@ -51,7 +51,11 @@
     "EvenQuinticConic/IsotropicDimension.lean": "b87161b1d2bfffa3e601706d2b3af4e736fd0c884f6d08924eef7c569555fbbb",
     "EvenQuinticConic/JacobianIrreducible.lean": "5ba4d5e55c43df0085fae2f8218db5451ebd1be5b7b9d08c490c22a8a0e96436",
     "EvenQuinticConic/JacobianLocalization.lean": "8c2ebb34b69363a4f70c2a93f9645659b0b9f32f73b721e5d4c567414548ad16",
+    "EvenQuinticConic/KummerBaseChange.lean": "3d5873cf04ce57cfa774f4c58f6d45dc56ff97d88675be766d73df4bc900a7a3",
+    "EvenQuinticConic/KummerModelOverlap.lean": "86cce44037cc6ee9a175e66abf82cd9f08a58faca059e15c410c316e895fbf8d",
+    "EvenQuinticConic/KummerModelRestriction.lean": "852fda15706df1a0547cc20e00686613da23671629883f367d02e46c47a50b5f",
     "EvenQuinticConic/KummerModuleAtlas.lean": "0b21822775beccb4627f485422d91f3567530a747ee0f0632b0c2f9493ab8177",
+    "EvenQuinticConic/KummerScalarMap.lean": "c00a7fa760527452b52087b3a7ff07c5c9e6a25d6985284de29404a937e83b48",
     "EvenQuinticConic/KummerTraceZeroDescent.lean": "b4fe2d1e6ce2f3e6738799f28c087dd44310bda61a0d25ad310127abab1b5f74",
     "EvenQuinticConic/KummerTraceZeroFrames.lean": "7015685e03515f4aee196cc50e35c283a5a93ec64a979119383c6f8e30907014",
     "EvenQuinticConic/KummerUnramified.lean": "00b67043bfe2b75595a530a4c8003d026b66000958d40db8be2c14675d7ded55",
@@ -119,6 +123,8 @@
     "EvenQuinticConic/PlaneThetaVanishing.lean": "a0cee7eb25db052622f3baae2ddf02c2dc5edb15f3018229d2ec284441c0c760",
     "EvenQuinticConic/PolynomialDegree.lean": "a7dd28ab1a8a60f8d67c64abc07d9eb4ebcb80ed950460a4036c4d5a0fa95d71",
     "EvenQuinticConic/PrincipalOpenKummer.lean": "5f1784b7b25567230cf4e3bcce58da7822560dc3186fae497a7dd3c18a3d5b4b",
+    "EvenQuinticConic/PrincipalOpenKummerSections.lean": "40813f1f253f9e8e4f50e1fe63e5b6d1779042db42a0cde80e7792b27fc6f40c",
+    "EvenQuinticConic/PrincipalOpenSectionMap.lean": "4787d96214f17381af4dd19a789821942d80a7219474224aaf514664521257c6",
     "EvenQuinticConic/ProjectiveBaseScalars.lean": "043627ae46137754461afb9fb96d4f23f41f1f62c96c14718a35afef036fc3a7",
     "EvenQuinticConic/ProjectiveCoordinateSections.lean": "c8ffd79c782dbcf5b1b04acce793f40c3311b61a4b343aca65bc45bb1e8638ea",
     "EvenQuinticConic/ProjectiveGenericChart.lean": "7929e3e98197079e5b12cb704b53a9351904b61b6917a6ad039f12db00992ebd",
@@ -159,9 +165,9 @@
     "EvenQuinticConic/TopologyOpenRestriction.lean": "625fe5e7651c3203add9db478a75b3d49dfc98e92e57c0411ac8e67d01fa5518",
     "EvenQuinticConic/WeightedRestriction.lean": "ce476cf16c08f46e1247c4bbd9e619434fca00c56df306f3c004943351ead9ac"
   },
-  "source_modules": 138,
+  "source_modules": 144,
   "verification_kind": "local",
-  "handwritten_public_theorem_declarations": 720,
+  "handwritten_public_theorem_declarations": 752,
   "handwritten_private_theorem_declarations": 7,
   "theta_ineffectivity_with_explicit_restriction_hypotheses_formalized": true,
   "theta_finite_dimensionality_derived": true,
@@ -212,8 +218,8 @@
   "theta_vanishing_from_explicit_jacobian_condition_formalized": true,
   "original_geometric_hypotheses_to_jacobian_equation_formalized": false,
   "verification_log_sha256": {
-    "verification/build.log": "16c321f6fe92ec484e42207064053b455c3eef485e48ac0505bc305504c4b40e",
-    "verification/axiom-audit.log": "2d8022ff249f3f2628f47d4ff693ae8b5408b1563dbaafbb2c20e6502eb78da3",
+    "verification/build.log": "9bfc94ac359ffd59c1ab9512284f99c3a3f70d1627fd43794cfbcf4cfc8c5c00",
+    "verification/axiom-audit.log": "f0dd4d8bd60d21455b5cc011973016eeebfbd6b2189cd443e880501cb14ce8ba",
     "verification/audit-regression.json": "a52d439d7c7c972ad05835cc0d3a8f8cfbfcdcf292a8c57febcc7bdf0203c539"
   },
   "actual_scheme_kaehler_sheaf_and_universal_property_formalized": true,
@@ -347,5 +353,26 @@
     "Basis beginning with 1 from normalized trace over arbitrary commutative base",
     "Unit Kummer parameter and actual algebra equivalence on each principal localization",
     "Proof that the resulting basic opens cover PrimeSpectrum R"
-  ]
+  ],
+  "actual_kummer_scalar_extension_equivalence_constructed": true,
+  "actual_kummer_model_restriction_coordinates_and_trace_proved": true,
+  "canonical_tensor_restriction_identity_and_composition_proved": true,
+  "actual_model_overlap_cocycle_and_parameter_square_proved": true,
+  "actual_model_overlap_unit_scalar_extension_proved": true,
+  "principal_localization_to_actual_structure_sections_constructed": true,
+  "principal_localization_structure_section_restriction_compatibility_proved": true,
+  "principal_kummer_models_over_actual_structure_section_tensor_algebras_constructed": true,
+  "principal_kummer_section_tensor_coordinate_restriction_laws_proved": true,
+  "actual_pushforward_sections_identified_with_structure_section_tensor_algebra": false,
+  "kummer_section_tensor_model_endpoint": "principalOpenKummerSectionModel",
+  "kummer_section_tensor_restriction_endpoints": [
+    "principalOpenKummerSectionModel_re_restrict",
+    "principalOpenKummerSectionModel_im_restrict"
+  ],
+  "kummer_section_tensor_model_inputs": [
+    "Commutative rings R and A with actual R-algebra structure",
+    "Actual principal-localization algebra model R_f tensor_R A ≃ KummerAlgebra u",
+    "Actual open V of PrimeSpectrum R with V contained in D(f)"
+  ],
+  "kummer_section_tensor_model_domain": "Actual structure-sheaf section ring Gamma(V,O) tensor_R A; not yet identified with actual associated/pushforward module-sheaf sections"
 }
