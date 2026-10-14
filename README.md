@@ -23,10 +23,14 @@
 
 本轮新增 `planeQuintic_even_trace_kernel_twist_sections_eq_zero`：给定实际模层及限制相容的二次代数图册，内部粘合实际局部代数迹，取其范畴论核层，构造核层标架、单位 cocycle、下降同构及平方平凡化。核层平方配对已证明在每个图上等于原代数乘法；扭曲的 tensor 普遍性质直接作用于这个实际核层。**不再要求输入迹态射、迹核线层的 cocycle 或全局平方同构，但图册与截面维数偶性仍是输入。** 从指定有限 étale 判别双覆盖构造图册、识别其推前层和迹，以及实几何部分仍未完成。精确接口见 [全局迹核桥梁](docs/GLOBAL_TRACE_KERNEL_BRIDGE.md)。
 
+进一步新增 `exists_unit_kummer_model_of_basis`：从实际代数的基 `(1,e)`、`2` 可逆性和 mathlib 的实际形式非分歧性，构造单位参数的 Kummer 代数同构。参数可逆性通过到 `R/(u)` 的导子与真实微分模的普遍性质证明，不是输入假设。`exists_trace_kernel_tensor_equiv_of_basis` 进而构造原代数实际迹核的乘法张量平方同构。**指定双覆盖上的局部基及其限制相容性仍待构造**；见 [有基非分歧二次代数模型](docs/BASED_UNRAMIFIED_QUADRATIC_MODEL.md)。
+
 ## 已形式化的内容
 
 | 模块 | 实际数学内容 | 适用边界与后续步骤 |
 | --- | --- | --- |
+| `QuadraticNormalForm` / `KummerUnramified` | 实际配方代数同构；从形式非分歧性证明参数可逆 | 使用实际导子与 Kähler 微分模；不假设判别式可逆 |
+| `QuadraticBasisModel` / `QuadraticBasisTraceZero` | 从实际基 `(1,e)` 构造单位 Kummer 模型，以及原代数实际迹核的乘法张量平方同构 | 指定双覆盖的相容局部基仍是缺口 |
 | `ModuleSheafKernelSections` / `KummerModuleAtlas` | 实际层核的截面识别；从相容局部代数图册粘合全局迹并取真正的核层 | 实际模层与图册仍由调用者提供 |
 | `KummerTraceZeroFrames` / `KummerTraceZeroDescent` | 构造核层标架、cocycle、下降同构及平方配对；证明配对等于局部代数乘法 | 一般概形要求各截面环中 2 可逆；平面曲线接口从基域推出 |
 | `PlaneThetaTraceZero` | 核层超平面扭曲的 tensor 普遍性质、余切平方同构及条件性截面消失 | 指定判别双覆盖的图册、theta 对应及偶性来源仍待证明 |
@@ -149,7 +153,7 @@ $$
 
 ## 构建与审计
 
-本版包含 130 个源码模块、696 条公开手写定理，另有 7 条私有辅助定理（共 703 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
+本版包含 134 个源码模块、705 条公开手写定理，另有 7 条私有辅助定理（共 712 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
 
 环境固定为 Lean `v4.24.0` 和 mathlib 提交
 `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`。提交的 `lake-manifest.json` 固定传递依赖。

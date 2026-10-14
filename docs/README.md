@@ -1,6 +1,7 @@
 # Mathematical scope
 
 - [PROOF_GAPS.md](PROOF_GAPS.md): precise unformalized geometric steps.
+- [BASED_UNRAMIFIED_QUADRATIC_MODEL.md](BASED_UNRAMIFIED_QUADRATIC_MODEL.md): unit local model and actual trace-kernel square constructed from an actual basis and formal unramifiedness.
 - [GLOBAL_TRACE_KERNEL_BRIDGE.md](GLOBAL_TRACE_KERNEL_BRIDGE.md): actual global trace kernel, extracted descent data, and remaining specified-cover obligations.
 - [MATHLIB_STATUS.md](MATHLIB_STATUS.md): capabilities of the pinned mathlib checkout.
 

@@ -1,0 +1,18 @@
+[
+  {
+    "case": "axiom",
+    "exit_code": 1,
+    "elapsed_seconds": 8.539,
+    "result": "rejected as required",
+    "output": "/tmp/AuditRegression_axiom.lean:23:0: error: Project dependency closure: unexpected axioms [EvenQuinticConic.auditRegressionAxiom]\n",
+    "inserted_declaration": "namespace EvenQuinticConic\naxiom auditRegressionAxiom : False\nend EvenQuinticConic\n"
+  },
+  {
+    "case": "sorry",
+    "exit_code": 1,
+    "elapsed_seconds": 8.468,
+    "result": "rejected as required",
+    "output": "/tmp/AuditRegression_sorry.lean:19:8: warning: declaration uses 'sorry'\n/tmp/AuditRegression_sorry.lean:23:0: error: Project dependency closure: unexpected axioms [sorryAx]\n",
+    "inserted_declaration": "namespace EvenQuinticConic\ntheorem auditRegressionSorry : False := by sorry\nend EvenQuinticConic\n"
+  }
+]

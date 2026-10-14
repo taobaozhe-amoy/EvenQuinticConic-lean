@@ -1,13 +1,13 @@
 {
-  "checked_at_utc": "2026-10-13T03:50:13.041122+00:00",
+  "checked_at_utc": "2026-10-14T02:50:03.158192+00:00",
   "lean_version": "4.24.0",
   "lean_commit": "797c613eb9b6d4ec95db23e3e00af9ac6657f24b",
   "mathlib_commit": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
   "build_exit_code": 0,
   "audit_exit_code": 0,
-  "audited_declarations": 1880,
-  "audited_theorem_declarations_including_generated": 1459,
-  "handwritten_theorem_declarations": 703,
+  "audited_declarations": 1936,
+  "audited_theorem_declarations_including_generated": 1505,
+  "handwritten_theorem_declarations": 712,
   "axiom_allowlist": [
     "propext",
     "Classical.choice",
@@ -15,8 +15,8 @@
   ],
   "full_geometric_theorem_formalized": false,
   "source_sha256": {
-    "EvenQuinticConic.lean": "d8d6836bf248943b413081d53f532b83d89c4b49e1ac417f49929c94fa6633c7",
-    "Audit.lean": "d7737c45fe4f6ba71663500f4adcffefcc65f904cb8c0c6bc25973ae0d944121",
+    "EvenQuinticConic.lean": "f26ef3ce539ca3c57bff925e2b07a3a84f4900671b49601c5431f158d8e23d24",
+    "Audit.lean": "a5731c209161206d58dddbb03515b8cf6f76e053084b4bff406d8ce21147cec4",
     "lakefile.lean": "ac0cbb06f91e35c9f4e28fdc68570067d2bfc2fbc1481488b42cb7c25e3bfa93",
     "lean-toolchain": "42779d67b81608af8a12aa4328d2ab47ca201925b3b2bd68369587b5340bb434",
     "lake-manifest.json": "f8057b1b71785f1969019488d28b423036d7d73b9cf53dee6dabc92395463f3a",
@@ -54,6 +54,7 @@
     "EvenQuinticConic/KummerModuleAtlas.lean": "0b21822775beccb4627f485422d91f3567530a747ee0f0632b0c2f9493ab8177",
     "EvenQuinticConic/KummerTraceZeroDescent.lean": "b4fe2d1e6ce2f3e6738799f28c087dd44310bda61a0d25ad310127abab1b5f74",
     "EvenQuinticConic/KummerTraceZeroFrames.lean": "7015685e03515f4aee196cc50e35c283a5a93ec64a979119383c6f8e30907014",
+    "EvenQuinticConic/KummerUnramified.lean": "00b67043bfe2b75595a530a4c8003d026b66000958d40db8be2c14675d7ded55",
     "EvenQuinticConic/LineBundleFrames.lean": "269bdf40f4aa563e9fbb745d24bb772963033fb56e1083e593ffe792c27c4d1c",
     "EvenQuinticConic/LineBundleGluing.lean": "60f3da0819bd7c4af1b32849b6ce8433a13c7de02cb93b37231df3a66c72d435",
     "EvenQuinticConic/LineBundlePairing.lean": "ba745ab20edad3e397cebcbc9b04114beaa1940bf598a249121c9ab0fde1860a",
@@ -124,7 +125,10 @@
     "EvenQuinticConic/ProjectiveQuarticRestriction.lean": "12b856b07de727b847a01e450df649e67e5fc6df1430314ed3190840f8b93369",
     "EvenQuinticConic/ProjectiveStalkUnits.lean": "5803e5a9a1174de501c3f5008dd5021d93785db67fff038d68b1b7c5c26ef6fd",
     "EvenQuinticConic/PullbackTransition.lean": "3da70da2aaf399a7addfad9d1dc217a6f60aa9c98d78f62d88bb76f05f049e43",
+    "EvenQuinticConic/QuadraticBasisModel.lean": "cbdbbea3f7623bf8b7da8b7aaa14e5d5c88575c0575f5822ffa36598bd76a1ae",
+    "EvenQuinticConic/QuadraticBasisTraceZero.lean": "fdf78c7fdfc6800fa40947373720bf6ac8947e3f812371b1a211689da4c1c70f",
     "EvenQuinticConic/QuadraticFractionBridge.lean": "9a530fc9221ce57a01b045d2f98b39fdbf8c6d5d96aa85b30170299884961639",
+    "EvenQuinticConic/QuadraticNormalForm.lean": "536ffafe6f4bbf736a25cc6b6a53aebee960a6fce9093e5459e1b514f84f98e9",
     "EvenQuinticConic/QuadraticSections.lean": "d4b117dc5281cb9a11750a512f4388a6a6e51214e1aef5281f821b8a28d0dc4e",
     "EvenQuinticConic/QuadraticTraceZero.lean": "db2784c7ea6534c072ab79f9bf6dde72f097991974f6e8f1ed0a11fc65cdb3e3",
     "EvenQuinticConic/QuadraticTraceZeroTransition.lean": "509434f68d0ec6d3eb0aeb3d8ff1b4479ce01e3fcf198e39b9370c63f40c2c48",
@@ -151,9 +155,9 @@
     "EvenQuinticConic/TopologyOpenRestriction.lean": "625fe5e7651c3203add9db478a75b3d49dfc98e92e57c0411ac8e67d01fa5518",
     "EvenQuinticConic/WeightedRestriction.lean": "ce476cf16c08f46e1247c4bbd9e619434fca00c56df306f3c004943351ead9ac"
   },
-  "source_modules": 130,
+  "source_modules": 134,
   "verification_kind": "local",
-  "handwritten_public_theorem_declarations": 696,
+  "handwritten_public_theorem_declarations": 705,
   "handwritten_private_theorem_declarations": 7,
   "theta_ineffectivity_with_explicit_restriction_hypotheses_formalized": true,
   "theta_finite_dimensionality_derived": true,
@@ -204,8 +208,9 @@
   "theta_vanishing_from_explicit_jacobian_condition_formalized": true,
   "original_geometric_hypotheses_to_jacobian_equation_formalized": false,
   "verification_log_sha256": {
-    "verification/build.log": "aabb0f4a25c0bdfa5072fdd7045ef35a1fe8789a4690b8c5685e6e3e4aa65a85",
-    "verification/axiom-audit.log": "5106fee314fb37e1ab8c25a6bc187733c2faf4a5c4ea16d95e89f4e8ed8a7993"
+    "verification/build.log": "ec2b77bac3a6e6e10f127c9d01b26a02bc46062390f09504dccf86ebc4c34d78",
+    "verification/axiom-audit.log": "0db79f818f18143c2f14f805946f0e6b054bb56e97f4df9f7dd37e0af68123b4",
+    "verification/audit-regression.json": "a52d439d7c7c972ad05835cc0d3a8f8cfbfcdcf292a8c57febcc7bdf0203c539"
   },
   "actual_scheme_kaehler_sheaf_and_universal_property_formalized": true,
   "actual_affine_kaehler_comparison_isomorphism_formalized": true,
@@ -279,5 +284,30 @@
     "Kernel frames, extracted line cocycle and actual descent isomorphism",
     "Square pairing equal to actual local algebra multiplication and locally tensor-perfect",
     "Hyperplane twist with tensor universal property on the actual kernel and cotangent-square isomorphism"
-  ]
+  ],
+  "actual_quadratic_completed_square_algebra_equivalence_constructed": true,
+  "unit_kummer_parameter_derived_from_formal_unramifiedness": true,
+  "unit_kummer_model_from_actual_basis_and_formal_unramifiedness_constructed": true,
+  "actual_based_algebra_trace_kernel_tensor_square_equivalence_constructed": true,
+  "actual_based_algebra_trace_kernel_tensor_square_agrees_with_multiplication": true,
+  "based_unramified_model_endpoint": "exists_unit_kummer_model_of_basis",
+  "based_unramified_trace_square_endpoint": "exists_trace_kernel_tensor_equiv_of_basis",
+  "based_unramified_model_inputs": [
+    "Commutative rings R and A with actual R-algebra structure",
+    "Actual basis v : Module.Basis (Fin 2) R A with v 0 = 1",
+    "Invertibility of 2 in R",
+    "mathlib Algebra.FormallyUnramified R A"
+  ],
+  "based_unramified_model_internally_constructed": [
+    "Quadratic coefficients from the actual product v 1 * v 1",
+    "Actual quadratic algebra presentation and completed-square algebra isomorphism",
+    "Invertibility of the centered parameter derived using a derivation into R/(u)",
+    "Actual trace-kernel identification and tensor-square equivalence inducing multiplication in A"
+  ],
+  "compatible_local_bases_from_specified_discriminant_cover_constructed": false,
+  "audit_traversal": "Official Lean.CollectAxioms.collect with shared state over all project-namespace declarations; union of type and value dependency closures",
+  "audit_negative_regressions": {
+    "extra_project_axiom": "rejected",
+    "sorryAx": "rejected"
+  }
 }

@@ -5,9 +5,9 @@ as predicted output.
 
 | Check | Result |
 | --- | --- |
-| `lake build` | Exit 0; all 130 source modules and the root import compiled |
-| `lake env lean Audit.lean` | Exit 0; 1880 declarations audited, including 1459 theorem declarations |
-| Handwritten `theorem` declarations | 703 total: 696 public and 7 private helpers; comments and strings are excluded from this source count |
+| `lake build` | Exit 0; all 134 source modules and the root import compiled |
+| `lake env lean Audit.lean` | Exit 0; 1936 declarations audited, including 1505 theorem declarations |
+| Handwritten `theorem` declarations | 712 total: 705 public and 7 private helpers; comments and strings are excluded from this source count |
 | Allowed axiom dependencies | `propext`, `Classical.choice`, `Quot.sound` |
 | `sorryAx` or any other unexpected axiom | None in the audited dependency closures |
 | mathlib tracked source changes | None |
@@ -37,6 +37,8 @@ as predicted output.
 | Actual differential-sheaf restriction and open-immersion transport | Isomorphisms proved, preserving actual derivations and sheafification units |
 | Complete signed residue transitions | Proved on every actual chart overlap, including mixed derivative cases, with the actual hyperplane-square cocycle |
 | Actual plane-quintic differential adjunction | `planeQuinticAdjunctionIsoOfJacobian`; actual relative differential sheaf is isomorphic to the constructed hyperplane-square sheaf, without an adjunction or local-frame input |
+| Unit Kummer model from an actual basis and formal unramifiedness | Constructed; actual multiplication coefficients, completed-square algebra isomorphism, and unit parameter are derived |
+| Actual based algebra's trace-kernel square | Actual tensor linear equivalence constructed and proved to induce multiplication in the original algebra |
 | Global trace and categorical trace kernel from a coherent quadratic atlas | Constructed internally; actual kernel frames, extracted cocycle and descent isomorphism proved |
 | Actual trace-kernel square pairing | Locally tensor-perfect and proved to agree with multiplication in each supplied quadratic algebra chart |
 | Atlas-relative theta endpoint | `planeQuintic_even_trace_kernel_twist_sections_eq_zero`; tensor universal property uses the actual kernel, parity remains an input |
@@ -88,3 +90,22 @@ The new constructed endpoint is `planeQuintic_even_twoTorsion_twist_sections_eq_
 The local-model endpoint is now `planeQuintic_even_kummer_twist_sections_eq_zero`. Unlike the earlier two-torsion interface, it constructs the global line-square isomorphism from actual local quadratic-algebra maps and their generator-coordinate compatibility with a supplied cocycle. The actual algebra trace kernel, its tensor square, and algebra-isomorphism transition units are separately formalized. This does not assert extraction of the local data from the specified finite étale cover; see `docs/LOCAL_KUMMER_BRIDGE.md`.
 
 The atlas-relative endpoint is `planeQuintic_even_trace_kernel_twist_sections_eq_zero`. It takes an actual module sheaf with coherent quadratic charts and constructs the trace morphism, actual kernel, frames, cocycle, descent isomorphism and square pairing. Local multiplication agreement is proved. The supplied atlas has not yet been extracted from the specified cover. See `docs/GLOBAL_TRACE_KERNEL_BRIDGE.md`.
+
+The previous remote run [38343667957](https://github.com/taobaozhe-amoy/EvenQuinticConic-lean/actions/runs/38343667957) failed during dependency download with `Recv failure: Connection reset by peer`; its source build and axiom audit steps were skipped. That does not supply a remote proof check. The workflow now retries dependency setup at most three times and still fails after three unsuccessful attempts; source build and axiom audit remain required. Current remote status must be read from the new commit's Actions run.
+
+## Shared dependency traversal
+
+`Audit.lean` now runs Lean 4.24.0's official `Lean.CollectAxioms.collect`
+over every declaration in the project namespace using one shared visited
+set. The official traversal still examines both declaration types and
+values (and the same constructor/recursor dependencies). Its resulting
+axiom set is the union of all audited dependency closures. The audited
+roots and the allowlist are unchanged; only duplicate traversal is removed.
+The log lists checked theorem names and the aggregate axiom set, rather
+than repeating a separate axiom set for each theorem.
+
+Two isolated temporary copies of the audit were tested: one inserted an
+extra project axiom and the other a theorem proved with `sorry`. Both
+failed with the expected unexpected-axiom diagnostics. The exact inserted
+text and observed results are recorded in `audit-regression.json`. These
+negative fixtures are not imported into the project.

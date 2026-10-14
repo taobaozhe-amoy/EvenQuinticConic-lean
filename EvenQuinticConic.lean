@@ -128,3 +128,7 @@ import EvenQuinticConic.KummerModuleAtlas
 import EvenQuinticConic.KummerTraceZeroFrames
 import EvenQuinticConic.KummerTraceZeroDescent
 import EvenQuinticConic.PlaneThetaTraceZero
+import EvenQuinticConic.QuadraticNormalForm
+import EvenQuinticConic.KummerUnramified
+import EvenQuinticConic.QuadraticBasisModel
+import EvenQuinticConic.QuadraticBasisTraceZero

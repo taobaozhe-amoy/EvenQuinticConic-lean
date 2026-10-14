@@ -75,3 +75,12 @@ Thus the atlas-relative kernel/descent identification is now proved, but
 the discriminant-cover-relative identification remains open. Neither the
 existence nor the nonexistence statement of the original problem follows
 from the checked endpoint alone.
+
+## Subsequent local algebra construction
+
+[BASED_UNRAMIFIED_QUADRATIC_MODEL.md](BASED_UNRAMIFIED_QUADRATIC_MODEL.md)
+constructs unit Kummer models and actual trace-kernel multiplication
+tensor squares from an actual basis (1,e), invertibility of two and
+formal unramifiedness. This removes the unit-model hypothesis at the
+based-algebra level. Constructing compatible local bases for the specified
+cover and assembling their restriction-compatible atlas are still open.

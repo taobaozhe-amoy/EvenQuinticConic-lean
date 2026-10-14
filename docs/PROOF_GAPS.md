@@ -2,6 +2,17 @@
 
 The following is a work plan for scrutinizing a proposed mathematical argument, not a list of verified consequences. Every implication below needs both a precise statement and a proof. Finding a missing hypothesis or a false implication would require revising the argument, not adding an axiom to Lean.
 
+## Latest local algebra progress
+
+`exists_unit_kummer_model_of_basis` now constructs a unit Kummer model
+from a genuine algebra basis (1,e), invertibility of two, and mathlib's
+formal unramifiedness. `exists_trace_kernel_tensor_equiv_of_basis`
+constructs the actual trace-kernel multiplication tensor-square
+isomorphism from those inputs. The unit parameter is derived using a
+derivation into R/(u), not assumed. The specified cover's local bases,
+restriction compatibility and pushforward trace identification are still
+open; see [BASED_UNRAMIFIED_QUADRATIC_MODEL.md](BASED_UNRAMIFIED_QUADRATIC_MODEL.md).
+
 ## Latest atlas-relative progress
 
 The global trace kernel is now constructed from an actual module sheaf with
