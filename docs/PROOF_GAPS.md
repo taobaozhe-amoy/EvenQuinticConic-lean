@@ -21,13 +21,24 @@ open; under a principal Kummer model it is bijective on every subopen,
 including nonaffine opens, by actual two-coordinate gluing. Scalar action,
 multiplication, restrictions and overlap maps are all connected.
 
-The remaining geometric step is to express the specified double cover
-on affine opens of its general base, derive and transport the module
-finite-presentation/flat/unramified/rank hypotheses, transport and assemble
-the actual module charts there, and identify the specified global trace
-and trace-zero line. This is now a passage from the proved affine result
-to the specified cover, not a missing arbitrary-subopen comparison inside
-an affine chart. See [AFFINE_PUSHFORWARD_ATLAS.md](AFFINE_PUSHFORWARD_ATLAS.md).
+The general-base bridge now includes the canonical isomorphism between
+restricting the actual pushforward structure module and pushing forward
+along the restricted morphism, plus open-subscheme atlas transport.
+Actual multiplicative charts on any scheme produce overlap algebra maps
+internally, and their global trace is independent of the chosen covering
+family. Canonical affine presentations are constructed for an affine
+morphism on an affine base open. Under finite, étale, explicit Flat,
+Noetherian, invertible-two and rank-two hypotheses, the actual section
+algebra now receives a covering atlas on its spectrum.
+
+Remaining: transport the multiplicative charts through these affine
+presentation isomorphisms back to the original base and assemble them;
+instantiate all hypotheses for the specified cover; identify its global
+trace and trace-zero line. In particular, a general module-sheaf
+isomorphism is not enough to assert compatibility with an independently
+given multiplication. See [GENERAL_BASE_PUSHFORWARD.md](GENERAL_BASE_PUSHFORWARD.md)
+for the exact new scope and [AFFINE_PUSHFORWARD_ATLAS.md](AFFINE_PUSHFORWARD_ATLAS.md)
+for the established arbitrary-subopen section comparison.
 
 ## Latest atlas-relative progress
 

@@ -5,9 +5,9 @@ as predicted output.
 
 | Check | Result |
 | --- | --- |
-| `lake build` | Exit 0; all 151 source modules and the root import compiled |
-| `lake env lean Audit.lean` | Exit 0; 2148 declarations audited, including 1688 theorem declarations |
-| Handwritten `theorem` declarations | 788 total: 781 public and 7 private helpers; comments and strings are excluded from this source count |
+| `lake build` | Exit 0; all 157 source modules and the root import compiled |
+| `lake env lean Audit.lean` | Exit 0; 2257 declarations audited, including 1765 theorem declarations |
+| Handwritten `theorem` declarations | 815 total: 808 public and 7 private helpers; comments and strings are excluded from this source count |
 | Allowed axiom dependencies | `propext`, `Classical.choice`, `Quot.sound` |
 | `sorryAx` or any other unexpected axiom | None in the audited dependency closures |
 | mathlib tracked source changes | None |
@@ -38,6 +38,11 @@ as predicted output.
 | Complete signed residue transitions | Proved on every actual chart overlap, including mixed derivative cases, with the actual hyperplane-square cocycle |
 | Actual plane-quintic differential adjunction | `planeQuinticAdjunctionIsoOfJacobian`; actual relative differential sheaf is isomorphic to the constructed hyperplane-square sheaf, without an adjunction or local-frame input |
 | Actual affine pushforward covering atlas | Constructed from module finite presentation, flatness, formal unramifiedness, 2 invertible and rank two at each prime; no supplied atlas |
+| Actual pushforward and base-open restriction | Canonical module-sheaf isomorphism, with multiplicative section comparison and actual scalar/restriction compatibility |
+| Kummer atlas transport from actual open subschemes | Parameters, coordinates, restrictions, algebra overlaps and image-cover statements proved |
+| Actual multiplicative charts on a general scheme | Algebra overlaps constructed through actual section rings; resulting global trace independent of covering chart family |
+| Geometric affine presentation and Kummer models | Actual restricted arrow identified with Spec of f.app U; finite, étale, explicit Flat, Noetherian, invertible-two and rank-two inputs give principal models and an atlas on that spectrum |
+| Multiplicative atlas on the original general base | Not yet assembled through affine presentation isomorphisms; specified-cover endpoint still open |
 | Canonical tensor-to-actual-section comparison | Ring isomorphism on principal opens and all subopens of a Kummer chart, with restriction-compatible inverse |
 | Model restrictions and overlaps | Actual scalar-extension models, trace naturality, coordinate cocycles, transition-unit square and scalar-change formulas proved |
 | Actual structure-sheaf coefficient rings | Models on Γ(V,O) tensor_R A for all chart subopens, with both coordinate restriction laws; actual pushforward section comparison now proved on every chart subopen |

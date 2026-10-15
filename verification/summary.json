@@ -1,13 +1,13 @@
 {
-  "checked_at_utc": "2026-10-14T04:18:37.141418+00:00",
+  "checked_at_utc": "2026-10-15T01:48:24.451805+00:00",
   "lean_version": "4.24.0",
   "lean_commit": "797c613eb9b6d4ec95db23e3e00af9ac6657f24b",
   "mathlib_commit": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
   "build_exit_code": 0,
   "audit_exit_code": 0,
-  "audited_declarations": 2148,
-  "audited_theorem_declarations_including_generated": 1688,
-  "handwritten_theorem_declarations": 788,
+  "audited_declarations": 2257,
+  "audited_theorem_declarations_including_generated": 1765,
+  "handwritten_theorem_declarations": 815,
   "axiom_allowlist": [
     "propext",
     "Classical.choice",
@@ -15,7 +15,7 @@
   ],
   "full_geometric_theorem_formalized": false,
   "source_sha256": {
-    "EvenQuinticConic.lean": "58e49d7f0bbeb0281540b506b44f7c02b33d32d690ffecf7672ac4234df698df",
+    "EvenQuinticConic.lean": "f72cef290c7d534165214d55da645274e9d3c22b4afbdd9e87eca547aca01a10",
     "Audit.lean": "a5731c209161206d58dddbb03515b8cf6f76e053084b4bff406d8ce21147cec4",
     "lakefile.lean": "ac0cbb06f91e35c9f4e28fdc68570067d2bfc2fbc1481488b42cb7c25e3bfa93",
     "lean-toolchain": "42779d67b81608af8a12aa4328d2ab47ca201925b3b2bd68369587b5340bb434",
@@ -61,6 +61,7 @@
     "EvenQuinticConic/KummerModelOverlap.lean": "86cce44037cc6ee9a175e66abf82cd9f08a58faca059e15c410c316e895fbf8d",
     "EvenQuinticConic/KummerModelRestriction.lean": "852fda15706df1a0547cc20e00686613da23671629883f367d02e46c47a50b5f",
     "EvenQuinticConic/KummerModuleAtlas.lean": "0b21822775beccb4627f485422d91f3567530a747ee0f0632b0c2f9493ab8177",
+    "EvenQuinticConic/KummerModuleTransport.lean": "2cdfdbbbe8de29a055e782c80cad7a7f136cb0061c9a799fdbda463880e63211",
     "EvenQuinticConic/KummerScalarMap.lean": "c00a7fa760527452b52087b3a7ff07c5c9e6a25d6985284de29404a937e83b48",
     "EvenQuinticConic/KummerTraceZeroDescent.lean": "b4fe2d1e6ce2f3e6738799f28c087dd44310bda61a0d25ad310127abab1b5f74",
     "EvenQuinticConic/KummerTraceZeroFrames.lean": "7015685e03515f4aee196cc50e35c283a5a93ec64a979119383c6f8e30907014",
@@ -153,12 +154,17 @@
     "EvenQuinticConic/RankTwoUnitBasis.lean": "ab1922aedcb38e97cf6a95172db4c0eff0e56d6f76fefa04b61c7d60193bc38d",
     "EvenQuinticConic/RationalSectionFrames.lean": "843e1cff582d72294a094816adef92306b0e4cb240064284ffdb085fd5a13c06",
     "EvenQuinticConic/RestrictionModel.lean": "cd2519625d4cc5eacfd4b98e56bc2eca05a4f27d3f4bb3c11ac1f1f7d03deef5",
+    "EvenQuinticConic/SchemeAffinePresentation.lean": "e8981fb8e597b290bbe9496e9f166eb0a870b2fd8e728f215514f1cc984c75b6",
     "EvenQuinticConic/SchemeKaehlerIsoTransport.lean": "01bcc326e0516c3d7845c45609cd1b92571d716d0a7642e35567cb047bfc7a76",
     "EvenQuinticConic/SchemeKaehlerRestriction.lean": "e61b680a4b7eede0c23bb4cd8438ed4d7a722318e562e666592b2ad7b2ba3622",
     "EvenQuinticConic/SchemeKaehlerSheaf.lean": "d60420975562a509b85121277d7879575c20175d54b3bc0892441d23e751372e",
     "EvenQuinticConic/SchemeModuleRestriction.lean": "3eb90f8e7b9852be5507852e9d3dbe55f2a69508040e7f03ac390df7b4fde031",
     "EvenQuinticConic/SchemeOpenDifferentialFrames.lean": "405a5963fb36c908cecf8593b087a3c7ba27120af6123c6652bcf51d62c7ec5e",
     "EvenQuinticConic/SchemeOpenModuleFrames.lean": "b1738cc7a31055da04616e9cea6daad9ec60d97d6ffa474da82ad912e6ccb807",
+    "EvenQuinticConic/SchemePushforwardAtlasRestriction.lean": "c421ad45d2dfb5813f8f8523c7a50905ee3d0e91c923d584d7a7492f7956adad",
+    "EvenQuinticConic/SchemePushforwardKummerAtlas.lean": "a89c886b66f81351f542479f33a08e7b356093f37c6fe30a52b3eaaa2fa9d509",
+    "EvenQuinticConic/SchemePushforwardRestriction.lean": "54df7a08e90c3d6a4e7974d24b24c5bb843db78b40316dc0e730b14779b48a94",
+    "EvenQuinticConic/SchemePushforwardTrace.lean": "f02649f04320c8c445354e4fc66ec8ed0eaa98f55c9ab5faaf543348d961dc8e",
     "EvenQuinticConic/SchemeScalarAction.lean": "53ad2bf9d784e3ef715ff50456ca7eea44f2871c4a8ede366f00d1ed581d4b21",
     "EvenQuinticConic/SheafGluing.lean": "90d0910fcfa9a83b0e74d250a65d5174a6dc3ce591ff2c4206ee85f9b6e7f66a",
     "EvenQuinticConic/SheafTrivialization.lean": "4ce995a55bb20d8546c82dc7e35fbdc4488a7043901794480ecb9ab1718206ab",
@@ -172,9 +178,9 @@
     "EvenQuinticConic/TopologyOpenRestriction.lean": "625fe5e7651c3203add9db478a75b3d49dfc98e92e57c0411ac8e67d01fa5518",
     "EvenQuinticConic/WeightedRestriction.lean": "ce476cf16c08f46e1247c4bbd9e619434fca00c56df306f3c004943351ead9ac"
   },
-  "source_modules": 151,
+  "source_modules": 157,
   "verification_kind": "local",
-  "handwritten_public_theorem_declarations": 781,
+  "handwritten_public_theorem_declarations": 808,
   "handwritten_private_theorem_declarations": 7,
   "theta_ineffectivity_with_explicit_restriction_hypotheses_formalized": true,
   "theta_finite_dimensionality_derived": true,
@@ -225,8 +231,8 @@
   "theta_vanishing_from_explicit_jacobian_condition_formalized": true,
   "original_geometric_hypotheses_to_jacobian_equation_formalized": false,
   "verification_log_sha256": {
-    "verification/build.log": "694a4c52291693529bed7bbd909e2081a71deb07cd06433c961af898e16007ce",
-    "verification/axiom-audit.log": "0029fc6dcf65591529c60f54df2b2a9cec144575520040f6c4110bda045bc290",
+    "verification/build.log": "cd63feb22c269d01faa861f65c6503bd4ef5189ec2b233a73852f9614629dd4d",
+    "verification/axiom-audit.log": "385c08c9edaa92a293f475102c3e14eea40a11b6f4b02f4864e5af72e948a697",
     "verification/audit-regression.json": "a52d439d7c7c972ad05835cc0d3a8f8cfbfcdcf292a8c57febcc7bdf0203c539"
   },
   "actual_scheme_kaehler_sheaf_and_universal_property_formalized": true,
@@ -399,5 +405,28 @@
     "Invertible (2 : R)",
     "Module.finrank R_p (R_p tensor_R A) = 2 for every prime p"
   ],
-  "specified_cover_affine_presentation_and_atlas_transport_constructed": false
+  "specified_cover_affine_presentation_and_atlas_transport_constructed": false,
+  "actual_pushforward_structure_module_open_restriction_iso_constructed": true,
+  "actual_kummer_module_atlas_open_subscheme_transport_constructed": true,
+  "actual_pushforward_atlas_open_image_transport_constructed": true,
+  "actual_multiplicative_pushforward_charts_construct_overlap_algebra_maps": true,
+  "actual_pushforward_glued_trace_independent_of_multiplicative_atlas": true,
+  "actual_affine_preimage_arrow_presentation_constructed": true,
+  "geometric_hypotheses_to_affine_preimage_kummer_models_and_atlas": true,
+  "geometric_affine_preimage_model_endpoint": "exists_affinePreimageKummerModels",
+  "geometric_affine_preimage_atlas_endpoint": "exists_affinePreimageKummerAtlas",
+  "geometric_affine_preimage_inputs": [
+    "Actual scheme morphism f, IsFinite f and IsEtale f",
+    "Explicit geometric Flat f",
+    "Affine base open U with IsNoetherianRing Gamma(Y,U)",
+    "Invertible two in Gamma(Y,U)",
+    "Rank two at each prime for the actual section algebra induced by f.app U"
+  ],
+  "general_base_transport_remaining": [
+    "Transport multiplicative Kummer charts through canonical affine presentation isomorphisms",
+    "Assemble actual multiplicative charts on an open cover of the original base",
+    "Instantiate geometric and rank hypotheses and identify trace-zero line for specified discriminant cover"
+  ],
+  "actual_general_base_covering_multiplicative_atlas_from_geometric_hypotheses": false,
+  "scheme_etale_to_flat_implication_formalized": false
 }

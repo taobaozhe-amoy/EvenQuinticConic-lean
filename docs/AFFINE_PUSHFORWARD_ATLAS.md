@@ -60,10 +60,12 @@ cover, then builds these actual charts and overlaps internally.
 ## Remaining geometric scope
 
 This is an affine-base theorem for an actual algebra-induced scheme map.
-The original discriminant cover over the projective curve has not yet
-been instantiated: its affine presentations and the necessary hypotheses
-must be extracted and transported, the charts assembled over that base,
-and the resulting trace and trace-zero line identified with the specified
-cover's global data. The theta correspondence, parity after the required
-base change, and the real-topological conclusion remain unfinished.
+The subsequent [general-base bridge](GENERAL_BASE_PUSHFORWARD.md) supplies
+actual open-restriction comparisons, canonical affine presentations,
+extraction of ring hypotheses under explicit geometric assumptions, and
+chart independence of the trace. The original discriminant cover over the
+projective curve has not yet been instantiated: multiplicative charts
+still need transport through the affine presentation isomorphisms and
+assembly over that base. Its global trace and trace-zero line, the theta
+correspondence, parity after base change, and real topology remain open.
 The full original existence/nonexistence problem is not yet proved.

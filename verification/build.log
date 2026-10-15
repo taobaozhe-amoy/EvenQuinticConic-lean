@@ -1,2 +1,8 @@
-✔ [2876/2877] Built EvenQuinticConic (2.8s)
-Build completed successfully (2877 jobs).
+✔ [2894/2901] Built EvenQuinticConic.SchemePushforwardKummerAtlas (5.6s)
+✔ [2895/2901] Built EvenQuinticConic.SchemeAffinePresentation (5.8s)
+✔ [2896/2901] Built EvenQuinticConic.SchemePushforwardRestriction (5.7s)
+✔ [2897/2901] Built EvenQuinticConic.KummerModuleTransport (8.6s)
+✔ [2898/2901] Built EvenQuinticConic.SchemePushforwardTrace (5.1s)
+✔ [2899/2901] Built EvenQuinticConic.SchemePushforwardAtlasRestriction (2.8s)
+✔ [2900/2901] Built EvenQuinticConic (2.3s)
+Build completed successfully (2901 jobs).

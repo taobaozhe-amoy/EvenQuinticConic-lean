@@ -33,10 +33,16 @@
 
 本轮新增 `exists_affinePushforwardKummerAtlas`：对仿射态射 `Spec A → Spec R`，从模有限表示、平坦、形式非分歧、`2` 可逆和逐点秩二条件，构造**实际推前模层 `π_*O` 的覆盖性 `KummerModuleAtlas`**。代码先构造自然张量到实际截面的环映射，在主开集上用局部化证明双射，再用两个坐标的粘合证明任意子开集上的双射；实际标量作用、乘法、限制和交叠均已接通。无需输入图册、截面比较同构或交叠相容性。**仍须将题目指定双覆盖在一般底概形上的仿射局部数据与此构造识别，完成全局迹及 theta、偶性和实几何部分。** 见 [实际仿射推前图册](docs/AFFINE_PUSHFORWARD_ATLAS.md)。
 
+本轮继续补上一般底概形的桥梁：`schemePushforwardRestrictionIso` 证明实际结构层推前与开限制的典范同构；`KummerModuleAtlas.openImage` 将开子概形图册运输回原概形。`PushforwardKummerChart` 保留实际截面环乘法，由同一截面环构造交叠代数同构；`pushforwardKummerAtlas_trace_independent` 证明不同覆盖图册粘出的全局迹相同。`exists_affinePreimageKummerAtlas` 从有限、étale、显式平坦性、Noetherian、2 可逆和秩二条件构造实际截面代数上的仿射图册。**仿射表示同构上的乘法坐标运输及指定双覆盖的全局组装仍待完成。** 见 [一般底概形与推前层](docs/GENERAL_BASE_PUSHFORWARD.md)。
+
 ## 已形式化的内容
 
 | 模块 | 实际数学内容 | 适用边界与后续步骤 |
 | --- | --- | --- |
+| `SchemePushforwardRestriction` / `SchemePushforwardAtlasRestriction` | 实际推前结构模层与开限制的典范同构；组合开子概形图册运输 | 适用于任意概形态射；运输接口仍接收限制态射的图册 |
+| `KummerModuleTransport` | 模层同构运输、开子概形图册下降、像覆盖及 Sigma 细化覆盖 | 普通模层同构本身不保证保留独立给定的乘法 |
+| `SchemePushforwardKummerAtlas` / `SchemePushforwardTrace` | 真实截面环的乘法图自动给出代数交叠；全局迹与覆盖图册选择无关 | 图来自同一实际态射；未假设任意态射均有这些图 |
+| `SchemeAffinePresentation` | 实际限制态射与截面环 Spec 态射的同构；从几何条件提取代数性质并构造仿射图册 | 明确保留平坦、Noetherian、2 可逆及秩二；坐标搬回原底仍待接通 |
 | `AffinePushforwardTensor` / `AffinePushforwardPrincipal` / `AffinePushforwardComparison` / `PrincipalOpenTensorGluing` | 真实张量到推前截面的环映射；主开及 Kummer 图内任意子开的自然环同构 | 非仿射子开的证明使用实际两坐标粘合，无额外截面同构输入 |
 | `AffinePushforwardModule` / `AffinePushforwardKummerModel` / `AffinePushforwardKummerAtlas` | 实际模层推前、标量相容的真实截面坐标、兼容图册及覆盖存在性 | 仿射态射上的定理；指定双覆盖和非仿射底的运输仍待接通 |
 | `KummerBaseChange` / `KummerScalarMap` / `KummerModelRestriction` | 实际基变换同构、坐标与迹的限制公式、限制的恒等及复合律 | 适用于实际基变换代数；不等同于推前层截面识别 |
@@ -168,7 +174,7 @@ $$
 
 ## 构建与审计
 
-本版包含 151 个源码模块、781 条公开手写定理，另有 7 条私有辅助定理（共 788 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
+本版包含 157 个源码模块、808 条公开手写定理，另有 7 条私有辅助定理（共 815 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
 
 环境固定为 Lean `v4.24.0` 和 mathlib 提交
 `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`。提交的 `lake-manifest.json` 固定传递依赖。

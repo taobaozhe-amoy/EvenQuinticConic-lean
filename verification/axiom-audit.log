@@ -37,6 +37,11 @@ CHECKED: EvenQuinticConic.affineModuleToStalk_eq_germ
 CHECKED: EvenQuinticConic.affineModuleToStalk_isLocalizedModule
 CHECKED: EvenQuinticConic.affineOpen_isoSpec_toOpen
 CHECKED: EvenQuinticConic.affineOpen_structure_eq
+CHECKED: EvenQuinticConic.affinePreimage_formallyUnramified
+CHECKED: EvenQuinticConic.affinePreimage_isoSpec_hom_naturality
+CHECKED: EvenQuinticConic.affinePreimage_isoSpec_inv_naturality
+CHECKED: EvenQuinticConic.affinePreimage_moduleFlat
+CHECKED: EvenQuinticConic.affinePreimage_specMap_algebraMap
 CHECKED: EvenQuinticConic.affinePushforwardCoefficientMap_algebraMap
 CHECKED: EvenQuinticConic.affinePushforwardCoefficientMap_restrict
 CHECKED: EvenQuinticConic.affinePushforwardKummerRingModel_coefficient
@@ -108,6 +113,8 @@ CHECKED: EvenQuinticConic.existsUnique_section_of_generic_representatives
 CHECKED: EvenQuinticConic.existsUnique_section_with_generic_value
 CHECKED: EvenQuinticConic.existsUnique_unit_of_generic_representatives
 CHECKED: EvenQuinticConic.existsUnique_unit_of_local_generic_power
+CHECKED: EvenQuinticConic.exists_affinePreimageKummerAtlas
+CHECKED: EvenQuinticConic.exists_affinePreimageKummerModels
 CHECKED: EvenQuinticConic.exists_affinePushforwardKummerAtlas
 CHECKED: EvenQuinticConic.exists_basis_one_of_unit_coordinate
 CHECKED: EvenQuinticConic.exists_cofactorRoot_iff_pivot_square
@@ -143,6 +150,7 @@ CHECKED: EvenQuinticConic.exists_scalar_multiple_of_actual_pairing_square
 CHECKED: EvenQuinticConic.exists_scalar_multiple_of_sq_eq_scalar_sq
 CHECKED: EvenQuinticConic.exists_scalar_multiple_of_sq_eq_scalar_sq_of_root
 CHECKED: EvenQuinticConic.exists_scalar_multiple_of_totalDegree_zero
+CHECKED: EvenQuinticConic.exists_schemePushforwardAtlasOnOpen
 CHECKED: EvenQuinticConic.exists_trace_kernel_tensor_equiv_of_basis
 CHECKED: EvenQuinticConic.exists_trace_kernel_tensor_equiv_of_local_finite_flat
 CHECKED: EvenQuinticConic.exists_unit_kummer_model_of_basis
@@ -154,6 +162,8 @@ CHECKED: EvenQuinticConic.exists_unit_of_unit_mul_fraction_pow_eq_unit
 CHECKED: EvenQuinticConic.exists_unit_of_unit_mul_fraction_sq_eq_unit
 CHECKED: EvenQuinticConic.exists_unit_of_unit_mul_fraction_sq_eq_unit_mul_sq
 CHECKED: EvenQuinticConic.finSuccEquiv_top_coefficient
+CHECKED: EvenQuinticConic.finitePreimage_moduleFinite
+CHECKED: EvenQuinticConic.finitePreimage_moduleFinitePresentation
 CHECKED: EvenQuinticConic.five_dimensional_restriction_of_eight_dimensional_form
 CHECKED: EvenQuinticConic.five_dimensional_restriction_splitForm_four
 CHECKED: EvenQuinticConic.frameChangeCoefficient_eq_of_generator_eq
@@ -244,6 +254,7 @@ CHECKED: EvenQuinticConic.kummerBaseChangeEquiv_tmul_re
 CHECKED: EvenQuinticConic.kummerBaseChangeLinearEquiv_tmul
 CHECKED: EvenQuinticConic.kummerChangeUnit_square
 CHECKED: EvenQuinticConic.kummerChangeUnit_trans
+CHECKED: EvenQuinticConic.kummerCoordinateTransport_restrict
 CHECKED: EvenQuinticConic.kummerGenerator_sq
 CHECKED: EvenQuinticConic.kummerModelBaseChange_tmul_im
 CHECKED: EvenQuinticConic.kummerModelBaseChange_tmul_re
@@ -257,6 +268,7 @@ CHECKED: EvenQuinticConic.kummerModelRestrict_changeUnit
 CHECKED: EvenQuinticConic.kummerModelRestrict_naturality
 CHECKED: EvenQuinticConic.kummerModelRestrict_overlap
 CHECKED: EvenQuinticConic.kummerModelRestrict_trace
+CHECKED: EvenQuinticConic.kummerOverlapTransport_coordinate
 CHECKED: EvenQuinticConic.kummerScalarMap_comp
 CHECKED: EvenQuinticConic.kummerScalarMap_generator
 CHECKED: EvenQuinticConic.kummerScalarMap_im
@@ -301,6 +313,7 @@ CHECKED: EvenQuinticConic.moduleSheafFrameOfSchemeOpenIso_generator_derivation
 CHECKED: EvenQuinticConic.moduleSheafFrameOfSchemeOpenIso_generator_derivation_subopen
 CHECKED: EvenQuinticConic.moduleSheafFrameOfSchemeOpenIso_inverse_coordinate_image
 CHECKED: EvenQuinticConic.moduleSheafFrame_inverseUnit_transport
+CHECKED: EvenQuinticConic.moduleSheafIsoCoordinate_restrict
 CHECKED: EvenQuinticConic.moduleSheafIsoOfBijective_hom
 CHECKED: EvenQuinticConic.moduleSheafIsoSectionEquiv_apply
 CHECKED: EvenQuinticConic.moduleSheafKernelSectionEquiv_restrict
@@ -575,6 +588,8 @@ CHECKED: EvenQuinticConic.pullbackUnit_restrict
 CHECKED: EvenQuinticConic.pullbackUnit_val
 CHECKED: EvenQuinticConic.pullback_compatible_coordinates
 CHECKED: EvenQuinticConic.pullback_cover
+CHECKED: EvenQuinticConic.pushforwardKummerAtlas_trace_independent
+CHECKED: EvenQuinticConic.pushforwardKummerAtlas_trace_on_chart
 CHECKED: EvenQuinticConic.quadraticBasisLinearEquiv_apply
 CHECKED: EvenQuinticConic.quadraticBasis_centered_isUnit
 CHECKED: EvenQuinticConic.quadraticBasis_generator_square
@@ -643,7 +658,16 @@ CHECKED: EvenQuinticConic.schemeOpenDifferentialFrame_generator_subopen
 CHECKED: EvenQuinticConic.schemeOpenImage_constants
 CHECKED: EvenQuinticConic.schemeOpenModuleCoordinate_restrict
 CHECKED: EvenQuinticConic.schemeOpenModuleCoordinate_transport
+CHECKED: EvenQuinticConic.schemeOpen_image_cover
 CHECKED: EvenQuinticConic.schemeOpen_image_preimage_of_le
+CHECKED: EvenQuinticConic.schemeOpen_image_refinement_cover
+CHECKED: EvenQuinticConic.schemeOpen_preimage_le_of_le_image
+CHECKED: EvenQuinticConic.schemePushforwardAtlasOpenImage_cover
+CHECKED: EvenQuinticConic.schemePushforwardAtlasOpenImage_parameter
+CHECKED: EvenQuinticConic.schemePushforwardRestrictionIso_hom_app
+CHECKED: EvenQuinticConic.schemePushforwardRestrictionLinearMap_restrict
+CHECKED: EvenQuinticConic.schemePushforwardRestrictionRingEquiv_apply
+CHECKED: EvenQuinticConic.schemePushforwardRestrictionRingEquiv_coefficient
 CHECKED: EvenQuinticConic.scheme_generic_coefficients_linearIndependent
 CHECKED: EvenQuinticConic.sectionToModuleHom_apply
 CHECKED: EvenQuinticConic.sheaf_app_bijective_of_cover
@@ -719,6 +743,7 @@ CHECKED: EvenQuinticConic.KummerModuleAtlas.traceZeroTransition_eq
 CHECKED: EvenQuinticConic.KummerModuleAtlas.trace_apply
 CHECKED: EvenQuinticConic.KummerModuleChart.im_restrict
 CHECKED: EvenQuinticConic.KummerModuleChart.re_restrict
+CHECKED: EvenQuinticConic.KummerModuleChart.transport_coordinate
 CHECKED: EvenQuinticConic.KummerTraceZero._proof_1
 CHECKED: EvenQuinticConic.LocalModuleHom.naturality
 CHECKED: EvenQuinticConic.ModuleSheafFrame.coordinate_restrict
@@ -742,6 +767,11 @@ CHECKED: EvenQuinticConic.ModuleSheafPairing.precomposeIso_app
 CHECKED: EvenQuinticConic.ModuleSheafPairing.precomposeIso_tensor_bijective
 CHECKED: EvenQuinticConic.ModuleSheafPairing.precompose_app
 CHECKED: EvenQuinticConic.ModuleSheafPairing.sections_eval
+CHECKED: EvenQuinticConic.PushforwardKummerChart.coefficient
+CHECKED: EvenQuinticConic.PushforwardKummerChart.im_restrict
+CHECKED: EvenQuinticConic.PushforwardKummerChart.overlap_coordinate
+CHECKED: EvenQuinticConic.PushforwardKummerChart.re_restrict
+CHECKED: EvenQuinticConic.PushforwardKummerChart.trace_coordinate_eq
 CHECKED: EvenQuinticConic.SchemeScalars.algebraMap_functionField
 CHECKED: EvenQuinticConic.SchemeScalars.functionFieldScalarTower
 CHECKED: EvenQuinticConic.SchemeScalars.globalSectionsScalarTower
@@ -855,6 +885,9 @@ CHECKED: EvenQuinticConic.affineOpenKaehlerBasisDifferentialTrivialization._proo
 CHECKED: EvenQuinticConic.affineOpenKaehlerBasisDifferentialTrivialization._proof_5
 CHECKED: EvenQuinticConic.affineOpenKaehlerBasisTrivialization._proof_1
 CHECKED: EvenQuinticConic.affineOpenKaehlerBasisTrivialization._proof_2
+CHECKED: EvenQuinticConic.affinePreimage_formallyUnramified._simp_1_1
+CHECKED: EvenQuinticConic.affinePreimage_isoSpec_inv_naturality._simp_1_1
+CHECKED: EvenQuinticConic.affinePreimage_moduleFlat._simp_1_1
 CHECKED: EvenQuinticConic.affinePushforwardCoefficientMap._proof_1
 CHECKED: EvenQuinticConic.affinePushforwardKummerAtlas._proof_1
 CHECKED: EvenQuinticConic.affinePushforwardKummerAtlas._proof_2
@@ -888,6 +921,12 @@ CHECKED: EvenQuinticConic.affinePushforwardPrincipalEquiv._proof_4
 CHECKED: EvenQuinticConic.affinePushforwardPrincipalEquiv._proof_5
 CHECKED: EvenQuinticConic.affinePushforwardPrincipalEquiv._proof_6
 CHECKED: EvenQuinticConic.affinePushforwardPrincipalEquiv._proof_7
+CHECKED: EvenQuinticConic.affinePushforwardRingChart._proof_1
+CHECKED: EvenQuinticConic.affinePushforwardRingChart._proof_2
+CHECKED: EvenQuinticConic.affinePushforwardRingChart._proof_3
+CHECKED: EvenQuinticConic.affinePushforwardRingChart._proof_4
+CHECKED: EvenQuinticConic.affinePushforwardRingChart._proof_5
+CHECKED: EvenQuinticConic.affinePushforwardRingChart._proof_6
 CHECKED: EvenQuinticConic.affinePushforwardSectionRestriction._proof_1
 CHECKED: EvenQuinticConic.affinePushforwardSectionRestriction.congr_simp
 CHECKED: EvenQuinticConic.affinePushforwardSection_eq_of_restrict_eq._simp_1_1
@@ -1033,6 +1072,7 @@ CHECKED: EvenQuinticConic.kummerBaseChangeLinearEquiv.eq_1
 CHECKED: EvenQuinticConic.kummerChangeUnit._proof_1
 CHECKED: EvenQuinticConic.kummerChangeUnit._proof_2
 CHECKED: EvenQuinticConic.kummerChangeUnit.eq_1
+CHECKED: EvenQuinticConic.kummerCoordinateTransport._proof_1
 CHECKED: EvenQuinticConic.kummerGenerator.eq_1
 CHECKED: EvenQuinticConic.kummerModelBaseChange._proof_1
 CHECKED: EvenQuinticConic.kummerModelBaseChange._proof_2
@@ -1316,6 +1356,7 @@ CHECKED: EvenQuinticConic.pullbackTransitionUnit._proof_2
 CHECKED: EvenQuinticConic.pullbackTransitionUnit._proof_3
 CHECKED: EvenQuinticConic.pullbackUnit.eq_1
 CHECKED: EvenQuinticConic.pullbackUnitLE.eq_1
+CHECKED: EvenQuinticConic.pushforwardKummerAtlas._proof_1
 CHECKED: EvenQuinticConic.quadraticBasisAlgEquiv._proof_1
 CHECKED: EvenQuinticConic.quadraticBasisAlgEquiv._proof_2
 CHECKED: EvenQuinticConic.quadraticBasisConstant._proof_1
@@ -1420,7 +1461,18 @@ CHECKED: EvenQuinticConic.schemeOpenImageRingHom._proof_1
 CHECKED: EvenQuinticConic.schemeOpenImageRingSheafHom._proof_1
 CHECKED: EvenQuinticConic.schemeOpenImageRingSheafHom._proof_2
 CHECKED: EvenQuinticConic.schemeOpenModuleCoordinate._proof_1
+CHECKED: EvenQuinticConic.schemePushforwardAtlasOpenImage._proof_1
+CHECKED: EvenQuinticConic.schemePushforwardAtlasOpenImage._proof_2
+CHECKED: EvenQuinticConic.schemePushforwardRestrictionHom._proof_1
+CHECKED: EvenQuinticConic.schemePushforwardRestrictionHom._proof_2
+CHECKED: EvenQuinticConic.schemePushforwardRestrictionIso._proof_1
+CHECKED: EvenQuinticConic.schemePushforwardRestrictionLinearMap._proof_1
+CHECKED: EvenQuinticConic.schemePushforwardRestrictionLinearMap._proof_2
+CHECKED: EvenQuinticConic.schemePushforwardRestrictionLinearMap._proof_3
+CHECKED: EvenQuinticConic.schemePushforwardRestrictionLinearMap._proof_4
+CHECKED: EvenQuinticConic.schemePushforwardRestrictionRingEquiv._proof_1
 CHECKED: EvenQuinticConic.schemePushforwardRingMap._proof_1
+CHECKED: EvenQuinticConic.schemePushforwardStructureModule._proof_1
 CHECKED: EvenQuinticConic.sheaf_app_bijective_of_cover._simp_1_1
 CHECKED: EvenQuinticConic.sheaf_app_bijective_of_cover._simp_1_2
 CHECKED: EvenQuinticConic.sixQuadraticSectionsMap._proof_1
@@ -1486,6 +1538,10 @@ CHECKED: EvenQuinticConic.Incidence.incident_coordinates._simp_1_7
 CHECKED: EvenQuinticConic.KummerModuleAtlas.mk.inj
 CHECKED: EvenQuinticConic.KummerModuleAtlas.mk.injEq
 CHECKED: EvenQuinticConic.KummerModuleAtlas.mk.sizeOf_spec
+CHECKED: EvenQuinticConic.KummerModuleAtlas.openImage._proof_1
+CHECKED: EvenQuinticConic.KummerModuleAtlas.openImage._proof_2
+CHECKED: EvenQuinticConic.KummerModuleAtlas.openImage._proof_3
+CHECKED: EvenQuinticConic.KummerModuleAtlas.openImage._proof_4
 CHECKED: EvenQuinticConic.KummerModuleAtlas.traceKernelChartEquiv._proof_1
 CHECKED: EvenQuinticConic.KummerModuleAtlas.traceKernelChartEquiv._proof_10
 CHECKED: EvenQuinticConic.KummerModuleAtlas.traceKernelChartEquiv._proof_11
@@ -1521,6 +1577,7 @@ CHECKED: EvenQuinticConic.KummerModuleAtlas.traceZeroFrame._proof_9
 CHECKED: EvenQuinticConic.KummerModuleAtlas.traceZeroSheaf._proof_1
 CHECKED: EvenQuinticConic.KummerModuleAtlas.traceZeroSquarePairing._proof_1
 CHECKED: EvenQuinticConic.KummerModuleAtlas.traceZeroTransition._proof_1
+CHECKED: EvenQuinticConic.KummerModuleAtlas.transport._proof_1
 CHECKED: EvenQuinticConic.KummerModuleChart.localTrace._proof_1
 CHECKED: EvenQuinticConic.KummerModuleChart.localTrace._proof_2
 CHECKED: EvenQuinticConic.KummerModuleChart.localTrace._proof_3
@@ -1528,6 +1585,15 @@ CHECKED: EvenQuinticConic.KummerModuleChart.localTrace._proof_4
 CHECKED: EvenQuinticConic.KummerModuleChart.mk.inj
 CHECKED: EvenQuinticConic.KummerModuleChart.mk.injEq
 CHECKED: EvenQuinticConic.KummerModuleChart.mk.sizeOf_spec
+CHECKED: EvenQuinticConic.KummerModuleChart.openImage._proof_1
+CHECKED: EvenQuinticConic.KummerModuleChart.openImage._proof_2
+CHECKED: EvenQuinticConic.KummerModuleChart.openImage._proof_3
+CHECKED: EvenQuinticConic.KummerModuleChart.openImage._proof_4
+CHECKED: EvenQuinticConic.KummerModuleChart.openImage._proof_5
+CHECKED: EvenQuinticConic.KummerModuleChart.transport._proof_1
+CHECKED: EvenQuinticConic.KummerModuleChart.transport._proof_2
+CHECKED: EvenQuinticConic.KummerModuleChart.transport._proof_3
+CHECKED: EvenQuinticConic.KummerModuleChart.transport._proof_4
 CHECKED: EvenQuinticConic.LocalModuleHom.mk.inj
 CHECKED: EvenQuinticConic.LocalModuleHom.mk.injEq
 CHECKED: EvenQuinticConic.LocalModuleHom.mk.sizeOf_spec
@@ -1561,6 +1627,17 @@ CHECKED: EvenQuinticConic.ModuleSheafPairing.postcomposeIso.eq_1
 CHECKED: EvenQuinticConic.ModuleSheafPairing.precompose._proof_1
 CHECKED: EvenQuinticConic.ModuleSheafPairing.sections._proof_1
 CHECKED: EvenQuinticConic.ModuleSheafPairing.sections._proof_2
+CHECKED: EvenQuinticConic.PushforwardKummerChart.linearCoordinate._proof_1
+CHECKED: EvenQuinticConic.PushforwardKummerChart.linearCoordinate._proof_2
+CHECKED: EvenQuinticConic.PushforwardKummerChart.linearCoordinate._proof_3
+CHECKED: EvenQuinticConic.PushforwardKummerChart.linearCoordinate._proof_4
+CHECKED: EvenQuinticConic.PushforwardKummerChart.linearCoordinate._proof_5
+CHECKED: EvenQuinticConic.PushforwardKummerChart.mk.inj
+CHECKED: EvenQuinticConic.PushforwardKummerChart.mk.injEq
+CHECKED: EvenQuinticConic.PushforwardKummerChart.mk.sizeOf_spec
+CHECKED: EvenQuinticConic.PushforwardKummerChart.overlap._proof_1
+CHECKED: EvenQuinticConic.PushforwardKummerChart.overlap._proof_2
+CHECKED: EvenQuinticConic.PushforwardKummerChart.overlap._proof_3
 CHECKED: EvenQuinticConic.UnitTransition.Section.eval_add
 CHECKED: EvenQuinticConic.UnitTransition.Section.eval_mul
 CHECKED: EvenQuinticConic.UnitTransition.Section.eval_restrict
@@ -1687,5 +1764,5 @@ CHECKED: EvenQuinticConic.UnitTransition.Section.restrict._proof_1
 CHECKED: EvenQuinticConic.UnitTransition.Section.restrict._proof_2
 CHECKED: EvenQuinticConic.UnitTransition.Section.restrict._proof_3
 Project dependency axioms: [propext, Classical.choice, Quot.sound]
-AUDIT PASSED: 2148 declarations; 1688 theorem declarations.
+AUDIT PASSED: 2257 declarations; 1765 theorem declarations.
 Only propext, Classical.choice, and Quot.sound are permitted.
