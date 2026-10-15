@@ -5,9 +5,9 @@ as predicted output.
 
 | Check | Result |
 | --- | --- |
-| `lake build` | Exit 0; all 165 source modules and the root import compiled |
-| `lake env lean Audit.lean` | Exit 0; 2365 declarations audited, including 1855 theorem declarations |
-| Handwritten `theorem` declarations | 865 total: 858 public and 7 private helpers; comments and strings are excluded from this source count |
+| `lake build` | Exit 0; all 169 source modules and the root import compiled |
+| `lake env lean Audit.lean` | Exit 0; 2436 declarations audited, including 1895 theorem declarations |
+| Handwritten `theorem` declarations | 875 total: 868 public and 7 private helpers; comments and strings are excluded from this source count |
 | Allowed axiom dependencies | `propext`, `Classical.choice`, `Quot.sound` |
 | `sorryAx` or any other unexpected axiom | None in the audited dependency closures |
 | mathlib tracked source changes | None |
@@ -46,6 +46,9 @@ as predicted output.
 | Unique actual trace from geometric hypotheses | Constructed without an atlas input and characterized by local algebra trace on every multiplicative chart |
 | Actual geometric trace kernel and rank-one frames | Constructed; invertibility of two on every open is derived from the supplied cover |
 | Actual geometric trace kernel-square pairing | Global natural pairing; tensor map locally bijective; explicitly agrees with multiplication in the original source section rings via kernel inclusion |
+| Trace and kernel independence of affine cover | Equality of traces, canonical inclusion-preserving kernel isomorphism and its uniqueness proved |
+| Geometric plane-cover-to-theta endpoint | `planeQuintic_even_finiteEtale_theta_sections_eq_zero`; actual finite/étale/explicit-flat morphism, canonical-chart rank two, quintic/Jacobian and parity inputs; no supplied atlas or square |
+| Canonical plane chart ring hypotheses | Noetherianity and all-open invertibility of two derived from the base field |
 | Specified discriminant cover | Geometric/rank hypotheses and theta correspondence still not instantiated |
 | Canonical tensor-to-actual-section comparison | Ring isomorphism on principal opens and all subopens of a Kummer chart, with restriction-compatible inverse |
 | Model restrictions and overlaps | Actual scalar-extension models, trace naturality, coordinate cocycles, transition-unit square and scalar-change formulas proved |
@@ -59,7 +62,7 @@ as predicted output.
 | Atlas-relative theta endpoint | `planeQuintic_even_trace_kernel_twist_sections_eq_zero`; tensor universal property uses the actual kernel, parity remains an input |
 | Atlas extracted from the specified finite étale discriminant cover | Not yet constructed; pushforward trace identification remains open |
 | Original conic-bundle hypotheses to the equation and Jacobian condition | Not yet formalized |
-| Original cover's theta identification, cotangent square and parity | Not yet constructed from the original discriminant cover; remain explicit geometric inputs |
+| Original cover's theta identification and parity transfer | Not yet identified with the geometrically constructed twist after base change; original evenness must be transferred to that object |
 | Full geometric no-go theorem | Not formalized or verified |
 | GitHub Actions | See the repository's Actions tab for current remote run status |
 
@@ -130,3 +133,13 @@ The subsequent remote run [38503276211](https://github.com/taobaozhe-amoy/EvenQu
 Remote run [38508183649](https://github.com/taobaozhe-amoy/EvenQuinticConic-lean/actions/runs/38508183649), for commit `d1c76c04870de59aa34d063d8539d698a27203bd`, completed successfully. Later revisions have their own Actions runs.
 
 Remote run [38509507186](https://github.com/taobaozhe-amoy/EvenQuinticConic-lean/actions/runs/38509507186), for commit `bd2e926891d60afad0530734c1748b37b9f979a6`, completed successfully. The new revision has its own Actions run.
+
+The current geometric endpoint eliminates the atlas and square inputs for a
+given actual plane-curve cover satisfying explicit finite, étale, flat and
+canonical-chart rank-two hypotheses. It does not instantiate the original
+conic bundle. The distinction between checked conditional implications and
+the unproved original conclusion is recorded in `docs/PROOF_STATUS.md`.
+
+Remote run [38669519380](https://github.com/taobaozhe-amoy/EvenQuinticConic-lean/actions/runs/38669519380),
+for preceding commit `57973b7e82a430fe8254429d6a92c8c547fd91cd`, completed successfully.
+The new revision is checked by its own run.

@@ -2,6 +2,8 @@
 
 **部分形式化项目；尚未证明原几何问题的存在性或不存在性。**
 
+[当前正确性边界与未完成原因](docs/PROOF_STATUS.md)：已检查的条件性定理不等于原题的完整证明；剩余工作既包括文献输入，也包括尚未验证的自有几何连接论证。
+
 本项目尝试核查如下问题的一份候选“不存在性”论证：是否存在光滑射影、几何标准的实圆锥曲线丛
 `X → ℙ²_ℝ`，其判别曲线为光滑五次曲线，判别双覆盖对应偶 theta characteristic，且实点集有两个连通分支？
 
@@ -39,8 +41,13 @@
 
 ## 已形式化的内容
 
+最新接口 `planeQuintic_even_finiteEtale_theta_sections_eq_zero` 已把一般几何迹核接到实际平面五次曲线的 theta 扭曲：调用者提供真实有限 étale 态射、显式平坦性、标准坐标开上的逐点秩二、五次方程的 Jacobian 条件，以及构造层的偶性。图册、迹核、线层下降、平方同构及扭曲均内部构造；坐标环 Noetherian 性与所有开集上 2 可逆由基域推出。另证明不同仿射覆盖构造的迹相等，核层同构保持原包含且唯一。**这仍未把原题指定判别覆盖与构造对象识别，也没有证明原实点集连通。** 原题已有的偶性需要沿该识别及实到复的基变换传递。精确说明见 [几何迹核与 theta 接口](docs/GEOMETRIC_PUSHFORWARD_TRACE.md)。
+
 | 模块 | 实际数学内容 | 适用边界与后续步骤 |
 | --- | --- | --- |
+| `SchemeFiniteEtaleTraceChoice` | 不同仿射覆盖构造的迹相等；实际核层的规范同构保持包含且唯一 | 各覆盖仍须满足明确的几何及局部秩条件 |
+| `SchemeFiniteEtaleData` | 从已证存在性选择实际乘法覆盖，构造规范迹核的下降同构及平方平凡化 | 选择的是已证存在对象，不是新增图册假设 |
+| `PlaneCurveNoetherian` / `PlaneFiniteEtaleTheta` | 标准坐标环 Noetherian；从真实有限 étale 秩二覆盖构造 theta，并在偶性假设下证明截面消失 | 无图册、cocycle 或平方输入；原题指定覆盖及实几何仍未接通 |
 | `KummerScalarEquiv` / `SchemePushforwardSourceIso` / `SchemePushforwardIsoChart` | Kummer 系数环同构运输及实际概形箭头同构下的乘法图运输 | 保留实际系数、二次参数与所有限制映射 |
 | `SchemePushforwardOpenChart` / `SchemePushforwardKummerCover` | 实际限制态射的乘法图搬回原底并组装全局覆盖，内部构造跨图交叠 | 输入局部图的通用组装；几何接口在下一模块消去图输入 |
 | `SchemeFiniteEtaleKummerAtlas` | 从明确几何与秩条件构造原态射在原底上的覆盖乘法图及实际模层图册 | 显式保留 Flat、Noetherian、2 可逆与秩二；未实例化指定判别双覆盖 |
@@ -180,7 +187,7 @@ $$
 
 ## 构建与审计
 
-本版包含 165 个源码模块、858 条公开手写定理，另有 7 条私有辅助定理（共 865 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
+本版包含 169 个源码模块、868 条公开手写定理，另有 7 条私有辅助定理（共 875 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
 
 环境固定为 Lean `v4.24.0` 和 mathlib 提交
 `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`。提交的 `lake-manifest.json` 固定传递依赖。

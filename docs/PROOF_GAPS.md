@@ -2,6 +2,29 @@
 
 The following is a work plan for scrutinizing a proposed mathematical argument, not a list of verified consequences. Every implication below needs both a precise statement and a proof. Finding a missing hypothesis or a false implication would require revising the argument, not adding an axiom to Lean.
 
+For a direct explanation of what passing Lean does and does not certify,
+see [PROOF_STATUS.md](PROOF_STATUS.md). The remaining work includes both
+external theorem formalization and unverified deductions of this project.
+
+## Latest geometric theta integration
+
+`planeQuintic_even_finiteEtale_theta_sections_eq_zero` now starts with an
+actual morphism to the constructed plane curve, finite and étale, with
+explicit flatness and rank two on the canonical affine charts. It constructs
+the charts, canonical trace kernel, line descent, square trivialization,
+hyperplane twist and cotangent square internally. Canonical chart-ring
+Noetherianity and all-open invertibility of two are derived from the base
+field. The trace is proved independent of the initial affine cover, with a
+unique inclusion-preserving comparison of kernels.
+
+This closes the generic geometric-cover-to-theta interface at its stated
+hypotheses. It does not instantiate the original discriminant cover,
+identify its intended theta after base change, or prove real connectedness.
+The original question already assumes evenness; the missing step is its
+transfer to the identified constructed object, not an independent derivation
+of evenness from the other hypotheses. Earlier atlas-relative interfaces
+below remain valid lower-level results.
+
 ## Latest local algebra progress
 
 `exists_principal_unit_kummer_cover` now constructs a principal-open

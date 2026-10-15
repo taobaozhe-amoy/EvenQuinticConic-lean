@@ -163,3 +163,7 @@ import EvenQuinticConic.SchemePushforwardKummerCover
 import EvenQuinticConic.SchemeFiniteEtaleKummerAtlas
 import EvenQuinticConic.SchemeTwoInvertible
 import EvenQuinticConic.SchemeFiniteEtaleTrace
+import EvenQuinticConic.SchemeFiniteEtaleTraceChoice
+import EvenQuinticConic.SchemeFiniteEtaleData
+import EvenQuinticConic.PlaneCurveNoetherian
+import EvenQuinticConic.PlaneFiniteEtaleTheta

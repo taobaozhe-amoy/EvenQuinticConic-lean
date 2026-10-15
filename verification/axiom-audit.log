@@ -171,6 +171,8 @@ CHECKED: EvenQuinticConic.exists_unit_of_unit_mul_fraction_pow_eq_unit
 CHECKED: EvenQuinticConic.exists_unit_of_unit_mul_fraction_sq_eq_unit
 CHECKED: EvenQuinticConic.exists_unit_of_unit_mul_fraction_sq_eq_unit_mul_sq
 CHECKED: EvenQuinticConic.finSuccEquiv_top_coefficient
+CHECKED: EvenQuinticConic.finiteEtaleKummerCover_trace
+CHECKED: EvenQuinticConic.finiteEtaleKummerCover_traceZeroSheaf_eq
 CHECKED: EvenQuinticConic.finitePreimage_moduleFinite
 CHECKED: EvenQuinticConic.finitePreimage_moduleFinitePresentation
 CHECKED: EvenQuinticConic.five_dimensional_restriction_of_eight_dimensional_form
@@ -433,6 +435,7 @@ CHECKED: EvenQuinticConic.planeCurveCoordinateOpen_cover
 CHECKED: EvenQuinticConic.planeCurveCoordinateOpen_generic_representative
 CHECKED: EvenQuinticConic.planeCurveCoordinateOpen_homogeneous_representative
 CHECKED: EvenQuinticConic.planeCurveCoordinateOpen_isAffine
+CHECKED: EvenQuinticConic.planeCurveCoordinateOpen_isNoetherian
 CHECKED: EvenQuinticConic.planeCurveCoordinateOpen_nonempty
 CHECKED: EvenQuinticConic.planeCurveCoordinateSectionData_eval
 CHECKED: EvenQuinticConic.planeCurveCoordinateSection_frame
@@ -506,6 +509,7 @@ CHECKED: EvenQuinticConic.planeCurveResidue_sameChart
 CHECKED: EvenQuinticConic.planeCurveScheme_irreducibleSpace
 CHECKED: EvenQuinticConic.planeCurveScheme_isIntegral
 CHECKED: EvenQuinticConic.planeCurveScheme_isReduced
+CHECKED: EvenQuinticConic.planeCurveSections_isUnit_two
 CHECKED: EvenQuinticConic.planeCurveSheafResidue_commonDerivative
 CHECKED: EvenQuinticConic.planeCurveSheafResidue_radialDerivatives
 CHECKED: EvenQuinticConic.planeCurveSheafResidue_restrict
@@ -544,6 +548,7 @@ CHECKED: EvenQuinticConic.planeQuintic_actual_chart_quartic_injective
 CHECKED: EvenQuinticConic.planeQuintic_chart_homogeneous_restriction_injective
 CHECKED: EvenQuinticConic.planeQuintic_chart_quartic_injective
 CHECKED: EvenQuinticConic.planeQuintic_differentialSheaf_locallyTrivial_of_jacobian
+CHECKED: EvenQuinticConic.planeQuintic_even_finiteEtale_theta_sections_eq_zero
 CHECKED: EvenQuinticConic.planeQuintic_even_kummer_twist_sections_eq_zero
 CHECKED: EvenQuinticConic.planeQuintic_even_theta_sections_eq_zero
 CHECKED: EvenQuinticConic.planeQuintic_even_theta_sections_eq_zero_of_cotangent_square
@@ -645,8 +650,14 @@ CHECKED: EvenQuinticConic.schemeConstantsPresheafHom_app
 CHECKED: EvenQuinticConic.schemeConstantsPresheafHom_restrict
 CHECKED: EvenQuinticConic.schemeConstantsPresheafHom_specMap
 CHECKED: EvenQuinticConic.schemeConstantsRestrictionSquare
+CHECKED: EvenQuinticConic.schemeFiniteEtaleTraceZeroAtlasIso_hom_ι
+CHECKED: EvenQuinticConic.schemeFiniteEtaleTraceZeroIsoOfCover_hom_comp_ι
+CHECKED: EvenQuinticConic.schemeFiniteEtaleTraceZeroIsoOfCover_inv_comp_ι
+CHECKED: EvenQuinticConic.schemeFiniteEtaleTraceZeroIsoOfCover_unique
 CHECKED: EvenQuinticConic.schemeFiniteEtaleTraceZeroSheaf_eq_atlas
+CHECKED: EvenQuinticConic.schemeFiniteEtaleTraceZeroSheaf_eq_of_cover
 CHECKED: EvenQuinticConic.schemeFiniteEtaleTrace_eq_atlas
+CHECKED: EvenQuinticConic.schemeFiniteEtaleTrace_eq_of_cover
 CHECKED: EvenQuinticConic.schemeFiniteEtaleTrace_on_chart
 CHECKED: EvenQuinticConic.schemeGenericLinearMap_injective
 CHECKED: EvenQuinticConic.schemeGenericLinearMap_restrict
@@ -810,6 +821,11 @@ CHECKED: EvenQuinticConic.ModuleSheafPairing.precomposeIso_app
 CHECKED: EvenQuinticConic.ModuleSheafPairing.precomposeIso_tensor_bijective
 CHECKED: EvenQuinticConic.ModuleSheafPairing.precompose_app
 CHECKED: EvenQuinticConic.ModuleSheafPairing.sections_eval
+CHECKED: EvenQuinticConic.PlaneCoordinateRankTwo._proof_1
+CHECKED: EvenQuinticConic.PlaneCoordinateRankTwo._proof_2
+CHECKED: EvenQuinticConic.PlaneCoordinateRankTwo._proof_3
+CHECKED: EvenQuinticConic.PlaneFiniteEtaleThetaSheaf._proof_1
+CHECKED: EvenQuinticConic.PlaneFiniteEtaleTraceZeroSheaf._proof_1
 CHECKED: EvenQuinticConic.PushforwardKummerChart.baseIso_coordinate_im
 CHECKED: EvenQuinticConic.PushforwardKummerChart.baseIso_coordinate_re
 CHECKED: EvenQuinticConic.PushforwardKummerChart.coefficient
@@ -822,6 +838,7 @@ CHECKED: EvenQuinticConic.PushforwardKummerChart.overlap_coordinate
 CHECKED: EvenQuinticConic.PushforwardKummerChart.re_restrict
 CHECKED: EvenQuinticConic.PushforwardKummerChart.sourceIso_coordinate
 CHECKED: EvenQuinticConic.PushforwardKummerChart.trace_coordinate_eq
+CHECKED: EvenQuinticConic.PushforwardKummerCover.cover
 CHECKED: EvenQuinticConic.SchemeScalars.algebraMap_functionField
 CHECKED: EvenQuinticConic.SchemeScalars.functionFieldScalarTower
 CHECKED: EvenQuinticConic.SchemeScalars.globalSectionsScalarTower
@@ -1059,6 +1076,11 @@ CHECKED: EvenQuinticConic.exists_linear_section_of_quadratic_lifts._simp_1_6
 CHECKED: EvenQuinticConic.exists_linear_section_of_quadratic_lifts._simp_1_7
 CHECKED: EvenQuinticConic.exists_nonzero_mem_intersection_of_finrank_lt._proof_1_1
 CHECKED: EvenQuinticConic.finSuccEquiv_top_coefficient._proof_1_1
+CHECKED: EvenQuinticConic.finiteEtaleKummerCover._proof_1
+CHECKED: EvenQuinticConic.finiteEtaleKummerCover._proof_2
+CHECKED: EvenQuinticConic.finiteEtaleKummerCover._proof_3
+CHECKED: EvenQuinticConic.finiteEtaleKummerCover._proof_4
+CHECKED: EvenQuinticConic.finiteEtaleKummerCover._proof_5
 CHECKED: EvenQuinticConic.five_dimensional_restriction_of_eight_dimensional_form._proof_1_1
 CHECKED: EvenQuinticConic.five_dimensional_restriction_splitForm_four._proof_1_1
 CHECKED: EvenQuinticConic.frameChangeCoefficient._proof_1
@@ -1327,6 +1349,7 @@ CHECKED: EvenQuinticConic.planeCurveResidueCoordinates.congr_simp
 CHECKED: EvenQuinticConic.planeCurveResidueCoordinates.eq_1
 CHECKED: EvenQuinticConic.planeCurveResidueFrame._proof_1
 CHECKED: EvenQuinticConic.planeCurveResidueFrame.eq_1
+CHECKED: EvenQuinticConic.planeCurveSectionsTwo._proof_1
 CHECKED: EvenQuinticConic.planeCurveSheafResidue._proof_1
 CHECKED: EvenQuinticConic.planeCurveSheafResidue.congr_simp
 CHECKED: EvenQuinticConic.planeCurveSheafResidue.eq_1
@@ -1348,6 +1371,10 @@ CHECKED: EvenQuinticConic.planeCurve_quadraticSectionMap_surjective_of_monic._pr
 CHECKED: EvenQuinticConic.planeCurve_quadraticSectionMap_surjective_of_monic._simp_1_2
 CHECKED: EvenQuinticConic.planeCurve_quadratic_lift_of_cleared_linear_numerator._proof_1_1
 CHECKED: EvenQuinticConic.planeCurve_quadratic_lift_of_cleared_linear_numerator._simp_1_2
+CHECKED: EvenQuinticConic.planeFiniteEtaleThetaHomEquiv._proof_1
+CHECKED: EvenQuinticConic.planeFiniteEtaleThetaHomEquiv._proof_2
+CHECKED: EvenQuinticConic.planeFiniteEtaleThetaHomEquiv._proof_3
+CHECKED: EvenQuinticConic.planeFiniteEtaleThetaHomEquiv._proof_4
 CHECKED: EvenQuinticConic.planeHomogeneousChartFraction._proof_1
 CHECKED: EvenQuinticConic.planeHomogeneousChartFraction.congr_simp
 CHECKED: EvenQuinticConic.planeHomogeneousPrincipal._proof_1
@@ -1465,7 +1492,17 @@ CHECKED: EvenQuinticConic.schemeFiniteEtaleTrace._proof_3
 CHECKED: EvenQuinticConic.schemeFiniteEtaleTrace._proof_4
 CHECKED: EvenQuinticConic.schemeFiniteEtaleTrace._proof_5
 CHECKED: EvenQuinticConic.schemeFiniteEtaleTrace.congr_simp
+CHECKED: EvenQuinticConic.schemeFiniteEtaleTraceZeroAtlasIso._proof_1
+CHECKED: EvenQuinticConic.schemeFiniteEtaleTraceZeroAtlasIso._proof_2
+CHECKED: EvenQuinticConic.schemeFiniteEtaleTraceZeroAtlasIso._proof_3
+CHECKED: EvenQuinticConic.schemeFiniteEtaleTraceZeroAtlasIso.eq_1
+CHECKED: EvenQuinticConic.schemeFiniteEtaleTraceZeroIsoOfCover._proof_1
+CHECKED: EvenQuinticConic.schemeFiniteEtaleTraceZeroIsoOfCover._proof_2
+CHECKED: EvenQuinticConic.schemeFiniteEtaleTraceZeroIsoOfCover._proof_3
+CHECKED: EvenQuinticConic.schemeFiniteEtaleTraceZeroIsoOfCover._proof_4
 CHECKED: EvenQuinticConic.schemeFiniteEtaleTraceZeroSheaf._proof_1
+CHECKED: EvenQuinticConic.schemeFiniteEtaleTraceZeroTransition._proof_1
+CHECKED: EvenQuinticConic.schemeFiniteEtaleTraceZeroTransition._proof_2
 CHECKED: EvenQuinticConic.schemeGenericLinearMap._proof_1
 CHECKED: EvenQuinticConic.schemeGenericLinearMap.congr_simp
 CHECKED: EvenQuinticConic.schemeGlobalSectionLinearEquiv._proof_1
@@ -1728,6 +1765,9 @@ CHECKED: EvenQuinticConic.PushforwardKummerChart.sourceIso._proof_1
 CHECKED: EvenQuinticConic.PushforwardKummerChart.sourceIso._proof_2
 CHECKED: EvenQuinticConic.PushforwardKummerChart.sourceIso._proof_3
 CHECKED: EvenQuinticConic.PushforwardKummerChart.sourceIsoOfEq._proof_1
+CHECKED: EvenQuinticConic.PushforwardKummerCover.mk.inj
+CHECKED: EvenQuinticConic.PushforwardKummerCover.mk.injEq
+CHECKED: EvenQuinticConic.PushforwardKummerCover.mk.sizeOf_spec
 CHECKED: EvenQuinticConic.UnitTransition.Section.eval_add
 CHECKED: EvenQuinticConic.UnitTransition.Section.eval_mul
 CHECKED: EvenQuinticConic.UnitTransition.Section.eval_restrict
@@ -1854,5 +1894,5 @@ CHECKED: EvenQuinticConic.UnitTransition.Section.restrict._proof_1
 CHECKED: EvenQuinticConic.UnitTransition.Section.restrict._proof_2
 CHECKED: EvenQuinticConic.UnitTransition.Section.restrict._proof_3
 Project dependency axioms: [propext, Classical.choice, Quot.sound]
-AUDIT PASSED: 2365 declarations; 1855 theorem declarations.
+AUDIT PASSED: 2436 declarations; 1895 theorem declarations.
 Only propext, Classical.choice, and Quot.sound are permitted.

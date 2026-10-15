@@ -78,11 +78,54 @@ f.app V (P.app V s t) = j_V(s) * j_V(t)
 in the original ring `Γ(X,f⁻¹V)`. Thus the square pairing is identified
 with actual multiplication, rather than an unrelated abstract form.
 
+## Choice independence and the plane-quintic theta endpoint
+
+`schemeFiniteEtaleTrace_eq_of_cover` proves equality when the initial
+affine cover, rank witnesses, Noetherian instances or invertible-two
+instances are changed. The actual kernel comparison preserves the
+inclusion into the same original pushforward and is the unique
+isomorphism with this property.
+
+`finiteEtaleKummerCover` selects the witnesses of the proved geometric
+existence theorem. The resulting trace is the uniquely characterized
+trace; `schemeFiniteEtaleTraceZeroDescentIso` starts from its actual
+categorical kernel, and `schemeFiniteEtaleTraceZeroSquareIso` supplies the
+square trivialization from multiplication. No selected object is a new
+mathematical assumption.
+
+`PlaneCurveNoetherian` derives Noetherianity of the three actual standard
+chart rings from the surjective polynomial chart maps, for any defining
+polynomial. It derives invertibility of two on every open from the
+actual structural constant map and invertibility in the base field.
+
+`PlaneFiniteEtaleTheta` then uses the canonical chart cover. Its inputs are:
+
+- a field with invertible two and an actual morphism
+  `f : X ⟶ PlaneCurveScheme F`;
+- `IsFinite f`, `IsEtale f`, explicit `AlgebraicGeometry.Flat f`, and
+  `PlaneCoordinateRankTwo F f`, which spells out the actual localized
+  section-algebra rank on those charts;
+- for the quintic conclusion, an algebraically closed base, homogeneous
+  degree-five equation of total degree five, and the stated Jacobian condition;
+- even finrank of the constructed theta's actual global sections.
+
+`PlaneFiniteEtaleThetaSheaf` is the internally constructed hyperplane
+twist. `planeFiniteEtaleThetaHomEquiv` proves its tensor universal
+property with the actual canonical trace kernel and actual hyperplane
+sheaf as factors. `planeFiniteEtaleThetaCotangentSquareIso` identifies
+its descended square with the actual relative differential sheaf.
+`planeQuintic_even_finiteEtale_theta_sections_eq_zero` proves every
+global section is zero. No atlas, line cocycle, local frame, square
+isomorphism, chart-ring Noetherianity or section-ring invertibility is
+supplied at this endpoint. Finite-dimensionality is proved in the
+underlying theta theorem before finrank is used to deduce vanishing.
+
 ## Remaining original-problem obligations
 
 The generic transport and atlas construction are complete at the stated
 hypothesis boundary. Still required are the specified discriminant cover
-and its geometric/rank hypotheses, identification with the specified
-theta characteristic, parity and real base change, and the remaining
+and its geometric/rank hypotheses, identification of the constructed
+theta with the specified theta characteristic, transfer of the original
+evenness hypothesis through the appropriate real base change, and the remaining
 real geometry and connectedness argument. The original real conic-bundle
 existence/nonexistence problem is still not proved.

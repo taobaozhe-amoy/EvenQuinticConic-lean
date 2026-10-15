@@ -16,6 +16,13 @@ Consequently the repository must continue to report the full formalization
 as unfinished. Section 8 explains why the inspected example does not
 contradict this paper argument.
 
+This is a candidate argument and a record of an informal review, not a
+certification of its complete correctness. In particular, the statement
+that this review found no fatal error does not rule out an error or a
+missing hypothesis in its unformalized deductions. Successful compilation
+of the separate Lean lemmas does not strengthen that claim. See
+[the current proof boundary](PROOF_STATUS.md).
+
 The arithmetic implication that was previously least precise is valid:
 
 > A nondegenerate five-dimensional form over `R(x,y)` whose even Clifford
