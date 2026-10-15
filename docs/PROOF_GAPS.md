@@ -31,14 +31,22 @@ morphism on an affine base open. Under finite, étale, explicit Flat,
 Noetherian, invertible-two and rank-two hypotheses, the actual section
 algebra now receives a covering atlas on its spectrum.
 
-Remaining: transport the multiplicative charts through these affine
-presentation isomorphisms back to the original base and assemble them;
-instantiate all hypotheses for the specified cover; identify its global
-trace and trace-zero line. In particular, a general module-sheaf
-isomorphism is not enough to assert compatibility with an independently
-given multiplication. See [GENERAL_BASE_PUSHFORWARD.md](GENERAL_BASE_PUSHFORWARD.md)
-for the exact new scope and [AFFINE_PUSHFORWARD_ATLAS.md](AFFINE_PUSHFORWARD_ATLAS.md)
-for the established arbitrary-subopen section comparison.
+The generic transport and assembly step is now proved.
+`exists_schemePushforwardKummerCharts_of_affine_cover` constructs
+covering multiplicative charts for the original f on the original Y,
+under the explicit geometric, Noetherian, invertible-two and rank-two
+hypotheses. `schemeFiniteEtaleTrace` is the unique actual module-sheaf
+trace with the local algebra trace characterization. Its categorical
+kernel has constructed rank-one frames and a locally tensor-perfect
+square pairing proved equal to multiplication in the original source
+section rings. No atlas, trace or kernel frame is supplied as input.
+
+Remaining: instantiate these hypotheses for the specified discriminant
+cover; establish the intended theta correspondence, parity and real
+base change; complete the later real geometry. The generic theorem still
+requires explicit Flat and Noetherian hypotheses, and the actual rank
+condition on affine section algebras. See
+[GEOMETRIC_PUSHFORWARD_TRACE.md](GEOMETRIC_PUSHFORWARD_TRACE.md).
 
 ## Latest atlas-relative progress
 

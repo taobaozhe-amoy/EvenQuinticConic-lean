@@ -1,8 +1,9 @@
 # Actual pushforwards, open restrictions, and affine presentations
 
-This increment supplies parts of the bridge from the proved affine Kummer
-atlas to a cover over a general base scheme. It does not yet construct the
-full atlas of the specified discriminant cover.
+This document records the initial general-base bridge. The subsequent
+[multiplicative transport and geometric trace construction](GEOMETRIC_PUSHFORWARD_TRACE.md)
+now completes the generic bridge under explicit geometric hypotheses.
+The specified discriminant cover is still not instantiated.
 
 ## Restricting the actual morphism
 
@@ -81,14 +82,18 @@ Flatness is retained explicitly: the pinned mathlib version does not
 provide the needed scheme étale-to-flat implication here. This is a
 formalization gap, not an assertion that étale morphisms fail to be flat.
 
-## Remaining bridge
+## Subsequent completion of the generic bridge
 
-The next step is to transport the multiplicative affine charts through
-the canonical affine presentation isomorphisms, retaining their scalar
-and restriction laws, then combine them over a cover of the original
-base. Instantiate the geometric and rank hypotheses for the specified
-discriminant cover and identify its trace-zero line and theta twist.
-Theta parity, real base change and real topology remain unfinished.
+`PushforwardKummerChart.isoTransport` and `openImage` now transport the
+multiplicative affine charts through the canonical presentations and
+back to the original base. Cover assembly constructs actual multiplicative
+charts for the original morphism, followed by its unique chart-local trace,
+actual kernel, rank-one frames and multiplication-square pairing. See the
+linked subsequent document for exact endpoints and hypotheses.
+
+Instantiating those hypotheses for the specified discriminant cover and
+identifying the theta twist, parity, real base change and real topology
+remain unfinished.
 
 The original real conic-bundle existence/nonexistence question is not
 proved by this increment.

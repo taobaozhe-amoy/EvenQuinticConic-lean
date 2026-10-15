@@ -64,8 +64,10 @@ The subsequent [general-base bridge](GENERAL_BASE_PUSHFORWARD.md) supplies
 actual open-restriction comparisons, canonical affine presentations,
 extraction of ring hypotheses under explicit geometric assumptions, and
 chart independence of the trace. The original discriminant cover over the
-projective curve has not yet been instantiated: multiplicative charts
-still need transport through the affine presentation isomorphisms and
-assembly over that base. Its global trace and trace-zero line, the theta
-correspondence, parity after base change, and real topology remain open.
+projective curve has not yet been instantiated. Generic multiplicative
+transport and assembly, unique sheaf trace, actual trace kernel and its
+multiplication-square pairing are now proved under explicit geometric
+hypotheses; see [GEOMETRIC_PUSHFORWARD_TRACE.md](GEOMETRIC_PUSHFORWARD_TRACE.md).
+The specified cover's hypotheses, theta correspondence, parity after
+base change and real topology remain open.
 The full original existence/nonexistence problem is not yet proved.
