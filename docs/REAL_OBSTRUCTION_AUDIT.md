@@ -1,6 +1,10 @@
 # Audit of the real and quadratic-form part of the proposed argument
 
 Date: 2026-10-04. This is a mathematical audit, not a Lean certificate.
+
+A self-contained proof revisited on 2026-10-15, including the elementary
+theta-ineffectivity argument and a direct real-connectedness proof without
+resolution, is recorded in [EVEN_THETA_CONNECTEDNESS_PROOF.md](EVEN_THETA_CONNECTEDNESS_PROOF.md).
 The source modules do not yet implement the geometric objects or the major
 theorems invoked here. In particular, passing the current Lean audit does not
 certify the conclusion discussed below.
