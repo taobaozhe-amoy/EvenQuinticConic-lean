@@ -5,12 +5,19 @@ as predicted output.
 
 | Check | Result |
 | --- | --- |
-| `lake build` | Exit 0; all 169 source modules and the root import compiled |
-| `lake env lean Audit.lean` | Exit 0; 2436 declarations audited, including 1895 theorem declarations |
-| Handwritten `theorem` declarations | 875 total: 868 public and 7 private helpers; comments and strings are excluded from this source count |
+| `lake build` | Exit 0; all 175 source modules and the root import compiled |
+| `lake env lean Audit.lean` | Exit 0; 2592 declarations audited, including 2024 theorem declarations |
+| Handwritten `theorem` declarations | 938 total: 929 public and 9 private helpers; comments and strings are excluded from this source count |
 | Allowed axiom dependencies | `propext`, `Classical.choice`, `Quot.sound` |
 | `sorryAx` or any other unexpected axiom | None in the audited dependency closures |
 | mathlib tracked source changes | None |
+| Actual determinant derivative and gradient | Jacobi formula proved from the determinant expansion; a nonzero evaluated partial gives a nonzero adjugate and, for a symmetric singular matrix, a nonzero diagonal cofactor |
+| Adjugate pivot identities and transitions | Derived from determinant zero and symmetry; square ratios and actual Kummer algebra equivalences constructed |
+| Real Kummer algebra points | Actual algebra maps classified by square roots; for a nonzero parameter, existence is equivalent to positivity |
+| Actual cofactor-vector fibers | Equivalent to actual Kummer algebra maps; positive signed pivot gives two elements and negative signed pivot gives none |
+| Normalized affine incidence chart | Actual quotient-algebra equivalence and Spec isomorphism constructed; the map is the original projection and the localized target is the actual principal open |
+| Nonempty normalized incidence chart | Vanishing coordinate minors forces a common linear factor; absence of that factor yields a nonzero minor and a nonempty chart over an infinite field |
+| Global discriminant-cover comparison and projective incidence identification | Still open; see [the precise scope of these additions](../docs/REAL_COFACTOR_AND_INCIDENCE.md) |
 | Conditional theta ineffectivity | Proved for actual sheaves with explicit local and restriction-map hypotheses |
 | Theta finite-dimensionality and hyperplane dimension three | Derived from the restriction data, not separately assumed |
 | Actual plane-curve scheme and hyperplane sheaf | Constructed using the reduced induced closed scheme and coordinate cocycle descent |
@@ -79,12 +86,12 @@ The project and its ordinary GitHub Actions workflow do not require this shim.
 The local invocation was:
 
 ```sh
-PATH=/workspace/scratch/84e095cf47c4/lean-tools/lean-4.24.0-linux/bin:$PATH \
-LD_PRELOAD=/workspace/scratch/84e095cf47c4/lean-tools/self_exe_compat.so \
+PATH=/tmp/lean-4.24.0-linux/bin:$PATH \
+LD_PRELOAD=/tmp/self_exe_compat.so \
 lake build
 
-PATH=/workspace/scratch/84e095cf47c4/lean-tools/lean-4.24.0-linux/bin:$PATH \
-LD_PRELOAD=/workspace/scratch/84e095cf47c4/lean-tools/self_exe_compat.so \
+PATH=/tmp/lean-4.24.0-linux/bin:$PATH \
+LD_PRELOAD=/tmp/self_exe_compat.so \
 lake env lean Audit.lean
 ```
 

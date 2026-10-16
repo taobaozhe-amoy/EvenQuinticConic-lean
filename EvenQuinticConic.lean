@@ -2,6 +2,12 @@ import EvenQuinticConic.CofactorCover
 import EvenQuinticConic.Incidence
 import EvenQuinticConic.IsotropicDimension
 import EvenQuinticConic.PolynomialDegree
+import EvenQuinticConic.AdjugateRankOne
+import EvenQuinticConic.DeterminantGradient
+import EvenQuinticConic.RealKummer
+import EvenQuinticConic.RealCofactor
+import EvenQuinticConic.IncidenceAffineChart
+import EvenQuinticConic.IncidenceNonzeroMinor
 import EvenQuinticConic.ConnectedComponents
 import EvenQuinticConic.RankOneFactorization
 import EvenQuinticConic.ConicClassification

@@ -349,12 +349,18 @@ classical results; the Lean obligations below remain open.
 
 Show that the cover obtained from the rank-four degeneration of the symmetric matrix agrees with the conic bundle's discriminant cover, with the correct real twist. A statement over the complex numbers alone does not settle the real twist.
 
-`CofactorCover.lean` now also constructs a vector root from a nonzero square
-pivot and explicit rank-one minor identities, and proves that the solution set
-has exactly two elements when the characteristic is not two and a nonzero root
-exists. It does not derive the minor identities from geometric corank,
-construct a cover of schemes, prove étaleness, or associate a line bundle or
-theta characteristic to it.
+`AdjugateRankOne.lean` now derives the pivot-minor identities used by
+`CofactorCover.lean` from the determinant equation, symmetry and a nonzero
+diagonal cofactor. It also derives existence of a diagonal pivot from a
+nonzero adjugate, and proves the square transition formulas between pivots.
+`DeterminantGradient.lean` proves Jacobi's formula and derives nonzero
+adjugate, hence a pivot, from an actual nonzero evaluated determinant partial.
+`RealKummer.lean` and `RealCofactor.lean` construct local algebra maps and
+isomorphisms, characterize real points by signed-parameter positivity,
+and give exact two-element/empty field-valued fibers. They still do not
+construct the geometric discriminant cover or identify its line bundle,
+theta characteristic, or global real twist. See
+[REAL_COFACTOR_AND_INCIDENCE.md](REAL_COFACTOR_AND_INCIDENCE.md).
 
 The root equation now has an explicit twist parameter. In particular, the
 negative-adjugate equation must not automatically be used for the rank-four
@@ -394,7 +400,17 @@ This identifies a mathematically applicable route, not a Lean proof of it.
 
 Starting from a real base point, construct the hyperbolic reduction and identify the resulting equations with the intended conic bundle, including the relevant Clifford-class comparison. Prove a suitable minor is nonzero on a nonempty dense open set. Upgrade the cross-product formulas to inverse regular morphisms of scheme charts.
 
-`Incidence.lean` gives explicit solutions of two linear equations and an equivalence of sets on a minor chart. The minor chart could be empty for a given parameter family. No density, regularity, birational map, or rationality theorem is proved.
+`IncidenceAffineChart.lean` now constructs the quotient coordinate-algebra
+isomorphism and an actual affine scheme isomorphism over the localization
+at a chosen minor, identifying the projection and the base principal open.
+`IncidenceNonzeroMinor.lean` derives a common linear factor from vanishing
+minors for the normalized coordinate row; excluding that factor yields a
+nonzero projective parameter and nonempty set charts over an infinite field.
+The coordinate normalization and exclusion of the factorization still need
+to be derived from the intended geometry. The localized scheme can be empty
+without a nonemptiness witness. Its identification with the global projective
+incidence open, density, dominance and the desired birational comparison
+remain unproved.
 
 ## 7. Real rationality and connectedness
 
