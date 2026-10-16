@@ -8,6 +8,11 @@ build or axiom audit does not certify the real-geometric, Brauer-theoretic,
 quadratic-form, or birational steps of this proof. In particular, the conclusion
 below is not being inferred from a Lean lemma that assumes connectedness.
 
+A fresh adversarial review on 2026-10-16 checked the theorem inputs and the
+real-sign, Clifford, Pfister, zero-cycle and incidence steps without finding
+a fatal error. This is a paper-level review, not a full formal certification;
+see [the detailed review and the odd-theta calculation for the user's example](RECHECK_2026_10_16.md).
+
 ## Statement and conventions
 
 Let

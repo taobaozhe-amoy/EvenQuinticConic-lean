@@ -173,3 +173,9 @@ import EvenQuinticConic.SchemeFiniteEtaleTraceChoice
 import EvenQuinticConic.SchemeFiniteEtaleData
 import EvenQuinticConic.PlaneCurveNoetherian
 import EvenQuinticConic.PlaneFiniteEtaleTheta
+import EvenQuinticConic.NetBasePoint
+import EvenQuinticConic.LinearCoordinateNormalization
+import EvenQuinticConic.IncidenceMinorFromDeterminant
+import EvenQuinticConic.TernaryConicSplitting
+import EvenQuinticConic.NetCoordinateChange
+import EvenQuinticConic.NetIncidenceNonempty

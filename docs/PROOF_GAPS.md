@@ -362,6 +362,13 @@ construct the geometric discriminant cover or identify its line bundle,
 theta characteristic, or global real twist. See
 [REAL_COFACTOR_AND_INCIDENCE.md](REAL_COFACTOR_AND_INCIDENCE.md).
 
+`TernaryConicSplitting.lean` now identifies the negative-twist cofactor-root
+condition with an actual polynomial product of two linearly independent
+homogeneous linear factors, on the nonzero `(0,0)` cofactor chart of a
+symmetric rank-two ternary form. Over the reals this is equivalent to a
+negative diagonal cofactor. This proves the local line-factor interpretation;
+it does not construct or glue a global relative Fano/Hilbert scheme.
+
 The root equation now has an explicit twist parameter. In particular, the
 negative-adjugate equation must not automatically be used for the rank-four
 degeneration of a five-dimensional form: the proposed signed-discriminant
@@ -407,7 +414,32 @@ at a chosen minor, identifying the projection and the base principal open.
 minors for the normalized coordinate row; excluding that factor yields a
 nonzero projective parameter and nonempty set charts over an infinite field.
 The coordinate normalization and exclusion of the factorization still need
-to be derived from the intended geometry. The localized scheme can be empty
+to be connected to the intended original geometric data. `NetBasePoint.lean`
+now derives the polar forms' independence from the actual determinant
+Jacobian condition at a common nonzero zero. `LinearCoordinateNormalization.lean`
+constructs a genuine polynomial algebra equivalence normalizing the three
+independent polar forms; both directions preserve homogeneous degrees.
+`IncidenceMinorFromDeterminant.lean` derives absence of the common factor from
+the actual generic determinant, using the displayed normalized matrix equations.
+These are explicit algebraic inputs, not the original conic-bundle hypotheses.
+
+The further assembled endpoint in `NetIncidenceNonempty.lean` now removes
+the normalized-equation and determinant-nonzero inputs: from actual symmetric
+matrices, an arbitrary common nonzero point, and the actual determinant
+Jacobian condition it produces an invertible coordinate matrix and a nonzero
+evaluation of a minor of the actual extracted rows. `NetCoordinateChange.lean`
+constructs the point normalization and proves the exact determinant and
+partial-derivative scaling identities. No polar independence, factor exclusion,
+or minor nonvanishing is assumed by this endpoint. See
+[NET_BASEPOINT_AND_SPLITTING.md](NET_BASEPOINT_AND_SPLITTING.md).
+
+The same inputs now also give nonemptiness of the actual affine cone
+incidence scheme, via `exists_nonempty_affineConeIncidenceChart_of_common_point`
+and the previously constructed localized scheme isomorphism. This is an open
+of the four-variable affine cone presentation; projective descent and the
+global incidence identification are still separate obligations.
+
+The localized scheme can be empty
 without a nonemptiness witness. Its identification with the global projective
 incidence open, density, dominance and the desired birational comparison
 remain unproved.

@@ -5,12 +5,18 @@ as predicted output.
 
 | Check | Result |
 | --- | --- |
-| `lake build` | Exit 0; all 175 source modules and the root import compiled |
-| `lake env lean Audit.lean` | Exit 0; 2592 declarations audited, including 2024 theorem declarations |
-| Handwritten `theorem` declarations | 938 total: 929 public and 9 private helpers; comments and strings are excluded from this source count |
+| `lake build` | Exit 0; all 181 source modules and the root import compiled |
+| `lake env lean Audit.lean` | Exit 0; 2712 declarations audited, including 2123 theorem declarations |
+| Handwritten `theorem` declarations | 1004 total: 992 public and 12 private helpers; comments and strings are excluded from this source count |
 | Allowed axiom dependencies | `propext`, `Classical.choice`, `Quot.sound` |
 | `sorryAx` or any other unexpected axiom | None in the audited dependency closures |
 | mathlib tracked source changes | None |
+| Common point to polar independence | Derived from the actual determinant Jacobian; the adjugate outer-product formula is proved internally |
+| Arbitrary common point to coordinate point | An invertible matrix is constructed; congruence determinant and partial derivatives scale by its nonzero determinant square |
+| Polar coordinate normalization | Actual inverse polynomial algebra substitutions are constructed and preserve all homogeneous degrees |
+| Actual common point to nonempty incidence minor | An assembled theorem uses only the matrix net, common point and Jacobian inputs; all independence, coordinate, factor-exclusion and determinant-nonzero inputs are discharged |
+| Actual affine cone incidence scheme | Nonemptiness derived under those same inputs through the actual localized quotient and Spec isomorphism; global projective identification remains open |
+| Ternary conic line splitting | Actual factorization into two independent linear polynomials iff the negative pivot cofactor is a square; equivalent to actual cofactor roots |
 | Actual determinant derivative and gradient | Jacobi formula proved from the determinant expansion; a nonzero evaluated partial gives a nonzero adjugate and, for a symmetric singular matrix, a nonzero diagonal cofactor |
 | Adjugate pivot identities and transitions | Derived from determinant zero and symmetry; square ratios and actual Kummer algebra equivalences constructed |
 | Real Kummer algebra points | Actual algebra maps classified by square roots; for a nonzero parameter, existence is equivalent to positivity |

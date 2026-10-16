@@ -1,7 +1,4 @@
-✔ [2981/2987] Built EvenQuinticConic.DeterminantGradient (2.3s)
-✔ [2982/2987] Built EvenQuinticConic.IncidenceNonzeroMinor (2.6s)
-✔ [2983/2987] Built EvenQuinticConic.RealKummer (3.6s)
-✔ [2984/2987] Built EvenQuinticConic.RealCofactor (2.3s)
-✔ [2985/2987] Built EvenQuinticConic.IncidenceAffineChart (5.7s)
-✔ [2986/2987] Built EvenQuinticConic (2.0s)
-Build completed successfully (2987 jobs).
+✔ [3001/3004] Built EvenQuinticConic.TernaryConicSplitting (6.8s)
+✔ [3002/3004] Built EvenQuinticConic.NetIncidenceNonempty (9.4s)
+✔ [3003/3004] Built EvenQuinticConic (2.6s)
+Build completed successfully (3004 jobs).
