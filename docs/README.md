@@ -1,5 +1,6 @@
 # Mathematical scope
 
+- [INCIDENCE_GENERIC_FIBER.md](INCIDENCE_GENERIC_FIBER.md): actual generic base change, parameter-preserving function-field comparison, actual equations and remaining conic comparison.
 - [GEOMETRIC_PUSHFORWARD_TRACE.md](GEOMETRIC_PUSHFORWARD_TRACE.md): covering multiplicative charts on the original morphism, its unique actual trace, trace-zero frames and actual multiplication-square pairing, under explicit geometric hypotheses.
 - [GENERAL_BASE_PUSHFORWARD.md](GENERAL_BASE_PUSHFORWARD.md): actual pushforward restriction, multiplicative-chart trace independence, affine presentations and the remaining transport bridge.
 - [PROOF_GAPS.md](PROOF_GAPS.md): precise unformalized geometric steps.

@@ -6,7 +6,33 @@ For a direct explanation of what passing Lean does and does not certify,
 see [PROOF_STATUS.md](PROOF_STATUS.md). The remaining work includes both
 external theorem formalization and the object comparisons and deductions detailed in the paper argument.
 
-## Latest incidence dominance progress
+## Latest generic-fiber progress
+
+`exists_integral_genericFiber_of_common_point` extends the dominant-open
+endpoint to the actual categorical base change along the fraction-field
+point of the projective parameter chart. Its affine identification is
+constructed from tensor products and parameter localization, with both
+projections preserved. Nonemptiness and integrality are derived. The
+fraction-field equivalence retains the actual action of every rational
+parameter, not just the ground field. This is further assembled for the actual
+scheme generic stalk, with parameter and ground actions induced by the
+actual structure morphisms. A nonzero polar pivot and nonsingular actual
+ternary restriction matrix are derived; the pivot can avoid the spatial
+dehomogenization coordinate. The actual parameter chart and
+Cramer-generated field are identified, and geometric Jacobian hypotheses
+imply that the actual generic matrix determinant is nonzero. Actual
+base-changed linear and quadratic equations, coordinates and minor
+localizations are also identified.
+
+Remaining assembly: identify this particular generic base change with a
+nonempty open in the corresponding projective ternary conic, then prove
+the Clifford/Brauer and original conic-bundle comparisons. An equivalence
+with mathlib's residue-field-based `Scheme.Hom.fiber` has not separately
+been constructed. The total field `K(u,v,w)` has the original parameter
+embedding; this does not assert that the conic is rational over `F`.
+See [INCIDENCE_GENERIC_FIBER.md](INCIDENCE_GENERIC_FIBER.md).
+
+## Previous incidence dominance progress
 
 `exists_dominant_rational_globalIncidenceOpen_of_common_point` now constructs
 an actual nonempty integral rational global incidence open whose actual
