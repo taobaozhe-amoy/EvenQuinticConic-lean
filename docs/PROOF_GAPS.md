@@ -6,6 +6,24 @@ For a direct explanation of what passing Lean does and does not certify,
 see [PROOF_STATUS.md](PROOF_STATUS.md). The remaining work includes both
 external theorem formalization and unverified deductions of this project.
 
+## Latest incidence dominance progress
+
+`exists_dominant_rational_globalIncidenceOpen_of_common_point` now constructs
+an actual nonempty integral rational global incidence open whose actual
+parameter projection to `Proj K[T₀,T₁,T₂]` is dominant. Its inputs are an
+infinite field of characteristic different from two, a symmetric matrix net,
+a nonzero common isotropic vector and the geometric determinant Jacobian
+certificate. The certificate is proved equivalent to the nonzero-vector
+Jacobian condition over an algebraic closure, and transports to all field
+extensions. The older base-field-point condition is not silently upgraded.
+Actual affine elimination gives a nonzero residual quadratic, and a
+transcendence-degree argument proves algebraic independence of the actual
+parameter pullbacks. No injectivity or dominance input remains.
+Whole-scheme irreducibility, a global parameter projection on all of Z,
+the original conic-bundle comparison and the original geometric hypotheses
+to these matrix-net inputs remain open. See
+[INCIDENCE_DOMINANCE.md](INCIDENCE_DOMINANCE.md).
+
 ## Latest geometric theta integration
 
 `planeQuintic_even_finiteEtale_theta_sections_eq_zero` now starts with an
@@ -452,8 +470,9 @@ localized quotient. Radicality is proved after localization; the actual
 scheme isomorphism preserves the structural ground field. See
 [GLOBAL_INCIDENCE_OPEN.md](GLOBAL_INCIDENCE_OPEN.md).
 
-Still missing are the relevant component and its dominance over `ℙ²`,
-whole-scheme irreducibility, and the birational comparison with the original
+The specific rational global open now dominates `ℙ²` under the geometric
+Jacobian condition, as documented above. Still missing are a global
+projection on all of Z, whole-scheme irreducibility, and the birational comparison with the original
 conic bundle. Density in `ℙ³` alone does not prove density in the global
 incidence scheme. The common real point and the actual matrix net are still
 inputs at this stage.

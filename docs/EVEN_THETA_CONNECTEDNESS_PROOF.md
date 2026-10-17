@@ -2,8 +2,10 @@
 
 Date: 2026-10-15.
 
-This document gives a mathematical proof using the classical results explicitly
-listed below. It is **not a completed Lean formalization**. Passing the repository's
+This document records a candidate mathematical argument using the classical
+results explicitly listed below. Its unformalized geometric bridges remain
+subject to verification, so it is **not a certified complete proof or a
+completed Lean formalization**. Passing the repository's
 build or axiom audit does not certify the real-geometric, Brauer-theoretic,
 quadratic-form, or birational steps of this proof. In particular, the conclusion
 below is not being inferred from a Lean lemma that assumes connectedness.
@@ -449,7 +451,9 @@ open subset of \(Z\) is therefore isomorphic to this open subset of
 \(\mathbf P^3\). Let \(Z_0\) be its irreducible closure. Then \(Z_0\) is
 a rational threefold.
 
-It remains to check dominance over \(\mathbf P^2\), rather than merely
+The actual incidence-open dominance step is now formalized under the geometric
+Jacobian condition; see [the precise statement and remaining gaps](INCIDENCE_DOMINANCE.md).
+The paper argument below checks dominance over \(\mathbf P^2\), rather than merely
 rationality of some component. Every geometric \(t\) has \(l_t\ne0\).
 If \(r_t\) vanished on the plane \(l_t=0\), it would be divisible by
 \(l_t\); then \(Q_t\) would have rank at most two, contrary to the
