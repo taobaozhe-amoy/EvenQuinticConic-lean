@@ -5,9 +5,9 @@ as predicted output.
 
 | Check | Result |
 | --- | --- |
-| `lake build` | Exit 0; all 221 source modules and the root import compiled |
-| `lake env lean Audit.lean` | Exit 0; 3890 declarations audited, including 3041 theorem declarations |
-| Handwritten `theorem` declarations | 1433 total: 1420 public and 13 private helpers; comments and strings are excluded from this source count |
+| `lake build` | Exit 0; all 226 source modules and the root import compiled |
+| `lake env lean Audit.lean` | Exit 0; 4093 declarations audited, including 3207 theorem declarations |
+| Handwritten `theorem` declarations | 1494 total: 1479 public and 15 private helpers; comments and strings are excluded from this source count |
 | Allowed axiom dependencies | `propext`, `Classical.choice`, `Quot.sound` |
 | `sorryAx` or any other unexpected axiom | None in the audited dependency closures |
 | mathlib tracked source changes | None |
@@ -28,7 +28,9 @@ as predicted output.
 | Actual parameter field and generic determinant | Literal quotient chart and Cramer-generated subfield identified; actual generic determinant nonvanishing derived from the geometric certificate |
 | Actual base-changed equations | Tensor quotient and minor-localization comparisons preserve the literal linear/quadratic equations, parameter/spatial coordinates and chosen minor |
 | Actual linear-equation quotient elimination | Explicit inverse algebra maps identify the two-equation quotient with the residual-equation quotient, preserving every retained coordinate and giving the eliminated-coordinate formula |
-| Remaining conic comparison | The generic base change has not yet been assembled as an actual open of the projective ternary conic, nor compared with the original conic bundle. Whole-scheme irreducibility is unnecessary for this route; see [the precise generic-fiber statement](../docs/INCIDENCE_GENERIC_FIBER.md) |
+| Actual conic affine-chart comparison | The original generic base change is identified with its nonempty image open in the actual reduced projective ternary locus, preserving the original parameter structure; the pivot and localized radicality are derived |
+| Actual equation and minor elimination | The base-changed quotient, eliminated residual quotient and ternary dehomogenized equation are compared through literal maps; retained variables have the same order and the original minor is preserved |
+| Remaining conic comparison | Global conic-scheme integrality/smoothness, comparison with the Proj quotient, and Clifford/Brauer and original conic-bundle comparisons remain; see [the exact chart scope](../docs/INCIDENCE_CONIC_CHART.md) |
 | Actual projective standard chart | Degree-zero homogeneous localization identified with the polynomial ring in three variables, preserving the coefficient field |
 | Actual projective incidence open | Literal quotient scheme isomorphic to D₊(yₚ) ∩ D₊(Δᵢⱼ); canonical projection and projective structure-map compatibility proved |
 | Nonemptiness and density | Derived from actual net/common-point/Jacobian inputs; density is in actual projective three-space; density in the entire global incidence is not asserted |

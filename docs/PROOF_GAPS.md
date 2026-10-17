@@ -24,9 +24,16 @@ imply that the actual generic matrix determinant is nonzero. Actual
 base-changed linear and quadratic equations, coordinates and minor
 localizations are also identified.
 
-Remaining assembly: identify this particular generic base change with a
-nonempty open in the corresponding projective ternary conic, then prove
-the Clifford/Brauer and original conic-bundle comparisons. An equivalence
+The actual generic base change is now identified with its nonempty image
+open in the reduced projective plane locus of the actual ternary equation.
+The original parameter structure, selected minor, and retained coordinates
+are preserved; the polar pivot and localized radicality are derived.
+`exists_genericConicOpen_of_common_point` constructs the normalization,
+chart and minor internally from the original common-point data.
+See [INCIDENCE_CONIC_CHART.md](INCIDENCE_CONIC_CHART.md). Remaining work
+includes global integrality/smoothness of that conic scheme, its comparison
+with the Proj of the equation quotient, and the Clifford/Brauer and original
+conic-bundle comparisons. An equivalence
 with mathlib's residue-field-based `Scheme.Hom.fiber` has not separately
 been constructed. The total field `K(u,v,w)` has the original parameter
 embedding; this does not assert that the conic is rational over `F`.

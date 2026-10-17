@@ -13,3 +13,5 @@
 None of these documents should be interpreted as a Lean proof of the full geometric theorem.
 
 - [实际射影关联局部图与三变量函数域](PROJECTIVE_INCIDENCE_CHART.md)：去齐次、真正的 Proj 开集、稠密性及基域相容的函数域同构；保留全局比较缺口。
+
+- [实际泛纤维与射影三元方程开集的比较](INCIDENCE_CONIC_CHART.md)：实际消元、子式局部化、开浸入及原参数结构相容性。
