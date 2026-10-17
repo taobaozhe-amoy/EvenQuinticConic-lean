@@ -35,7 +35,7 @@
 
 另外证明局部同构后接开集包含正是系数映射诱导的原投影，并与实际 `ℙ³ → Spec K` 结构态射相容。
 
-非空性由原来的取值见证推导，整性由实际环嵌入推导。`ProjectiveThreeDensity.lean` 从齐次零素理想构造泛点，证明实际射影三空间不可约，因此此非空开集在 `ℙ³` 中稠密。这里不把它宣称为已在尚未构造的全局关联簇中稠密。`IncidenceFunctionField.lean` 与 `NetRationalIncidenceChart.lean` 继续组合得到
+非空性由原来的取值见证推导，整性由实际环嵌入推导。`ProjectiveThreeDensity.lean` 从齐次零素理想构造泛点，证明实际射影三空间不可约，因此此非空开集在 `ℙ³` 中稠密。这里的稠密性只在 `ℙ³` 中；它不自动给出在全局关联簇中的稠密性。`IncidenceFunctionField.lean` 与 `NetRationalIncidenceChart.lean` 继续组合得到
 
 `FractionRing A ≃ₐ[K] FractionRing (K[u,v,w])`。
 
@@ -45,6 +45,6 @@
 
 ## 尚未跨过的边界
 
-这里的 `netProjectiveIncidenceChart` 是由所列局部方程定义的真实仿射概形。当前还没有构造全局 `Z ⊂ ℙ² × ℙ³` 并证明这个局部图嵌入 `Z`，也没有证明相应分支支配 `ℙ²` 或与题目指定圆锥丛双有理。
+这里的 `netProjectiveIncidenceChart` 是由所列局部方程定义的真实仿射概形。后续[全局开图构造](GLOBAL_INCIDENCE_OPEN.md)已在实际 Segre 射影空间中构造全局约化关联概形，并通过规范 Segre 商环证明相应的子式局部模型同构于其真实开集。相应分支支配 `ℙ²`、全局不可约性以及与题目指定圆锥丛的双有理比较仍未证明。
 
 原圆锥丛到矩阵网、公共实点的产生、实判别覆盖与 Clifford 类比较、外部二次型和零循环定理，以及原实点集连通性的最后推导仍未完成。上述局部结果不等于原题的完整证明。

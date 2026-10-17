@@ -445,12 +445,18 @@ field, as well as its actual generic stalk with the structural scalar map,
 is identified with the rational function field in three variables over `K`.
 See [PROJECTIVE_INCIDENCE_CHART.md](PROJECTIVE_INCIDENCE_CHART.md).
 
-What is still missing is construction of the global incidence scheme
-`Z ⊂ ℙ² × ℙ³`, identification of this local quotient with an open of `Z`,
-the relevant component and its dominance over `ℙ²`, and the birational
-comparison with the original conic bundle. Density in `ℙ³` alone does not
-prove density in an unconstructed global incidence scheme. The existence
-of the common real point is still an input at this stage.
+The next endpoint, `exists_nonempty_rational_globalIncidenceOpen_of_common_point`,
+constructs the actual reduced global incidence scheme in Segre projective
+coordinates and identifies its specified minor open with the computed
+localized quotient. Radicality is proved after localization; the actual
+scheme isomorphism preserves the structural ground field. See
+[GLOBAL_INCIDENCE_OPEN.md](GLOBAL_INCIDENCE_OPEN.md).
+
+Still missing are the relevant component and its dominance over `ℙ²`,
+whole-scheme irreducibility, and the birational comparison with the original
+conic bundle. Density in `ℙ³` alone does not prove density in the global
+incidence scheme. The common real point and the actual matrix net are still
+inputs at this stage.
 
 ## 7. Real rationality and connectedness
 

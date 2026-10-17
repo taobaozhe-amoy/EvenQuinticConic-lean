@@ -5,21 +5,27 @@ as predicted output.
 
 | Check | Result |
 | --- | --- |
-| `lake build` | Exit 0; all 187 source modules and the root import compiled |
-| `lake env lean Audit.lean` | Exit 0; 2895 declarations audited, including 2267 theorem declarations |
-| Handwritten `theorem` declarations | 1063 total: 1050 public and 13 private helpers; comments and strings are excluded from this source count |
+| `lake build` | Exit 0; all 200 source modules and the root import compiled |
+| `lake env lean Audit.lean` | Exit 0; 3339 declarations audited, including 2593 theorem declarations |
+| Handwritten `theorem` declarations | 1197 total: 1184 public and 13 private helpers; comments and strings are excluded from this source count |
 | Allowed axiom dependencies | `propext`, `Classical.choice`, `Quot.sound` |
 | `sorryAx` or any other unexpected axiom | None in the audited dependency closures |
 | mathlib tracked source changes | None |
+| Actual global incidence scheme | Constructed as a reduced closed subscheme of the actual Segre ambient Proj with explicit homogeneous equations |
+| Complete Segre chart algebra | Exact generator-ideal and quotient-algebra comparisons, retaining possible nilpotents before localization |
+| Actual global minor-open identification | Constructed scheme isomorphism with exact image and compatibility with the original structural map to Spec K |
+| Local radicality | Derived from the domain property of the actual localized quotient, only after inverting a nonzero minor |
+| Global-open assembled endpoint | Matrix net, common point and determinant Jacobian imply a nonempty integral global open with actual affine coordinate algebra and K-rational fraction field |
+| Global incidence irreducibility, component dominance and original model comparison | Still unproved; a nonempty rational open does not by itself supply these conclusions |
 | Actual projective standard chart | Degree-zero homogeneous localization identified with the polynomial ring in three variables, preserving the coefficient field |
 | Actual projective incidence open | Literal quotient scheme isomorphic to D₊(yₚ) ∩ D₊(Δᵢⱼ); canonical projection and projective structure-map compatibility proved |
-| Nonemptiness and density | Derived from actual net/common-point/Jacobian inputs; density is in actual projective three-space, not in an unconstructed global incidence scheme |
+| Nonemptiness and density | Derived from actual net/common-point/Jacobian inputs; density is in actual projective three-space; density in the entire global incidence is not asserted |
 | Actual incidence function field | Coordinate algebra integrality, fraction-field K-algebra equivalence and actual generic-stalk K-algebra equivalence to K(u,v,w) proved |
 | Common point to polar independence | Derived from the actual determinant Jacobian; the adjugate outer-product formula is proved internally |
 | Arbitrary common point to coordinate point | An invertible matrix is constructed; congruence determinant and partial derivatives scale by its nonzero determinant square |
 | Polar coordinate normalization | Actual inverse polynomial algebra substitutions are constructed and preserve all homogeneous degrees |
 | Actual common point to nonempty incidence minor | An assembled theorem uses only the matrix net, common point and Jacobian inputs; all independence, coordinate, factor-exclusion and determinant-nonzero inputs are discharged |
-| Actual affine cone incidence scheme | Nonemptiness derived under those same inputs through the actual localized quotient and Spec isomorphism; global projective identification remains open |
+| Actual affine cone incidence scheme | Nonemptiness derived under those same inputs through the actual localized quotient and Spec isomorphism; the later Segre construction identifies the projective minor open with an actual global open |
 | Ternary conic line splitting | Actual factorization into two independent linear polynomials iff the negative pivot cofactor is a square; equivalent to actual cofactor roots |
 | Actual determinant derivative and gradient | Jacobi formula proved from the determinant expansion; a nonzero evaluated partial gives a nonzero adjugate and, for a symmetric singular matrix, a nonzero diagonal cofactor |
 | Adjugate pivot identities and transitions | Derived from determinant zero and symmetry; square ratios and actual Kummer algebra equivalences constructed |
@@ -27,7 +33,7 @@ as predicted output.
 | Actual cofactor-vector fibers | Equivalent to actual Kummer algebra maps; positive signed pivot gives two elements and negative signed pivot gives none |
 | Normalized affine incidence chart | Actual quotient-algebra equivalence and Spec isomorphism constructed; the map is the original projection and the localized target is the actual principal open |
 | Nonempty normalized incidence chart | Vanishing coordinate minors forces a common linear factor; absence of that factor yields a nonzero minor and a nonempty chart over an infinite field |
-| Global discriminant-cover comparison and projective incidence identification | Still open; see [the precise scope of these additions](../docs/REAL_COFACTOR_AND_INCIDENCE.md) |
+| Global discriminant-cover and original conic-bundle comparison | Still open; actual global incidence minor-open identification is now proved; see [the precise scope](../docs/GLOBAL_INCIDENCE_OPEN.md) |
 | Conditional theta ineffectivity | Proved for actual sheaves with explicit local and restriction-map hypotheses |
 | Theta finite-dimensionality and hyperplane dimension three | Derived from the restriction data, not separately assumed |
 | Actual plane-curve scheme and hyperplane sheaf | Constructed using the reduced induced closed scheme and coordinate cocycle descent |
