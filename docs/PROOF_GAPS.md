@@ -1,10 +1,10 @@
 # Proof obligations that remain open in this project
 
-The following is a work plan for scrutinizing a proposed mathematical argument, not a list of verified consequences. Every implication below needs both a precise statement and a proof. Finding a missing hypothesis or a false implication would require revising the argument, not adding an axiom to Lean.
+The following records remaining formalization obligations. The revised paper argument and exact classical inputs are in [the 2026-10-17 theoretical review](THEORETICAL_PROOF_REVIEW_2026_10_17.md); that review is not an end-to-end Lean proof. Each formal implication must refer to the actual objects and discharge its inputs. A missing hypothesis or false implication requires revising the argument, not adding an axiom.
 
 For a direct explanation of what passing Lean does and does not certify,
 see [PROOF_STATUS.md](PROOF_STATUS.md). The remaining work includes both
-external theorem formalization and unverified deductions of this project.
+external theorem formalization and the object comparisons and deductions detailed in the paper argument.
 
 ## Latest incidence dominance progress
 
@@ -19,9 +19,12 @@ extensions. The older base-field-point condition is not silently upgraded.
 Actual affine elimination gives a nonzero residual quadratic, and a
 transcendence-degree argument proves algebraic independence of the actual
 parameter pullbacks. No injectivity or dominance input remains.
-Whole-scheme irreducibility, a global parameter projection on all of Z,
-the original conic-bundle comparison and the original geometric hypotheses
-to these matrix-net inputs remain open. See
+The original conic-bundle comparison and the original geometric hypotheses
+to these matrix-net inputs remain open in Lean. The revised paper route uses
+the nonempty generic fiber of this dominant open directly, via localization
+and preservation of the actual parameter-field embedding. Whole-scheme
+irreducibility, density of U in all of Z, and constructing a projection on all
+of Z are not necessary extra goals for that route. See
 [INCIDENCE_DOMINANCE.md](INCIDENCE_DOMINANCE.md).
 
 ## Latest geometric theta integration

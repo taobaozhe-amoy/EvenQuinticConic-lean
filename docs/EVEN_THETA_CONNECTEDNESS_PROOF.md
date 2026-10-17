@@ -1,19 +1,21 @@
 # Even theta characteristic and real connectedness
 
-Date: 2026-10-15.
+Last revised: 2026-10-17 (UTC).
 
-This document records a candidate mathematical argument using the classical
-results explicitly listed below. Its unformalized geometric bridges remain
-subject to verification, so it is **not a certified complete proof or a
-completed Lean formalization**. Passing the repository's
-build or axiom audit does not certify the real-geometric, Brauer-theoretic,
-quadratic-form, or birational steps of this proof. In particular, the conclusion
-below is not being inferred from a Lean lemma that assumes connectedness.
+This note gives a paper argument under the precise geometric conventions below,
+with explicit calculations and identified classical theorem inputs. Six
+independent, scoped reviews on 2026-10-17 checked those inputs and supplied
+missing details; their dependency map is in
+[the theoretical proof review](THEORETICAL_PROOF_REVIEW_2026_10_17.md).
+The conclusion is the claim proved by this argument, not a theorem already
+certified end to end in Lean. In particular, passing the repository's build or
+axiom audit does not certify the unformalized geometric, Brauer, quadratic-form
+or real-topological steps. The original problem's final Lean theorem is absent.
 
-A fresh adversarial review on 2026-10-16 checked the theorem inputs and the
-real-sign, Clifford, Pfister, zero-cycle and incidence steps without finding
-a fatal error. This is a paper-level review, not a full formal certification;
-see [the detailed review and the odd-theta calculation for the user's example](RECHECK_2026_10_16.md).
+The revision explicitly includes the Tor term on restriction, the actual real
+cover multiplication, all-ordering transfer, the Albert/Pfister cancellations,
+and the identification of function fields using the dominant open's generic
+fiber. It does not require irreducibility of the entire incidence scheme.
 
 ## Statement and conventions
 
@@ -66,29 +68,39 @@ connectedness is that of the total space's real locus. Smoothness means geometri
 smoothness, not just the absence of singular real points. Evenness concerns the
 specific theta characteristic coming from the specified double cover.
 
-For the alternative definition of a geometrically standard conic bundle using
-geometric relative Picard number one, the relative anticanonical model theorem is
-the geometric input; see [3, Definition 3.1 and Theorem 3.2]. Over the complex
-numbers it gives the quadratic model, and the canonical relative anticanonical
-construction descends to \(\mathbb R\) by flat base change and faithfully flat
-descent. No conclusion about real rationality is imported from a theorem stated
-only over an algebraically closed field.
+The usual conic-bundle hypothesis retains a geometrically smooth generic
+conic and flat relative dimension one. These cannot be replaced by relative
+Picard number one alone. The direct quadratic-model reference over a field of
+characteristic different from two is [9, §2, p. 426]. Alternatively, [3,
+Definition 3.1 and Theorem 3.2] gives the construction over an algebraically
+closed field of characteristic zero; the canonical construction descends as
+follows. No real rationality conclusion is imported from a complex theorem.
 
-More explicitly, if relative anticanonical ampleness is not included in the
-definition, choose a relatively ample divisor A after complexification. Relative
-Picard number one gives -K_X numerically equivalent over S to lambda A. Evaluating
-on a smooth conic fiber gives lambda=2/(A.f)>0. Every irreducible component of
-each one-dimensional fiber therefore has positive anticanonical degree. The
-proper-curve ampleness criterion and openness of fiberwise ampleness give
-relative anticanonical ampleness; see Stacks
-[0B5Y](https://stacks.math.columbia.edu/tag/0B5Y) and
-[0D2S](https://stacks.math.columbia.edu/tag/0D2S). Flatness and relative dimension
-one are retained throughout. For descent, define the anticanonical pushforward
-and its evaluation over the real field first. Flat base change identifies their
-complexifications with the rank-three bundle and surjective evaluation in [3].
-Local freeness, surjectivity and the resulting closed immersion descend. The
-ideal of that immersion has relative degree -2; the projective-bundle Picard
-formula gives the stated real line-valued quadratic form.
+If relative anticanonical ampleness is not included in the definition, choose
+a relatively ample divisor A after complexification. Geometric relative
+Picard number one gives \(-K_X\equiv_S\lambda A\), where a smooth conic fiber
+shows \(\lambda=2/(A.f)>0\). Relative ampleness follows from the relative
+Kleiman criterion; the precise hypotheses and references are recorded in
+[the original-model review](review/ORIGINAL_CONIC_MODEL_2026_10_17.md).
+
+Define \(\mathcal H=\omega_X^{-1}\otimes\pi^*\omega_S\) over \(\mathbb R\),
+and \(A=\pi_*\mathcal H\). Flat base change identifies its complexification
+with the rank-three pushforward of the geometric anticanonical model. Local
+freeness and surjectivity of the evaluation \(\pi^*A\to\mathcal H\) descend,
+as does the resulting closed immersion into the quotient-convention
+\(\mathbf P_S(A)\). Let \(p:\mathbf P_S(A)\to S\), and let \(\mathcal J\)
+be the actual ideal sheaf of this immersion. The sheaf
+\(B=p_*(\mathcal J(2))\) is a line bundle: after flat extension to \(\mathbb C\)
+this holds and the natural map \(p^*B\to\mathcal J(2)\) is an isomorphism;
+both facts descend faithfully flatly. Thus \(\mathcal J=\mathcal O(-2)\otimes p^*B\).
+With \(E=A^\vee\) and \(L=B^\vee\), its defining section is the required
+\(L\)-valued quadratic form on \(E\). The review gives the precise base-change
+and descent references, including Stacks Tags 02KH, 05B2, 02L6 and 01OA.
+
+The discriminant here is the actual effective determinant divisor. Smoothness
+of a reduced support alone would not justify the rank calculations below.
+This distinction is automatic for the usual smooth ordinary conic bundle,
+but must be preserved when translating its definition into formal data.
 
 ## 1. Even theta is ineffective on a smooth plane quintic
 
@@ -190,7 +202,8 @@ sign. The quotient by the radical has constant inertia during this transport,
 whereas the endpoint form is congruent to the negative of the starting form.
 Thus its positive and negative indices agree. Its signature is \((1,1)\).
 The original discriminant cover therefore splits over every real point of
-\(J\).
+\(J\). This is pointwise splitting; it does not assert that the double cover
+is topologically trivial over the entire circle.
 
 Apply the same reasoning to the \(\mathcal O(1)\)-valued form \(M\) on the
 trivial rank-five bundle. It has rank four along \(C\), and its quotient form
@@ -203,14 +216,24 @@ We next compare their underlying trace-zero line bundles. Let
 K=\operatorname{rad}(M|_C),\qquad W=\mathcal O_C^5/K.
 \]
 
-Twisting the resolution by two gives cokernel \(\theta(2)\) for
-\(\mathcal O_C^5\to\mathcal O_C(1)^5\). Symmetry identifies this cokernel
-with \(K^*\otimes\mathcal O_C(1)\). Therefore
+Twist the resolution by two and restrict to \(C\). The full exact sequence is
+
+\[
+0\longrightarrow\operatorname{Tor}_1^{\mathcal O_S}
+(i_*\theta(2),\mathcal O_C)\longrightarrow\mathcal O_C^5
+\xrightarrow{M|_C}H^{\oplus5}\longrightarrow\theta(2)\longrightarrow0.
+\]
+
+The hypersurface sequence for \(C\), tensoring with \(i_*\theta(2)\), has
+zero multiplication by its defining equation. Consequently its Tor term is
+\(\theta(2)\otimes\mathcal O_C(-5)=\theta(-3)\). This gives
+\(K=\theta(-3)=\theta^{-1}(-1)\), consistently with the symmetric-map
+identification \(\operatorname{coker}(M|_C)=K^*\otimes H\). Hence
 
 \[
 K\simeq\theta^{-1}(-1),\qquad
 \det W\simeq\theta(1),\qquad
-\det W\otimes\mathcal O_C(-2)\simeq\theta(-1)=\eta.
+\det W\otimes H^{-2}\simeq\theta(-1)=\eta.
 \]
 
 The last line is the trace-zero line of the rank-four signed-discriminant
@@ -218,12 +241,30 @@ cover. The signed discriminant of an even-dimensional form of dimension
 \(n\) is \((-1)^{n(n-1)/2}\det\): it is \(-\det\) in rank two and
 \(+\det\) in rank four.
 
-After identifying the two trace-zero lines, their square trivializations differ
-by a unit of \(\Gamma(C,\mathcal O_C)=\mathbb R\). Up to squares this unit
-is either positive or negative. At any point of \(J\), both covers split, so
-the ratio is positive and has a real square root. Rescaling the line
-identification by that root identifies the square trivializations. Thus the
-two covers agree **over \(\mathbb R\)**, not just after complexification.
+More explicitly, for a nondegenerate rank-\(2r\) form on \(V\) valued in
+\(N\), the discriminant line is \(D=\det V\otimes N^{-r}\), with square
+pairing locally equal to \((-1)^{(2r)(2r-1)/2}\det B\). A frame change \(A\)
+and value-line frame change \(u\) multiply its generator by \(\det(A)u^{-r}\),
+which verifies the gluing of \(\mathcal O\oplus D\) and its multiplication.
+For a binary form \(as^2+2bst+ct^2\), choose a local basis with \(a\) a unit.
+Since \(a\) is a unit, its isotropic lines all lie in the chart \(t\ne0\).
+The actual cover has coordinate \(z=a(s/t)+b\) satisfying
+\(z^2=b^2-ac\). Thus it is the signed-discriminant algebra, with its actual
+square pairing, not only a line bundle of order two. Under the above frame
+changes its generator satisfies \(z^{\prime}=\det(A)u^{-1}z\), as follows
+by substituting the change of slope into the binary equation; the full
+calculation is in the linked review.
+
+Choose an isomorphism \(f_0:\eta\to D_4\) of the two real trace-zero lines.
+If their multiplications are \(\mu_0,\mu_4\), then
+\(\mu_4\circ f_0^{\otimes2}=\lambda\mu_0\) for a global unit
+\(\lambda\in\Gamma(C,\mathcal O_C)^*=\mathbb R^*\).
+At a point of \(J\), both actual quadratic algebras split, so both square
+values on nonzero generators are positive. Therefore \(\lambda>0\).
+The map \(f=\lambda^{-1/2}f_0\) respects multiplication, proving that the two
+actual covers agree over \(\mathbb R\). The complete line-bundle and endpoint
+inertia calculations are in
+[the theta and real-cover review](review/THETA_AND_REAL_COVERS_2026_10_17.md).
 
 ## 3. The Brauer classes agree
 
@@ -246,8 +287,8 @@ the quaternion-symbol formula is
 At a simple degeneration \(e=\varpi u\), with the other entries units, its
 residue is the square class of \(abcd\). For a rank-three form
 \(\langle a,b,\varpi u\rangle\), the formula
-\((-ab,-a\varpi u)\) gives residue \(-ab\). These are exactly the two
-signed-discriminant covers compared in §2. Therefore \(\beta-\alpha\) has
+\((-ab,-a\varpi u)\) gives residue \(-ab\). These residue calculations use the tame symbol formula in [11, p. 2].
+They are exactly the two signed-discriminant covers compared in §2. Therefore \(\beta-\alpha\) has
 zero residue at every prime divisor of \(S\).
 
 Brauer purity and \(\operatorname{Br}(\mathbf P^2_{\mathbb R})
@@ -284,25 +325,29 @@ Changing all signs does not change the class.
 | \((4,1)\) | Hamilton quaternion class |
 | \((5,0)\) | Hamilton quaternion class |
 
-Suppose a definite real member of the net existed. There are also members of
-signature \((3,2)\) near \(J\). A path between these parameter values must
-leave the open definite locus at a point of \(C(\mathbb R)\). At such a
-boundary point the matrix has rank four, by smoothness of \(C\), and its
-rank-four quotient is definite. Its signed discriminant is positive.
+Suppose the open locus \(D\subset\mathbf {RP}^2\) of definite matrices
+were nonempty. It is proper, since there are \((3,2)\) or \((2,3)\) members
+near \(J\). Connectedness of \(\mathbf {RP}^2\) gives a boundary point \(b\).
+Use a single local trivialization of \(\mathcal O(1)\) near \(b\). Along a
+subsequence of definite matrices tending to \(b\), their signs are the same;
+the limit is positive or negative semidefinite. It must be singular, since
+nonsingular inertia is locally constant. Smoothness of \(C\) gives rank four,
+so its quotient is definite and has positive signed determinant.
 
-By §2 the original discriminant cover splits there. The original rank-two
-quotient form is therefore indefinite, so the original conic has real points
-on both adjacent nonsingular sides of \(C\). Consequently \(\alpha\)
-specializes to zero at nearby definite members of the net. The table says that
-\(\beta\) specializes to the nonzero quaternion class at those members,
-contradicting \(\alpha=\beta\).
+By §2 the original discriminant cover splits at \(b\). Its rank-two quotient
+is therefore indefinite, and this indefinite block persists in a neighborhood.
+At nonsingular real points there the original conic has a real point and
+\(\alpha\) evaluates to zero. Points of \(D\) occur arbitrarily near \(b\),
+and at those points the table gives the nonzero Hamilton class for \(\beta\).
+This contradicts \(\alpha=\beta\) on the common unramified open. This argument
+requires neither a transverse path nor a globally chosen sign for the net.
 
 Thus every nonsingular real member is indefinite. To pass from real parameter
 values to all orderings of \(F\), take any real closure of \(F\) for a chosen
 ordering. If \(q\) were definite there, Sylvester's criterion would give a
 finite system of strict polynomial inequalities in \(x,y\), with real
-coefficients, that is solvable in this real closed extension. Transfer for real
-closed fields gives a solution in \(\mathbb R\). It would be a definite
+coefficients, that is solvable in this real closed extension. Model completeness for real
+closed fields [10, Theorem 7.14 and Corollary 7.15] gives a solution in \(\mathbb R\). It would be a definite
 nonsingular real member, a contradiction. Hence \(q\) is indefinite at every
 ordering of \(F\).
 
@@ -314,7 +359,8 @@ points.
 
 We give the quadratic-form argument, including its dimension and determinant
 checks. Let \(k\) have characteristic different from two, let \(q\) be
-nondegenerate of dimension five, and write \(d=\det q\) modulo squares. The
+nondegenerate of dimension five. Choose a diagonalization and put
+\(d=a_1a_2a_3a_4a_5\in k^*\), an actual determinant representative. The
 six-dimensional form
 
 \[
@@ -322,8 +368,17 @@ r=q\perp\langle-d\rangle
 \]
 
 has trivial signed discriminant, since
-\((-1)^{15}\det(r)=d^2\). Its two even Clifford components are isomorphic
-to \(C_0(q)\). By the Albert-form classification and index criterion
+\((-1)^{15}\det(r)=d^2\). To identify its Clifford components, use generators \(e_i^2=a_i\),
+\(f^2=-d\), and set \(w=e_1e_2e_3e_4e_5f\). Then \(w^2=d^2\), \(w\) is
+central in the even algebra, and its monomial basis gives
+
+\[
+C_0(r)=C_0(q)\oplus C_0(q)w
+\simeq C_0(q)\otimes k[T]/(T^2-d^2)\simeq C_0(q)\times C_0(q).
+\]
+
+The last map sends \(a+bw\) to \((a+db,a-db)\), so both components really
+are the original algebra. By the Albert-form classification and index criterion
 [4, Proposition 16.3 and Theorem 16.5], if
 \(\operatorname{ind}C_0(q)\le2\), then \(r\) is isotropic. Split off a
 hyperbolic plane:
@@ -332,9 +387,12 @@ hyperbolic plane:
 r\simeq\mathbb H\perp\rho.
 \]
 
-The four-dimensional remainder has trivial signed discriminant, hence is
-similar to a two-fold Pfister form: \(\rho\simeq a\pi\). Adding
-\(\langle d\rangle\) and canceling a hyperbolic plane gives
+The four-dimensional remainder has square determinant. Write it as
+\(\rho=\langle a,b,c,e\rangle\). The ratio \(e/(bc/a)=abce/(bc)^2\) is a square,
+so rescaling its last coordinate gives
+\(\rho\simeq a\langle1,b/a\rangle\otimes\langle1,c/a\rangle=a\pi\).
+Adding \(\langle d\rangle\) and canceling the resulting common hyperbolic
+plane by Witt cancellation [5, Theorem 8.4, pp. 48–49] gives
 
 \[
 q\simeq a\pi\perp\langle d\rangle.
@@ -357,6 +415,7 @@ Now specialize to \(k=\mathbb R(x,y)\). Pfister's local-global theorem
 [5, Theorem 31.22] says that the Witt class of \(\Phi\) is torsion. It lies
 in \(I^3(k)\), whose torsion subgroup is zero by [5, Corollary 35.29], applied
 to transcendence degree two over the real closed field \(\mathbb R\).
+This uses torsion-freeness, not the false assertion \(I^3(k)=0\).
 Therefore \(\Phi\) is hyperbolic. Its four-dimensional totally isotropic
 subspace intersects the five-dimensional subspace underlying \(q\)
 nontrivially, since \(4+5>8\). Thus \(q\) is isotropic over \(F\).
@@ -386,7 +445,10 @@ Q_0+xQ_1+yQ_2=0
 
 No smoothness or complete-intersection hypothesis for \(\Gamma\) is required
 by this theorem. The generic hypersurface has a rational point by §5, so its
-index is one. It follows that \(\Gamma\) has a zero-cycle of degree one.
+index is one. In [6, p. 1], the reduced index is the product of the distinct
+prime divisors of the full index; it does not discard the prime two. Thus
+\(I_{\rm red}(\Gamma)=1\) implies \(I(\Gamma)=1\), so \(\Gamma\) has a
+zero-cycle of degree one.
 Every closed point over \(\mathbb R\) has degree one or two; if all degrees
 were two, no integral linear combination could have degree one. Therefore
 
@@ -445,45 +507,90 @@ Q_t=l_t(2x_0+h),
 
 contradicting the nonzero determinant of the generic matrix.
 
-On the nonempty open subset of \(\mathbf P^3\) where a minor is nonzero,
-the cross product of the two rows gives the unique \(t\). The corresponding
-open subset of \(Z\) is therefore isomorphic to this open subset of
-\(\mathbf P^3\). Let \(Z_0\) be its irreducible closure. Then \(Z_0\) is
-a rational threefold.
+On the nonempty open subset of \(\mathbf P^3\) where a fixed minor is
+nonzero, the cross product of the two rows gives the unique parameter \(t\).
+The equations solve for that parameter over the coordinate ring, so the
+corresponding actual open \(U\subset Z\) is isomorphic to this open of
+\(\mathbf P^3\). In particular \(U\) is integral and rational of dimension three.
+We may take \(Z\) with its reduced structure; the graph open is already reduced.
 
-The actual incidence-open dominance step is now formalized under the geometric
-Jacobian condition; see [the precise statement and remaining gaps](INCIDENCE_DOMINANCE.md).
-The paper argument below checks dominance over \(\mathbf P^2\), rather than merely
-rationality of some component. Every geometric \(t\) has \(l_t\ne0\).
-If \(r_t\) vanished on the plane \(l_t=0\), it would be divisible by
-\(l_t\); then \(Q_t\) would have rank at most two, contrary to the
-smoothness of the determinant curve. Thus every fiber of \(Z\to\mathbf P^2\)
-has dimension one. Since \(\dim Z_0=3\), the dimension-of-fibers inequality
-forces \(Z_0\) to dominate the two-dimensional base. The generic conic is
-smooth and geometrically integral, so it has a unique component dominating
-the base. This identifies the rational component with the required conic
-function field.
+The actual projection \(U\to S\) is dominant. Here is a paper proof independent
+of the Lean endpoint. At every geometric parameter \(t\), independence of the
+\(l_i\) gives \(l_t\ne0\). If \(r_t\) vanished on \(l_t=0\), it would be
+divisible by \(l_t\), making \(Q_t=l_t(2x_0+h_t)\) have rank at most two.
+That contradicts the geometric Jacobian condition on \(\det M\). Hence every
+geometric fiber of \(Z\to S\) has the same underlying support as a nonzero
+plane conic, and therefore dimension one. This support statement survives
+reducing \(Z\): the reduction is a nilpotent closed immersion and its base
+changes preserve the underlying support. The fibers of \(U\to S\) are open in these curves and have
+dimension at most one. Give the image closure \(Y\) its reduced induced structure; the reduced
+scheme \(U\) maps through it. If \(Y\) had dimension at most one, the dimension-of-fibers inequality would give
+\(\dim U\le\dim Y+1\le2\), a contradiction [12, Tag 02JS]. Thus \(Y=S\).
+The corresponding actual-open dominance result is also formalized at the
+matrix-net inputs; see [INCIDENCE_DOMINANCE.md](INCIDENCE_DOMINANCE.md).
 
-Finally, hyperbolic reduction preserves the relevant even Clifford Brauer
-class. The sign can be checked without convention ambiguity: if the
-three-dimensional remainder is \(\langle a,b,c\rangle\), take
-\(\mathbb H=\langle1,-1\rangle\). Then
-
-\[
-[C_0(\langle1,-1,a,b,c\rangle)]
-=(1,-a)+(-ab,-ac)
-=(-ab,-ac)
-=[C_0(\langle a,b,c\rangle)].
-\]
-
-The generic conic of \(Z_0\) therefore has class \(\beta=\alpha\). Smooth
-conics over a field are classified by their associated quaternion Brauer
-classes, including the split class. Hence the generic conics of \(X\) and
-\(Z_0\) are isomorphic over \(F\), and
+Let \(\eta_S\) be the generic point of \(S\). Nondegeneracy of \(q\) gives
+\(\operatorname{rad}(P^\perp)=FP\), so the quotient
+\(W=P^\perp/FP\) carries a nondegenerate ternary form \(r\). Each quotient
+class has a unique representative with \(x_0=0\); hence it is exactly
+\((\ker l_t,r_t|_{\ker l_t})\). Therefore
 
 \[
-X\sim_{\mathbb R}Z_0\sim_{\mathbb R}\mathbf P^3.
+Z_{\eta_S}=C_r=\{l_t(y)=r_t(y)=0\}\subset\mathbf P^3_F.
 \]
+
+This is a smooth geometrically integral conic: a reducible ternary quadratic
+form over an algebraic closure has rank at most two. If \(Z\) was reduced
+first, the identification is unchanged, since the generic-fiber base change
+is localization and \(T^{-1}\sqrt I=\sqrt{T^{-1}I}\).
+
+Dominance implies that \(U_{\eta_S}\) is a nonempty open of \(C_r\). This alone
+identifies the function field; irreducibility of all of \(Z\) is unnecessary.
+Indeed, on affine charts let \(A\hookrightarrow B\) be the actual parameter
+pullback, and \(T=A\setminus\{0\}\). Then
+
+\[
+\operatorname{Frac}(T^{-1}B)=\operatorname{Frac}(B),\qquad
+F(C_r)=F(U_{\eta_S})=\mathbb R(U)\simeq_{\mathbb R}\mathbb R(u,v,w).
+\tag{7.1}
+\]
+
+The first equality preserves the actual embedding of \(F=\operatorname{Frac}A\).
+An arbitrary abstract field isomorphism would not provide this compatibility.
+
+Splitting a hyperbolic plane at \(P\) gives \(q\simeq\mathbb H\perp r\).
+For \(r=\langle a,b,c\rangle\) and \(\mathbb H=\langle1,-1\rangle\), the
+Clifford generators give an actual algebra isomorphism
+
+\[
+C_0(q)\simeq(1,-a)_F\otimes(-ab,-ac)_F
+\simeq M_2(C_0(r)),\qquad [C_0(r)]=\beta=\alpha.
+\tag{7.2}
+\]
+
+For clarity, the conic attached to \(C_0(r)=(-ab,-ac)\) is \(C_r\) itself.
+Writing quaternion generators \(i^2=-ab,j^2=-ac,ij=-ji\), its trace-zero norm
+satisfies
+
+\[
+\operatorname{Nrd}(cz\,i+by\,j+x\,ij)=abc(ax^2+by^2+cz^2).
+\]
+
+This explicitly identifies \(C_r\) with the quaternion's norm-zero conic.
+Two quaternion algebras in the same Brauer class have the same division
+algebra representative and the same degree, hence are isomorphic. Their
+trace-zero norm conics are therefore isomorphic too. Equivalently, use the
+fixed-dimension Severi–Brauer classification in [2, §4.5.1, pp. 106–107].
+It follows from (7.2) that \(X_{\eta_S}\simeq_F C_r\), and then (7.1) gives
+
+\[
+\mathbb R(X)=F(X_{\eta_S})\simeq_F F(C_r)\simeq_{\mathbb R}\mathbb R(u,v,w).
+\]
+
+Function-field isomorphism gives real birationality by [12, Tags 0BXN, 0BXP].
+The full algebra calculations, localization argument and conic identification
+are written out in
+[the incidence-to-connectedness review](review/INCIDENCE_TO_CONNECTEDNESS_2026_10_17.md).
 
 ## 8. Rationality implies the asserted real connectedness
 
@@ -510,8 +617,9 @@ Thus \(f(U(\mathbb R))\) is nonempty and connected. It contains the real
 points of a dense Zariski open subset \(V\subset X\) on which the birational
 map is an isomorphism. Because \(X\) is smooth and geometrically integral,
 \(V(\mathbb R)\) is Euclidean dense in every component of \(X(\mathbb R)\):
-a proper algebraic subset has real dimension strictly less than three and
-cannot contain an open subset of the smooth real three-manifold.
+a proper algebraic subset cannot contain an open neighborhood of a smooth
+real point. The precise local-density statement is [2, Proposition 3.5.75
+and Remark 3.5.76, p. 87], which applies in every real component.
 
 Therefore the closure of the connected set \(f(U(\mathbb R))\) is all of
 \(X(\mathbb R)\). A closure of a connected set is connected, proving
@@ -534,7 +642,9 @@ they are not attributed to a source that only proves complex rationality.
    [Author preprint](https://arxiv.org/pdf/math/9910030).
 2. B. Poonen, *Rational Points on Varieties*, Theorem 6.8.3 and Proposition
    6.9.9, printed pp. 197 and 200: purity and the Brauer group of projective
-   space. [Author PDF](https://math.mit.edu/~poonen/papers/Qpoints.pdf).
+   space; Proposition 6.6.7(i), p. 188 for injectivity into the function field;
+   §4.5.1, pp. 106–107 for conic classification; Proposition 3.5.75 and
+   Remark 3.5.76, p. 87 for local real density. [Author PDF](https://math.mit.edu/~poonen/papers/Qpoints.pdf).
 3. Y. Prokhorov, *The rationality problem for conic bundles*, Definition 3.1
    and Theorem 3.2: the relative anticanonical quadratic model. Its complex
    rationality results do not themselves imply the real conclusion here.
@@ -544,20 +654,39 @@ they are not attributed to a source that only proves complex rationality.
    the index/isotropy criterion.
    [University-hosted preprint](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/involutions.pdf).
 5. R. Elman, N. Karpenko, A. Merkurjev, *The Algebraic and Geometric Theory of
-   Quadratic Forms*, Theorem 31.22 and Corollary 35.29, printed pp. 128 and
+   Quadratic Forms*, Theorem 8.4 (Witt cancellation, pp. 48–49),
+   Theorem 31.22 and Corollary 35.29, printed pp. 128 and
    159: the signature local-global theorem and torsion-freeness of
    \(I^{n+1}\) for transcendence degree \(n\) over a real closed field.
    [Author PDF](https://www.math.ucla.edu/~merkurev/Book/Kniga-final/Kniga.pdf).
 6. J.-L. Colliot-Thélène and M. Levine, *Une version du théorème d'Amer et
    Brumer pour les zéro-cycles*, Theorem 3, pp. 5–6 of the 4 December 2009
    author version. [Author PDF](https://www.imo.universite-paris-saclay.fr/~jean-louis.colliot-thelene/CTLevine4dec2009.pdf).
-7. Stacks Project, [Tag 01XS](https://stacks.math.columbia.edu/tag/01XS):
+7. Stacks Project, Lemma 30.8.1, [Tag 01XT](https://stacks.math.columbia.edu/tag/01XT):
    cohomology of projective space.
 8. Stacks Project, [Tag 01X0](https://stacks.math.columbia.edu/tag/01X0):
    effective Cartier divisors and the associated line bundles and sections.
 
-This is a proof at the mathematical-paper level, subject to the stated
-geometric convention and the cited theorem inputs. It does not report that the
-repository has constructed and verified every object and implication above in
-Lean. The exact formalization boundary remains recorded separately in
-[PROOF_STATUS.md](PROOF_STATUS.md).
+9. S. Frei, L. Ji, S. Sankar, B. Viray, I. Vogt, *Curve classes on conic bundle
+   threefolds and applications to rationality*, Algebraic Geometry 11 (2024),
+   421–459, §2, especially p. 426: quadratic models and actual discriminant
+   covers over nonclosed fields of characteristic different from two.
+   [Published article](https://api.algebraicgeometry.nl/Article/20462/2024-3-014.pdf).
+10. D. Marker, *Model Theory*, Orsay notes, §7, Theorem 7.14 and
+    Corollary 7.15, pp. 43–44: quantifier elimination and model completeness
+    for real closed ordered fields.
+    [Author notes](https://homepages.math.uic.edu/~marker/orsay/orsay3.pdf).
+11. J.-L. Colliot-Thélène, *Une remarque sur un article de Hassett, Pirutka et
+    Tschinkel*, author version 13 February 2018, p. 2, residue formula after
+    Proposition 1.2: the quaternion tame symbol used in §3.
+    [Author PDF](https://www.imo.universite-paris-saclay.fr/~jean-louis.colliot-thelene/HPT%2BSrevisited13Feb18.pdf).
+12. Stacks Project, [Tag 02JS](https://stacks.math.columbia.edu/tag/02JS)
+    (dimension inequality), [Tag 0BXN](https://stacks.math.columbia.edu/tag/0BXN)
+    and [Tag 0BXP](https://stacks.math.columbia.edu/tag/0BXP)
+    (function fields and birationality).
+
+The six scoped reviews and the complete dependency map are linked in
+[THEORETICAL_PROOF_REVIEW_2026_10_17.md](THEORETICAL_PROOF_REVIEW_2026_10_17.md).
+This paper argument relies on the stated classical results; it does not report
+that every object and implication has been constructed and verified in Lean.
+The exact formalization boundary remains in [PROOF_STATUS.md](PROOF_STATUS.md).
