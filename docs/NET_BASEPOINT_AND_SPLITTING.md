@@ -42,7 +42,11 @@ scheme `netAffineConeIncidenceChart` is nonempty. This scheme is `Spec` of the
 two-equation incidence quotient over the localization of `K[y₀,…,y₃]` at the
 chosen minor; the three selected columns are proved distinct. The previously
 constructed scheme isomorphism identifies it with the actual minor principal
-open of this affine coefficient spectrum. It remains an affine cone chart.
+open of this affine coefficient spectrum. That endpoint remains an affine cone chart.
+The subsequent [projective-chart construction](PROJECTIVE_INCIDENCE_CHART.md)
+now constructs the actual degree-zero ring, identifies the incidence quotient
+with a nonempty dense open of `ℙ³`, and proves a coefficient-preserving rational
+function-field isomorphism.
 
 Its proof combines the following checked steps:
 
@@ -105,9 +109,10 @@ net, and does not construct the global relative Fano scheme.
 - The nonzero vector `y` represents a projective point, but this fact alone
   is not a scheme isomorphism with a projective incidence chart.
 - A principal open in the four-variable affine coefficient spectrum is an
-  open of the affine cone. Identifying the quotient by projective scaling
-  with an open of `ℙ³`, proving density and dominance, and comparing its
-  generic conic with the original conic bundle remain necessary.
+  open of the affine cone. The subsequent projective-chart modules now use
+  actual degree-zero localization to obtain an open of `ℙ³` and prove density
+  there. Identification with the global incidence scheme, dominance over the
+  parameter plane, and comparison with the original conic bundle remain open.
 - The global real cover comparison, Brauer argument, Albert–Pfister and
   zero-cycle inputs, and real connectedness conclusion remain unformalized.
 

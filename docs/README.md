@@ -10,3 +10,5 @@
 - [THETA_BRIDGE_REVIEW.md](THETA_BRIDGE_REVIEW.md): complete handwritten theta lemma, precise geometric interfaces and primary references.
 
 None of these documents should be interpreted as a Lean proof of the full geometric theorem.
+
+- [实际射影关联局部图与三变量函数域](PROJECTIVE_INCIDENCE_CHART.md)：去齐次、真正的 Proj 开集、稠密性及基域相容的函数域同构；保留全局比较缺口。

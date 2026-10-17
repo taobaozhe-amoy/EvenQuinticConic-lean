@@ -5,12 +5,16 @@ as predicted output.
 
 | Check | Result |
 | --- | --- |
-| `lake build` | Exit 0; all 181 source modules and the root import compiled |
-| `lake env lean Audit.lean` | Exit 0; 2712 declarations audited, including 2123 theorem declarations |
-| Handwritten `theorem` declarations | 1004 total: 992 public and 12 private helpers; comments and strings are excluded from this source count |
+| `lake build` | Exit 0; all 187 source modules and the root import compiled |
+| `lake env lean Audit.lean` | Exit 0; 2895 declarations audited, including 2267 theorem declarations |
+| Handwritten `theorem` declarations | 1063 total: 1050 public and 13 private helpers; comments and strings are excluded from this source count |
 | Allowed axiom dependencies | `propext`, `Classical.choice`, `Quot.sound` |
 | `sorryAx` or any other unexpected axiom | None in the audited dependency closures |
 | mathlib tracked source changes | None |
+| Actual projective standard chart | Degree-zero homogeneous localization identified with the polynomial ring in three variables, preserving the coefficient field |
+| Actual projective incidence open | Literal quotient scheme isomorphic to D₊(yₚ) ∩ D₊(Δᵢⱼ); canonical projection and projective structure-map compatibility proved |
+| Nonemptiness and density | Derived from actual net/common-point/Jacobian inputs; density is in actual projective three-space, not in an unconstructed global incidence scheme |
+| Actual incidence function field | Coordinate algebra integrality, fraction-field K-algebra equivalence and actual generic-stalk K-algebra equivalence to K(u,v,w) proved |
 | Common point to polar independence | Derived from the actual determinant Jacobian; the adjugate outer-product formula is proved internally |
 | Arbitrary common point to coordinate point | An invertible matrix is constructed; congruence determinant and partial derivatives scale by its nonzero determinant square |
 | Polar coordinate normalization | Actual inverse polynomial algebra substitutions are constructed and preserve all homogeneous degrees |

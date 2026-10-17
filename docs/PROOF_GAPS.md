@@ -433,16 +433,24 @@ partial-derivative scaling identities. No polar independence, factor exclusion,
 or minor nonvanishing is assumed by this endpoint. See
 [NET_BASEPOINT_AND_SPLITTING.md](NET_BASEPOINT_AND_SPLITTING.md).
 
-The same inputs now also give nonemptiness of the actual affine cone
-incidence scheme, via `exists_nonempty_affineConeIncidenceChart_of_common_point`
-and the previously constructed localized scheme isomorphism. This is an open
-of the four-variable affine cone presentation; projective descent and the
-global incidence identification are still separate obligations.
+The further projective chart endpoint is
+`exists_rational_projectiveIncidenceChart_of_common_point`. It uses the actual
+degree-zero localization at a homogeneous coordinate, proves that this ring
+is a polynomial ring in three variables over the original field, and constructs
+the quotient by the actual normalized incidence equations. This scheme is
+isomorphic to the actual projective open `D₊(yₚ) ∩ D₊(Δᵢⱼ)`. The original
+matrix-net inputs imply nonemptiness; irreducibility of actual projective
+three-space gives density there. The quotient is a domain and its fraction
+field, as well as its actual generic stalk with the structural scalar map,
+is identified with the rational function field in three variables over `K`.
+See [PROJECTIVE_INCIDENCE_CHART.md](PROJECTIVE_INCIDENCE_CHART.md).
 
-The localized scheme can be empty
-without a nonemptiness witness. Its identification with the global projective
-incidence open, density, dominance and the desired birational comparison
-remain unproved.
+What is still missing is construction of the global incidence scheme
+`Z ⊂ ℙ² × ℙ³`, identification of this local quotient with an open of `Z`,
+the relevant component and its dominance over `ℙ²`, and the birational
+comparison with the original conic bundle. Density in `ℙ³` alone does not
+prove density in an unconstructed global incidence scheme. The existence
+of the common real point is still an input at this stage.
 
 ## 7. Real rationality and connectedness
 
