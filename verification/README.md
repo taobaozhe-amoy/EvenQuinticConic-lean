@@ -5,9 +5,9 @@ as predicted output.
 
 | Check | Result |
 | --- | --- |
-| `lake build` | Exit 0; all 234 source modules and the root import compiled |
-| `lake env lean Audit.lean` | Exit 0; 4166 declarations audited, including 3269 theorem declarations |
-| Handwritten `theorem` declarations | 1533 total: 1518 public and 15 private helpers; comments and strings are excluded from this source count |
+| `lake build` | Exit 0; all 241 source modules and the root import compiled |
+| `lake env lean Audit.lean` | Exit 0; 4259 declarations audited, including 3349 theorem declarations |
+| Handwritten `theorem` declarations | 1571 total: 1556 public and 15 private helpers; comments and strings are excluded from this source count |
 | Allowed axiom dependencies | `propext`, `Classical.choice`, `Quot.sound` |
 | `sorryAx` or any other unexpected axiom | None in the audited dependency closures |
 | mathlib tracked source changes | None |
@@ -34,7 +34,12 @@ as predicted output.
 | Actual conic smoothness | The actual structure morphism is smooth of relative dimension one, using all projective primes and actual Jacobian affine charts; no algebraic-closure or rational-point assumption |
 | Whole actual conic function field | Actual generic-stalk equivalences with K(u,v,w) preserve the actual Cramer parameter subfield and ground-field action |
 | Absolute equation irreducibility | The literal coefficient-extended quadratic is irreducible over every field extension; this is not substituted for a categorical scheme-base-change comparison |
-| Remaining conic comparison | Comparison with the Proj quotient and actual base changes, and Clifford/Brauer and original conic-bundle comparisons remain; see [the exact geometry scope](../docs/INCIDENCE_CONIC_GEOMETRY.md) |
+| Literal actual chart equation | Full dehomogenized kernel and coefficient-preserving algebra/scheme isomorphisms to the actual standard affine opens |
+| Actual chart field base change | Explicit tensor-to-equation comparison and actual pullback isomorphism preserving both projections |
+| Whole conic after arbitrary field extension | Actual categorical pullback is integral for every extension field in Type0; all primality/domain/intersection conditions derived internally |
+| Actual extended conic smoothness | The actual pullback projection is smooth of relative dimension one |
+| Common-point extension endpoint | One actual conic works for every Type0 extension of its actual parameter field, retaining its original smoothness, both function-field actions and actual generic-fiber open immersion |
+| Remaining conic comparison | Proj quotient comparison, a global isomorphism to the extended PlaneCurveScheme, and Clifford/Brauer and original conic-bundle comparisons remain; see [the exact base-change scope](../docs/CONIC_FIELD_BASE_CHANGE.md) |
 | Actual projective standard chart | Degree-zero homogeneous localization identified with the polynomial ring in three variables, preserving the coefficient field |
 | Actual projective incidence open | Literal quotient scheme isomorphic to D₊(yₚ) ∩ D₊(Δᵢⱼ); canonical projection and projective structure-map compatibility proved |
 | Nonemptiness and density | Derived from actual net/common-point/Jacobian inputs; density is in actual projective three-space; density in the entire global incidence is not asserted |

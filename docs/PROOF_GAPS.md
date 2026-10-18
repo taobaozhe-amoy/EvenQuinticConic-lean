@@ -34,9 +34,16 @@ See [INCIDENCE_CONIC_CHART.md](INCIDENCE_CONIC_CHART.md). The whole actual
 conic is now proved integral and smooth of relative dimension one, and its
 actual generic-stalk function field is compared with K(u,v,w), preserving
 the actual parameter and ground actions. Its equation stays irreducible
-after every field extension. Remaining work includes the scheme comparison
-with the Proj of the equation quotient, identification of actual categorical
-base changes with extended equations, and the Clifford/Brauer and original
+after every field extension. The actual standard-chart pullbacks are now
+identified with the extended equation spectra, preserving both projections.
+For every extension field in `Type` (universe zero), the entire actual conic
+pullback is integral and its projection is smooth of relative dimension one.
+The common-point endpoint quantifies integrality over every such extension;
+the separate normalized wrapper proves smoothness of the extended projection. See
+[CONIC_FIELD_BASE_CHANGE.md](CONIC_FIELD_BASE_CHANGE.md). Remaining work includes
+the scheme comparison with the Proj of the equation quotient, a global
+isomorphism to the newly constructed extended `PlaneCurveScheme` (not needed
+for the proved pullback integrality), and the Clifford/Brauer and original
 conic-bundle comparisons. See [INCIDENCE_CONIC_GEOMETRY.md](INCIDENCE_CONIC_GEOMETRY.md). An equivalence
 with mathlib's residue-field-based `Scheme.Hom.fiber` has not separately
 been constructed. The total field `K(u,v,w)` has the original parameter

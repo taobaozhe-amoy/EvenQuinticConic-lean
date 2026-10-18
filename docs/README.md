@@ -1,5 +1,7 @@
 # Mathematical scope
 
+- [CONIC_FIELD_BASE_CHANGE.md](CONIC_FIELD_BASE_CHANGE.md): actual standard-chart base-change comparisons and integrality of the entire actual conic pullback over every Type0 parameter extension.
+
 - [INCIDENCE_CONIC_GEOMETRY.md](INCIDENCE_CONIC_GEOMETRY.md): whole actual conic integrality, smoothness and parameter-preserving generic-stalk function-field comparison.
 - [INCIDENCE_CONIC_CHART.md](INCIDENCE_CONIC_CHART.md): actual generic incidence fiber as a nonempty open in the actual reduced projective ternary locus.
 

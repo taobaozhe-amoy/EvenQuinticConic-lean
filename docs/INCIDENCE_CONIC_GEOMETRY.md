@@ -25,7 +25,7 @@ H(Z)=\sum_{i,j=0}^{2}R_{ij}Z_iZ_j.
 
 由不可约性得到实际主理想 `(H)` 为素理想。`incidenceGenericConicScheme_isIntegral` 将素性、齐次性及次数接入原实际射影概形，推出 `IsIntegral C`。这里没有用单个局部化整环的性质替代全局证明。
 
-另证明对每个域同态 `f : S →+* L`，字面扩系数多项式 `MvPolynomial.map f H` 仍不可约，其主理想仍为素理想。这是多项式层面的绝对不可约性；实际概形基变换比较的边界见下文。
+另证明对每个域同态 `f : S →+* L`，字面扩系数多项式 `MvPolynomial.map f H` 仍不可约，其主理想仍为素理想。这一步本身是多项式层面的绝对不可约性；后续已通过实际标准图基变换证明原概形在任意扩域后仍整，见下文。
 
 ## 实际结构态射的光滑性
 
@@ -69,10 +69,18 @@ U_\eta\longrightarrow C
 
 `exists_integral_smooth_genericConic_of_common_point` 从原对称矩阵网、任意非零公共各向同性向量和几何 Jacobian 证书出发，内部选择可逆归一化矩阵、关联图、非零子式和极化主元。输出同一个实际圆锥概形的整性、相对维数一的光滑性、参数域与基域两个版本的实际函数域同构，以及原泛纤维到其非空像开的实际开浸入和同构。这些性质和比较均不是定理输入。
 
+## 任意参数扩域后的实际基变换
+
+[实际扩域整性](CONIC_FIELD_BASE_CHANGE.md) 进一步处理原圆锥结构态射的范畴 pullback。`ternaryConicFieldBaseChange_isIntegral` 从三元矩阵对称、非退化及 `2 ≠ 0` 推出该实际 pullback 在每个 `L : Type` 扩域后整。证明先将每个实际标准开的截面环识别为字面去齐次方程商环，再用张量积构造保持两条投影的图基变换比较。三个整图的像具有共同点，故整性传到整个实际 pullback。
+
+`IncidenceGenericConicBaseChange.lean` 将此结果应用于原实际参数域和原三元矩阵：`incidenceGenericConicFieldBaseChange_isIntegral` 推出扩域整性，`incidenceGenericConicFieldBaseChange_isSmoothOfRelativeDimension` 证明同一实际 pullback 的第二投影光滑、相对维数为一。加强后的 `exists_fieldExtension_integral_smooth_genericConic_of_common_point` 保留上一节全部数据，并在同一归一化、关联图和主元下对任意参数扩域断言整性。
+
+这里的 `K L : Type` 是既有实际层与图接口的宇宙限制。固定版本的 mathlib 没有 `Scheme.GeometricallyIntegral` 类；代码直接使用任意上述扩域的 `IsIntegral` 命题。
+
 ## 尚未完成的连接
 
 - 该实际约化闭子概形与 `Proj(S[Z]/(H))` 的概形同构。
-- 实际范畴基变换与扩系数方程模型的识别。因此本阶段没有宣称已经构造 mathlib 的 `Scheme.GeometricallyIntegral` 证书。
+- 实际范畴基变换与完整扩系数方程概形之间的全局同构；本轮已经构造各标准图上的实际基变换比较，并由覆盖证明整个实际 pullback 为整。
 - Clifford/Brauer 类及原圆锥丛的比较。
 - 原题偶 theta、指定实判别覆盖、矩阵网及公共实点之间的全部连接，以及最终实点连通性。
 
