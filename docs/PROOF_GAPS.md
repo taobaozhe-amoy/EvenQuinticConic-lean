@@ -6,6 +6,23 @@ For a direct explanation of what passing Lean does and does not certify,
 see [PROOF_STATUS.md](PROOF_STATUS.md). The remaining work includes both
 external theorem formalization and the object comparisons and deductions detailed in the paper argument.
 
+## Latest actual hyperbolic and Clifford progress
+
+The explicit invertible matrix now splits the actual generic quadratic form
+as the standard hyperbolic form `2xy` and the exact existing ternary restriction.
+The resulting actual quadratic-space isometry induces an equivalence of the
+actual even Clifford subalgebras, preserving coefficients and vector-product
+generators. Normalization of the original matrix net is also transported over
+the same actual Cramer parameter field. The strengthened common-point endpoint
+retains the same conic, field actions and nonempty incidence open.
+
+The next separate algebraic obligation is
+`C₀(H ⊥ r) ≃ₐ[S] Matrix (Fin 2) (Fin 2) (C₀(r))`. It is not a consequence
+of the isometry-induced transport alone and is not an input hidden in any
+new theorem. Quaternion/Brauer classification and comparison with the original
+conic bundle remain unformalized. See
+[INCIDENCE_HYPERBOLIC_CLIFFORD.md](INCIDENCE_HYPERBOLIC_CLIFFORD.md).
+
 ## Latest generic-fiber progress
 
 `exists_integral_genericFiber_of_common_point` extends the dominant-open

@@ -1,5 +1,7 @@
 # Mathematical scope
 
+- [INCIDENCE_HYPERBOLIC_CLIFFORD.md](INCIDENCE_HYPERBOLIC_CLIFFORD.md): explicit actual hyperbolic decomposition, quadratic-space isometry, normalization and even-Clifford transport over the same actual parameter field.
+
 - [CONIC_FIELD_BASE_CHANGE.md](CONIC_FIELD_BASE_CHANGE.md): actual standard-chart base-change comparisons and integrality of the entire actual conic pullback over every Type0 parameter extension.
 
 - [INCIDENCE_CONIC_GEOMETRY.md](INCIDENCE_CONIC_GEOMETRY.md): whole actual conic integrality, smoothness and parameter-preserving generic-stalk function-field comparison.

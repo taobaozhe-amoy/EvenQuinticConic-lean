@@ -5,9 +5,9 @@ as predicted output.
 
 | Check | Result |
 | --- | --- |
-| `lake build` | Exit 0; all 241 source modules and the root import compiled |
-| `lake env lean Audit.lean` | Exit 0; 4259 declarations audited, including 3349 theorem declarations |
-| Handwritten `theorem` declarations | 1571 total: 1556 public and 15 private helpers; comments and strings are excluded from this source count |
+| `lake build` | Exit 0; all 246 source modules and the root import compiled |
+| `lake env lean Audit.lean` | Exit 0; 4341 declarations audited, including 3411 theorem declarations |
+| Handwritten `theorem` declarations | 1598 total: 1582 public and 16 private helpers; comments and strings are excluded from this source count |
 | Allowed axiom dependencies | `propext`, `Classical.choice`, `Quot.sound` |
 | `sorryAx` or any other unexpected axiom | None in the audited dependency closures |
 | mathlib tracked source changes | None |
@@ -39,6 +39,12 @@ as predicted output.
 | Whole conic after arbitrary field extension | Actual categorical pullback is integral for every extension field in Type0; all primality/domain/intersection conditions derived internally |
 | Actual extended conic smoothness | The actual pullback projection is smooth of relative dimension one |
 | Common-point extension endpoint | One actual conic works for every Type0 extension of its actual parameter field, retaining its original smoothness, both function-field actions and actual generic-fiber open immersion |
+| Actual hyperbolic decomposition | Explicit invertible matrix splits the original distinguished-isotropic quadratic form as `2xy` plus the exact existing polar restriction; arbitrary chosen polar pivots are retained |
+| Actual quadratic-space isometry | Bundled quadratic form equals evaluation of the existing polynomial; invertible congruence gives an explicit `IsometryEquiv` |
+| Actual even Clifford transport | Constructed from the even universal property; agrees with restriction of the full Clifford map and preserves vector-product generators and coefficients |
+| Original matrix-net normalization | Raw original net evaluated at the same normalized Cramer parameters is explicitly congruent to the normalized actual generic matrix; actual Clifford equivalence constructed |
+| Unified common-point Clifford endpoint | Retains the same conic, all Type0 extension integrality, smoothness, both function-field actions and actual nonempty open while adding the quadratic-space and Clifford comparisons |
+| Hyperbolic even Clifford matrix reduction | `C₀(H⊥r) ≃ M₂(C₀(r))` is not yet formalized; no such equivalence is assumed in the new endpoint |
 | Remaining conic comparison | Proj quotient comparison, a global isomorphism to the extended PlaneCurveScheme, and Clifford/Brauer and original conic-bundle comparisons remain; see [the exact base-change scope](../docs/CONIC_FIELD_BASE_CHANGE.md) |
 | Actual projective standard chart | Degree-zero homogeneous localization identified with the polynomial ring in three variables, preserving the coefficient field |
 | Actual projective incidence open | Literal quotient scheme isomorphic to D₊(yₚ) ∩ D₊(Δᵢⱼ); canonical projection and projective structure-map compatibility proved |

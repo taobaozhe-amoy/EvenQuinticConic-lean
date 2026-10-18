@@ -96,3 +96,7 @@ U_i\times_{\operatorname{Spec}K}\operatorname{Spec}L
 - Clifford/Brauer 类、原圆锥丛的实际识别、偶 theta 与所需矩阵网及公共实点的连接、原实点集连通性仍未完成形式化。
 
 扩域整性不推出参数域上的有理点或有理性，也没有把此前保持实际参数作用的函数域 `K(u,v,w)` 识别成参数域上的一元有理函数域。
+
+## 后续实际 Clifford 比较
+
+[实际双曲分解与偶 Clifford 运输](INCIDENCE_HYPERBOLIC_CLIFFORD.md) 已将同一圆锥的三元型接到原五维泛型的显式双曲分解，并给出实际偶 Clifford 等距运输及归一化比较。矩阵代数约化 `C₀(H⊥r) ≃ M₂(C₀(r))` 和原 Brauer 类比较仍未完成。

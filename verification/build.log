@@ -1,2 +1,13 @@
-✔ [3064/3065] Built EvenQuinticConic (2.9s)
-Build completed successfully (3065 jobs).
+✔ [2124/2302] Built EvenQuinticConic.IsotropicDimension (1.0s)
+✔ [2492/2515] Built EvenQuinticConic.RealKummer (2.1s)
+✔ [2501/2515] Built EvenQuinticConic.ConnectedComponents (1.0s)
+✔ [2975/2996] Built EvenQuinticConic.RealCofactor (1.6s)
+✔ [2989/3063] Built EvenQuinticConic.SchemePushforwardAtlasRestriction (1.8s)
+✔ [2995/3063] Built EvenQuinticConic.TernaryConicSplitting (3.6s)
+✔ [2998/3080] Built EvenQuinticConic.SchemeFiniteEtaleTraceChoice (5.0s)
+✔ [3075/3080] Built EvenQuinticConic.ProjectiveThreeChartRing (3.3s)
+✔ [3076/3080] Built EvenQuinticConic.IncidenceProjectiveChart (4.1s)
+✔ [3077/3080] Built EvenQuinticConic.ProjectiveThreeDensity (2.0s)
+✔ [3078/3080] Built EvenQuinticConic.NetRationalIncidenceChart (4.5s)
+✔ [3079/3080] Built EvenQuinticConic (1.7s)
+Build completed successfully (3080 jobs).

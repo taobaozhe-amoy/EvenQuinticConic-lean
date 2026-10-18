@@ -2,7 +2,7 @@
 
 **部分形式化项目；原几何命题尚未完成 Lean 证明。**
 
-最新形式化已证明：此前构造的实际泛圆锥在任意参数扩域后，其范畴论 pullback 仍为整概形，扩域后的实际结构态射仍光滑且相对维数为一。证明先把三张实际仿射图识别为去齐次方程商环，再构造保持两个投影的基变换同构，最后通过有公共概形点的开覆盖推出整体整性。最终端点从原矩阵网、公共点和几何 Jacobian 条件内部导出所需非退化性及扩域素性，保留原参数与基域作用下的函数域同构；没有额外假设扩域整性或圆锥有理点。概形接口目前使用 `K L : Type`（宇宙零）。**原题连通性结论尚未完成 Lean 证明，也没有宣称泛圆锥在参数域上有理。** 见 [实际扩域与整性](docs/CONIC_FIELD_BASE_CHANGE.md)、[圆锥几何与函数域](docs/INCIDENCE_CONIC_GEOMETRY.md)。
+最新形式化已构造实际五维泛二次型的显式可逆换基，将其写为标准双曲平面 `2xy` 与此前实际三元圆锥二次型的正交和，并由此构造实际二次空间等距及保持参数域和生成元乘积的偶 Clifford 代数同构。公共点归一化前后的矩阵网也在同一个实际 Cramer 参数域上通过显式扩系数合同连接。统一端点保留此前圆锥的整性、光滑性、任意 `Type` 扩域后的整性、实际参数与基域作用下的函数域同构，以及原泛纤维的非空开浸入。**尚未证明 `C₀(H⊥r) ≃ M₂(C₀(r))`，也未完成原题的 Brauer 比较和实连通性证明。** 见 [实际双曲分解与偶 Clifford 运输](docs/INCIDENCE_HYPERBOLIC_CLIFFORD.md)、[实际扩域与整性](docs/CONIC_FIELD_BASE_CHANGE.md)。
 
 [2026-10-17 理论证明与依赖核查](docs/THEORETICAL_PROOF_REVIEW_2026_10_17.md)：补全限制分辨率的 Tor 项、实际实覆盖的乘法与符号、Brauer 常数差、所有排序上的不定性、Albert–Pfister 计算以及 CT–Levine 的约化指数。后半段改为直接比较支配开集的实际泛纤维和函数域，无须先证明整个关联概形不可约。按明确的圆锥丛约定，纸面论证推出实有理性和实点连通性；外部定理均标注准确位置。这是理论推导和审查，不是新增完整 Lean 证书。
 
@@ -57,6 +57,8 @@
 
 | 模块 | 实际数学内容 | 适用边界与后续步骤 |
 | --- | --- | --- |
+| `IncidenceHyperbolicDecomposition` / `MatrixQuadraticClifford` | 显式可逆合同保留原三元限制矩阵；实际二次型及偶 Clifford 代数的等距运输，保持生成元乘积 | 双曲式规范为 `2xy`；不是矩阵代数约化定理 |
+| `IncidenceHyperbolicClifford` / `IncidenceCliffordNormalization` / `IncidenceGenericClifford` | 实际 Cramer 域上的原泛矩阵、公共点归一化、实际圆锥与偶 Clifford 比较统一接通 | `C₀(H⊥r) ≃ M₂(C₀(r))`、Brauer 类和原圆锥丛比较仍待形式化 |
 | `PlaneCurveAffineEquation` / `PlaneEquationBaseChange` / `PlaneCurveChartBaseChange` | 实际标准图的完整方程商环；扩域张量同构及真实拉回比较，保持两个投影 | 标准图比较使用齐次素方程、次数大于一及宇宙零域 |
 | `SchemeIntegralOpenCover` / `PlaneCurveFieldBaseChangeCover` / `TernaryConicBaseChange` | 实际开覆盖与公共点推出整体整性；非退化三元圆锥在任意宇宙零扩域后实际拉回为整概形 | 扩域素性及商环整性均内部推导；无需有理点 |
 | `IncidenceGenericConicBaseChange` | 从原公共点数据构造在所有参数扩域后仍整的实际泛圆锥，保留此前光滑性、函数域及开浸入结论 | 扩域后的实际投影亦证明光滑；原圆锥丛比较及实连通性仍未接通 |
@@ -202,7 +204,7 @@ $$
 
 ## 构建与审计
 
-本版包含 241 个源码模块、1556 条公开手写定理，另有 15 条私有辅助定理（共 1571 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
+本版包含 246 个源码模块、1582 条公开手写定理，另有 16 条私有辅助定理（共 1598 条手写定理）。本地整体构建及公理审计均已通过；完整计数和记录见 `verification/summary.json`。审计包含 Lean 自动生成的声明，不能与手写定理数混同。
 
 环境固定为 Lean `v4.24.0` 和 mathlib 提交
 `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`。提交的 `lake-manifest.json` 固定传递依赖。
