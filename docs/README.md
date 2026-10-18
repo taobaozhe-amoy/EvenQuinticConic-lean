@@ -1,5 +1,8 @@
 # Mathematical scope
 
+- [INCIDENCE_CONIC_GEOMETRY.md](INCIDENCE_CONIC_GEOMETRY.md): whole actual conic integrality, smoothness and parameter-preserving generic-stalk function-field comparison.
+- [INCIDENCE_CONIC_CHART.md](INCIDENCE_CONIC_CHART.md): actual generic incidence fiber as a nonempty open in the actual reduced projective ternary locus.
+
 - [INCIDENCE_GENERIC_FIBER.md](INCIDENCE_GENERIC_FIBER.md): actual generic base change, parameter-preserving function-field comparison, actual equations and remaining conic comparison.
 - [GEOMETRIC_PUSHFORWARD_TRACE.md](GEOMETRIC_PUSHFORWARD_TRACE.md): covering multiplicative charts on the original morphism, its unique actual trace, trace-zero frames and actual multiplication-square pairing, under explicit geometric hypotheses.
 - [GENERAL_BASE_PUSHFORWARD.md](GENERAL_BASE_PUSHFORWARD.md): actual pushforward restriction, multiplicative-chart trace independence, affine presentations and the remaining transport bridge.

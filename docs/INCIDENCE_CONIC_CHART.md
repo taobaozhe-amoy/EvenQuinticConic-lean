@@ -74,8 +74,8 @@ c\circ j=\operatorname{Spec}(e^{-1})\circ\pi_\eta.
 
 ## 仍未由这些结果推出的结论
 
-- 没有从单个局部化环为整环，推断整个射影零点概形为整概形或该开集稠密。
-- 尚未完成 `PlaneCurveScheme H` 与 \(\operatorname{Proj}(S[Z]/(H))\) 的比较，以及实际圆锥概形的光滑性、全局整性证明。矩阵非退化性已在此前证明。
+- 后续 [圆锥几何与函数域](INCIDENCE_CONIC_GEOMETRY.md) 已由非退化矩阵推出全局方程素性、整条实际圆锥概形的整性和光滑性，并比较其实际函数域；没有仅凭一个局部化为整环就推断全局整性。
+- 尚未完成 `PlaneCurveScheme H` 与 \(\operatorname{Proj}(S[Z]/(H))\) 的比较，以及实际概形基变换与扩域方程模型的识别。
 - 没有宣称圆锥曲线在 \(S\) 上有理，或其函数域为 \(S(z)\)。
 - Clifford/Brauer 类与原圆锥丛的比较、原偶 theta 输入到所用矩阵网及公共实点的连接、最终实点连通性结论，仍需形式化。
 

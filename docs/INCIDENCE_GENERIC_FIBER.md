@@ -79,7 +79,7 @@ U\times_{\mathbb P^2_K}\operatorname{Spec}F\simeq\operatorname{Spec}D.
 
 同一文件从几何 Jacobian 证书推出实际五次行列式多项式非零，证明其齐次性及去齐次化非零，再推出实际泛矩阵行列式非零。这一非零性不再是输入。
 
-`IncidenceGenericConicNondegeneracy.lean` 随后自动选取非零极化系数，按同一坐标置换和极线消元构造实际三元矩阵 `R=EᵀA(t)E`，推出其对称性及 `det R ≠ 0`。更强的 `exists_incidenceGenericConicMatrix_nondegenerate_affine` 可选取避开当前去齐次坐标的极化主元；它的非零性也在内部推出。这里证明的是具体矩阵非退化性，尚未把它升级为相应圆锥概形的光滑性定理。
+`IncidenceGenericConicNondegeneracy.lean` 随后自动选取非零极化系数，按同一坐标置换和极线消元构造实际三元矩阵 `R=EᵀA(t)E`，推出其对称性及 `det R ≠ 0`。更强的 `exists_incidenceGenericConicMatrix_nondegenerate_affine` 可选取避开当前去齐次坐标的极化主元；它的非零性也在内部推出。这里证明的是具体矩阵非退化性；后续 [圆锥几何模块](INCIDENCE_CONIC_GEOMETRY.md) 已由此推出实际圆锥概形的整性和光滑性。
 
 另令 `P=K[T₁,T₂]`，`C` 为局部化之前的实际 Segre 关联图商环。`IncidenceGenericFiberPresentation.lean` 对任意 `P`-代数 `R` 构造
 
@@ -104,7 +104,7 @@ F[Z_0,\ldots,Z_{n-1}]/(\operatorname{elim}_r Q).
 
 ## 仍须完成
 
-- 实际泛基变换到约化射影三元零点概形的非空开集比较已完成；整条圆锥概形的光滑性、全局整性及与方程商环的 Proj 构造比较尚未完成。
+- 实际泛基变换到约化射影三元零点概形的非空开集比较已完成；后续已证明整条圆锥概形的光滑性、整性及实际函数域比较。与方程商环的 Proj 构造、实际基变换的比较仍未完成，见 [后续范围](INCIDENCE_CONIC_GEOMETRY.md)。
 - 将该圆锥曲线的 Clifford/Brauer 类与原圆锥丛的实际类比较，进而比较函数域。
 - 从原题偶 theta 数据得到所用的实对称矩阵网、公共实点及相应 Jacobian 输入；完成实覆盖、符号、纯性和二次型理论等尚缺的连接。
 - 将原实点集的连通性结论接入最终的原题 Lean 命题。

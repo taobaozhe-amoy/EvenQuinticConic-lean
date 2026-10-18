@@ -5,9 +5,9 @@ as predicted output.
 
 | Check | Result |
 | --- | --- |
-| `lake build` | Exit 0; all 226 source modules and the root import compiled |
-| `lake env lean Audit.lean` | Exit 0; 4093 declarations audited, including 3207 theorem declarations |
-| Handwritten `theorem` declarations | 1494 total: 1479 public and 15 private helpers; comments and strings are excluded from this source count |
+| `lake build` | Exit 0; all 234 source modules and the root import compiled |
+| `lake env lean Audit.lean` | Exit 0; 4166 declarations audited, including 3269 theorem declarations |
+| Handwritten `theorem` declarations | 1533 total: 1518 public and 15 private helpers; comments and strings are excluded from this source count |
 | Allowed axiom dependencies | `propext`, `Classical.choice`, `Quot.sound` |
 | `sorryAx` or any other unexpected axiom | None in the audited dependency closures |
 | mathlib tracked source changes | None |
@@ -30,7 +30,11 @@ as predicted output.
 | Actual linear-equation quotient elimination | Explicit inverse algebra maps identify the two-equation quotient with the residual-equation quotient, preserving every retained coordinate and giving the eliminated-coordinate formula |
 | Actual conic affine-chart comparison | The original generic base change is identified with its nonempty image open in the actual reduced projective ternary locus, preserving the original parameter structure; the pivot and localized radicality are derived |
 | Actual equation and minor elimination | The base-changed quotient, eliminated residual quotient and ternary dehomogenized equation are compared through literal maps; retained variables have the same order and the original minor is preserved |
-| Remaining conic comparison | Global conic-scheme integrality/smoothness, comparison with the Proj quotient, and Clifford/Brauer and original conic-bundle comparisons remain; see [the exact chart scope](../docs/INCIDENCE_CONIC_CHART.md) |
+| Whole actual conic integrality | Derived from nondegeneracy of the actual symmetric ternary matrix and primality of its actual equation, without a target-integrality input |
+| Actual conic smoothness | The actual structure morphism is smooth of relative dimension one, using all projective primes and actual Jacobian affine charts; no algebraic-closure or rational-point assumption |
+| Whole actual conic function field | Actual generic-stalk equivalences with K(u,v,w) preserve the actual Cramer parameter subfield and ground-field action |
+| Absolute equation irreducibility | The literal coefficient-extended quadratic is irreducible over every field extension; this is not substituted for a categorical scheme-base-change comparison |
+| Remaining conic comparison | Comparison with the Proj quotient and actual base changes, and Clifford/Brauer and original conic-bundle comparisons remain; see [the exact geometry scope](../docs/INCIDENCE_CONIC_GEOMETRY.md) |
 | Actual projective standard chart | Degree-zero homogeneous localization identified with the polynomial ring in three variables, preserving the coefficient field |
 | Actual projective incidence open | Literal quotient scheme isomorphic to D₊(yₚ) ∩ D₊(Δᵢⱼ); canonical projection and projective structure-map compatibility proved |
 | Nonemptiness and density | Derived from actual net/common-point/Jacobian inputs; density is in actual projective three-space; density in the entire global incidence is not asserted |
